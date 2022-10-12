@@ -7,7 +7,7 @@
     */
 // Scripts
 
-//add javascript code here 
+// please add javascript code here 
 
 
 </script>
