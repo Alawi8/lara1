@@ -5,9 +5,9 @@
     all admin/pages 
      as the developer deems appropriate.
     */
-    /
 // Scripts
-// 
 
 //add javascript code here 
+
+
 </script>
