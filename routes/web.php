@@ -51,4 +51,16 @@ Route::get('faq/', function () {
 
 Route::get('/profile', function () {
     return view ('admin.index');
-})->middleware('auth');
+})->middleware('auth') -> name('profile');
+
+Route::get('/profile/dashboard', function () {
+    return view ('admin.pages.dashboard');
+})->middleware('auth')-> name('dashboard');
+
+Route::get('/profile/charts', function () {
+    return view ('admin.pages.charts');
+})->middleware('auth')-> name('charts');
+
+Route::get('/profile/tables', function () {
+    return view ('admin.pages.tables');
+})->middleware('auth')-> name('tables');

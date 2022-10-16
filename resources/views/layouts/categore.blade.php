@@ -50,8 +50,6 @@
                 <a class="text-center nav-link" href="#">link</a>
                 <a class="text-center nav-link" href="#">link</a>
           </ul>
-          
       </div>
-      @include('layouts.script')
     </div>
 </div>

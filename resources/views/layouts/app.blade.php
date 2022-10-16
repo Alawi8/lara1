@@ -68,7 +68,7 @@
             {{-- Here the data inside (section Content) is fetched by @yield content --}}
             @yield('content')
         </div>
-        <div id="categore" class="card col-lg-3 ">
+        <div id="categore" class="card col-lg-3">
             <br>
             {{-- here i used inclode to get style from categore page  --}}
             @include('layouts.categore')
@@ -77,7 +77,6 @@
 </body>
 
 <footer id="foot">
-    @include('layouts.style')
     @yield('footer')
 </footer>
 

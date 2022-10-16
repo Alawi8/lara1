@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-{{-- @section('image')
+ @section('image')
     @include('layouts.image')
-@endsection --}}
+@endsection 
 @section('content')
     @include('home.home')
 @endsection
