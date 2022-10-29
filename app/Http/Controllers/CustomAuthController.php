@@ -13,7 +13,7 @@ class CustomAuthController extends Controller
  
     public function index()
     {
-        return view('auth.login');
+        return view('home.auth.login');
     }  
        
  
@@ -26,7 +26,7 @@ class CustomAuthController extends Controller
     
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/')
+            return redirect()->intended('profile/dashboard')
                         ->withSuccess('Signed in');
         }
    
@@ -37,7 +37,7 @@ class CustomAuthController extends Controller
  
     public function registration()
     {
-        return view('auth.registration');
+        return view('home.auth.registration');
     }
        
  
@@ -52,7 +52,7 @@ class CustomAuthController extends Controller
         $data = $request->all();
         $check = $this->create($data);
           
-        return redirect("dashboard")->withSuccess('have signed-in');
+        return redirect("/profile/dashboard")->withSuccess('have signed-in');
     }
  
  
@@ -65,11 +65,10 @@ class CustomAuthController extends Controller
       ]);
     }    
      
- 
     public function dashboard()
     {
         if(Auth::check()){
-            return view('dashboard');
+            return view('profile.dashboard');
         }
    
         return redirect("login")->withSuccess('are not allowed to access');
