@@ -13,7 +13,7 @@
                             <a class="nav-link" href="{{ route('display', $post->id ) }}">
                                 <div class="card" style="width: 18rem;">
                                     {{-- <img id="card-menu-posts" class="card-img-top rounded-3" src="{{ asset ('/public/img/offers/'. $post->image_path) }}" --}}
-                                        class="card-img-top" alt="...">
+                                        {{-- class="card-img-top" alt="..."> --}}
                                     <div class="card-body">
                                     </div>
                                     <h6>{{ $post->title }}</h6>

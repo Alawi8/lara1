@@ -8,8 +8,7 @@
             {{-- link style.css to disegn header tamplate --}}
             <link rel="stylesheet" href="{{ asset('/public/css/style.css') }}">
             {{-- link bootstrap.js to action  --}}
-            <link rel="stylesheet" href="{{ asset('/public/js/bootstrap.js') }}">
-
+            <script src="{{ asset('/public/js/bootstrap.js') }}"></script>
             
 
             <p class="col-md-4 mb-0 text-muted">&copy; 2022 الحقوق محفوظه</p>
