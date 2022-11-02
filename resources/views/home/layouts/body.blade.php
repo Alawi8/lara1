@@ -15,6 +15,7 @@
 
             <div class=" col-md-9 col-lg-9 col-sm-12 bg-light">
                 {{-- Here the data inside (section Content) is fetched by @yield content --}}
+                
                 @yield('content')
             </div>
             <div id="categore" class=" col-md-3 col-sm-12 col-lg-3">
