@@ -15,7 +15,7 @@
 
             <div class="col-lg-9 bg-light">
                 {{-- Here the data inside (section Content) is fetched by @yield content --}}
-                fffffffffffffffffffffffffffff
+                
                 @yield('content')
             </div>
             <div id="categore" class="card col-lg-3">
