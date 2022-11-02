@@ -30,7 +30,7 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-lg col-sm">
-                                            <table class="table table-bordered col-sm col-md col-xxl col-xl " id="dataTable"
+                                            <table class="table table-bordered col-sm-12 col-md-12 col-xxl col-xl " id="dataTable"
                                                 width="100%" cellspacing="0">
                                                 <thead class="text-primary bg-danger text-light text-center">
                                                     <tr>
@@ -67,7 +67,7 @@
                     </div>
 
                     <!-- Brand posts -->
-                    <div class="card shadow mb-4">
+                    {{-- <div class="card shadow mb-4 col-sm-12 col-md-12 col-lg-12">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Brand Buttons</h6>
                         </div>
@@ -86,7 +86,7 @@
                             @endif
                             </p>
                         </div>
-                    </div>
+                    </div> --}}
                     <!--end brand posts-->
                 </div>
             </div>

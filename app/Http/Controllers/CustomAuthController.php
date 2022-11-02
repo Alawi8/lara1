@@ -26,7 +26,7 @@ class CustomAuthController extends Controller
     
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/dash')
+            return redirect()->intended('/dash/dashboard')
                         ->withSuccess('Signed in');
         }
    
