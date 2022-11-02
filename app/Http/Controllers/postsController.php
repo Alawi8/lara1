@@ -19,10 +19,10 @@ class postsController extends Controller
     {
         $post = Post::all();
         $arr = array('posts' => $post);
-        return view('admin.sb.addons.posts.index', $arr);
+        return view('dash.components.posts.display', $arr);
     }
 
-    // create info function
+    // blade info function
     public function create(Request $request)
     {  
         
@@ -31,7 +31,7 @@ class postsController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            //create data in db
+            //blade data in db
             'title' => 'required',
             'content' => 'required',
             'image'=> 'required|mimes:jpg,png,jpeg|max:5048',
@@ -50,7 +50,7 @@ class postsController extends Controller
             'writer' => $request->writer,
             'image_path'=> $newImageName ,
         ]);
-        return redirect()->route('index');
+        return redirect()->route('dash.display');
     }
 
 
@@ -58,8 +58,7 @@ class postsController extends Controller
     public function show()
     {
        
-        $all_posts = Post::all();
-        return view('home.home',['posts' => $all_posts]);
+
     }
 
     public function edit($id)

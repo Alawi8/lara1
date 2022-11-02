@@ -21,13 +21,13 @@ class OptionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create ()
     {
         //
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly bladed resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

@@ -17,11 +17,10 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
         // table items
             $table->increments('id');
-            $table->string('title','20');
-            $table->string('content');
-            $table->string('writer','10');
+            $table->string('title');
+            $table->text('content');
+            $table->string('writer');
             $table->string('image_path');
-            $table->s
             $table->time('time');      
             $table->timestamps();
         });

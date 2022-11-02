@@ -26,7 +26,7 @@ class CustomAuthController extends Controller
     
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('profile/dashboard')
+            return redirect()->intended('/dash')
                         ->withSuccess('Signed in');
         }
    
@@ -52,7 +52,7 @@ class CustomAuthController extends Controller
         $data = $request->all();
         $check = $this->create($data);
           
-        return redirect("/profile/dashboard")->withSuccess('have signed-in');
+        return redirect("/dash")->withSuccess('have signed-in');
     }
  
  
@@ -68,7 +68,7 @@ class CustomAuthController extends Controller
     public function dashboard()
     {
         if(Auth::check()){
-            return view('profile.dashboard');
+            return view('dash.components.pages.dash');
         }
    
         return redirect("login")->withSuccess('are not allowed to access');

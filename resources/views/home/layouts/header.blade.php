@@ -10,7 +10,7 @@
                 event: 'gtm.js'
             });
             var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
+                j = d.bladeElement(s),
                 dl = l != 'dataLayer' ? '&l=' + l : '';
             j.async = true;
             j.src =
@@ -20,18 +20,22 @@
     </script>
     <!-- End Google Tag Manager -->
     <!-- CSS only -->
-    <link rel="stylesheet" href="{{ asset('../../laravel/public/css/bootstrap.css') }}">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>مثال الألبوم · Bootstrap v5.2</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/album-rtl/">
+
 
     <title>Laravel</title>
-    <link rel="stylesheet" href="{{ asset('../../laravel/public/css/style.css') }}">
 
 
     <div id="heading" class="navbar navbar shadow-sm py-4 fixed-top">
         <div class="container">
-            <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center">
+            <a href="{{route('home')}}" class="navbar-brand d-flex align-items-center">
                 <strong>مدونه</strong>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"

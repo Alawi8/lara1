@@ -6,6 +6,9 @@
 @section('content')
     <div class="container">
         <br>
+        {{time()  }}
+       
+        <img src=" {{asset('../../../../../laravel/public/1667335565-.jpg')}}" alt="fff">
         <h4>privce policy</h4>
 
         <p>laravel , LLC, (laravel ,” “we,” “us,” “our”)

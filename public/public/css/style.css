@@ -1,0 +1,92 @@
+/*clear scrollbar */
+@import url('http://localhost:8000/public_html/laravel/public/css/bootstrap.css');
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/*edit display style */
+* {
+  zoom: 100%;
+  vertical-align: middle;
+}
+
+#content img{
+  width: 100%;
+  
+}
+#content{
+  word-wrap: break-word;
+
+}
+#body {
+  width: 98%;
+}
+
+/* edit display head style */
+#heading,
+#footer {
+  -webkit-animation: color-change-2x 2s linear infinite alternate both;
+  animation: color-change-2x 2s linear infinite alternate both;
+  border-color: rgb(0, 0, 0);
+  border-radius: 0px 0px 12px 12px;
+  width: 99%;
+  vertical-align: middle;
+}
+
+/**
+ * ----------------------------------------
+ * animation color-change-2x
+ * ----------------------------------------
+ */
+@-webkit-keyframes color-change-2x {
+  0% {
+    background: #f6f6f6;
+  }
+
+  100% {
+    background: #dfbaf4;
+  }
+}
+
+@keyframes color-change-2x {
+  0% {
+    background: #f0f0f0;
+  }
+
+  100% {
+    background: #dfbbf4;
+  }
+}
+
+
+#card-menu-posts {
+  width: 100%;
+  height: 10rem;
+}
+
+#card-content-posts {
+  width: 100%;
+  height: 22rem;
+  max-zoom: 99px;
+}
+
+#bot {
+  transition-property: width;
+  transition-duration: 5s;
+  transition-delay: 0.1s;
+}
+
+#bot:hover {
+  width: 70px;
+}
+
+#bot {
+  transition-property: width;
+  transition-duration: 5s;
+  transition-delay: 0.1s;
+}
+
+#bot:hover {
+  width: 70px;
+}
