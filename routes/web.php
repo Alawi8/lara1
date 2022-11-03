@@ -71,12 +71,13 @@ route::controller(AdminController::class)->group(function(){
     route::post(     '/dash/store/'       ,       'store'        )   ->  name    ('dash.store')    -> middleware('auth');
 
      route::get(     '/dash/dashboard/'      ,      'dashboard'       )  ->  name    ('dash.dashboard')   -> middleware('auth');
-    // route::get(     ''      ,      ''       )  ->  name    ('')   -> middleware('auth');
+    route::get(     '/dash/profiles/'      ,      'profile'       )  ->  name    ('dash.profile')   -> middleware('auth');
     // route::get(     ''      ,      ''       )  ->  name    ('')   -> middleware('auth');
 });
 
 
 route::view('home/skech','home.pages.skech')->name('skech');
+// route::view('','dash.components.pages.profile')->name('');
 
 Route::get('/dash/dashbord', function () {
     return view ('admin.sb.addons.pages.dashboard');

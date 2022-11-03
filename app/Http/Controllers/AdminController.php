@@ -67,6 +67,9 @@ class AdminController extends Controller
     public function dashboard(){
         return view ('dash.components.pages.dash');
     }
+    public function profile(){
+        return view ('dash.components.pages.profile');
+    }
 
 
 }

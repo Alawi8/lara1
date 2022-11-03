@@ -111,22 +111,22 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="../pages/sign-up.html">
+                    <a class="nav-link " href="{{route('dash.profile')}}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons-round opacity-10">assignment</i>
                         </div>
-                        <span class="nav-link-text me-1">اشتراك</span>
+                        <span class="nav-link-text me-1">الملف الشخصي</span>
                     </a>
                 </li>
             </ul>
         </div>
        
     </aside>
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg overflow-x-hidden">
+    <main class="main-content  position-relative max-height-vh-100 h-100 border-radius-lg overflow-x-hidden">
         <!-- Navbar -->
         <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
             data-scroll="true">
-            <div class="container-fluid py-1 px-3">
+            <div class="container-fluid py-1 px-3  rounded">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
                         <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark"
