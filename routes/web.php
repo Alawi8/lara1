@@ -162,7 +162,3 @@ Route::get('/dash/dashbord', function () {
 
  });
 
- Route::get('generate-sitemap', function () {
-    SitemapGenerator::create('http://localhost:8000/public_html/laravel')
-        ->writeToFile(public_path('sitemap.xml'));
-});

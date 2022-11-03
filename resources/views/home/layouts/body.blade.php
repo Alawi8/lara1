@@ -11,6 +11,7 @@
     <!-- End Google Tag Manager (noscript) -->
     {{-- Here the data inside (section image) is fetched by @yield image --}}
     <div class="container-fluid">
+
         <div class="row bg">
             {{-- @yield('image') --}}
             {{-- @include('home.layouts.image') --}}
@@ -25,7 +26,6 @@
 
                 {{-- here i used inclode to get style from categore page  --}}
                 @include('home.layouts.categore')
-
             </div>
         </div>
     </div>

@@ -33,7 +33,6 @@
 
     <title>Laravel</title>
 
-
     <div id="heading" class="navbar navbar shadow-sm py-4 fixed-top">
         <div class="container">
             <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center">

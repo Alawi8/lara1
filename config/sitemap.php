@@ -57,5 +57,4 @@ return [
 
 ];
 
-SitemapGenerator::create('http://localhost:8000/public_html/laravel/')->writeToFile(public_path('sitemap.xml'));
 
