@@ -10,7 +10,7 @@
                 event: 'gtm.js'
             });
             var f = d.getElementsByTagName(s)[0],
-                j = d.bladeElement(s),
+                j = d.createElement(s),
                 dl = l != 'dataLayer' ? '&l=' + l : '';
             j.async = true;
             j.src =
@@ -18,6 +18,7 @@
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-T35QRXW');
     </script>
+    <!-- End Google Tag Manager -->
     <!-- End Google Tag Manager -->
     <!-- CSS only -->
 

@@ -1,5 +1,4 @@
 /*clear scrollbar */
-@import url('http://localhost:8000/public_html/laravel/public/css/bootstrap.css');
 
 *::-webkit-scrollbar {
   display: none;
