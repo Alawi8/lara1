@@ -130,10 +130,10 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
                         <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark"
-                                href="javascript:;">لوحات القيادة</a></li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">RTL</li>
+                                {{-- href="javascript:;">لوحات القيادة</a></li> --}}
+                        {{-- <li class="breadcrumb-item text-sm text-dark active" aria-current="page">RTL</li> --}}
                     </ol>
-                    <h6 class="font-weight-bolder mb-0">RTL</h6>
+                    {{-- <h6 class="font-weight-bolder mb-0">RTL</h6> --}}
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -142,6 +142,7 @@
                             <input type="text" class="form-control">
                         </div>
                     </div>
+                    
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
                        
                         <li class="nav-item d-flex align-items-center">

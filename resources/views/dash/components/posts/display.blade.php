@@ -35,7 +35,7 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <div class="d-flex px-2 py-1">
+                                                    <div class="d-flex px-2 py-3">
                                                         <div>
                                                             <img src="{{asset('/public/img/offers/'. $post->image_path)}}"
                                                                 class="avatar avatar-sm me-3 border-radius-lg"

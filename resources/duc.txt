@@ -1,10 +1,10 @@
                                             view
                                              |
   ---------------------------------------------------------------------------------------------------
-  |                                          |                                                      |
+  |                                                                                                 |
 
-admin                                       auth                                                   home
+dash                                                                                              home
   |                                                                                                |  
 layouts                                                                                          layouts 
-  |
+  |                                                                                                |
 anothe page                                                                                    another page 

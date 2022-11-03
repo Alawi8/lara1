@@ -5,105 +5,52 @@
         <button class="btn btn-outline-light bg-success" type="submit">البحث</button>
     </form><br>
     <div id="categure" class="card ">
-        <div class="card-footer">التصنيفات
+        <div class="alert alert-secondary">التصنيفات
         </div>
-        <ul class="list-group ">
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link " href="#">link</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-
-        </ul>
-        <div class="card-footer">
+        <tr class="list-group ">
+            <a class="text-center btn btn-light nav-link" href="#">link</a>
+            <a class="text-center btn btn-light nav-link " href="#">link</a>
+            <a class="text-center btn btn-light nav-link" href="#">link</a>
+            <a class="text-center btn btn-light nav-link" href="#">link</a>
+        </tr>
+        <div class="alert alert-secondary">
             list item
         </div>
-        <ul class="list-group list-group-flush">
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
+        <tr class="list-group ">
+            <a class="text-center btn btn-light nav-link" href="#">link</a>
+            <a class="text-center btn btn-light nav-link " href="#">link</a>
+            <a class="text-center btn btn-light nav-link" href="#">link</a>
+            <a class="text-center btn btn-light nav-link" href="#">link</a>
+        </tr>
 
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-        </ul>
-        <div class="card-footer">
+        <div class="alert alert-secondary">
             list item
         </div>
-        <ul class="list-group list-group-flush">
-            <li class="nav-item">
-                <a class="nav-link btn btn-light nav-link" href="#">link</a>
-            </li>
+        <tr class="list-group ">
+            <a class="text-center btn btn-light nav-link" href="#">link</a>
+            <a class="text-center btn btn-light nav-link " href="#">link</a>
+            <a class="text-center btn btn-light nav-link" href="#">link</a>
+            <a class="text-center btn btn-light nav-link" href="#">link</a>
+        </tr>
 
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-        </ul>
-        <div class="card-footer">
+        <div class="alert alert-secondary">
             list item
         </div>
-        <ul class="list-group list-group-flush">
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
+        <tr class="list-group ">
+            <a class="text-center btn btn-light nav-link" href="#">link</a>
+            <a class="text-center btn btn-light nav-link " href="#">link</a>
+            <a class="text-center btn btn-light nav-link" href="#">link</a>
+            <a class="text-center btn btn-light nav-link" href="#">link</a>
+        </tr>
 
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-        </ul>
-        <div class="card-footer">
+        <div class="alert alert-secondary">
             list item
         </div>
-        <ul class="list-group list-group-flush">
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="text-center btn btn-light nav-link" href="#">link</a>
-            </li>
-        </ul>
+        <tr class="list-group ">
+            <a class="text-center btn btn-light nav-link" href="#">link</a>
+            <a class="text-center btn btn-light nav-link " href="#">link</a>
+            <a class="text-center btn btn-light nav-link" href="#">link</a>
+            <a class="text-center btn btn-light nav-link" href="#">link</a>
+        </tr>
     </div>
 </div>
