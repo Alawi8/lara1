@@ -1,6 +1,9 @@
 @extends('dash.layouts.header')
 
 @section('content')
+    @extends('dash.layouts.header')
+
+@section('content')
 
     <head>
         <meta charset="utf-8" />
@@ -36,26 +39,32 @@
                 <div class="collapse show" id="collapseCardExample">
                     <div class="card-body col-12">
                         <div class="row">
-                            <form action="{{ route('dash.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('dash.edit',) }}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                <div id="card-create" class="row text-center rounded">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="mb-3">
 
-                                            <input type="text" class="" name="title" id=""
-                                                aria-describedby="helpId" placeholder="اكتب العنوان هنا">
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">العنوان :
+                                            </label><br>
+
+                                            <input type="text" class="" name="{{posts->id}}" id=""
+                                                aria-describedby="helpId">
                                             <small id="helpId" class="form-control text-muted">اكتب عنوان المقاله
                                                 هنا</small>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="col-6">
                                         {{-- date time article blade  --}}
-                                        <input type="datetime" value="{{ date('h:m') }}" name="time" hidden>
+                                        <input type="datetime" value="{{ date('h:m') }}"name="time" hidden>
                                         <input type="datetime" value="{{ Auth::user()->name }}"name="writer" hidden>
                                         {{-- end --}}
 
                                         <div>
-                                            <input name="image" class="" id="formFile" type="file" ><br>
+                                            <label for="formFileLg" class="form-label">الرجاء اختيار صوره</label>
+                                            <br>
+                                            <input name="image" class="" id="formFileLg" type="file"><br>
                                             <small id="helpId" class="form-text text-muted">ادرج الصوره هنا</small>
                                         </div>
 
@@ -79,4 +88,6 @@
     </body>
 
     </html>
+@endsection
+
 @endsection

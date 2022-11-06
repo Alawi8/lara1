@@ -11,7 +11,7 @@
                     @foreach ($posts as $post)
                         <div class=" col-xl-4 col-lg-6 col-md-6 col-sm-12 ">
                             <a class="nav-link" href="{{ route('display', $post->id ) }}">
-                                <div class="card" style="width: 18rem;">
+                                <div class="card" >
                                     <img id="card-menu-posts" class="card-img-top rounded-3" src="{{ asset ('/public/img/offers/'. $post->image_path) }}"
                                         class="card-img-top" alt="...">
                                     <div class="card-body">

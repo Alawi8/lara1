@@ -48,12 +48,15 @@ class AdminController extends Controller
     {
         $post = Post::all();
         $arr = array('posts' => $post);
+        // dd($arr);
         return view('dash.components.posts.display',$arr );
 
     }
     public function edit($id)
     {
-        return view ("");
+        //  $post = Post::FailOrFind($id);
+        //  $arr = array('posts'=>$post);
+         return ($id);
     }
     public function update(Request $request, $id)
     {

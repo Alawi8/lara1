@@ -92,5 +92,7 @@
 
 #categure ul{
   list-style-type: none;
- 
+}
+#card-create {
+  background-color: #fff;
 }

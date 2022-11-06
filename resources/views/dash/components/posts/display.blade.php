@@ -3,6 +3,7 @@
 
 @section('content')
     <div class="container-fluid py-4">
+        <a href="{{route('dash.create')}}" class="btn btn-danger bg-gradient-primary ">كتابة مقاله</a>
         <div class="row">
             <div class="col-12">
                 <div class="card my-4">
@@ -58,7 +59,7 @@
                                                     <span class="text-secondary text-xs font-weight-bold">{{$post->time}}</span>
                                                 </td>
                                                 <td class="align-middle">
-                                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    <a href="{{route('dash.edit',$post->id)}}" class="text-secondary font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Edit user">
                                                         تعديل
                                                     </a>
@@ -73,7 +74,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 @endsection

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\postsController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\AdminController;
@@ -58,10 +59,12 @@ route::controller(AdminController::class)->group(function(){
     route::get(     '/dash/create'      ,      'create'       )  ->  name    ('dash.create')   -> middleware('auth');
     route::get(     '/dash/display/'      ,      'display'       )  ->  name    ('dash.display')   -> middleware('auth');
     route::post(     '/dash/store/'       ,       'store'        )   ->  name    ('dash.store')    -> middleware('auth');
+    
+    //update dash
+    route::post(    '/dash/{$id}/edit/'      ,      'edit'       )  ->  name    ('dash.edit')   -> middleware('auth');
 
-     route::get(     '/dash/dashboard/'      ,      'dashboard'       )  ->  name    ('dash.dashboard')   -> middleware('auth');
+    route::get(     '/dash/dashboard/'      ,      'dashboard'       )  ->  name    ('dash.dashboard')   -> middleware('auth');
     route::get(     '/dash/profiles/'      ,      'profile'       )  ->  name    ('dash.profile')   -> middleware('auth');
-    // route::get(     ''      ,      ''       )  ->  name    ('')   -> middleware('auth');
 });
 
 
