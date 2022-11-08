@@ -15,7 +15,6 @@
                                     <img id="card-posts-menu-img" class="bg-dark" src="{{ asset ('/public/img/offers/'. $post->image_path) }}"
                                         class="card-img-top" alt="{{$post->title}}">
                                     <div class="card-body">
-33333333333333
                                     </div>
                                     <h6>{{ $post->title }}</h6>
                                     <small class="text-muted">9 mins</small>
