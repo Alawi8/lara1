@@ -15,6 +15,7 @@
                                     <img id="card-posts-menu-img" class="" src="{{ asset ('/public/img/offers/'. $post->image_path) }}"
                                         class="card-img-top" alt="{{$post->title}}">
                                     <div class="card-body">
+                                        
                                     </div>
                                     <h6>{{ $post->title }}</h6>
                                     <small class="text-muted">9 mins</small>
