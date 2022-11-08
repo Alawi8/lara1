@@ -1,6 +1,6 @@
 /*clear scrollbar */
 
-*::-webkit-scrollbar {
+-webkit-scrollbar {
   display: none;
 }
 
