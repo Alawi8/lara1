@@ -6,7 +6,7 @@
             {{-- style bootstrap --}}
             <link rel="stylesheet" href="{{ asset('/public/css/bootstrap.css') }}">
             {{-- link style.css to disegn header tamplate --}}
-            <link rel="stylesheet" href="{{ asset('/public/css/style.css') }}">
+            <link rel="stylesheet" href="{{ URL('/public/css/style.css') }}">
             {{-- link bootstrap.js to action  --}}
             <script src="{{ asset('/public/js/bootstrap.js') }}"></script>
             
