@@ -31,7 +31,7 @@ class AdminController extends Controller
         $newImageName = time() . '-' . $request->name . '.' .
         $request->image->extension();
 
-        $request->image->move(public_path('/public/img/offers'),$newImageName);
+        $request->image->move(public_path('/assets/img/offers'),$newImageName);
            
 
         DB::table('posts')->insert ([

@@ -12,7 +12,7 @@
                         <a class="nav-link" href="{{ route('display', $post->id) }}">
                             <div id='card-posts-menu' class="card">
                                 <img id="card-posts-menu-img" class="bg-dark"
-                                    src="{{ asset('/public/img/offers/' . $post->image_path) }}" class="card-img-top"
+                                    src="{{ asset('/assets/img/offers/' . $post->image_path) }}" class="card-img-top"
                                     alt="{{ $post->title }}">
                                 <div class="card-body">
                                 </div>
