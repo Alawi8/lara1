@@ -1,7 +1,7 @@
 <div>
-    <form class="d-flex" role="search">
-        <input class="form-control  " type="search" placeholder="بحث" aria-label="Search">
-        <button class="btn btn-outline-light bg-success" type="submit">البحث</button>
+    <form id="categure" class="d-flex" role="search">
+        <input  id="cate-aleart" class="form-control  " type="search" placeholder="بحث" aria-label="Search">
+        <button id="cate-aleart" class="btn btn-outline-light bg-success" type="submit">البحث</button>
     </form>
     <br>
     <div id="categure" class="card">

@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <div class="bg-light">
     @include('home.layouts.header')
-    <div id="body">
+    <body id="body">
         <!-- Google Tag Manager (noscript) -->
         <noscript>
             <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T35QRXW" height="0" width="0"
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </body>
 </div>
 <footer>
     @include('home.layouts.footer')

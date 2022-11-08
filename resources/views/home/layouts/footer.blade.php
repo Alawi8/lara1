@@ -3,12 +3,12 @@
       <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
 
           {{-- link style.css to disegn header tamplate --}}
-          <link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/style.min.css') }}">
+          <link rel="stylesheet" type="text/css" href="{{ asset('public/css/style.min.css') }}"rel="stylesheet" >
 
           {{-- style bootstrap --}}
-          <link rel="stylesheet" type="text/css" href="{{ URL::asset('public/css/bootstrapp.min.css') }}">
+          <link rel="stylesheet" type="text/css" href="{{ asset('public/css/bootstrap.min.css') }}" rel="stylesheet">
           {{-- link bootstrap.js to action  --}}
-          <script src="{{ asset('public/js/bootstrap.js') }}"></script>
+          <script src="{{ asset('public/js/bootstrap.min.js') }}" ></script>
 
 
           <p class="col-md-4 mb-0 text-muted">&copy; 2022 الحقوق محفوظه</p>
