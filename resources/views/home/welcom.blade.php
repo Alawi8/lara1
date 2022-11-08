@@ -1,4 +1,4 @@
-    @extends('home.layouts.body')
-    @section('content')
-        @include('home.pages.home')
-    @endsection
+@extends('home.layouts.body')
+@section('content')
+    @include('home.pages.home')
+@endsection

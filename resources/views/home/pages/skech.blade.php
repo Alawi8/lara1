@@ -1,8 +1,6 @@
 @extends('home.layouts.body')
 
 @section('content')
-<title name="شرح بلوكات سكتشوير">شرح بلوكات سكتشوير</title>
-    <h1 name="بلوكات سكتشوير">بلوكات سكتشوير</h1>
 <div class="row">
     <div  
         aria-labelledby="elementor-tab-title-1641">

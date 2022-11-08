@@ -1,4 +1,4 @@
-@extends('home.layouts.body')
+@extends('home.welcome')
 
 <title>
     @section('title', 'Page Title')

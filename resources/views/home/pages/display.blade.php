@@ -1,12 +1,17 @@
 @extends('home.layouts.body')
+@section('title')
+<title>{{$dis_posts->title}}</title>
+@endsection
 
 @section('content')
     {{-- {{$dis_posts}} --}}
     <div class="container-fluid">
         <h1>{{ $dis_posts->title }}</h1>
-        <img id="card-content-posts" class="card-img-top rounded-3 text-center"
-            src="{{ asset('public/img/offers/' . $dis_posts->image_path) }}"
-            name="{{ asset('storage/img/' . $dis_posts->image_path) }}">
+        <img id="content-img-posts-card" class="card-img-top rounded-3 text-center"
+            src="{{ asset('assets/img/offers/' . $dis_posts->image_path) }}"
+            name="{{ $dis_posts->title }}"
+            alt="{{$dis_posts->title}}"
+            >
         <br>
         <div  id="content">
             @php

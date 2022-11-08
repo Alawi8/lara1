@@ -1,10 +1,6 @@
 @extends('home.layouts.body')
-
-<title>
-    @section('title', 'Page Title')
-</title>
 @section('content')
-<br>
+    <br>
     <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, eum.</h4><br>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem exercitationem, nobis, dolore impedit neque
         excepturi mollitia ad expedita fugit earum praesentium sunt eaque. Vero qui aspernatur aut, porro quo architecto
@@ -31,7 +27,7 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga necessitatibus beatae magni nostrum minima consectetur,
         alias maxime veniam omnis tenetur soluta, asperiores fugiat aut labore nesciunt itaque, nulla placeat? Quidem
         dolores omnis modi sapiente cumque quia quisquam deserunt ut a!</p>
-    
+
 @endsection
 @section('footer')
     @include('home.layouts.footer')

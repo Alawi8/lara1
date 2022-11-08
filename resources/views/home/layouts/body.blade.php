@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+@include('home.layouts.header')
 <div class="bg-light">
-    @include('home.layouts.header')
+
     <body id="body">
         <!-- Google Tag Manager (noscript) -->
         <noscript>

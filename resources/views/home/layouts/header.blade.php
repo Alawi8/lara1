@@ -24,9 +24,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
-    <title>مثال الألبوم · Bootstrap v5.2</title>
-
-    <title>Laravel</title>
+    @yield('title')
 
     <div id="heading" class="navbar navbar shadow-sm py-4 fixed-top">
         <div class="container">

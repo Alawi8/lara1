@@ -1,7 +1,7 @@
-<!doctype html>
-<html>
 @extends('home.layouts.body')
-
+@section('title')
+<title>المقالات</title>
+@endsection
 @section('content')
 
     <div class="container-fluid ">
@@ -31,5 +31,3 @@
     </div>
 
 @endsection
-
-</html>

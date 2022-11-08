@@ -42,7 +42,6 @@ route::controller(HomeController::class)-> group(function(){
     route::get ('about','about')-> name('about');
     route::get ('faq/','faq')-> name('faq');
     route::get ( '/' , 'show')->name('home');
-    route::get ( '/posts' , 'show')->name('posts');
     route::get ( 'posts/display/{id}' , 'display')->name('display'); 
 
 });

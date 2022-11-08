@@ -7,7 +7,7 @@
           {{-- style bootstrap --}}
           <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
           {{-- link bootstrap.js to action  --}}
-          <script src="{{ asset('public/js/bootstrap.min.js') }}" ></script>
+          <script src="{{ asset('assets/js/bootstrap.min.js') }}" ></script>
 
 
           <p class="col-md-4 mb-0 text-muted">&copy; 2022 الحقوق محفوظه</p>
