@@ -5,8 +5,6 @@
         <footer  class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             {{-- style bootstrap --}}
             <link rel="stylesheet" href="{{ asset('/public/css/bootstrapp.min.css') }}">
-            {{-- link style.css to disegn header tamplate --}}
-            <link rel="stylesheet" href="{{ asset ('/public/css/style.min.css') }}">
             {{-- link bootstrap.js to action  --}}
             <script src="{{ asset('/public/js/bootstrap.js') }}"></script>
             
