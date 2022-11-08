@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <div class="bg-light">
     @include('home.layouts.header')
     <div id="body">
@@ -29,8 +31,9 @@
             </div>
         </div>
     </div>
-
-    <footer>
-        @include('home.layouts.footer')
-    </footer>
 </div>
+<footer>
+    @include('home.layouts.footer')
+</footer>
+
+</html>
