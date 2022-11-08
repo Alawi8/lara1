@@ -5,21 +5,19 @@
 @section('content')
 
     <body>
-        <div class="container">
+        <div class="container-fluid ">
             @if (isset($posts))
                 <div class="row">
                     @foreach ($posts as $post)
                         <div class=" col-xl-4 col-lg-6 col-md-6 col-sm-12 ">
                             <a class="nav-link" href="{{ route('display', $post->id ) }}">
-                                <div class="card" >
-                                    <img id="card-menu-posts" class="card-img-top rounded-3" src="{{ asset ('/public/img/offers/'. $post->image_path) }}"
-                                        class="card-img-top" alt="...">
+                                <div id='card-posts-menu' class="card" >
+                                    <img id="card-posts-menu-img" class="" src="{{ asset ('/public/img/offers/'. $post->image_path) }}"
+                                        class="card-img-top" alt="{{$post->title}}">
                                     <div class="card-body">
                                     </div>
                                     <h6>{{ $post->title }}</h6>
-                                    <p class="card-text">{{ $post->id }}.</p>
                                     <small class="text-muted">9 mins</small>
-
                                 </div>
                             </a>
                         </div>
@@ -30,10 +28,7 @@
                     لم يتم العثور على مقالات
                 </div>
             @endif
-
         </div>
-
     </body>
-
     </html>
 @endsection
