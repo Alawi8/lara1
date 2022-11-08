@@ -1,6 +1,6 @@
 /*clear scrollbar */
 
-*:-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
 }
 
@@ -25,8 +25,8 @@
 /* edit display head style */
 #heading,
 #footer {
-  -webkit-animation: color-change-2x 2s linear infinite alternate both;
-  animation: color-change-2x 2s linear infinite alternate both;
+  -webkit-animation: color-change-2x ;
+  animation: color-change-2x ;
   border-color: rgb(0, 0, 0);
   border-radius: 0px 0px 12px 12px;
   width: 100%;
