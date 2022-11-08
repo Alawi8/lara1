@@ -12,10 +12,10 @@
                         <div class=" col-xl-4 col-lg-6 col-md-6 col-sm-12 ">
                             <a class="nav-link" href="{{ route('display', $post->id ) }}">
                                 <div id='card-posts-menu' class="card" >
-                                    <img id="card-posts-menu-img" class="" src="{{ asset ('/public/img/offers/'. $post->image_path) }}"
+                                    <img id="card-posts-menu-img" class="bg-dark" src="{{ asset ('/public/img/offers/'. $post->image_path) }}"
                                         class="card-img-top" alt="{{$post->title}}">
                                     <div class="card-body">
-                                        
+
                                     </div>
                                     <h6>{{ $post->title }}</h6>
                                     <small class="text-muted">9 mins</small>
