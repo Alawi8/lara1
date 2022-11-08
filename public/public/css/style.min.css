@@ -25,12 +25,13 @@
 /* edit display head style */
 #heading,
 #footer {
-  -webkit-animation: color-change-2x ;
-  animation: color-change-2x ;
+  -webkit-animation: color-change-2x 2s linear infinite alternate both;
+  animation: color-change-2x 2s linear infinite alternate both;
   border-color: rgb(0, 0, 0);
   border-radius: 0px 0px 12px 12px;
   width: 100%;
   vertical-align: middle;
+  box-shadow: 0 0 25px rgb(163, 160, 160);
 }
 
 /**
@@ -80,9 +81,14 @@
 }
 
 /* design  ul categure*/
-#categure ul{
-  list-style-type: none;
-}
+#categure {
+  /* list-style-type: none; */
+  border: 5px solid ;
+  border-radius: 20px 20px 20px 20px;
+  border-color: rgb(255, 255, 255);
+  margin-bottom: 25px;
+  box-shadow: 0 0 25px rgb(163, 160, 160);
+  }
 
 /* card */
 #card-create {
@@ -103,4 +109,11 @@ box-shadow: 0 0 25px rgb(163, 160, 160);
    width: 100%;
   height: 10rem;
   border-radius: 20px 20px 0px 90px;
+}
+
+/* categure title */
+
+#cate-aleart{
+  border-radius: 20px 20px 0px 90px;
+
 }
