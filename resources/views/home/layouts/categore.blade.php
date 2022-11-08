@@ -1,6 +1,6 @@
 <div>
     <form id="categure" class="d-flex" role="search">
-        <input  id="cate-aleart" class="form-control  " type="search" placeholder="بحث" aria-label="Search">
+        <input  class="form-control  " type="search" placeholder="بحث" aria-label="Search">
         <button id="cate-aleart" class="btn btn-outline-light bg-success" type="submit">البحث</button>
     </form>
     <br>

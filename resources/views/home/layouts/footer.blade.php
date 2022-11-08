@@ -3,10 +3,10 @@
       <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
 
           {{-- link style.css to disegn header tamplate --}}
-          <link rel="stylesheet" type="text/css" href="{{ asset('public/css/style.min.css') }}"rel="stylesheet" >
+          <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.min.css') }}"rel="stylesheet" >
 
           {{-- style bootstrap --}}
-          <link rel="stylesheet" type="text/css" href="{{ asset('public/css/bootstrap.min.css') }}" rel="stylesheet">
+          <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
           {{-- link bootstrap.js to action  --}}
           <script src="{{ asset('public/js/bootstrap.min.js') }}" ></script>
 
