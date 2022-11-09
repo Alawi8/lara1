@@ -9,7 +9,7 @@
             <div class="row">
                 @foreach ($posts as $post)
                     <div class=" col-xl-4 col-lg-6 col-md-6 col-sm-12 ">
-                        <a class="nav-link" href="{{ route('display', $post->id) }}">
+                        <a class="nav-link" href="{{ route('display', $post->id) }}" title="{{ $post->title }}">
                             <div id='card-posts-menu' class="card">
                                 <img id="card-posts-menu-img" class="bg-dark"
                                     src="{{ asset('/assets/img/offers/' . $post->image_path) }}" class="card-img-top"

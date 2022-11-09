@@ -1,4 +1,4 @@
-@extends('home.welcome')
+@extends('home.layouts.body')
 @section('title')
 <title>سياسة الخصوصيه</title>
 @endsection
