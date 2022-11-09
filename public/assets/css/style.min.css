@@ -75,11 +75,30 @@
 }
 
 /* design icon  */
-#bot {
-  transform: route(5s);
-  color: #000;
+#style-icon {
+
+  animation-name: example;
+  animation-duration: 2s;
+  animation-iteration-count: 222;
 }
 
+@keyframes example {
+  0%   {
+      transform: rotate(0deg);
+  }
+  25%  {
+      transform: rotate(90deg);
+  }
+  50%  {
+      transform: rotate(180deg);
+  }
+  75%  {
+      transform: rotate(270deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
 /* design  ul categure*/
 #categure {
   /* list-style-type: none; */
