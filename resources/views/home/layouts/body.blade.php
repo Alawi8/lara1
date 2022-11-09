@@ -6,21 +6,19 @@
     <body id="body">
         <!-- Google Tag Manager (noscript) -->
         <noscript>
-            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T35QRXW" height="0" width="0"
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TW7PKVB" height="0" width="0"
                 style="display:none;visibility:hidden">
             </iframe>
         </noscript>
         <!-- End Google Tag Manager (noscript) -->
+
         {{-- Here the data inside (section image) is fetched by @yield image --}}
         <div class="container-fluid">
 
             <div id="menu-content" class="row rounded-3">
-                {{-- @yield('image') --}}
-                {{-- @include('home.layouts.image') --}}
-
                 <div class=" col-md-9 col-lg-9 col-sm-12 ">
-                    {{-- Here the data inside (section Content) is fetched by @yield content --}}
                     <br>
+                    {{-- Here the data inside (section Content) is fetched by @yield content --}}
                     @yield('content')
                 </div>
                 <div id="categore" class=" col-md-3 col-sm-12 col-lg-3">

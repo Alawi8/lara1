@@ -1,4 +1,8 @@
 @extends('home.layouts.body')
+@section('title')
+<title>عنا</title>
+@endsection
+
 @section('content')
     <br>
     <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, eum.</h4><br>

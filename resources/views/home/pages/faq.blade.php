@@ -1,4 +1,8 @@
 @extends('home.layouts.body')
+@section('title')
+<title>الاسئله </title>
+@endsection
+
 
 @section('content')
     <div>

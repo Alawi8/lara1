@@ -1,4 +1,7 @@
 @extends('home.layouts.body')
+@section('title')
+<title></title>
+@endsection
 
 @section('content')
 <div class="row">

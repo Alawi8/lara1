@@ -1,8 +1,8 @@
 @extends('home.welcome')
+@section('title')
+<title>سياسة الخصوصيه</title>
+@endsection
 
-<title>
-    @section('title', 'Page Title')
-</title>
 @section('content')
     <div class="container">
         <br>
