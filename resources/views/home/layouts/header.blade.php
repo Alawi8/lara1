@@ -25,6 +25,12 @@
     <meta name="generator" content="Hugo 0.101.0">
     @yield('title')
 
+    {{-- link style.css to disegn header tamplate --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.min.css') }}"rel="stylesheet">
+
+    {{-- style bootstrap --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+
     <div id="heading" class="navbar navbar shadow-sm py-4 fixed-top">
         <div class="container">
             <a href="{{ route('home') }}" class=" ">
