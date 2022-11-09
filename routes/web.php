@@ -60,7 +60,8 @@ route::controller(AdminController::class)->group(function(){
     route::post(     '/dash/store/'       ,       'store'        )   ->  name    ('dash.store')    -> middleware('auth');
     
     //update dash
-    route::post(    '/dash/{$id}/edit/'      ,      'edit'       )  ->  name    ('dash.edit')   -> middleware('auth');
+    route::get(    '/dash/edit/{id}'      ,      'edit'       )  ->  name    ('dash.edit')   -> middleware('auth');
+    route::post(    '/dash/update/{id}'      ,      'update'       )  ->  name    ('dash.update')   -> middleware('auth');
 
     route::get(     '/dash/dashboard/'      ,      'dashboard'       )  ->  name    ('dash.dashboard')   -> middleware('auth');
     route::get(     '/dash/profiles/'      ,      'profile'       )  ->  name    ('dash.profile')   -> middleware('auth');

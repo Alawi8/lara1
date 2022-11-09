@@ -16,6 +16,7 @@
         <div id="content">
             @php
                 echo $dis_posts->content;
+               
             @endphp
         </div>
 

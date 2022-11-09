@@ -54,13 +54,18 @@ class AdminController extends Controller
     }
     public function edit($id)
     {
-        //  $post = Post::FailOrFind($id);
-        //  $arr = array('posts'=>$post);
-         return ($id);
+        $editing = Post::where('id',$id)->first();
+        // dd($editing);
+        return view ('dash.components.posts.edit',compact('editing'));
+    //    return view('dash.components.posts.edit');
     }
     public function update(Request $request, $id)
     {
-        return view ("");
+        $postsUpdate = Post::find($id);
+        $postsUpdate->title = $request->title;
+        $postsUpdate->content = $request->content;
+        $postsUpdate->save();
+        return redirect (route('dash.display'));
     }
     public function destroy($id)
     {

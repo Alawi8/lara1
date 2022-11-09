@@ -21,6 +21,11 @@
                             </div>
                         </a>
                     </div>
+                    @for ($post->id = 0; $post->id < $post->id; $i++)
+                        @if ($post->id == 2)
+                            break ;
+                        @endif
+                    @endfor
                 @endforeach
             </div>
         @else
