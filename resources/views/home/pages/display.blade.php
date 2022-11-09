@@ -5,7 +5,7 @@
 
 @section('content')
     {{-- {{$dis_posts}} --}}
-    <div class="container-fluid">
+    <div id="content-items" class="container-fluid">
         <h1>{{ $dis_posts->title }}</h1>
         <img id="content-img-posts-card" class="card-img-top rounded-3 text-center"
             src="{{ asset('assets/img/offers/' . $dis_posts->image_path) }}"

@@ -6,9 +6,7 @@
 @section('content')
     <div class="container">
         <br>
-        {{time()  }}
         <h4>privce policy</h4>
-
         <p>laravel , LLC, (laravel ,” “we,” “us,” “our”)
             is committed to protecting both the personal as well as business
             information you share and/or store with us. This Privacy Policy

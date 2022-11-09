@@ -6,7 +6,7 @@
 
     <div class="container-fluid ">
         @if (isset($posts))
-            <div class="row">
+            <div class="row" >
                 @foreach ($posts as $post)
                     <div class=" col-xl-4 col-lg-6 col-md-6 col-sm-12 ">
                         <a class="nav-link" href="{{ route('display', $post->id) }}" title="{{ $post->title }}">
