@@ -1,6 +1,6 @@
 @extends('home.layouts.body')
 @section('title')
-<title>عنا</title>
+    <title>عنا</title>
 @endsection
 
 @section('content')
@@ -14,7 +14,8 @@
         totam hic. Ea, harum cumque? Iure neque harum atque vitae ut! Quaerat perspiciatis vitae dolorem facilis ab placeat
         suscipit. Tempora, laborum blanditiis omnis numquam quia quo!</p>
     <br>
-    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4><br>
+    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
+    <br>
     <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, blanditiis. Nemo assumenda rem veniam adipisci,
         magni ipsa voluptate distinctio numquam doloribus vero aspernatur iusto perspiciatis modi molestiae laborum natus
@@ -31,8 +32,4 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga necessitatibus beatae magni nostrum minima consectetur,
         alias maxime veniam omnis tenetur soluta, asperiores fugiat aut labore nesciunt itaque, nulla placeat? Quidem
         dolores omnis modi sapiente cumque quia quisquam deserunt ut a!</p>
-
-@endsection
-@section('footer')
-    @include('home.layouts.footer')
 @endsection

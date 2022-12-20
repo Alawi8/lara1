@@ -20,7 +20,7 @@ use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes Auth
+| Auth Routes
 |--------------------------------------------------------------------------
 */
 Route::controller(CustomAuthController::class)-> group(function(){
@@ -42,7 +42,7 @@ route::controller(HomeController::class)-> group(function(){
     route::get ('about','about')-> name('about');
     route::get ('faq/','faq')-> name('faq');
     route::get ( '/' , 'show')->name('home');
-    route::get ( 'posts/display/{id}' , 'display')->name('display'); 
+    route::get ( '/posts/{title}/display/' , 'display')->name('display'); 
 
 });
 
@@ -65,6 +65,8 @@ route::controller(AdminController::class)->group(function(){
 
     route::get(     '/dash/dashboard/'      ,      'dashboard'       )  ->  name    ('dash.dashboard')   -> middleware('auth');
     route::get(     '/dash/profiles/'      ,      'profile'       )  ->  name    ('dash.profile')   -> middleware('auth');
+    route::get(     '/dash/navigation/'      ,      'navigation'       )  ->  name    ('dash.navigation')   -> middleware('auth');
+
 });
 
 

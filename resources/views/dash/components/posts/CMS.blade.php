@@ -6,9 +6,9 @@
         referrerpolicy="origin"></script>
 </head>
 
-<body>
-    <textarea name="content" id="textarea">
-    
+<body >
+    <textarea  name="content" id="textarea" >
+        {{old('content')}}
   </textarea>
     <script>
         tinymce.init({
@@ -32,4 +32,4 @@
     <small id="helpId" class="form-text text-muted">هنا محتوى المقاله </small>
 </body>
 
-</html>
+</html> 

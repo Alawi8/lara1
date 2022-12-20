@@ -91,6 +91,4 @@
         </div>
     </div>
 @endsection
-@section('footer')
-    @include('home.layouts.footer')
-@endsection
+

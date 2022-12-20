@@ -21,14 +21,16 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('material/img/apple-icon.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('material/img/favicon.png') }}">
     <title>
-        Material Dashboard
+       @yield('title')
     </title>
     <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    {{-- <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" /> --}}
     <!-- Nucleo Icons -->
     <link href="{{ asset('material/css/nucleo-icons.css') }}" rel="stylesheet" />
     <link href="{{ asset('material/css/nucleo-svg.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/style.min.css') }}"rel="stylesheet">
+
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- Material Icons -->
@@ -87,7 +89,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="../pages/notifications.html">
+                    <a class="nav-link " href="{{route('dash.navigation')}}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">notifications</i>
                         </div>
@@ -268,7 +270,7 @@
     <script src="{{ asset('material/js/plugins/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('material/js/plugins/chartjs.min.js') }}"></script>
     <script>
-        //   var ctx = document.getElementById("chart-bars").getContext("2d");
+          var ctx = document.getElementById("chart-bars").getContext("2d");
 
         new Chart( {
             type: "bar",

@@ -19,8 +19,7 @@
 
 
     </head>
-
-
+    
     <!DOCTYPE html>
     <html lang="ar" dir="rtl">
 
@@ -53,8 +52,8 @@
                                     </div>
                                     <div class="col-6">
                                         {{-- date time article blade  --}}
-                                        <input type="datetime" value="{{ date('h:m') }}"name="time" hidden>
-                                        <input type="datetime" value="{{ Auth::user()->name }}"name="writer" hidden>
+                                        {{-- <input type="datetime" value="{{ date('h:m') }}"name="time" hidden>
+                                        <input type="datetime" value="{{ Auth::user()->name }}"name="writer" hidden> --}}
                                         {{-- end --}}
 
                                         <div>

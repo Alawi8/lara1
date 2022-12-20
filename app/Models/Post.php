@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    use HasFactory;
-
-    ################# bigen rilation ship ###########################
-    
+    // use HasFactory;
+    public function user(){
+        return $this ->hasOne(User::class);
+    }    
 }

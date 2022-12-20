@@ -29,8 +29,8 @@
                     <i class="material-icons opacity-10">leaderboard</i>
                 </div>
                 <div class="text-start pt-1">
-                    <p class="text-sm mb-0 text-capitalize">مستخدمو اليوم</p>
-                    <h4 class="mb-0">2,300</h4>
+                    <p class="text-sm mb-0 text-capitalize">عدد المقالات</p>
+                    <h4 class="mb-0"></h4>
                 </div>
             </div>
             <hr class="dark horizontal my-0">

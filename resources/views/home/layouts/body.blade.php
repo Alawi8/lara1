@@ -15,6 +15,7 @@
         {{-- Here the data inside (section image) is fetched by @yield image --}}
         <div class="container-fluid">
 
+            {{-- @include('home.pages.learning') --}}
             <div id="menu-content" class="row rounded-3">
                 <div class=" col-md-9 col-lg-9 col-sm-12 ">
                     <br>
@@ -23,7 +24,6 @@
                 </div>
                 <div id="categore" class=" col-md-3 col-sm-12 col-lg-3">
                     <br>
-
                     {{-- here i used inclode to get style from categore page  --}}
                     @include('home.layouts.categore')
                 </div>

@@ -31,7 +31,15 @@
         <div class="row">
 
             <div class="col-12">
-
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
                 <div class="collapse show" id="collapseCardExample">
                     <div class="card-body col-12">
@@ -42,7 +50,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="mb-3">
 
-                                            <input type="text" class="" name="title" id=""
+                                            <input type="text" class="" name="title" value="{{old('title')}}" id=""
                                                 aria-describedby="helpId" placeholder="اكتب العنوان هنا">
                                             <small id="helpId" class="form-control text-muted">اكتب عنوان المقاله
                                                 هنا</small>
@@ -50,12 +58,18 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         {{-- date time article blade  --}}
-                                        <input type="datetime" value="{{ date('h:m') }}" name="time" hidden>
-                                        <input type="datetime" value="{{ Auth::user()->name }}"name="writer" hidden>
+                                        <input type="datetime" value="{{ date('Hms') }}" name="time" hidden>
+                                        <input type="datetime" value="{{ date('Y-m-d h:m:s') }}" name="date" hidden>
+                                        {{-- <input type="datetime" value="{{ Auth::user()->name }}"name="writer" hidden>  --}}
                                         {{-- end --}}
 
                                         <div>
-                                            <input name="image" class="" id="formFile" type="file" ><br>
+                                            <input name="image" value="{{old('image')}}" class="@error('image') is-invalid @enderror" id="formFile" type="file" ><br>
+                                            
+ 
+                                            @error('image')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                             <small id="helpId" class="form-text text-muted">ادرج الصوره هنا</small>
                                         </div>
 

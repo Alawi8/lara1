@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Stmt\Return_;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\DB;
@@ -24,7 +25,7 @@ class AdminController extends Controller
         $validated = $request->validate([
             //blade data in db
             'title' => 'required',
-            'content' => 'required',
+            'content' => 'required|max:25000',
             'image'=> 'required|mimes:jpg,png,jpeg|max:5048',
             
         ]);
@@ -37,9 +38,11 @@ class AdminController extends Controller
         DB::table('posts')->insert ([
             'title' => $request->title,
             'time'  => $request->time,
+            'date'  => $request->date,
             'content' => $request->content,
-            'writer' => $request->writer,
+            // 'writer' => $request->writer,
             'image_path'=> $newImageName ,
+            'user_id' => auth()->id(),
         ]);
         return redirect()->route('dash.display');
     }
@@ -79,5 +82,8 @@ class AdminController extends Controller
         return view ('dash.components.pages.profile');
     }
 
+    public function navigation (){
+        return view('dash.components.pages.navigation');
+    }
 
 }

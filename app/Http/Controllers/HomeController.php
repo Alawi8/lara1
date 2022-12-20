@@ -51,8 +51,8 @@ class HomeController extends Controller
         //
     }
     
-    public function display($id){
-        $dis_posts = Post::where('id',$id)->first();
+    public function display($title){
+        $dis_posts = Post::where('title',$title)->first();
         return view ('home.pages.display',compact('dis_posts'));
     }
 }
