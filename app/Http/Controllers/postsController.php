@@ -40,7 +40,7 @@ class postsController extends Controller
         $newImageName = time() . '-' . $request->name . '.' .
         $request->image->extension();
 
-        $request->image->move(public_path('../storage/img'),$newImageName);
+        $request->image->move(public_path('../storage/img/offers'),$newImageName);
            
 
         DB::table('posts')->insert([
