@@ -42,7 +42,6 @@ class AdminController extends Controller
             'content' => $request->content,
             // 'writer' => $request->writer,
             'image_path'=> $newImageName ,
-            'user_id' => auth()->id(),
         ]);
         return redirect()->route('dash.display');
     }
