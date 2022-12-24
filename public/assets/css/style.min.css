@@ -131,7 +131,12 @@
 /* categure title in home.layouts.footer.blade.php */
 
 #cate-aleart {
-  border-radius: 20px 20px 0px 90px;
+  border-radius: 30px 30px 0px 70px;
+
+}
+/*style search button */
+#cate-aleart-button{
+  border-radius: 20px 0px 0px 20px;
 
 }
 
@@ -141,5 +146,5 @@
 }
 /* disign img display in home page */
 #content-img-posts-card {
-
+  
 }
