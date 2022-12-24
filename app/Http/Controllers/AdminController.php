@@ -40,7 +40,7 @@ class AdminController extends Controller
             'time'  => $request->time,
             'date'  => $request->date,
             'content' => $request->content,
-            'writer' => $request->writer,
+            // 'writer' => $request->writer,
             'image_path'=> $newImageName ,
         ]);
         return redirect()->route('dash.display');
