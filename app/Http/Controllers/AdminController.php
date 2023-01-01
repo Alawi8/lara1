@@ -78,11 +78,29 @@ class AdminController extends Controller
         return view ('dash.components.pages.dash');
     }
     public function profile(){
-        return view ('dash.components.pages.profile');
+        $post = Post::all();
+        $arr = array('posts' => $post);
+        return view ('dash.components.pages.profile',$arr);
     }
 
     public function navigation (){
         return view('dash.components.pages.navigation');
     }
 
+    public function seo (){
+        return view('dash.components.pages.profile');
+    }
+    public function SeoUpdate ($id) {
+        $editing = Post::where('id',$id)->first();
+        // dd($editing);
+        return view ('dash.components.pages.seo',compact('editing'));
+    }
+
+    public function SeoPost(Request $request, $id){
+        $SeoPost = Post::find($id);
+        // $SeoPost->title = $request->title;
+        $SeoPost->content = $request -> content ;
+        $SeoPost->save();
+        return redirect (route('dash.profile'));
+    }
 }

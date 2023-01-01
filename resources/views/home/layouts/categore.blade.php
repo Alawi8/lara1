@@ -16,7 +16,7 @@
 
     <div id="categure" class="card ">
         <div id="cate-aleart" class="alert alert-secondary">
-            لينكس
+            البرامج
         </div>
         <tr class="list-group ">
             <a class="text-center btn btn-light nav-link" href="#">link</a>

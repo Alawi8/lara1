@@ -5,8 +5,8 @@
     <div class="card shadow-lg">
         <div class="card-header pb-0 pt-3">
             <div class="float-end">
-                <h5 class="mt-3 mb-0">Material UI Configurator</h5>
-                <p>See our dashboard options.</p>
+                {{-- <h5 class="mt-3 mb-0">Material UI Configurator</h5>
+                <p>See our dashboard options.</p> --}}
             </div>
             <div class="float-start mt-4">
                 <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
@@ -18,11 +18,11 @@
         <hr class="horizontal dark my-1">
         <div class="card-body pt-sm-3 pt-0">
             <!-- Sidebar Backgrounds -->
-            <div>
+            {{-- <div>
                 <h6 class="mb-0">Sidebar Colors</h6>
-            </div>
+            </div> --}}
             <a href="javascript:void(0)" class="switch-trigger background-color">
-                <div class="badge-colors my-2 text-end">
+                {{-- <div class="badge-colors my-2 text-end">
                     <span class="badge filter bg-gradient-primary active" data-color="primary"
                         onclick="sidebarColor(this)"></span>
                     <span class="badge filter bg-gradient-dark" data-color="dark"
@@ -35,37 +35,37 @@
                         onclick="sidebarColor(this)"></span>
                     <span class="badge filter bg-gradient-danger" data-color="danger"
                         onclick="sidebarColor(this)"></span>
-                </div>
+                </div> --}}
             </a>
             <!-- Sidenav Type -->
             <div class="mt-3">
-                <h6 class="mb-0">Sidenav Type</h6>
-                <p class="text-sm">Choose between 2 different sidenav types.</p>
+                {{-- <h6 class="mb-0">Sidenav Type</h6>
+                <p class="text-sm">Choose between 2 different sidenav types.</p> --}}
             </div>
             <div class="d-flex">
-                <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark"
+                {{-- <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark"
                     onclick="sidebarType(this)">Dark</button>
                 <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent"
                     onclick="sidebarType(this)">Transparent</button>
                 <button class="btn bg-gradient-dark px-3 mb-2 me-2" data-class="bg-white"
-                    onclick="sidebarType(this)">White</button>
+                    onclick="sidebarType(this)">White</button> --}}
             </div>
-            <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
+            {{-- <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p> --}}
             <!-- Navbar Fixed -->
             <div class="mt-3 d-flex">
-                <h6 class="mb-0">Navbar Fixed</h6>
+                {{-- <h6 class="mb-0">Navbar Fixed</h6>
                 <div class="form-check form-switch me-auto my-auto">
                     <input class="form-check-input mt-1 float-end me-auto" type="checkbox" id="navbarFixed"
                         onclick="navbarFixed(this)">
-                </div>
+                </div> --}}
             </div>
             <hr class="horizontal dark my-3">
             <div class="mt-2 d-flex">
-                <h6 class="mb-0">Light / Dark</h6>
+                {{-- <h6 class="mb-0">Light / Dark</h6>
                 <div class="form-check form-switch me-auto my-auto">
                     <input class="form-check-input mt-1 float-end me-auto" type="checkbox" id="dark-version"
                         onclick="darkMode(this)">
-                </div>
+                </div> --}}
             </div>               
         </div>
     </div>

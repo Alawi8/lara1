@@ -43,9 +43,13 @@
                                                 if ($years == 0 and $months == 0 and $days >> 0) {
                                                     # code...
                                                     printf('قبل %d يوم', $days); //print $days
-                                                } 
+                                                } else {
+                                                    if ($years == 0 and $months == 0 and $days == 0) {
+                                                        printf('تم انشاءه اليوم');
+                                                    }
+                                                }
                                             }
-                                        }                                        
+                                        }
                                     @endphp
                                 </small>
                             </div>
@@ -58,6 +62,6 @@
                 لم يتم العثور على مقالات
             </div>
         @endif
-       
+
     </div>
 @endsection

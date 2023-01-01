@@ -67,6 +67,12 @@ route::controller(AdminController::class)->group(function(){
     route::get(     '/dash/profiles/'      ,      'profile'       )  ->  name    ('dash.profile')   -> middleware('auth');
     route::get(     '/dash/navigation/'      ,      'navigation'       )  ->  name    ('dash.navigation')   -> middleware('auth');
 
+    //optimize seo
+    route::get(     '/dash/seo'      ,      'seo'       )  ->  name    ('dash.seo')   -> middleware('auth');
+    route::get(     '/dash/SeoUpdate/{id}'      ,      'SeoUpdate'       )  ->  name    ('dash.SeoUpdate')   -> middleware('auth');
+    route::post(     '/dash/SeoPost/{id}'      ,      'SeoPost'       )  ->  name    ('dash.SeoPost')   -> middleware('auth');
+    
+
 });
 
 
