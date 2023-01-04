@@ -24,7 +24,8 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 <small id="helpId" class="form-text text-muted">في حال الرغبه بتحسين seo قم بنسخ هذا النص ولصقه في محرر اكواد وبعد اجراء التحسينات قم بلصقه هنا واضغط على نشر</small><br><br>
-                                <input name="content" dir="ltr" value="{{  $editing->content  }}" type="text" class="form-control">
+                                <textarea name="content" type="text" dir="ltr" class="form-control"  id="exampleFormControlTextarea1"  rows="25">{{  $editing->content  }}</textarea>
+                                <br>
                                 <button class="btn btn-primary" type="submit">نشر</button>
                             </form>
                         </div>
