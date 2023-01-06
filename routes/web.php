@@ -6,6 +6,7 @@ use App\Http\Controllers\postsController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use Spatie\Sitemap\SitemapGenerator;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,11 @@ use App\Http\Controllers\HomeController;
 | Auth Routes
 |--------------------------------------------------------------------------
 */
+Route::get('sitemap', function () {
+    SitemapGenerator::create('https://laravel.test')->writeToFile('sitemap.xml');
+    return 'sitemap created';
+});
+
 Route::controller(CustomAuthController::class)-> group(function(){
     route::get ('login','index')                                 ->  name    ('login');
     route::post ('custom-login','customLogin')                   ->  name    ('login.custom');

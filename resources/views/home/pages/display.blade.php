@@ -13,7 +13,7 @@
                 alt="{{ $dis_posts->title }}">
         </div>
         <br>
-        <div id="content">
+        <div id="content" name="{{ $dis_posts->content }}">
             @php
                 echo $dis_posts->content;
             @endphp
