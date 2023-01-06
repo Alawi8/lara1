@@ -19,10 +19,9 @@
 
 
     </head>
-    
+
     <!DOCTYPE html>
     <html lang="ar" dir="rtl">
-
     <body id="page-top">
         <!-- End of Topbar -->
 
@@ -30,13 +29,14 @@
         <div class="row">
 
             <div class="col-12">
-                
+
                 <div class="collapse show" id="collapseCardExample">
                     <div class="card-body col-12">
                         <div class="row">
-                            <form action="{{route('dash.update',$editing->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('dash.update', $editing->id) }}" method="post"
+                                enctype="multipart/form-data">
                                 @csrf
-                         
+
 
                                 <div class="row">
                                     <div class="col-6">
@@ -44,8 +44,8 @@
                                             <label for="" class="form-label">العنوان :
                                             </label><br>
 
-                                            <input type="text" class="" name="title" value="{{$editing->title}}" id=""
-                                                aria-describedby="helpId">
+                                            <input type="text" class="" name="title"
+                                                value="{{ $editing->title }}" id="" aria-describedby="helpId">
                                             <small id="helpId" class="form-control text-muted">اكتب عنوان المقاله
                                                 هنا</small>
                                         </div>
@@ -59,8 +59,9 @@
                                         <div>
                                             <label for="formFileLg" class="form-label">الرجاء اختيار صوره</label>
                                             <br>
-                                            <input value="" name="image" class="" id="formFileLg" type="file"><br>
-                                            <small  id="helpId" class="form-text text-muted">ادرج الصوره هنا</small>
+                                            <input value="" name="image" class="" id="formFileLg"
+                                                type="file"><br>
+                                            <small id="helpId" class="form-text text-muted">ادرج الصوره هنا</small>
                                         </div>
 
                                         <br>
@@ -69,15 +70,15 @@
 
                                 <!DOCTYPE html>
                                 <html>
-                                
+
                                 <head>
                                     <script src="https://cdn.tiny.cloud/1/o2wqsytvil98ae0qjcry4lnm7zds4uo18ct741ewklyrmta5/tinymce/6/tinymce.min.js"
                                         referrerpolicy="origin"></script>
                                 </head>
-                                
+
                                 <body>
-                                    <textarea  name="content" id="textarea">
-                                    {{$editing->content}}
+                                    <textarea name="content" id="textarea">
+                                    {{ $editing->content }}
                                   </textarea>
                                     <script>
                                         tinymce.init({
@@ -100,7 +101,7 @@
                                     </script>
                                     <small id="helpId" class="form-text text-muted">هنا محتوى المقاله </small>
                                 </body>
-                                
+
                                 </html>
 
                                 <button class="btn btn-primary" type="submit">نشر</button>

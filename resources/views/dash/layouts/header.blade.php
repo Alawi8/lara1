@@ -84,7 +84,7 @@
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons-round opacity-10">view_in_ar</i>
                         </div>
-                        <span class="nav-link-text me-1">الواقع الافتراضي</span>
+                        <span class="nav-link-text me-1">تخصيص css</span>
                     </a>
                 </li>
 

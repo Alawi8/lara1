@@ -5,7 +5,7 @@
           {{-- link bootstrap.js to action  --}}
           <script src="{{ asset('assets/js/bootstrap.min.js') }}" ></script>
     {{-- link style.css to disegn header tamplate --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/style.min.css') }}"rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/style.min.css') }}"rel="stylesheet">
 
 
           <p class="col-md-4 mb-0 text-muted">&copy; جميع الحقوق محفوظه {{date('Y')}}</p>

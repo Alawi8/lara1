@@ -8,7 +8,7 @@
         @if (isset($posts))
             <div class="row">
                 @foreach ($posts as $post)
-                    <div class=" col-xl-4 col-lg-6 col-md-6 col-sm-12 ">
+                    <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-12 ">
                         <a class="nav-link" href="{{ route('display', $post->title) }}" title="{{ $post->title }}">
                             <div id='card-posts-menu' class="card">
                                 <img id="card-posts-menu-img" class="bg-dark"

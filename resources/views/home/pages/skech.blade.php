@@ -1,6 +1,6 @@
 @extends('home.layouts.body')
 @section('title')
-<title></title>
+<title>المتغيرات في سكتشوير</title>
 @endsection
 
 @section('content')
