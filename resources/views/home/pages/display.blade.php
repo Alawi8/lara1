@@ -1,7 +1,5 @@
 @extends('home.layouts.body')
-@section('title')
-    <title name="{{ $dis_posts->title }}">{{ $dis_posts->title }}</title>
-@endsection
+@section('title'){{ $dis_posts->title }}@endsection
 
 @section('content')
     {{-- {{$dis_posts}} --}}
@@ -13,10 +11,8 @@
                 alt="{{ $dis_posts->title }}">
         </div>
         <br>
-        <div id="content" name="{{ $dis_posts->content }}">
-            @php
-                echo $dis_posts->content;
-            @endphp
+        <div id="content" name="">
+            {!! $dis_posts->content!!}
         </div>
     </div>
 @endsection

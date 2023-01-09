@@ -1,6 +1,6 @@
 @extends('home.layouts.body')
 @section('title')
-<title>الاسئله </title>
+الاسئله 
 @endsection
 
 

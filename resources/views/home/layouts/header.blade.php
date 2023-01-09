@@ -1,6 +1,6 @@
 <header>
     <!-- Google Tag Manager -->
-    <script>
+    <script >
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({
@@ -18,12 +18,12 @@
     </script>
     <!-- End Google Tag Manager -->
     <!-- CSS only -->
+    <title>@yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="@yield('title')">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
-    @yield('title')
 
 
     {{-- style bootstrap --}}

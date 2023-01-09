@@ -1,6 +1,6 @@
 @extends('home.layouts.body')
 @section('title')
-    <title>عنا</title>
+عنا
 @endsection
 
 @section('content')

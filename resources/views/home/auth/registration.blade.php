@@ -1,4 +1,5 @@
 @extends('home.layouts.body')
+@section('title')تسجيل جديد@endsection
 @section('content')
     <main class="signup-form">
         <div class="cotainer">
