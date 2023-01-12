@@ -72,6 +72,7 @@ class CustomAuthController extends Controller
         }
    
         return redirect("login")->withSuccess('are not allowed to access');
+        
     }
      
  
