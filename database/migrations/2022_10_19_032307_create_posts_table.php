@@ -14,12 +14,13 @@ return new class extends Migration
             $table->increments('id');
             $table->string('title',60);
             $table->text('content');
-            // $table->string('writer');
+            $table->string('writer');
             // $table->foreignId('user_id')->constrained('users');
             $table->string('image_path');
             $table->time('time');      
             $table->date('date');      
             $table->timestamps();
+            $table->string('exept');
         });
     }
     public function down()

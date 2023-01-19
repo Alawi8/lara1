@@ -64,7 +64,7 @@ class GenerateSitemap extends Command
         $root->setAttribute('xmlns:video', "http://www.google.com/schemas/sitemap-video/1.1");
 
 
-        $this->path = public_path('/sitmap/');
+        $this->path = public_path('/sitemap');
         $fileName = 'sitemap';
 
 
