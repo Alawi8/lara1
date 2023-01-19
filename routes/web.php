@@ -88,28 +88,3 @@ route::controller(AdminController::class)->group(function(){
 });
 
 
-
-Route::group(array('middleware' => 'forceSSL'), function() {
-    /*user auth*/
-    // Route::get('login', 'AuthController@showLogin');
-    // Route::post('login', 'AuthController@doLogin');
-    
-    // Password reset routes...
-    // Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-    // Route::post('password/reset', 'Auth\PasswordController@postReset');
-    
-    //other routes like signup etc
-    
-});
-
-
-Route::group(['middleware' => ['auth','forceSSL']], function()
-{
-    route::view('home/skech','home.pages.skech')->name('skech');
-    Route::get('dashboard', function(){
-        // return view('app.dashboard');
-    });
-    // Route::get('logout', 'AuthController@doLogout');
-    
-    //other routes for your application
-    });
