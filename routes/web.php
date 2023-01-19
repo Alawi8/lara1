@@ -105,8 +105,8 @@ Route::group(array('middleware' => 'forceSSL'), function() {
 
 Route::group(['middleware' => ['auth','forceSSL']], function()
 {
+    route::view('home/skech','home.pages.skech')->name('skech');
     Route::get('dashboard', function(){
-        route::view('home/skech','home.pages.skech')->name('skech');
         // return view('app.dashboard');
     });
     // Route::get('logout', 'AuthController@doLogout');
