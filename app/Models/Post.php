@@ -10,5 +10,10 @@ class Post extends Model
     // use HasFactory;
     public function user(){
         return $this ->hasOne(User::class);
+    }
+    //posts comment
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }    
 }
