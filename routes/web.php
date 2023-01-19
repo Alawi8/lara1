@@ -91,7 +91,6 @@ route::controller(AdminController::class)->group(function(){
 
 Route::group(array('middleware' => 'forceSSL'), function() {
     /*user auth*/
-    route::view('home/skech','home.pages.skech')->name('skech');
     // Route::get('login', 'AuthController@showLogin');
     // Route::post('login', 'AuthController@doLogin');
     
@@ -101,12 +100,13 @@ Route::group(array('middleware' => 'forceSSL'), function() {
     
     //other routes like signup etc
     
-    });
-    
-    
-    Route::group(['middleware' => ['auth','forceSSL']], function()
-     {
+});
+
+
+Route::group(['middleware' => ['auth','forceSSL']], function()
+{
     Route::get('dashboard', function(){
+        route::view('home/skech','home.pages.skech')->name('skech');
         // return view('app.dashboard');
     });
     // Route::get('logout', 'AuthController@doLogout');
