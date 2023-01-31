@@ -23,9 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->isSecure()) {
-            \URL::forceSchema('https');
-        }
+        // if ($this->isSecure()) {
+        //     \URL::forceSchema('https');
+        // }
     }
     
     public function isSecure()
