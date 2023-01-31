@@ -60,7 +60,7 @@
                                         {{-- date time article blade  --}}
                                         <input type="datetime" value="{{ date('Hms') }}" name="time" hidden>
                                         <input type="datetime" value="{{ date('Y-m-d h:m:s') }}" name="date" hidden >
-                                        {{-- <input type="datetime" value="{{ Auth::user()->name }}"name="writer" hidden>  --}}
+                                        <input type="datetime" value="{{ Auth::user()->name }}"name="writer" hidden> 
                                         {{-- end --}}
 
                                         <div>
