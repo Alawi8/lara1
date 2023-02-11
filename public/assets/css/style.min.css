@@ -1,154 +1,170 @@
 /*clear scrollbar */
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
 *::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
+
 /*edit display style to all page in website */
+
 * {
-  zoom: 100%;
-  vertical-align: middle;
-  font-family: 'Tajawal', sans-serif;
+    zoom: 100%;
+    vertical-align: middle;
+    font-family: 'Vazirmatn', sans-serif;
 }
 
 #content img {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 #content {
-  word-wrap: break-word;
-
+    word-wrap: break-word;
 }
 
 #body {
-  width: 100%;
+    width: 100%;
 }
 
+
 /* edit display head style */
+
 #heading {
-  -webkit-animation: color-change-2x 2s linear infinite alternate both;
-  animation: color-change-2x 2s linear infinite alternate both;
-  border-color: rgb(0, 0, 0);
-  border-radius: 0px 0px 12px 12px;
-  width: 100%;
-  vertical-align: middle;
+    -webkit-animation: color-change-2x 2s linear infinite alternate both;
+    animation: color-change-2x 2s linear infinite alternate both;
+    border-color: rgb(0, 0, 0);
+    border-radius: 0px 0px 12px 12px;
+    width: 100%;
+    vertical-align: middle;
 }
+
 
 /**
  * ----------------------------------------
  * animation color-change-2x
  * ----------------------------------------
  */
-@-webkit-keyframes color-change-2x {
-  0% {
-    background: #f6f6f6;
-  }
 
-  100% {
-    background: #b352eb;
-  }
+@-webkit-keyframes color-change-2x {
+    0% {
+        background: #f6f6f6;
+    }
+    100% {
+        background: #b352eb;
+    }
 }
 
 @keyframes color-change-2x {
-  0% {
-    background: #f0f0f0;
-  }
-
-  100% {
-    background: #b964eb;
-  }
+    0% {
+        background: #f0f0f0;
+    }
+    100% {
+        background: #b964eb;
+    }
 }
+
 
 /* design page display.blade */
+
 #card-content-posts {
-  width: 100%;
-  height: 22rem;
-  max-zoom: 99px;
+    width: 100%;
+    height: 22rem;
+    max-zoom: 99px;
 }
+
 
 /*  icon routation animation */
-#style-icon {
 
-  animation-name: example;
-  animation-duration: 3s;
-  animation-iteration-count: 2222;
+#style-icon {
+    animation-name: example;
+    animation-duration: 3s;
+    animation-iteration-count: 2222;
 }
+
 
 /* animation img icon */
+
 @keyframes example {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  25% {
-    transform: rotate(90deg);
-  }
-
-  50% {
-    transform: rotate(180deg);
-  }
-
-  75% {
-    transform: rotate(270deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    75% {
+        transform: rotate(270deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
+
 
 /* design  ul categure*/
+
 #categure {
-  border: 5px solid;
-  border-radius: 20px 20px 20px 20px;
-  border-color: rgb(255, 255, 255);
-  margin-bottom: 25px;
-  box-shadow: 0 0 25px rgb(163, 160, 160);
+    border: 5px solid;
+    border-radius: 20px 20px 20px 20px;
+    border-color: rgb(255, 255, 255);
+    margin-bottom: 25px;
+    box-shadow: 0 0 25px rgb(163, 160, 160);
 }
+
 
 /*style card create posts in dashboard*/
-#card-create {
-  background-color: rgb(24, 23, 23);
-}
+
 
 /* design card posts menu in page   */
+
 #card-posts-menu {
-  border: 5px solid;
-  border-radius: 20px 20px 20px 20px;
-  border-color: rgb(255, 255, 255);
-  margin-bottom: 25px;
-  box-shadow: 0 0 25px rgb(163, 160, 160);
+    border: 5px solid;
+    border-radius: 20px 20px 20px 20px;
+    border-color: rgb(255, 255, 255);
+    margin-bottom: 25px;
+    box-shadow: 0 0 25px rgb(163, 160, 160);
 }
 
+
 /*  */
+
 #card-posts-menu-img {
-  width: 100%;
-  height: 10rem;
-  border-radius: 20px 20px 0px 90px;
+    width: 100%;
+    height: 10rem;
+    border-radius: 20px 20px 0px 90px;
 }
+
 
 /* categure title in home.layouts.footer.blade.php */
 
 #cate-aleart {
-  border-radius: 30px 30px 0px 70px;
-
+    border-radius: 30px 30px 0px 70px;
 }
+
+
 /*style search button */
-#cate-aleart-button{
-  border-radius: 20px 0px 0px 20px;
 
+#cate-aleart-button {
+    border-radius: 20px 0px 0px 20px;
 }
+
 
 /* style search input in page home.layouts.categury.blade.php */
+
 #in-search {
-  border-radius: 0px 20px 20px 0px;
+    border-radius: 0px 20px 20px 0px;
 }
+
+
 /* disign img display in home page */
+
 #content-img-posts-card img {
-  width: 80% ;
-  height: 100% ;
+    width: 80%;
+    height: 100%;
 }
+
 #input_seo {
-  height : 50% ;
+    height: 50%;
 }

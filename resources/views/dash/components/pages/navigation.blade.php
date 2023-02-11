@@ -1,5 +1,7 @@
 @extends('dash.layouts.header')
-
+@section('title')
+الاشعارات
+@endsection
 @section('content')
     <!--
             =========================================================

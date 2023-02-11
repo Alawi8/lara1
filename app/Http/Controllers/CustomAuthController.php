@@ -1,7 +1,6 @@
 <?php
  
 namespace App\Http\Controllers;
- 
 use Illuminate\Http\Request;
 use Hash;
 use Session;
@@ -26,7 +25,7 @@ class CustomAuthController extends Controller
     
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/dash/dashboard')
+            return redirect()->intended('/')
                         ->withSuccess('Signed in');
         }
    
@@ -61,7 +60,7 @@ class CustomAuthController extends Controller
       return User::create([
         'name' => $data['name'],
         'email' => $data['email'],
-        'password' => Hash::make($data['password'])
+        'password' => Hash::make ($data['password']),
       ]);
     }    
      

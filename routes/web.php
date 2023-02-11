@@ -33,6 +33,7 @@ Route::get('sitemap', function () {
     SitemapGenerator::create('https://laravel.test')->writeToFile('sitemap.xml');
     return 'sitemap created';
 });
+
 /*
 |--------------------------------------------------------------------------
 | Auth Routes
@@ -41,11 +42,14 @@ Route::get('sitemap', function () {
 
 
 Route::controller(CustomAuthController::class)-> group(function(){
+    // login  users
     route::get ('login','index')                                 ->  name    ('login');
     route::post ('custom-login','customLogin')                   ->  name    ('login.custom');
+    // register users
     route::get ('registration','registration')                   ->  name    ('register-user');
     route::post ('custom-registration','customRegistration')     ->  name    ('register.custom');
     route::get ('signout','signOut')                             ->  name    ('signout');
+    // route::post ('dashboard','dashboard')                         ->  name    ('dashboard');
 });
  
 
@@ -59,7 +63,7 @@ route::controller(HomeController::class)-> group(function(){
     route::get ('about','about')-> name('about');
     route::get ('faq/','faq')-> name('faq');
     route::get ( '/' , 'show')->name('home');
-    route::get ( '/posts/{title}/display/' , 'display')->name('display'); 
+    route::get ( '/posts/{title}/' , 'display')->name('display'); 
 
 });
 /*

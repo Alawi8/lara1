@@ -1,5 +1,7 @@
 @extends('dash.layouts.header')
-
+@section('title')
+لوحة التحكم
+@endsection
 @section('content')
 <div class="row">
     <div class="col-lg-3 col-sm-6 mb-lg-0 mb-4">
@@ -151,7 +153,7 @@
             <div class="card-header pb-0">
                 <div class="row mb-3">
                     <div class="col-6">
-                        <h6>المشاريع</h6>
+                        <h6>المواضيع</h6>
                         <p class="text-sm">
                             <i class="fa fa-check text-info" aria-hidden="true"></i>
                             <span class="font-weight-bold ms-1">30 انتهى</span> هذا الشهر
@@ -183,16 +185,17 @@
                             <tr>
                                 <th
                                     class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    المشروع</th>
+                                    الموضوع</th>
                                 <th
                                     class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                    أعضاء</th>
+                                    الكتاب</th>
                                 <th
                                     class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     ميزانية</th>
                                 <th
                                     class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    إكمال</th>
+                                    تحسين SEO
+                                    </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -500,7 +503,7 @@
     <div class="col-lg-4 col-md-6">
         <div class="card h-100">
             <div class="card-header pb-0">
-                <h6>نظرة عامة على الطلبات</h6>
+                <h6>نظره عامه على التعليقات</h6>
                 <p class="text-sm">
                     <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
                     <span class="font-weight-bold">24%</span> هذا الشهر

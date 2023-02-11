@@ -1,17 +1,3 @@
-<!--
-=========================================================
-* Material Dashboard 2 - v3.0.4
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -21,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('material/img/apple-icon.png') }}">
     <link rel="icon" type="image/png" href="{{ asset('material/img/favicon.png') }}">
     <title>
-       @yield('title')
+        @yield('title')
     </title>
     <!--     Fonts and icons     -->
     {{-- <link rel="stylesheet" type="text/css"
@@ -37,6 +23,21 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('material/css/material-dashboard.css?v=3.0.4') }}" rel="stylesheet" />
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+
+    <!-- CodeMirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.css" />
+
+    <!-- Firepad -->
+    <link rel="stylesheet" href="https://firepad.io/releases/v1.5.9/firepad.css" />
+    <script src="https://firepad.io/releases/v1.5.9/firepad.min.js"></script>
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+
+
 </head>
 
 <body class="g-sidenav-show rtl bg-gray-200">
@@ -46,7 +47,7 @@
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute start-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
+            <a class="navbar-brand m-0" href="{{route('home')}}"
                 target="_blank">
                 <img src="{{ asset('material/img/logo-ct.png') }}" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="me-1 font-weight-bold text-white">مدونه</span>
@@ -56,7 +57,7 @@
         <div class="collapse navbar-collapse px-0 w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link " href="{{route('dash.dashboard')}}">
+                    <a class="nav-link " href="{{ route('dash.dashboard') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons-round opacity-10">dashboard</i>
                         </div>
@@ -64,7 +65,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="{{route('dash.display')}}">
+                    <a class="nav-link " href="{{ route('dash.display') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons-round opacity-10">table_view</i>
                         </div>
@@ -80,7 +81,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="../pages/virtual-reality.html">
+                    <a class="nav-link " href="{{ route('dash.profile') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons-round opacity-10">view_in_ar</i>
                         </div>
@@ -89,7 +90,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="{{route('dash.navigation')}}">
+                    <a class="nav-link " href="{{ route('dash.navigation') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">notifications</i>
                         </div>
@@ -101,28 +102,20 @@
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons-round opacity-10">person</i>
                         </div>
-                        <span class="nav-link-text me-1">حساب تعريفي</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="../pages/sign-in.html">
-                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">login</i>
-                        </div>
                         <span class="nav-link-text me-1">{{ Auth::user()->name }}</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="{{route('dash.profile')}}">
+                {{-- <li class="nav-item">
+                    <a class="nav-link " href="">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons-round opacity-10">assignment</i>
                         </div>
                         <span class="nav-link-text me-1">SEO</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
-       
+
     </aside>
     <main class="main-content  position-relative max-height-vh-100 h-100 border-radius-lg overflow-x-hidden">
         <!-- Navbar -->
@@ -131,11 +124,9 @@
             <div class="container-fluid py-1 px-3  rounded">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-                        <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark"
-                                {{-- href="javascript:;">لوحات القيادة</a></li> --}}
-                        {{-- <li class="breadcrumb-item text-sm text-dark active" aria-current="page">RTL</li> --}}
-                    </ol>
-                    {{-- <h6 class="font-weight-bolder mb-0">RTL</h6> --}}
+                        <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-dark" {{-- href="javascript:;">لوحات القيادة</a></li> --}}
+                                {{-- <li class="breadcrumb-item text-sm text-dark active" aria-current="page">RTL</li> --}} </ol>
+                                {{-- <h6 class="font-weight-bolder mb-0">RTL</h6> --}}
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -144,11 +135,11 @@
                             <input type="text" class="form-control">
                         </div>
                     </div>
-                    
+
                     <ul class="navbar-nav me-auto ms-0 justify-content-end">
-                       
+
                         <li class="nav-item d-flex align-items-center">
-                            <a href="{{route('home')}}" class="nav-link text-body font-weight-bold px-0">
+                            <a href="{{ route('home') }}" class="nav-link text-body font-weight-bold px-0">
                                 <i class="fa fa-user me-sm-1"></i>
                                 <span class="d-sm-inline d-none">{{ Auth::user()->name }}</span>
                             </a>
@@ -261,7 +252,7 @@
             @include('dash.layouts.footer')
         </div>
     </main>
-            @include('dash.layouts.setting')
+    {{-- @include('dash.pages.setting') --}}
     <!--   Core JS Files   -->
     <script src="{{ asset('material/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('material/js/core/bootstrap.min.js') }}"></script>
@@ -270,9 +261,9 @@
     <script src="{{ asset('material/js/plugins/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('material/js/plugins/chartjs.min.js') }}"></script>
     <script>
-          var ctx = document.getElementById("chart-bars").getContext("2d");
+        var ctx = document.getElementById("chart-bars").getContext("2d");
 
-        new Chart( {
+        new Chart({
             type: "bar",
             data: {
                 labels: ["M", "T", "W", "T", "F", "S", "S"],
@@ -524,7 +515,7 @@
             }
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
-    </script> 
+    </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->

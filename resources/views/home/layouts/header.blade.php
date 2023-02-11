@@ -1,6 +1,6 @@
 <header>
     <!-- Google Tag Manager -->
-    <script >
+    <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({
@@ -20,13 +20,14 @@
     <title>@yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="@yield('title')">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="description" content="@yield('exept')">
+    <meta name="author" content="@yield('author')">
     <meta name="generator" content="Hugo 0.101.0">
 
 
     {{-- style bootstrap --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+
 
     <div id="heading" class="navbar navbar shadow-sm py-4 fixed-top">
         <div class="container">
@@ -73,7 +74,29 @@
         </div>
     </div>
 </header>
+
 <br>
 <br>
 <br>
 <br>
+@guest
+{{-- <li class="nav-item">
+    <a class="nav-link " href="{{ route('login') }}">Login</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link " href="{{ route('register-user') }}">Register</a>
+</li> --}}
+@else
+{{-- <li class="nav-item">
+    <a class="nav-link " href="{{ route('signout') }}">Logout</a>
+</li> --}}
+@if (Auth::user()->role == 2)
+  
+    <a class="nav-link" href="{{route('dash.display')}}">لوحة التحكم</a>
+@else
+    <li>
+        اسف لايوجد لديك صلاحيات للدخول
+    </li>
+@endif
+
+@endguest

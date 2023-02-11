@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Stmt\Return_;
@@ -8,99 +9,147 @@ use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 use App\Http\Controllers\Controller;
-
 class AdminController extends Controller
 {
     public function header()
     {
-        return view ('dash.layouts.header');
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
+        return view('dash.layouts.header');
     }
 
     public function create()
     {
-        return view ('dash.components.posts.create');
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
+        return view('dash.components.posts.create');
     }
+
+
+    //store function work to adding information to DataBase 
     public function store(Request $request)
     {
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
         $validated = $request->validate([
             //blade data in db
             'title' => 'required',
             'content' => 'required|max:25000',
-            'image'=> 'required|mimes:jpg,png,jpeg|max:5048',
-            
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
+
         ]);
+        //These instructions are responsible for saving images in public/assets/img/offers folder
         $newImageName = time() . '-' . $request->name . '.' .
-        $request->image->extension();
+            $request->image->extension();
 
-        $request->image->move(public_path('/assets/img/offers'),$newImageName);
-           
+        $request->image->move(public_path('/assets/img/offers'), $newImageName);
 
-        DB::table('posts')->insert ([
+
+        DB::table('posts')->insert([
             'title' => $request->title,
-            'time'  => $request->time,
-            'date'  => $request->date,
+            'time' => $request->time,
+            'date' => $request->date,
             'content' => $request->content,
-            // 'writer' => $request->writer,
-            'image_path'=> $newImageName ,
+            'writer' => $request->writer,
+            'exept' => $request->exept,
+            'image_path' => $newImageName,
         ]);
         return redirect()->route('dash.display');
     }
 
+    /* The display function displays the data in 
+    dash.component.posts.display page .*/
     public function display()
     {
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
         $post = Post::all();
         $arr = array('posts' => $post);
         // dd($arr);
-        return view('dash.components.posts.display',$arr );
+        return view('dash.components.posts.display', $arr);
 
     }
     public function edit($id)
     {
-        $editing = Post::where('id',$id)->first();
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
+        $editing = Post::where('id', $id)->first();
         // dd($editing);
-        return view ('dash.components.posts.edit',compact('editing'));
-    //    return view('dash.components.posts.edit');
+        return view('dash.components.posts.edit', compact('editing'));
     }
     public function update(Request $request, $id)
     {
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
         $postsUpdate = Post::find($id);
         $postsUpdate->title = $request->title;
         $postsUpdate->content = $request->content;
         $postsUpdate->save();
-        return redirect (route('dash.display'));
+        return redirect(route('dash.display'));
     }
     public function destroy($id)
     {
-        return view ("");
+        // return view ("");
     }
 
-    public function dashboard(){
-        return view ('dash.components.pages.dash');
+    public function dashboard()
+    {
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
+        return view('dash.components.pages.dash');
     }
-    public function profile(){
+    public function profile()
+    {
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
         $post = Post::all();
         $arr = array('posts' => $post);
-        return view ('dash.components.pages.profile',$arr);
+        return view('dash.components.pages.profile', $arr);
     }
 
-    public function navigation (){
+    public function navigation()
+    {
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
         return view('dash.components.pages.navigation');
     }
 
-    public function seo (){
+    public function seo()
+    {
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
         return view('dash.components.pages.profile');
     }
-    public function SeoUpdate ($id) {
-        $editing = Post::where('id',$id)->first();
+    public function SeoUpdate($id)
+    {
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
+        $editing = Post::where('id', $id)->first();
         // dd($editing);
-        return view ('dash.components.pages.seo',compact('editing'));
+        return view('dash.components.pages.seo', compact('editing'));
     }
 
-    public function SeoPost(Request $request, $id){
+    public function SeoPost(Request $request, $id)
+    {
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
         $SeoPost = Post::find($id);
         // $SeoPost->title = $request->title;
-        $SeoPost->content = $request -> content ;
+        $SeoPost->content = $request->content;
         $SeoPost->save();
-        return redirect (route('dash.profile'));
+        return redirect(route('dash.profile'));
     }
+
 }

@@ -9,9 +9,9 @@
                 <p>See our dashboard options.</p> --}}
             </div>
             <div class="float-start mt-4">
-                <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+                {{-- <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
                     <i class="material-icons">clear</i>
-                </button>
+                </button> --}}
             </div>
             <!-- End Toggle Button -->
         </div>
@@ -22,8 +22,8 @@
                 <h6 class="mb-0">Sidebar Colors</h6>
             </div> --}}
             <a href="javascript:void(0)" class="switch-trigger background-color">
-                {{-- <div class="badge-colors my-2 text-end">
-                    <span class="badge filter bg-gradient-primary active" data-color="primary"
+                <div class="badge-colors my-2 text-end">
+                    {{-- <span class="badge filter bg-gradient-primary active" data-color="primary"
                         onclick="sidebarColor(this)"></span>
                     <span class="badge filter bg-gradient-dark" data-color="dark"
                         onclick="sidebarColor(this)"></span>
@@ -34,8 +34,8 @@
                     <span class="badge filter bg-gradient-warning" data-color="warning"
                         onclick="sidebarColor(this)"></span>
                     <span class="badge filter bg-gradient-danger" data-color="danger"
-                        onclick="sidebarColor(this)"></span>
-                </div> --}}
+                        onclick="sidebarColor(this)"></span> --}}
+                </div>
             </a>
             <!-- Sidenav Type -->
             <div class="mt-3">
@@ -50,7 +50,7 @@
                 <button class="btn bg-gradient-dark px-3 mb-2 me-2" data-class="bg-white"
                     onclick="sidebarType(this)">White</button> --}}
             </div>
-            {{-- <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p> --}}
+            <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
             <!-- Navbar Fixed -->
             <div class="mt-3 d-flex">
                 {{-- <h6 class="mb-0">Navbar Fixed</h6>

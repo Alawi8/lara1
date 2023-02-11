@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <script src="https://cdn.tiny.cloud/1/o2wqsytvil98ae0qjcry4lnm7zds4uo18ct741ewklyrmta5/tinymce/6/tinymce.min.js"
-        referrerpolicy="origin"></script>
-</head>
 
 <body >
-    <textarea  name="content" id="textarea" >
+    <textarea  name="content" id="textarea" rows="25">
         {{old('content')}}
   </textarea>
     <script>
@@ -31,5 +25,3 @@
     </script>
     <small id="helpId" class="form-text text-muted">هنا محتوى المقاله </small>
 </body>
-
-</html> 

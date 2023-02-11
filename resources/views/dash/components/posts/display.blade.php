@@ -1,10 +1,12 @@
 @extends('dash.layouts.header')
-
+@section('title')
+عرض المقالات
+@endsection
 @section('content')
     <div class="container-fluid py-4">
-        <a href="{{ route('dash.create') }}" class="btn btn-danger bg-gradient-primary ">كتابة مقاله</a>
         <div class="row">
             <div class="col-12">
+                <a href="{{ route('dash.create') }}" class="btn btn-danger bg-gradient-primary ">كتابة مقاله</a>
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
@@ -46,9 +48,7 @@
                                                                 class="avatar avatar-sm  border-radius-lg" alt="user1">
                                                         </div>
                                                         <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 px-2 text-sm">{{ $post->title }}</h6>
-                                                            <p class="text-xs px-2 text-secondary mb-0">
-                                                                john@creative-tim.com</p>
+                                                            <h6 class="mb-0 px-2 text-sm">{{ $post->title }}</h6>      
                                                         </div>
                                                     </div>
                                                 </td>

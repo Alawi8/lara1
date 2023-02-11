@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    // use HasFactory;
+     use HasFactory;
     public function user(){
-        return $this ->hasOne(User::class);
+        return $this -> hasOne(User::class);
     }
     //posts comment
     public function comments()
