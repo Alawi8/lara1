@@ -94,9 +94,9 @@
   
     <a class="nav-link" href="{{route('dash.display')}}">لوحة التحكم</a>
 @else
-    <li>
+    <a>
         اسف لايوجد لديك صلاحيات للدخول
-    </li>
+    </a>
 @endif
 
 @endguest

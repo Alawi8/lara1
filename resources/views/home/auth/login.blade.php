@@ -24,9 +24,9 @@
                                     <div class="form-group mb-3">
                                         <input type="password" placeholder="Password" id="password" class="form-control"
                                             name="password">
-                                        @if ($errors->has('password'))
+                                    @if ($errors->has('password'))
                                             <span class="text-danger">{{ $errors->first('password') }}</span>
-                                        @endif
+                                    @endif
                                     </div>
 
                                     <div class="form-group mb-3">
@@ -38,11 +38,10 @@
                                     </div>
                                     @if (Auth::check())
                                     <form method="POST" action="{{ route('login.custom') }}">
-                                        @csrf
+                                    @csrf
                                         <a href="#">ffffffffff</a>
                                     </form>
                                     @endif
-    
                                     <div class="d-grid mx-auto">
                                         <button type="submit" class="btn btn-dark btn-block">دخول</button>
                                     </div>
