@@ -33,11 +33,7 @@
                                     {{-- end --}}
 
                                     <div>
-                                        {{-- <label for="formFileLg" class="form-label">الرجاء اختيار صوره</label>
-                                            <br>
-                                            <input value="" name="image" class="" id="formFileLg"
-                                                type="file"><br>
-                                            <small id="helpId" class="form-text text-muted">ادرج الصوره هنا</small> --}}
+                                           <input type="text" name="image_path" value ="{{$editing->image_path}}" id="">
                                     </div>
 
                                     <br>

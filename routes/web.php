@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminController;
 
 use App\Http\Controllers\HomeController;
 use Spatie\Sitemap\SitemapGenerator;
+use App\Http\Controllers\admin\AdminPagesController ;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,5 +91,6 @@ route::controller(AdminController::class)->group(function(){
     route::get(     '/dash/SeoUpdate/{id}'      ,      'SeoUpdate'   )  ->  name    ('dash.SeoUpdate')   -> middleware('auth');
     route::post(     '/dash/SeoPost/{id}'      ,      'SeoPost'      )  ->  name    ('dash.SeoPost')   -> middleware('auth');
 });
-
-
+route::controller(AdminPagesController::class)->group(function (){
+    route::get(     '/dash/media'       ,       'show'               )  ->  name    ('dash.media')  -> middleware("auth");
+});

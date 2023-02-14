@@ -9,7 +9,7 @@
         <h1>{{ $dis_posts->title }}</h1>
         <div id="content-img-posts-card" class="rounded-4 text-center">
             <img  
-                src="{{ asset('assets/img/offers/' . $dis_posts->image_path) }}" name="{{ $dis_posts->title }}"
+                src="{{$dis_posts->image_path }}" name="{{ $dis_posts->title }}"
                 alt="{{ $dis_posts->title }}">
         </div>
         <br>

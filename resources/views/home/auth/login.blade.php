@@ -6,7 +6,17 @@
     <main class="login-form">
         <div class="cotainer">
             <div class="row justify-content-center">
-
+                <div class="col-12">
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                </div>
                 <div class="col-md-4">
                     <div class="card">
                         <h3 class="card-header text-center">دخول</h3>

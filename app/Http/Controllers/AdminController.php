@@ -49,13 +49,13 @@ class AdminController extends Controller
 
 
         DB::table('posts')->insert([
-            'title' => $request->title,
-            'time' => $request->time,
-            'date' => $request->date,
-            'content' => $request->content,
-            'writer' => $request->writer,
-            'exept' => $request->exept,
-            'image_path' => $newImageName,
+            'title'     => $request     ->      title   ,
+            'time'      => $request     ->      time    ,
+            'date'      => $request     ->      date    ,   
+            'content'   => $request     ->      content ,
+            'writer'    => $request     ->      writer  ,
+            'exept'     => $request     ->      exept   ,
+            'image_path'=>asset('/assets/img/offers').'/'.$newImageName   ,
         ]);
         return redirect()->route('dash.display');
     }
@@ -88,8 +88,9 @@ class AdminController extends Controller
             return redirect('/');
         }
         $postsUpdate = Post::find($id);
-        $postsUpdate->title = $request->title;
-        $postsUpdate->content = $request->content;
+        $postsUpdate->  title       = $request  ->  title        ;
+        $postsUpdate->  content     = $request  ->  content      ;
+        $postsUpdate->  image_path  = $request  ->  image_path   ;
         $postsUpdate->save();
         return redirect(route('dash.display'));
     }

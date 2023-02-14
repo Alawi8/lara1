@@ -44,7 +44,7 @@
                                                 <td>
                                                     <div class="d-flex px-0 py-0">
                                                         <div>
-                                                            <img src="{{ asset('/assets/img/offers/' . $post->image_path) }}"
+                                                            <img src="{{ $post->image_path }}"
                                                                 class="avatar avatar-sm  border-radius-lg" alt="user1">
                                                         </div>
                                                         <div class="d-flex flex-column justify-content-center">

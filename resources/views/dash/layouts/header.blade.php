@@ -13,8 +13,8 @@
     {{-- <link rel="stylesheet" type="text/css"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" /> --}}
     <!-- Nucleo Icons -->
-    <link href="{{ asset('material/css/nucleo-icons.css') }}" rel="stylesheet" />
-    <link href="{{ asset('material/css/nucleo-svg.css') }}" rel="stylesheet" />
+    {{-- <link href="{{ asset('material/css/nucleo-icons.css') }}" rel="stylesheet" /> --}}
+    {{-- <link href="{{ asset('material/css/nucleo-svg.css') }}" rel="stylesheet" /> --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/style.min.css') }}"rel="stylesheet">
 
     <!-- Font Awesome Icons -->
@@ -25,14 +25,18 @@
     <link id="pagestyle" href="{{ asset('material/css/material-dashboard.css?v=3.0.4') }}" rel="stylesheet" />
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+    {{-- google icon --}}
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
 
     <!-- CodeMirror -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.css" />
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.js"></script> --}}
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.css" /> --}}
 
     <!-- Firepad -->
-    <link rel="stylesheet" href="https://firepad.io/releases/v1.5.9/firepad.css" />
-    <script src="https://firepad.io/releases/v1.5.9/firepad.min.js"></script>
+    {{-- <link rel="stylesheet" href="https://firepad.io/releases/v1.5.9/firepad.css" /> --}}
+    {{-- <script src="https://firepad.io/releases/v1.5.9/firepad.min.js"></script> --}}
 
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
@@ -47,8 +51,7 @@
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute start-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="{{route('home')}}"
-                target="_blank">
+            <a class="navbar-brand m-0" href="{{ route('home') }}" target="_blank">
                 <img src="{{ asset('material/img/logo-ct.png') }}" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="me-1 font-weight-bold text-white">مدونه</span>
             </a>
@@ -59,7 +62,9 @@
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('dash.dashboard') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">dashboard</i>
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
                         </div>
                         <span class="nav-link-text me-1">لوحة القيادة</span>
                     </a>
@@ -67,15 +72,19 @@
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('dash.display') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">table_view</i>
+                            <span class="material-symbols-outlined">
+                                post_add
+                            </span>
                         </div>
                         <span class="nav-link-text me-1">المقالات</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="../pages/billing.html">
+                    <a class="nav-link " href="#">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">receipt_long</i>
+                            <span class="material-symbols-outlined">
+                                credit_card
+                            </span>
                         </div>
                         <span class="nav-link-text me-1">الفواتير</span>
                     </a>
@@ -83,36 +92,44 @@
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('dash.profile') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">view_in_ar</i>
+                            <span class="material-symbols-outlined">
+                                travel_explore
+                            </span>
                         </div>
-                        <span class="nav-link-text me-1">تخصيص css</span>
+                        <span class="nav-link-text me-1">تحسين SEO</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('dash.navigation') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">notifications</i>
+                            <span class="material-symbols-outlined">
+                                notifications
+                            </span>
                         </div>
                         <span class="nav-link-text me-1">إشعارات</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="../pages/profile.html">
+                    <a class="nav-link " href="#">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">person</i>
+                            <span class="material-symbols-outlined">
+                                account_circle
+                            </span>
                         </div>
                         <span class="nav-link-text me-1">{{ Auth::user()->name }}</span>
                     </a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a class="nav-link " href="">
+                <li class="nav-item">
+                    <a class="nav-link " href="{{ route('dash.media') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">assignment</i>
+                            <span class="material-symbols-outlined">
+                                imagesmode
+                            </span>
                         </div>
-                        <span class="nav-link-text me-1">SEO</span>
+                        <span class="nav-link-text me-1">الوسائط</span>
                     </a>
-                </li> --}}
+                </li>
             </ul>
         </div>
 
