@@ -12,7 +12,9 @@ use PhpParser\Node\Stmt\Return_;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
+use App\Models\User;
 use SebastianBergmann\Type\TypeName;
+use  Barryvdh\Debugbar\Facades\Debugbar ;
 
 class AdminPagesController extends Controller
 {
@@ -82,8 +84,11 @@ class AdminPagesController extends Controller
      * Remove the specified resource from storage.
      *
      */
-    public function destroy($id)
+    public function display($id)
     {
-        //
+        $user = User::findOrFail($id);
+        // DebugBar::info();
+        // DebugBar::info($user);
+        dd($user->posts->id);
     }
 }

@@ -1,6 +1,6 @@
 @extends('dash.layouts.header')
 @section('title')
-عرض المقالات
+    عرض المقالات
 @endsection
 @section('content')
     <div class="container-fluid py-4">
@@ -32,11 +32,11 @@
                                             class="text-center text-uppercase text-light text-xxs font-weight-bolder opacity-10">
                                             <p class="font-weight-bolder">التاريخ</p>
                                         </th>
-                                        <th class="text-light opacity-7"> 
-
+                                        <th class="text-light opacity-7">
                                         </th>
                                     </tr>
                                 </thead>
+                                <p id="root"></p>
                                 @if (isset($posts))
                                     @foreach ($posts as $post)
                                         <tbody>
@@ -48,13 +48,13 @@
                                                                 class="avatar avatar-sm  border-radius-lg" alt="user1">
                                                         </div>
                                                         <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 px-2 text-sm">{{ $post->title }}</h6>      
+                                                            <h6 class="mb-0 px-2 text-sm">{{ $post->title }}</h6>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <p class="text-xs font-weight-bold mb-0">{{ $post->writer }}</p>
-                                                    <p class="text-xs text-secondary mb-0">Organization</p>
+                                                    <p class="text-xs text-secondary mb-0"></p>
                                                 </td>
                                                 <td class="align-middle text-center text-sm">
                                                     <span class="badge badge-sm bg-gradient-success">Online</span>
@@ -72,7 +72,12 @@
                                                 </td>
                                             </tr>
                                         </tbody>
-                                    @endforeach
+                                        @endforeach
+                                    <script>
+                                        let result = {!! json_encode($post->exept) !!};;
+                                        let length = result.length;
+                                        document.getElementById("root").innerHTML = length;
+                                        </script>
                                 @endif
                             </table>
                         </div>

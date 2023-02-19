@@ -93,4 +93,5 @@ route::controller(AdminController::class)->group(function(){
 });
 route::controller(AdminPagesController::class)->group(function (){
     route::get(     '/dash/media'       ,       'show'               )  ->  name    ('dash.media')  -> middleware("auth");
+    route::get("/user/{id}/"      ,       'display') -> name ('user.display') ;
 });
