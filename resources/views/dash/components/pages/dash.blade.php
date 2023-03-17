@@ -133,7 +133,6 @@
                     <div class="bg-light-dark shadow-dark border-radius-lg py-3 pe-1">
                         <div class="chart">
                             <div id="myPlot3" style="width:100%;max-width:700px"></div>
-
                         </div>
                     </div>
                 </div>

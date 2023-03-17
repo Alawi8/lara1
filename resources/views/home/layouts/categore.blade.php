@@ -12,9 +12,9 @@
             <a class="text-center btn btn-light nav-link" href="#">link</a>
             <a class="text-center btn btn-light nav-link" href="#">link</a>
         </tr>
-    {{-- </div> --}}
+    </div>
 
-    {{-- <div id="categure" class="card "> --}}
+    <div id="categure" class="card ">
         <div id="cate-aleart" class="alert alert-secondary">
             البرامج
         </div>
@@ -24,9 +24,9 @@
             <a class="text-center btn btn-light nav-link" href="#">link</a>
             <a class="text-center btn btn-light nav-link" href="#">link</a>
         </tr>
-    {{-- </div> --}}
+    </div>
 
-    {{-- <div id="categure" class="card "> --}}
+    <div id="categure" class="card ">
         <div id="cate-aleart" class="alert alert-secondary">
             لينكس
         </div>
@@ -36,9 +36,9 @@
             <a class="text-center btn btn-light nav-link" href="#">link</a>
             <a class="text-center btn btn-light nav-link" href="#">link</a>
         </tr>
-    {{-- </div> --}}
+    </div>
 
-    {{-- <div id="categure" class="card "> --}}
+    <div id="categure" class="card ">
         <div id="cate-aleart" class="alert alert-secondary">
             مقالات
         </div>

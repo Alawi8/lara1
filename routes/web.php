@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use Spatie\Sitemap\SitemapGenerator;
 use App\Http\Controllers\admin\AdminPagesController ;
+use App\Http\Controllers\RelationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,7 +92,15 @@ route::controller(AdminController::class)->group(function(){
     route::get(     '/dash/SeoUpdate/{id}'      ,      'SeoUpdate'   )  ->  name    ('dash.SeoUpdate')   -> middleware('auth');
     route::post(     '/dash/SeoPost/{id}'      ,      'SeoPost'      )  ->  name    ('dash.SeoPost')   -> middleware('auth');
 });
+
+// admin page controllers
 route::controller(AdminPagesController::class)->group(function (){
     route::get(     '/dash/media'       ,       'show'               )  ->  name    ('dash.media')  -> middleware("auth");
     route::get("/user/{id}/"      ,       'display') -> name ('user.display') ;
+});
+
+// relation test controller
+
+route::controller(RelationController::class)-> group(function(){
+    route::get('/relation'  ,       'relation')->name('relation');
 });
