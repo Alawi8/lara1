@@ -38,18 +38,19 @@
                                             <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
                                     </div>
-
+                                    
                                     <div class="form-group mb-3">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" name="remember"> ذكرني
+                                                <input type="checkbox" name="remember">
+                                                ذكرني
                                             </label>
                                         </div>
                                     </div>
                                     @if (Auth::check())
                                     <form method="POST" action="{{ route('login.custom') }}">
                                     @csrf
-                                        <a href="#">ffffffffff</a>
+                                        
                                     </form>
                                     @endif
                                     <div class="d-grid mx-auto">

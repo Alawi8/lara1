@@ -36,7 +36,12 @@ class User extends Authenticatable
 
     ###################### begin relation #####################
         public function phone (){
-            return $this -> hasOne('App\Models\Phone');
+            return $this -> hasOne('App\Models\Phone' , 'user_id');
         }
-    ###################### End relation ###################
+    ###################### End relation #######################
+    ###################### begin posts relation ###############
+        public function post (){
+            return $this -> hasMany('App\Models\Post' , 'user_id');
+        }
+    ###################### end posts relation #################
 }

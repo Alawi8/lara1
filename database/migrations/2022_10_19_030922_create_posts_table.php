@@ -11,13 +11,14 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
         // table items
             $table->increments('id');
             $table->string('title',60);
             $table->text('content');
             $table->string('writer');
             // $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('image_path');
             $table->time('time');      
             $table->date('date');      
@@ -27,6 +28,6 @@ return new class extends Migration
     }
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('posts');
     }
 };

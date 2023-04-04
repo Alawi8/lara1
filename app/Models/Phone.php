@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Phone extends Model
 {
-    // use HasFactory;
+    protected $table = "phones";
+    protected $fillable = ['numper','user'];
+    protected $timeStamps = true ;
 
-    public function User (){
-        return $this -> belongsTo('App\Models\User');
+    public function user (){
+        return $this -> belongsTo ('App\Models\User' , 'user_id');
     }
 }

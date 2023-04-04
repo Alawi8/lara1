@@ -3,26 +3,16 @@
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\postsController;
+use App\Http\Controllers\Auth\CustomAuthController;
+use App\Http\Controllers\admin\AdminController;
 
-use App\Http\Controllers\CustomAuthController;
-use App\Http\Controllers\AdminController;
-
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Home\HomeController;
 use Spatie\Sitemap\SitemapGenerator;
 use App\Http\Controllers\admin\AdminPagesController ;
+use App\Http\Controllers\admin\MediaController;
 use App\Http\Controllers\RelationController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now blade something great!
-|
-*/
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
 
 
 /*
@@ -53,8 +43,6 @@ Route::controller(CustomAuthController::class)-> group(function(){
     route::get ('signout','signOut')                             ->  name    ('signout');
     // route::post ('dashboard','dashboard')                         ->  name    ('dashboard');
 });
- 
-
 /*
 |--------------------------------------------------------------------------
 | home Routes
@@ -91,16 +79,34 @@ route::controller(AdminController::class)->group(function(){
     route::get(     '/dash/seo'      ,      'seo'                    )  ->  name    ('dash.seo')   -> middleware('auth');
     route::get(     '/dash/SeoUpdate/{id}'      ,      'SeoUpdate'   )  ->  name    ('dash.SeoUpdate')   -> middleware('auth');
     route::post(     '/dash/SeoPost/{id}'      ,      'SeoPost'      )  ->  name    ('dash.SeoPost')   -> middleware('auth');
+    route::get(     '/dash/shell/'      ,      'shell'      )  ->  name    ('dash.shell')   -> middleware('auth');
+});
+// 
+Route::controller(MediaController::class)->group(function(){
+    route::get(      '/dash/media'        ,          'GetMedia'        ) -> name    ('dash.media')  -> middleware('auth');
 });
 
 // admin page controllers
 route::controller(AdminPagesController::class)->group(function (){
-    route::get(     '/dash/media'       ,       'show'               )  ->  name    ('dash.media')  -> middleware("auth");
+    // route::get(     '/dash/media'       ,       'show'               )  ->  name    ('dash.media')  -> middleware("auth");
     route::get("/user/{id}/"      ,       'display') -> name ('user.display') ;
 });
 
 // relation test controller
-
 route::controller(RelationController::class)-> group(function(){
     route::get('/relation'  ,       'relation')->name('relation');
 });
+
+
+
+//categures route API
+
+Route::resource('posts', PostController::class);
+
+################## begin relation route ######################
+    route::controller( App\Http\Controllers\Category\CategoryController::class )->group(function (){
+        route::get('relation' , 'index')->name('relation');
+    });
+################## end relation route ######################
+
+

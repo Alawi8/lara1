@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -9,6 +9,10 @@ use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 use App\Http\Controllers\Controller;
+use Symfony\Component\Process\Process;
+use App\Http\Controllers\admin\ShellCommandFailedException ;
+
+
 class AdminController extends Controller
 {
     public function header()
@@ -37,25 +41,25 @@ class AdminController extends Controller
         $validated = $request->validate([
             //blade data in db
             'title' => 'required',
+            'exept' => 'required',
             'content' => 'required|max:25000',
             'image' => 'required|mimes:jpg,png,jpeg|max:5048',
 
         ]);
+        
         //These instructions are responsible for saving images in public/assets/img/offers folder
         $newImageName = time() . '-' . $request->name . '.' .
-            $request->image->extension();
-
+        $request->image->extension();
         $request->image->move(public_path('/assets/img/offers'), $newImageName);
-
-
         DB::table('posts')->insert([
-            'title'     => $request     ->      title   ,
-            'time'      => $request     ->      time    ,
-            'date'      => $request     ->      date    ,   
-            'content'   => $request     ->      content ,
-            'writer'    => $request     ->      writer  ,
-            'exept'     => $request     ->      exept   ,
-            'image_path'=>asset('/assets/img/offers').'/'.$newImageName   ,
+            'title' => $request->title,
+            'time' => $request->time,
+            'date' => $request->date,
+            'user_id'=> Auth::user()->id ,
+            'content' => $request->content,
+            'writer' => $request->writer,
+            'exept' => $request->exept,
+            'image_path' => asset('/assets/img/offers') . '/' . $newImageName,
         ]);
         return redirect()->route('dash.display');
     }
@@ -69,7 +73,6 @@ class AdminController extends Controller
         }
         $post = Post::all();
         $arr = array('posts' => $post);
-        // dd($arr);
         return view('dash.components.posts.display', $arr);
 
     }
@@ -79,21 +82,22 @@ class AdminController extends Controller
             return redirect('/');
         }
         $editing = Post::where('id', $id)->first();
-        // dd($editing);
         return view('dash.components.posts.edit', compact('editing'));
     }
+
     public function update(Request $request, $id)
     {
         if (Auth::user()->role == 0) {
             return redirect('/');
         }
         $postsUpdate = Post::find($id);
-        $postsUpdate->  title       = $request  ->  title        ;
-        $postsUpdate->  content     = $request  ->  content      ;
-        $postsUpdate->  image_path  = $request  ->  image_path   ;
+        $postsUpdate->title = $request->title;
+        $postsUpdate->content = $request->content;
+        $postsUpdate->image_path = $request->image_path;
         $postsUpdate->save();
         return redirect(route('dash.display'));
     }
+
     public function destroy($id)
     {
         // return view ("");
@@ -104,7 +108,7 @@ class AdminController extends Controller
         if (Auth::user()->role == 0) {
             return redirect('/');
         }
-        return view('dash.components.pages.dash');
+        return view('dash.components.pages.home');
     }
     public function profile()
     {
@@ -151,6 +155,11 @@ class AdminController extends Controller
         $SeoPost->content = $request->content;
         $SeoPost->save();
         return redirect(route('dash.profile'));
+    }
+
+    public static function shell()
+    {
+        return 'dd';
     }
 
 }
