@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\CustomAuthController;
 use App\Http\Controllers\Admin\AdminController;
 
-use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\home\HomeController;
 use Spatie\Sitemap\SitemapGenerator;
 use App\Http\Controllers\Admin\AdminPagesController ;
 use App\Http\Controllers\Admin\MediaController;
