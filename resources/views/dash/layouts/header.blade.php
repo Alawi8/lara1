@@ -241,9 +241,6 @@
 </body>
 
 
-{{-- <body>
-    @include('dash.layouts.dashboard')
-</body> --}}
 <footer>
     @include('dash.layouts.footer')
 </footer>

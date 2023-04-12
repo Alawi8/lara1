@@ -1,5 +1,7 @@
  @extends('dash.layouts.header')
-
+ @section('title')
+كتابة مقاله
+@endsection
  @section('content')
 
      <head>

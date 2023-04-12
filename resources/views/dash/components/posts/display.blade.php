@@ -11,21 +11,20 @@
     </style>
     <div class="container-fluid py-4">
 
-        <div class="row">
-            <div class="col-12">
+        <div class="row ">
+            <div class="col-12 ">
                 <a href="{{ route('dash.create') }}" class="btn btn-primary bg-gradient-primary ">كتابة مقاله</a>
                 <div class="card my-4">
-                    <div class="card-header p-0 position-relative  z-index-2">
-                        <div class="bg-dark shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">المقالات</h6>
+                    <div class="card-header p-0 position-relative  z-index-2 bg-dark">
+                        <div class=" shadow-primary border-radius-lg pt-4 pb-3">
+                            <h6 class="text-white text-capitalize ps-3 ">المقالات</h6>
                         </div>
                     </div>
-                    <p id="root"></p>
-                    <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
+                    <div class="table-responsive ">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0 ">
+                            <thead class="text-center bg-danger ">
                                 <tr class="text-dark">
-                                    <th scope="col"><input class="form-check-input" type="checkbox"></th>
+                                    <th scope="col"></th>
                                     <th scope="col">العنوان</th>
                                     <th scope="col">الكاتب</th>
                                     <th scope="col">الحاله</th>
@@ -36,7 +35,7 @@
                             </thead>
                             @if (isset($posts))
                                 @foreach ($posts as $post)
-                                    <tbody>
+                                    <tbody class="text-center">
                                         <tr>
                                             <td> <img src="{{ $post->image_path }}" class="img-thumbnail" alt="...">
                                             </td>
