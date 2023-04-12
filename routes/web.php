@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Auth\CustomAuthController;
+use App\Http\Controllers\auth\CustomAuthController;
 use App\Http\Controllers\Admin\AdminController;
 
 use App\Http\Controllers\home\HomeController;
