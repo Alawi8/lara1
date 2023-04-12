@@ -4,12 +4,12 @@ use Illuminate\Support\Facades\Route;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\CustomAuthController;
-use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\Admin\AdminController;
 
-use App\Http\Controllers\home\HomeController;
+use App\Http\Controllers\Aome\HomeController;
 use Spatie\Sitemap\SitemapGenerator;
-use App\Http\Controllers\admin\AdminPagesController ;
-use App\Http\Controllers\admin\MediaController;
+use App\Http\Controllers\Admin\AdminPagesController ;
+use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\RelationController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
