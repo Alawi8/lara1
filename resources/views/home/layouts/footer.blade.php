@@ -22,7 +22,7 @@
               <li class="nav-item"><a href="{{ route('policy') }}" class="nav-link px-2 text-muted">policy</a></li>
               <li class="nav-item"><a href="{{ route('faq') }}" class="nav-link px-2 text-muted">FAQs</a></li>
               <li class="nav-item"><a href="{{ route('about') }}" class="nav-link px-2 text-muted">About</a></li>
-              <li class="nav-item"><a href="{{ route('relation') }}" class="nav-link px-2 text-muted">relation</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"></a></li>
               {{-- <li class="nav-item"><a href="{{ route('dash.dashboard') }}" class="nav-link px-2 text-muted">admin</a></li> --}}
           </ul>
       </div>

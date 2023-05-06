@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('phones', function (Blueprint $table) {
-            $table->id();
-            $table->string('numper');
-            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+        Schema::create('categories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('parent_id')->unsigned()->nullable();
+            $table->string('name');
             $table->timestamps();
         });
     }
-
 };
