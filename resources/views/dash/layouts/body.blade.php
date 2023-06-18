@@ -286,7 +286,7 @@
     
     <script>
         var xArray = ["Italy", "France", "Spain", "USA", "Argentina"];
-        var yArray = [55, 49, 44, 24, 15];
+        var yArray = [55, 49, 44, 50, 50];
 
         var layout = {
             title: "World Wide Wine Production"

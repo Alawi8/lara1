@@ -8,6 +8,7 @@ use PhpParser\Node\Stmt\Return_;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Symfony\Component\Process\Process;
 use App\Http\Controllers\admin\ShellCommandFailedException ;
@@ -15,20 +16,14 @@ use App\Http\Controllers\admin\ShellCommandFailedException ;
 
 class AdminController extends Controller
 {
-    public function header()
-    {
-        if (Auth::user()->role == 0) {
-            return redirect('/');
-        }
-        return view('dash.layouts.header');
-    }
+
 
     public function create()
     {
         if (Auth::user()->role == 0) {
             return redirect('/');
         }
-        return view('dash.components.posts.create');
+        return view('dash.components.posts.create')->with('categuries',Category::all());
     }
 
 
@@ -60,6 +55,7 @@ class AdminController extends Controller
             'writer' => $request->writer,
             'exept' => $request->exept,
             'image_path' => asset('/assets/img/offers') . '/' . $newImageName,
+            'category_id'=> $request->category ,
         ]);
         return redirect()->route('dash.display');
     }
@@ -110,6 +106,8 @@ class AdminController extends Controller
         }
         return view('dash.components.pages.home');
     }
+
+    
     public function profile()
     {
         if (Auth::user()->role == 0) {
@@ -120,46 +118,11 @@ class AdminController extends Controller
         return view('dash.components.pages.profile', $arr);
     }
 
-    public function navigation()
+    public function header()
     {
         if (Auth::user()->role == 0) {
             return redirect('/');
         }
-        return view('dash.components.pages.navigation');
+        return view('dash.layouts.header');
     }
-
-    public function seo()
-    {
-        if (Auth::user()->role == 0) {
-            return redirect('/');
-        }
-        return view('dash.components.pages.profile');
-    }
-    public function SeoUpdate($id)
-    {
-        if (Auth::user()->role == 0) {
-            return redirect('/');
-        }
-        $editing = Post::where('id', $id)->first();
-        // dd($editing);
-        return view('dash.components.pages.seo', compact('editing'));
-    }
-
-    public function SeoPost(Request $request, $id)
-    {
-        if (Auth::user()->role == 0) {
-            return redirect('/');
-        }
-        $SeoPost = Post::find($id);
-        // $SeoPost->title = $request->title;
-        $SeoPost->content = $request->content;
-        $SeoPost->save();
-        return redirect(route('dash.profile'));
-    }
-
-    public static function shell()
-    {
-        return 'dd';
-    }
-
 }

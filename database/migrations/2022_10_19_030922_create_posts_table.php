@@ -24,16 +24,13 @@ return new class extends Migration
             $table->date('date');      
             $table->timestamps();
             $table->string('exept');
-            $table->integer('category_id')->unsigned()->nullable()->after('user_id');
-
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->integer('category_id');
         });
     }
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeign(['category_id']);
-            $table->dropColumn('category_id');
+        
           });
     }
 };

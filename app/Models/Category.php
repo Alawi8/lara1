@@ -7,11 +7,11 @@ use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model implements TranslatableContracts
-{
-    use Translatable;
-    use HasFactory;
+class category extends Model {
+    protected $table = 'categuries';
+    protected $fillable = ['name'];
 
-    public $translatable = ['title', 'content'];
-    protected $fillable = ['id' , 'image_path' , 'parent_id' , 'created_at' , 'updated_at' ];
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
 }

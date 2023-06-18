@@ -1,63 +1,50 @@
 <?php
 
-namespace App\Http\Controllers\Category;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Models\User ;
-use App\Http\Requests\CreateCateguryRequest ;
+use Illuminate\Support\Facades\Auth;
 
-
-class CategoryController extends Controller
+class AdminPostController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
      */
     public function index()
     {
-        return view('dash.components.categories.index')->with('categuries', Category::all());
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
+        return view('dash.components.pages.home');
     }
 
     /**
      * Show the form for creating a new resource.
-     *
      */
     public function create()
     {
-        return view('dash.components.categories.create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
-     *
      */
-    public function store(CreateCateguryRequest $request)
+    public function store(Request $request)
     {
-        // $this->validate($request , [
-        //     'name'  => 'required|unique:categuries',
-        // ]);
-        $ncategory = new Category() ;
-        Category::create([
-            'name'=>$request->name ,
-        ]);
-        session()->flash('success', 'categuries created succesfully');
-        return redirect(route('category.index'));
+        //
     }
 
     /**
      * Display the specified resource.
-     *
      */
-    public function show()
+    public function show($id)
     {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
-     *
      */
     public function edit($id)
     {
@@ -66,7 +53,6 @@ class CategoryController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
      */
     public function update(Request $request, $id)
     {

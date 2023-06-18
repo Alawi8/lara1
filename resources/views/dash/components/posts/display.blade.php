@@ -30,7 +30,7 @@
                                     <th scope="col">الحاله</th>
                                     <th scope="col">التاريخ</th>
                                     <th scope="col">الساعه</th>
-                                    <th scope="col">الاجراءات</th>
+                                    <th scope="col">التصنيف</th>
                                 </tr>
                             </thead>
                             @if (isset($posts))
@@ -39,15 +39,21 @@
                                         <tr>
                                             <td> <img src="{{ $post->image_path }}" class="img-thumbnail" alt="...">
                                             </td>
-                                            <td>{{ $post->title }}</td>
+                                            <td>{{ $post->title }}
+                                                <br>
+                                                <a href="{{ route('dash.edit', $post->id) }}" class="badge rounded-pill text-bg-info">تعديل</a>
+                                                <a href="{{ route('dash.edit', $post->id) }}" class="badge rounded-pill text-bg-danger">حذف</a>
+
+                                            </td>
                                             <td>{{ $post->writer }}</td>
                                             <td>
-                                                Online
+                                                <span class="badge rounded-pill text-bg-success">ONLINE</span>
                                             </td>
+                                            <td>{{ $post->date }}</td>
                                             <td>{{ $post->time }}</td>
-                                            <td>Paid</td>
-                                            <td><a class="btn btn-sm btn-primary"
-                                                    href="{{ route('dash.edit', $post->id) }}">تعديل</a></td>
+                                            <td>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 @endforeach

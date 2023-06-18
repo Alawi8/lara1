@@ -10,7 +10,7 @@ use App\Http\Controllers\admin\AdminPagesController ;
 use App\Http\Controllers\admin\MediaController;
 use App\Http\Controllers\RelationController;
 use App\Http\Controllers\Category\CategoryController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\AdminPostController;
 
 
 /*
@@ -53,31 +53,43 @@ route::controller(HomeController::class)-> group(function(){
     route::get ( '/' , 'show')->name('home');
     route::get ( '/posts/{title}/' , 'display')->name('display');
 });
+
+################## begin posts route ######################
+Route::resource('dash/', AdminController::class)->middleware('auth');
+################## end posts route ######################
+
+
+################## begin posts route ######################
+Route::resource('posts/', AdminPostController::class)->middleware('auth');
+################## end posts route ######################
+
+
 /*
 |--------------------------------------------------------------------------
 | admin Routes
 |--------------------------------------------------------------------------
 */
-route::controller(AdminController::class)->group(function(){
-    route::get(     '/dash/header'      ,      'header'              )  ->  name    ('dash.header')   ->        middleware('auth');
-    route::get(     '/dash/create'      ,      'create'              )  ->  name    ('dash.create')   ->        middleware('auth');
-    route::get(     '/dash/display/'      ,      'display'           )  ->  name    ('dash.display')   ->       middleware('auth');
-    route::post(     '/dash/store/'       ,       'store'            )  ->  name    ('dash.store')    ->        middleware('auth');
+// route::controller(AdminController::class)->group(function(){
+//     route::get(     '/dash/header'      ,      'header'              )  ->  name    ('dash.header')   ->        middleware('auth');
+//     route::get(     '/dash/create'      ,      'create'              )  ->  name    ('dash.create')   ->        middleware('auth');
+//     route::get(     '/dash/display/'      ,      'display'           )  ->  name    ('dash.display')   ->       middleware('auth');
+//     route::post(     '/dash/store/'       ,       'store'            )  ->  name    ('dash.store')    ->        middleware('auth');
     
-    //update dash
-    route::get(    '/dash/edit/{id}'      ,      'edit'              )  ->  name    ('dash.edit')   ->      middleware('auth');
-    route::post(    '/dash/update/{id}'      ,      'update'         )  ->  name    ('dash.update')   ->        middleware('auth');
+//     //update dash
+//     route::get(    '/dash/edit/{id}'      ,      'edit'              )  ->  name    ('dash.edit')   ->      middleware('auth');
+//     route::post(    '/dash/update/{id}'      ,      'update'         )  ->  name    ('dash.update')   ->        middleware('auth');
 
-    route::get(     '/dash/dashboard/'      ,      'dashboard'       )  ->  name    ('dash.dashboard')   ->         middleware('auth');
-    route::get(     '/dash/profiles/'      ,      'profile'          )  ->  name    ('dash.profile')   ->       middleware('auth');
-    route::get(     '/dash/navigation/'      ,      'navigation'     )  ->  name    ('dash.navigation')   ->        middleware('auth');
+//     route::get(     '/dash/dashboard/'      ,      'dashboard'       )  ->  name    ('dash.dashboard')   ->         middleware('auth');
+//     route::get(     '/dash/profiles/'      ,      'profile'          )  ->  name    ('dash.profile')   ->       middleware('auth');
+//     route::get(     '/dash/navigation/'      ,      'navigation'     )  ->  name    ('dash.navigation')   ->        middleware('auth');
 
-    // page seo optimization
-    route::get(     '/dash/seo'      ,      'seo'                    )  ->  name    ('dash.seo')   ->       middleware('auth');
-    route::get(     '/dash/SeoUpdate/{id}'      ,      'SeoUpdate'   )  ->  name    ('dash.SeoUpdate')   ->         middleware('auth');
-    route::post(     '/dash/SeoPost/{id}'      ,      'SeoPost'      )  ->  name    ('dash.SeoPost')   ->       middleware('auth');
-    route::get(     '/dash/shell/'      ,      'shell'      )  ->  name    ('dash.shell')   ->      middleware('auth');
-});
+//     // page seo optimization
+//     route::get(     '/dash/seo'      ,      'seo'                    )  ->  name    ('dash.seo')   ->       middleware('auth');
+//     route::get(     '/dash/SeoUpdate/{id}'      ,      'SeoUpdate'   )  ->  name    ('dash.SeoUpdate')   ->         middleware('auth');
+//     route::post(     '/dash/SeoPost/{id}'      ,      'SeoPost'      )  ->  name    ('dash.SeoPost')   ->       middleware('auth');
+//     route::get(     '/dash/shell/'      ,      'shell'      )  ->  name    ('dash.shell')   ->      middleware('auth');
+//     route::get(     '/dash/setting/'      ,      'setting'      )  ->  name    ('dash.setting')   ->      middleware('auth');
+// });
 // 
 Route::controller(MediaController::class)->group(function(){
     route::get(      '/dash/media'        ,          'GetMedia'        ) -> name    ('dash.media')  ->      middleware('auth');
@@ -98,13 +110,14 @@ route::controller(RelationController::class)-> group(function(){
 
 //categures route API
 
-Route::resource('posts', PostController::class);
+// Route::resource('posts', PostController::class);
 
 ################## begin relation route ######################
     route::controller( RelationController::class )->group(function (){
         route::get('relation' , 'relation')->name('relation');
     });
 ################## end relation route ######################
-Route::resource('category', CategoryController::class)->middleware('auth');
+Route::resource('dash/category', CategoryController::class)->middleware('auth');
+
 
 

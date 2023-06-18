@@ -40,9 +40,10 @@
 
                                  <div class="col-md-6">
                                      <label for="country" class="form-label">التصنيف</label>
-                                     <select class="form-select" id="country" required>
-                                         <option value="">Choose...</option>
-                                         <option>United States</option>
+                                     <select class="form-select" name="category" id="category" required>
+                                            @foreach ($categuries as $categury)
+                                                <option value="{{$categury->id}}">{{ $categury->name}}</option>
+                                            @endforeach
                                      </select>
 
                                      <div class="invalid-feedback">

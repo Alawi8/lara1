@@ -42,7 +42,6 @@
                     </div>
                 </div>
             </div>
-            ffff
         </div>
     </div>
 </header> --}}
@@ -138,7 +137,7 @@
                 rel="stylesheet" />
             <!-- thin outlined icons -->
             <div style="font-variation-settings: 'FILL' 0, 'wght' 100, 'GRAD' 0, 'opsz' 48;">
-                <a href="{{ route('dash.dashboard') }}"
+                <a href="{{ route('index') }}"
                     class="bg-dark rounded-3 nav-link text-light material-symbols-outlined" title="التحكـم">home</a>
                 <a href="#" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
                     title="الاعدادات">settings</a>
@@ -146,7 +145,7 @@
                     title="الحساب">account_circle</a>
                 <a href="#" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
                     title="الايميل">mail</a>
-                <a href="{{ route('dash.create') }}" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
+                <a href="{{ route('create') }}" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
                     title="اضف مقاله">add_circle</a>
                 <a href="{{ route('signout') }}" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
                     title="خروج">logout</a>

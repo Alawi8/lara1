@@ -127,6 +127,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{route('category.index')}}">
+                    <span data-feather="settings" class="align-text-bottom"></span>
+                    الإعدادات
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#">
                     <span data-feather="bar-chart-2" class="align-text-bottom"></span>
                     التقارير
