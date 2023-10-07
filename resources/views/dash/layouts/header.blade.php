@@ -103,19 +103,19 @@
     <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="{{ route('dash.dashboard') }}">
+                <a class="nav-link " aria-current="page" href="#">
                     <span data-feather="home" class="align-text-bottom"></span>
                     لوحة القيادة
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('dash.display') }}">
+                <a class="nav-link " href="{{ route('dashboard.index') }}">
                     <span data-feather="file" class="align-text-bottom"></span>
                     المقالات
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('posts.index') }}">
+                <a class="nav-link" href="#">
                     <span data-feather="shopping-cart" class="align-text-bottom"></span>
                     الصفحات
                 </a>
@@ -127,7 +127,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('category.index')}}">
+                <a class="nav-link" href="{{ route('settings.index') }}">
                     <span data-feather="settings" class="align-text-bottom"></span>
                     الإعدادات
                 </a>
@@ -139,9 +139,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('category.index')}}">
+                <a class="nav-link" href="{{ route('category.index') }}">
                     <span data-feather="layers" class="align-text-bottom"></span>
                     التصنيفات
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('photo.index') }}">
+                    <span data-feather="layers" class="align-text-bottom"></span>
+                    الوسائط
                 </a>
             </li>
         </ul>
@@ -185,58 +191,96 @@
                     <span data-feather="plus-circle" class="align-text-bottom"></span>
                 </a>
             </h6>
-            {{-- <aside class="bd-aside sticky-xl-top text-body-secondary align-self-start mb-3 mb-xl-5 px-2">
-              <h2 class="h6 pt-4 pb-3 mb-4 border-bottom">على هذه الصفحة</h2>
-              <nav class="small" id="toc">
-                <ul class="list-unstyled">
-                  <li class="my-2">
-                    <button class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">المحتوى</button>
-                    <ul class="list-unstyled ps-3 collapse" id="contents-collapse">
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#typography">النصوص</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#images">الصور</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#tables">الجداول</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#figures">النماذج البيانية</a></li>
+            <aside class="bd-aside sticky-xl-top text-body-secondary align-self-start mb-3 mb-xl-5 px-2">
+                <nav class="small" id="toc">
+                    <ul class="list-unstyled">
+                        <li class="my-2">
+                            <button class="btn d-inline-flex align-items-center collapsed border-0"
+                                data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse"
+                                aria-controls="contents-collapse">المحتوى</button>
+                            <ul class="list-unstyled ps-3 collapse" id="contents-collapse">
+                                <li>
+                                    <span data-feather="plus-circle"></span>
+                                    <a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#typography">النصوص</a>
+                                </li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#images">الصور</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#tables">الجداول</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#figures">النماذج البيانية</a></li>
+                            </ul>
+                        </li>
+                        <li class="my-2">
+                            <button class="btn d-inline-flex align-items-center collapsed border-0"
+                                data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#forms-collapse"
+                                aria-controls="forms-collapse">النماذج</button>
+                            <ul class="list-unstyled ps-3 collapse" id="forms-collapse">
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#overview">نظرة عامة</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#disabled-forms">الحقول المعطلة</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#sizing">الأحجام</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#input-group">مجموعة الإدخال</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#floating-labels">الحقول ذوي العناوين العائمة</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#validation">التحقق</a></li>
+                            </ul>
+                        </li>
+                        <li class="my-2">
+                            <button class="btn d-inline-flex align-items-center collapsed border-0"
+                                data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#components-collapse"
+                                aria-controls="components-collapse">مكونات</button>
+                            <ul class="list-unstyled ps-3 collapse" id="components-collapse">
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#accordion">المطوية</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#alerts">الإنذارات</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#badge">الشارة</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#breadcrumb">مسار التنقل التفصيلي</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#buttons">الأزرار</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#button-group">مجموعة الأزرار</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#card">البطاقة</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#carousel">شرائح العرض</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#dropdowns">القوائم المنسدلة</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#list-group">مجموعة العناصر</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#modal">الصندوق العائم</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#navs">التنقل</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#navbar">شريط التنقل</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#pagination">ترقيم الصفحات</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#popovers">الصناديق المنبثقة</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#progress">شريط التقدم</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#scrollspy">المخطوطة</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#spinners">الدوائر المتحركة</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#toasts">الإشعارات</a></li>
+                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
+                                        href="#tooltips">التلميحات</a></li>
+                            </ul>
+                        </li>
                     </ul>
-                  </li>
-                  <li class="my-2">
-                    <button class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#forms-collapse" aria-controls="forms-collapse">النماذج</button>
-                    <ul class="list-unstyled ps-3 collapse" id="forms-collapse">
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#overview">نظرة عامة</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#disabled-forms">الحقول المعطلة</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#sizing">الأحجام</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#input-group">مجموعة الإدخال</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#floating-labels">الحقول ذوي العناوين العائمة</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#validation">التحقق</a></li>
-                    </ul>
-                  </li>
-                  <li class="my-2">
-                    <button class="btn d-inline-flex align-items-center collapsed border-0" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#components-collapse" aria-controls="components-collapse">مكونات</button>
-                    <ul class="list-unstyled ps-3 collapse" id="components-collapse">
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#accordion">المطوية</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#alerts">الإنذارات</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#badge">الشارة</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#breadcrumb">مسار التنقل التفصيلي</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#buttons">الأزرار</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#button-group">مجموعة الأزرار</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#card">البطاقة</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#carousel">شرائح العرض</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#dropdowns">القوائم المنسدلة</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#list-group">مجموعة العناصر</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#modal">الصندوق العائم</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#navs">التنقل</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#navbar">شريط التنقل</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#pagination">ترقيم الصفحات</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#popovers">الصناديق المنبثقة</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#progress">شريط التقدم</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#scrollspy">المخطوطة</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#spinners">الدوائر المتحركة</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#toasts">الإشعارات</a></li>
-                      <li><a class="d-inline-flex align-items-center rounded text-decoration-none" href="#tooltips">التلميحات</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </nav>
-            </aside> --}}
+                </nav>
+            </aside>
         </ul>
     </div>
 </nav>

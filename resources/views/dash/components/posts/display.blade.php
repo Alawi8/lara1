@@ -13,7 +13,7 @@
 
         <div class="row ">
             <div class="col-12 ">
-                <a href="{{ route('dash.create') }}" class="btn btn-primary bg-gradient-primary ">كتابة مقاله</a>
+                <a href="{{route('dashboard.create')}}" class="btn btn-primary bg-gradient-primary ">كتابة مقاله</a>
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative  z-index-2 bg-dark">
                         <div class=" shadow-primary border-radius-lg pt-4 pb-3">
@@ -41,8 +41,8 @@
                                             </td>
                                             <td>{{ $post->title }}
                                                 <br>
-                                                <a href="{{ route('dash.edit', $post->id) }}" class="badge rounded-pill text-bg-info">تعديل</a>
-                                                <a href="{{ route('dash.edit', $post->id) }}" class="badge rounded-pill text-bg-danger">حذف</a>
+                                                <a href="{{ route('dashboard.edit', $post->id) }}" class="badge rounded-pill text-bg-info">تعديل</a>
+                                                <a href="{{ route('dashboard.destroy', $post->id) }}" class="badge rounded-pill text-bg-danger">حذف</a>
 
                                             </td>
                                             <td>{{ $post->writer }}</td>
@@ -56,6 +56,7 @@
                                             </td>
                                         </tr>
                                     </tbody>
+                                    
                                 @endforeach
                             @endif
                         </table>
@@ -64,7 +65,4 @@
             </div>
         </div>
     </div>
-    </div>
-    </div>
-
 @endsection

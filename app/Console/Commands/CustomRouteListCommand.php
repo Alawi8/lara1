@@ -6,7 +6,7 @@ use Symfony\Component\Console\Helper\TableSeparator;
 
 class CustomRouteListCommand extends Command
 {
-    protected $signature = 'route:list:custom';
+    protected $signature = 'route:list';
 
     protected $description = 'Display the route list in a custom table format.';
 

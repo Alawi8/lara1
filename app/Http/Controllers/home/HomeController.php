@@ -11,7 +11,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        //
+        $all_posts = Post::all();
+        return view('home.welcom',['posts' => $all_posts]);
+
     }
 
     public function create()
@@ -25,8 +27,6 @@ class HomeController extends Controller
         //
     }
     public function show(){
-        $all_posts = Post::all();
-        return view('home.welcom',['posts' => $all_posts]);
     }
 
     public function about()

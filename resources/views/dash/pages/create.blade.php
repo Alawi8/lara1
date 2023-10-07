@@ -13,7 +13,6 @@
                     </ul>
                 </div>
             @endif
-
             <div class="collapse show" id="collapseCardExample">
                 <div class="card-body col-12">
                     <div class="row">
@@ -26,7 +25,6 @@
                             <div id="card-create" class="row bg-light">
                                 <div class="col-lg-3 col-md-3 col-sm-12">
                                     <div class="mb-3">
-
                                         <input name="title" type="text" class="@error('title') is-invalid @enderror"
                                             value="{{ old('title') }}" aria-describedby="helpId"
                                             placeholder="اكتب العنوان هنا">
@@ -37,13 +35,10 @@
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-12 ">
                                     <div>
-                                      
                                             <input name="image" value="{{old('image')}}"
                                                 class="@error('image') is-invalid @enderror" id="formFile" type="file"
                                                 placeholder="اختر الصوره"><br>
-                                    
                                     </div>
-
                                     <br>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-12">
@@ -51,10 +46,7 @@
                                         placeholder="اكتب المقتطف هنا" class="@error('exept') is-invalid @enderror">
                                 </div>
                             </div>
-
                             @include('dash.components.posts.CMS')<br>
-
-
                             <button class="btn btn-primary" type="submit">نشر</button>
                         </form>
 

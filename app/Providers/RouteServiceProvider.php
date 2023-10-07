@@ -32,9 +32,41 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('api')
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
-
+            //route link defualt web.php
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
+
+            //route link admin/dashboard.php
+            Route::prefix('dashboard')
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/admin/dashboard.php'));
+
+            //route link home/home.php
+            Route::prefix('home')
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/home/home.php'));
+            //route link auth/auth.php
+            Route::prefix('auth')
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/Auth/auth.php'));
+
+            Route::prefix('admin')
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/admin/dashboard.php'));
+                
+            Route::prefix('admin')
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/admin/photo.php'));
+
+            Route::prefix('admin')
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/admin/settings.php'));
         });
     }
 

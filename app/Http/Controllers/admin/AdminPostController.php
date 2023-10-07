@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Models\category ;
 
 class AdminPostController extends Controller
 {
@@ -13,10 +16,14 @@ class AdminPostController extends Controller
      */
     public function index()
     {
+
         if (Auth::user()->role == 0) {
             return redirect('/');
         }
-        return view('dash.components.pages.home');
+        $post = Post::all();
+        $arr = array('posts' => $post);
+        return view('dash.components.posts.display', $arr);
+
     }
 
     /**
@@ -24,7 +31,7 @@ class AdminPostController extends Controller
      */
     public function create()
     {
-        //
+        return view('dash.components.posts.create')->with('categuries',category::all());
     }
 
     /**
@@ -32,15 +39,47 @@ class AdminPostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
+        $validated = $request->validate([
+            //blade data in db
+            'title' => 'required',
+            'exept' => 'required',
+            'content' => 'required|max:25000',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
+
+        ]);
+        
+        //These instructions are responsible for saving images in public/assets/img/offers folder
+        $newImageName = time() . $request->name . '.' .
+        $request->image->extension();
+        $request->image->move(public_path('/assets/img/offers'), $newImageName);
+        DB::table('posts')->insert([
+            'title' => $request->title,
+            'time' => $request->time,
+            'date' => $request->date,
+            'user_id'=> Auth::user()->id ,
+            'content' => $request->content,
+            'writer' => $request->writer,
+            'exept' => $request->exept,
+            'image_path' => asset('/assets/img/offers') . '/' . $newImageName,
+            'category_id'=> $request->category ,
+        ]);
+        return redirect()->route('dashboard.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show()
     {
-        //
+
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
+        return view('dash.components.pages.home');
+
     }
 
     /**
@@ -48,7 +87,11 @@ class AdminPostController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
+        $editing = Post::where('id', $id)->first();
+        return view('dash.components.posts.edit', compact('editing'));
     }
 
     /**
@@ -56,7 +99,15 @@ class AdminPostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (Auth::user()->role == 0) {
+            return redirect('/');
+        }
+        $postsUpdate = Post::find($id);
+        $postsUpdate->title = $request->title;
+        $postsUpdate->content = $request->content;
+        $postsUpdate->image_path = $request->image_path;
+        $postsUpdate->save();
+        return redirect()->route('dashboard.index');
     }
 
     /**
@@ -64,6 +115,10 @@ class AdminPostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(Auth::user()->role==0){
+            return redirect('/');
+        }
+        $editing = Post::where('id', $id)->delete();
+        return 'iii';
     }
 }

@@ -1,58 +1,3 @@
-{{-- @extends('dash.layouts.header')
-@section('title')
-تعديل المقاله
-@endsection
-@section('content')
-    <div class="row">
-
-        <div class="col-12">
-
-            <div class="collapse show" id="collapseCardExample">
-                <div class="card-body col-12">
-                    <div class="row">
-                        <form action="{{ route('dash.update', $editing->id) }}" method="post" enctype="multipart/form-data">
-                            @csrf
-
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">العنوان :
-                                        </label><br>
-
-                                        <input type="text" class="" name="title" value="{{ $editing->title }}"
-                                            id="" aria-describedby="helpId">
-                                        <small id="helpId" class="form-control text-muted">اكتب عنوان المقاله
-                                            هنا</small>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    date time article blade 
-                                    <input type="datetime" value="{{ date('h:m') }}"name="time" hidden>
-                                        <input type="datetime" value="{{ Auth::user()->name }}"name="writer" hidden>
-                                    <div>
-                                           <input type="text" name="image_path" value ="{{$editing->image_path}}" id="">
-                                    </div>
-                                    <br>
-                                </div>
-                            </div>
-                            <textarea name="content" id="textarea" rows="25">
-                                    {{ $editing->content }}
-                            </textarea>
-                    
-                            <small id="helpId" class="form-text text-muted">هنا محتوى المقاله </small>
-                            <br>
-                            <button class="btn btn-primary" type="submit">نشر</button>
-                        </form>
-
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-@endsection --}}
 @extends('dash.layouts.header')
 
 @section('content')
@@ -69,9 +14,10 @@
                 <div class="card-body col-12">
                     <div class="row">
 
-                        <form class="needs-validation" novalidate action="{{ route('dash.update', $editing->id) }}"
-                            method="post" enctype="multipart/form-data">
-                            @csrf
+                        <form class="needs-validation" novalidate action="{{ route('dashboard.update', $editing->id) }}"
+                            method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="_method" value="PUT">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="row g-3">
                                 <div class="col-sm-6">
                                     <label for="firstName" class="form-label">العنوان</label>
@@ -116,7 +62,7 @@
 
                                 <hr class="my-4">
                                 <div class="form-control @error('content') is-invalid @enderror">
-                                    <textarea name="content" value="{{ old('content') }}" id="example" rows="25"
+                                <textarea name="content" value="{{ old('content') }}" id="example" rows="25"
                                         class="form-control @error('content') is-invalid @enderror">
                                         {{ $editing->content }}
                                </textarea>
@@ -130,7 +76,8 @@
                                     var editor = new FroalaEditor('#example');
                                 </script>
 
-                                <button class="w-100 btn btn-primary btn-lg" type="submit">أكمال النشر</button>
+                                <button class="w-100 btn btn-primary btn-lg" type="submit">أكمال النشر
+                                </button>
                         </form>
                     </div>
                 </div>

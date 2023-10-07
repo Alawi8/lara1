@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Session;
+use Illuminate\Support\Facades\Session ;
+use Illuminate\Support\Facades\Hash;
 
 
 class CustomAuthController extends Controller
@@ -28,7 +28,7 @@ class CustomAuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/')
+            return redirect()->intended('/home')
                 ->withSuccess('Signed in');
         }
 
@@ -54,7 +54,7 @@ class CustomAuthController extends Controller
         $data = $request->all();
         $check = $this->create($data);
 
-        return redirect("/")->withSuccess('have signed-in');
+        return redirect("/home")->withSuccess('have signed-in');
     }
 
 
@@ -83,6 +83,6 @@ class CustomAuthController extends Controller
         Session::flush();
         Auth::logout();
 
-        return Redirect('login');
+        return Redirect('auth/login');
     }
 }
