@@ -40,13 +40,8 @@
                                 <div class="col-md-6">
                                     <label for="country" class="form-label">التصنيف</label>
                                     <select class="form-select" id="country" required>
-                                        <option value="">Choose...</option>
-                                        <option>United States</option>
+                                        <option value="f">f</option>
                                     </select>
-
-                                    <div class="invalid-feedback">
-                                        Please select a valid country.
-                                    </div>
                                 </div>
 
 

@@ -77,9 +77,6 @@ class AdminPagesController extends Controller
      */
     public function display($id)
     {
-        $user = User::findOrFail($id);
-        // DebugBar::info();
-        // DebugBar::info($user);
-        dd($user->posts->id);
+
     }
 }
