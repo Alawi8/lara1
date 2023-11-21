@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-@include('home.layouts.header')
+    @include('home.layouts.header')
 <div class="bg-light">
 
     <body id="body">

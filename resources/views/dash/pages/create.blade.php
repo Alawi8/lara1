@@ -29,7 +29,7 @@
                                             value="{{ old('title') }}" aria-describedby="helpId"
                                             placeholder="اكتب العنوان هنا">
                                         {{-- @error
-                                                     <div class="alert alert-danger">{{ $message }}</div>
+                                                <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror --}}
                                     </div>
                                 </div>

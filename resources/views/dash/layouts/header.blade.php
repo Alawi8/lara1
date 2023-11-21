@@ -149,6 +149,7 @@
                     <span data-feather="layers" class="align-text-bottom"></span>
                     الوسائط
                 </a>
+
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('photo.index') }}">
@@ -216,7 +217,7 @@
                                 aria-controls="contents-collapse">المحتوى</button>
                             <ul class="list-unstyled ps-3 collapse" id="contents-collapse">
                                 <li>
-                                    <span data-feather="plus-circle"></span>
+                                    {{-- <span data-feather="plus-circle"></span> --}}
                                     <a class="d-inline-flex align-items-center rounded text-decoration-none"
                                         href="#typography">النصوص</a>
                                 </li>

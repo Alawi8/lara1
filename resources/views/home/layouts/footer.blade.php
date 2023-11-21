@@ -13,11 +13,11 @@
                   height="32" />
           </a>
           <ul class="nav col-md-4 justify-content-end">
-              <li class="nav-item"><a href="{{ route('home') }}" class="nav-link px-2 text-muted">Home</a></li>
+              <li class="nav-item"><a href="{{ route('home') }}" class="nav-link px-2 text-muted">الرئيسيه</a></li>
               {{-- <li class="nav-item"><a href="{{ route('skech') }}" class="nav-link px-2 text-muted">skech</a></li> --}}
-              <li class="nav-item"><a href="{{ route('policy') }}" class="nav-link px-2 text-muted">policy</a></li>
-              <li class="nav-item"><a href="{{ route('faq') }}" class="nav-link px-2 text-muted">FAQs</a></li>
-              <li class="nav-item"><a href="{{ route('about') }}" class="nav-link px-2 text-muted">About</a></li>
+              <li class="nav-item"><a href="{{ route('policy') }}" class="nav-link px-2 text-muted">الخصوصيه</a></li>
+              <li class="nav-item"><a href="{{ route('faq') }}" class="nav-link px-2 text-muted">اسئله</a></li>
+              <li class="nav-item"><a href="{{ route('about') }}" class="nav-link px-2 text-muted">حول</a></li>
               <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"></a></li>
               {{-- <li class="nav-item"><a href="{{ route('dash.dashboard') }}" class="nav-link px-2 text-muted">admin</a></li> --}}
           </ul>

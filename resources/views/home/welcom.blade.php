@@ -5,6 +5,6 @@
         {{ session()->get('message') }}
     </div>
 @endif
-@include('home.pages.home')
+@include('home.layouts.home')
 @endsection
 
