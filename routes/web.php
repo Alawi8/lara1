@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+// use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\auth\CustomAuthController;
-use App\Http\Controllers\admin\AdminController;
+// use App\Http\Controllers\auth\CustomAuthController;
+// use App\Http\Controllers\admin\AdminController;
 use Spatie\Sitemap\SitemapGenerator;
 use App\Http\Controllers\admin\AdminPagesController ;
 use App\Http\Controllers\admin\MediaController;
