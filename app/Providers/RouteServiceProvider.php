@@ -46,7 +46,7 @@ class RouteServiceProvider extends ServiceProvider
             Route::prefix('home')
                 ->middleware('web')
                 ->namespace($this->namespace)
-                ->group(base_path('routes/home/home.php'));
+                ->group(base_path('routes/home/Home.php'));
             //route link auth/auth.php
             Route::prefix('auth')
                 ->middleware('web')
