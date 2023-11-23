@@ -14,7 +14,7 @@
                 <div class="card-body col-12">
                     <div class="row">
 
-                        <form class="needs-validation" novalidate action="{{ route('dashboard.update', $editing->id) }}"
+                        <form class="needs-validation" novalidate action="{{ route('posts.update', $editing->id) }}"
                             method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="_method" value="PUT">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">

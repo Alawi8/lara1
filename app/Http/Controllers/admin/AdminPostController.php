@@ -16,10 +16,6 @@ class AdminPostController extends Controller
      */
     public function index()
     {
-
-        if (Auth::user()->role == 0) {
-            return redirect('/');
-        }
         $post = Post::all();
         $arr = array('posts' => $post);
         return view('dash.components.posts.display', $arr);
@@ -74,10 +70,6 @@ class AdminPostController extends Controller
      */
     public function show()
     {
-
-        if (Auth::user()->role == 0) {
-            return redirect('/');
-        }
         return view('dash.components.pages.home');
 
     }
@@ -87,9 +79,7 @@ class AdminPostController extends Controller
      */
     public function edit($id)
     {
-        if (Auth::user()->role == 0) {
-            return redirect('/');
-        }
+
         $editing = Post::where('id', $id)->first();
         return view('dash.components.posts.edit', compact('editing'));
     }
@@ -99,15 +89,12 @@ class AdminPostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (Auth::user()->role == 0) {
-            return redirect('/');
-        }
         $postsUpdate = Post::find($id);
         $postsUpdate->title = $request->title;
         $postsUpdate->content = $request->content;
         $postsUpdate->image_path = $request->image_path;
         $postsUpdate->save();
-        return redirect()->route('dashboard.index');
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -115,9 +102,7 @@ class AdminPostController extends Controller
      */
     public function destroy($id)
     {
-        if(Auth::user()->role==0){
-            return redirect('/');
-        }
+
         $editing = Post::where('id', $id)->delete();
         
     }

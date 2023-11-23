@@ -99,7 +99,7 @@
 <br>
 @guest
 @else
-    @if (Auth::user()->role == 2)
+    @if (Auth::user()->role << 0 )
         <div>
             <!-- loads the entire Variable Font -->
             <link
@@ -107,7 +107,7 @@
                 rel="stylesheet" />
             <!-- thin outlined icons -->
             <div style="font-variation-settings: 'FILL' 0, 'wght' 100, 'GRAD' 0, 'opsz' 48;">
-                <a href="{{ URL('admin/dashboard') }}"
+                <a href="{{ URL('admin/posts') }}"
                     class="bg-dark rounded-3 nav-link text-light material-symbols-outlined" title="التحكـم">home</a>
                 <a href="#" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
                     title="الاعدادات">settings</a>

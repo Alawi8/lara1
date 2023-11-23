@@ -18,12 +18,12 @@ class User extends Authenticatable implements JWTSubject
         'name',
         'email',
         'password',
+        'remember_token',
     ];
 
     protected $hidden = [
         'password',
         'password',
-        'remember_token',
     ];
 
     protected $casts = [

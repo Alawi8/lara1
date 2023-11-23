@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 
 // route admin dashboard 
-Route::resource('dashboard', AdminPostController::class) -> middleware('auth');
+Route::group(['Middleware'=>['auth','checkRole']], function(){
 
-//route admin view
+    Route::resource('posts', AdminPostController::class) -> middleware(['auth','checkRole']);
+});
+

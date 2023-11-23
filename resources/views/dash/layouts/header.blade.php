@@ -100,7 +100,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('dashboard.index') }}">
+                <a class="nav-link " href="{{ route('posts.index') }}">
                     <span data-feather="file" class="align-text-bottom"></span>
                     المقالات
                 </a>

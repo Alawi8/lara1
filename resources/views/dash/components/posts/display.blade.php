@@ -12,7 +12,7 @@
 
     
     <div class="container-fluid py-4 ">
-        <a href="{{ route('dashboard.create') }}" class="btn btn-primary bg-gradient-primary ">كتابة مقاله</a>
+        <a href="{{ route('posts.create') }}" class="btn btn-primary bg-gradient-primary ">كتابة مقاله</a>
         <table class="table ">
             <thead>
                 <tr class="text-dark">
@@ -32,9 +32,9 @@
                             <td scope="row"><img src="{{ $post->image_path }}" class="img-thumbnail" alt="..."></td>
                             <td>{{ $post->title }}
                                 <br>
-                                <a href="{{ route('dashboard.edit', $post->id) }}"
+                                <a href="{{ route('posts.edit', $post->id) }}"
                                     class="badge rounded-pill text-bg-info">تعديل</a>
-                                <a href="{{ route('dashboard.destroy', $post->id) }}"
+                                <a href="{{ route('posts.destroy', $post->id) }}"
                                     class="badge rounded-pill text-bg-danger">حذف</a>
                             </td>
                             <td>{{ $post->writer }}</td>
