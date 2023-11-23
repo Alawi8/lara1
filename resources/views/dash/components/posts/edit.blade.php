@@ -57,7 +57,7 @@
 
                                 <hr class="my-4">
                                 <div class="form-control @error('content') is-invalid @enderror">
-                                <textarea name="content" value="{{ old('content') }}" id="example" rows="25"
+                                    <textarea name="content" value="{{ old('content') }}" id="example" rows="25"
                                         class="form-control @error('content') is-invalid @enderror">
                                         {{ $editing->content }}
                                </textarea>

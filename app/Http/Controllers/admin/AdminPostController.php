@@ -119,6 +119,6 @@ class AdminPostController extends Controller
             return redirect('/');
         }
         $editing = Post::where('id', $id)->delete();
-        return view('dashboard.home');
+        
     }
 }

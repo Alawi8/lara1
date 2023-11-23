@@ -23,11 +23,6 @@
                             </div>
                         </a>
                     </div>
-                
-
-                    {{-- @while (true)
-                        <p>Im looping forever</p>
-                    @endwhile --}}
                 @empty
                     <div class="alert alert-secondary text-center" role="alert">
                         لم يتم العثور على مقالات
@@ -36,5 +31,6 @@
             </div>
 
         @endif
+
     </div>
 @endsection

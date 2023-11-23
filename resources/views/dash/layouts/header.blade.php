@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<script src="{{ asset('assets/js/color-modes.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/color-modes.js') }}"></script> --}}
 
 
 <header>
@@ -11,15 +11,6 @@
     </title>
     <!--bootstrap link-->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.rtl.css') }}" />
-
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="{{ asset('assets/img/favicons/apple-touch-icon.png') }}" sizes="180x180">
-    <link rel="icon" href="{{ asset('assets/img/favicons/favicon-32x32.png') }}" sizes="32x32" type="image/png">
-    <link rel="icon" href="{{ asset('assets/img/favicons/favicon-16x16.png') }}" sizes="16x16" type="image/png">
-    <link rel="manifest" href="{{ asset('assets/img/favicons/manifest.json') }}">
-    <link rel="mask-icon" href="{{ asset('assets/img/favicons/safari-pinned-tab.svg') }}" color="#712cf9">
-    <link rel="icon" href="{{ asset('assets/img/favicons/favicon.ico') }}">
-    <meta name="theme-color" content="#712cf9">
     <link href="{{ asset('assets/css/dashboard.rtl.css') }}" rel="stylesheet">
 
 
@@ -212,87 +203,75 @@
                 <nav class="small" id="toc">
                     <ul class="list-unstyled">
                         <li class="my-2">
+                            <span data-feather="file-text" class="align-text-bottom"></span>
                             <button class="btn d-inline-flex align-items-center collapsed border-0"
                                 data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse"
                                 aria-controls="contents-collapse">المحتوى</button>
                             <ul class="list-unstyled ps-3 collapse" id="contents-collapse">
                                 <li>
-                                    {{-- <span data-feather="plus-circle"></span> --}}
-                                    <a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#typography">النصوص</a>
+                                    <a class="page-link" href="#typography">
+                                        <span data-feather="file-text" class="align-text-bottom"></span>
+                                        النصوص</a>
                                 </li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#images">الصور</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#tables">الجداول</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#figures">النماذج البيانية</a></li>
+                                <li><a class="page-link" href="#images">
+                                        <span data-feather="file-text" class="align-text-bottom"></span>
+                                        الصور</a></li>
+                                <li><a class="page-link" href="#tables">
+                                        <span data-feather="file-text" class="align-text-bottom"></span>
+                                        الجداول</a></li>
+                                <li><a class="page-link" href="#figures">
+                                        <span data-feather="file-text" class="align-text-bottom"></span>
+                                        النماذج البيانية</a></li>
                             </ul>
                         </li>
                         <li class="my-2">
+                            <span data-feather="file-text" class="align-text-bottom"></span>
                             <button class="btn d-inline-flex align-items-center collapsed border-0"
                                 data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#forms-collapse"
                                 aria-controls="forms-collapse">النماذج</button>
                             <ul class="list-unstyled ps-3 collapse" id="forms-collapse">
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#overview">نظرة عامة</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#disabled-forms">الحقول المعطلة</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#sizing">الأحجام</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#input-group">مجموعة الإدخال</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#floating-labels">الحقول ذوي العناوين العائمة</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#validation">التحقق</a></li>
+                                <li><a class="page-link" href="#overview">نظرة عامة</a></li>
+                                <li><a class="page-link" href="#disabled-forms">الحقول المعطلة</a></li>
+                                <li><a class="page-link" href="#sizing">الأحجام</a></li>
+                                <li><a class="page-link" href="#input-group">مجموعة الإدخال</a></li>
+                                <li><a class="page-link" href="#floating-labels">الحقول ذوي العناوين العائمة</a></li>
+                                <li><a class="page-link" href="#validation">التحقق</a></li>
                             </ul>
                         </li>
                         <li class="my-2">
+                            <span data-feather="file-text" class="align-text-bottom"></span>
                             <button class="btn d-inline-flex align-items-center collapsed border-0"
                                 data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#components-collapse"
                                 aria-controls="components-collapse">مكونات</button>
                             <ul class="list-unstyled ps-3 collapse" id="components-collapse">
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#accordion">المطوية</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#alerts">الإنذارات</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#badge">الشارة</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#breadcrumb">مسار التنقل التفصيلي</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#buttons">الأزرار</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#button-group">مجموعة الأزرار</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#card">البطاقة</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#carousel">شرائح العرض</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#dropdowns">القوائم المنسدلة</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#list-group">مجموعة العناصر</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#modal">الصندوق العائم</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#navs">التنقل</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#navbar">شريط التنقل</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#pagination">ترقيم الصفحات</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#popovers">الصناديق المنبثقة</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#progress">شريط التقدم</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#scrollspy">المخطوطة</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#spinners">الدوائر المتحركة</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#toasts">الإشعارات</a></li>
-                                <li><a class="d-inline-flex align-items-center rounded text-decoration-none"
-                                        href="#tooltips">التلميحات</a></li>
+                                <li><a class="page-link" href="#accordion">
+                                        <span data-feather="file-text" class="align-text-bottom"></span>
+                                        المطوية</a></li>
+
+                                <li>
+
+                                    <a class="page-link" href="#alerts">
+                                        <span data-feather="file-text" class="align-text-bottom"></span>
+                                        الإنذارات</a>
+                                </li>
+                                <li><a class="page-link" href="#badge">الشارة</a></li>
+                                <li><a class="page-link" href="#breadcrumb">مسار التنقل التفصيلي</a></li>
+                                <li><a class="page-link" href="#buttons">الأزرار</a></li>
+                                <li><a class="page-link" href="#button-group">مجموعة الأزرار</a></li>
+                                <li><a class="page-link" href="#card">البطاقة</a></li>
+                                <li><a class="page-link" href="#carousel">شرائح العرض</a></li>
+                                <li><a class="page-link" href="#dropdowns">القوائم المنسدلة</a></li>
+                                <li><a class="page-link" href="#list-group">مجموعة العناصر</a></li>
+                                <li><a class="page-link" href="#modal">الصندوق العائم</a></li>
+                                <li><a class="page-link" href="#navs">التنقل</a></li>
+                                <li><a class="page-link" href="#navbar">شريط التنقل</a></li>
+                                <li><a class="page-link" href="#pagination">ترقيم الصفحات</a></li>
+                                <li><a class="page-link" href="#popovers">الصناديق المنبثقة</a></li>
+                                <li><a class="page-link" href="#progress">شريط التقدم</a></li>
+                                <li><a class="page-link" href="#scrollspy">المخطوطة</a></li>
+                                <li><a class="page-link" href="#spinners">الدوائر المتحركة</a></li>
+                                <li><a class="page-link" href="#toasts">الإشعارات</a></li>
+                                <li><a class="page-link" href="#tooltips">التلميحات</a></li>
                             </ul>
                         </li>
                     </ul>
