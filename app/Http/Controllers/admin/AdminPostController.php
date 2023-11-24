@@ -62,7 +62,7 @@ class AdminPostController extends Controller
             'image_path' => asset('/assets/img/offers') . '/' . $newImageName,
             'category_id'=> $request->category ,
         ]);
-        return redirect()->route('dashboard.index');
+        return redirect()->route('posts.index');
     }
 
     /**
