@@ -107,7 +107,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                    <span data-feather="book-open" class="align-text-bottom"></span>
                     الصفحات
                 </a>
             </li>
