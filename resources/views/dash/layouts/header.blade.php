@@ -143,25 +143,7 @@
                 </a>
 
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('photo.index') }}">
-                    {{-- icons url for editing  https://feathericons.com/ --}}
-                    <span data-feather="layers" class="align-text-bottom"></span>
-
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('photo.index') }}">
-                    {{-- icons url for editing  https://feathericons.com/ --}}
-                    <span data-feather="layers" class="align-text-bottom"></span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('photo.index') }}">
-                    {{-- icons url for editing  https://feathericons.com/ --}}
-                    <span data-feather="layers" class="align-text-bottom"></span>
-                </a>
-            </li>
+            
         </ul>
 
         <h6
