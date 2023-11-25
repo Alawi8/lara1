@@ -19,7 +19,7 @@
                                 </div>
                                 <h6 class="animate__animated animate__bounce">{{ $post->title }}</h6>
 
-                                @include('home.pages.time')
+                                @include('home.components.pages.time')
                             </div>
                         </a>
                     </div>

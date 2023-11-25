@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-{{-- <script src="{{ asset('assets/js/color-modes.js') }}"></script> --}}
+<script src="{{ asset('assets/js/color-modes.js') }}"></script>
 
 
 <header>
@@ -12,8 +12,8 @@
     <!--bootstrap link-->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.rtl.css') }}" />
     <link href="{{ asset('assets/css/dashboard.rtl.css') }}" rel="stylesheet">
-
-
+    {{-- icons url --}}
+    {{-- https://feathericons.com/ --}}
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -137,24 +137,28 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('photo.index') }}">
-                    <span data-feather="layers" class="align-text-bottom"></span>
+                    {{-- https://feathericons.com/ --}}
+                    <span data-feather="image" class="align-text-bottom"></span>
                     الوسائط
                 </a>
 
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('photo.index') }}">
+                    {{-- icons url for editing  https://feathericons.com/ --}}
                     <span data-feather="layers" class="align-text-bottom"></span>
 
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('photo.index') }}">
+                    {{-- icons url for editing  https://feathericons.com/ --}}
                     <span data-feather="layers" class="align-text-bottom"></span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('photo.index') }}">
+                    {{-- icons url for editing  https://feathericons.com/ --}}
                     <span data-feather="layers" class="align-text-bottom"></span>
                 </a>
             </li>

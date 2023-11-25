@@ -13,10 +13,11 @@
 
 <header>
     {{-- style bootstrap --}}
+     {{-- Bootstrap  v5.2.2 (https://getbootstrap.com/) --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
 
     <!-- include summernote css/js -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
@@ -86,6 +87,7 @@
                             <li class="nav-item">
                                 <a class="nav-link " href="{{ route('signout') }}">Logout</a>
                             </li>
+                            
                         @endguest
                     </ul>
                 </div>
@@ -119,6 +121,7 @@
                     title="اضف مقاله">add_circle</a>
                 <a href="{{ route('signout') }}" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
                     title="خروج">logout</a>
+                    
             </div>
         </div>
     @else
@@ -128,6 +131,7 @@
         </div>
     @endif
 @endguest
+
 
 
 <!-- include libraries(jQuery, bootstrap) -->

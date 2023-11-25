@@ -104,6 +104,7 @@ class AdminPostController extends Controller
     {
 
         $editing = Post::where('id', $id)->delete();
+        return redirect()->route('posts.index');
         
     }
 }

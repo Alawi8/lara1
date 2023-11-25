@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\admin\AdminController;
 use Spatie\Sitemap\SitemapGenerator;
 use App\Http\Controllers\admin\AdminPagesController ;
-use App\Http\Controllers\admin\MediaController;
+// use App\Http\Controllers\admin\MediaController;
 use App\Http\Controllers\RelationController;
 use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\PostController;
@@ -41,9 +41,9 @@ Route::get('sitemap', function () {
 */
 
 
-Route::controller(MediaController::class)->group(function(){
-    route::get(      '/dash/media'        ,          'GetMedia'        ) -> name    ('dash.media')  ->      middleware('auth');
-});
+// Route::controller(MediaController::class)->group(function(){
+//     route::get(      '/dash/media'        ,          'GetMedia'        ) -> name    ('dash.media')  ->      middleware('auth');
+// });
 
 // admin page controllers
 route::controller(AdminPagesController::class)->group(function (){
