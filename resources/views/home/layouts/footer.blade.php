@@ -3,9 +3,9 @@
       <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
 
           {{-- link bootstrap.js to action  --}}
-          <script src="{{ asset('assets/js/bootstrap.min.js') }}" ></script>
+          <script src="{{ asset('public/assets/js/bootstrap.min.js') }}" ></script>
         {{-- link style.css to disegn header tamplate --}}
-        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/style.min.css') }}"rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ asset('public/assets/css/style.min.css') }}"rel="stylesheet">
           <p class="col-md-4 mb-0 text-muted">&copy; جميع الحقوق محفوظه {{date('Y')}}</p>
           <a href="{{ route('home') }}"
               class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">

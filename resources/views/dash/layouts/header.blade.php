@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<script src="{{ asset('assets/js/color-modes.js') }}"></script>
+<script src="{{ asset('public/assets/js/color-modes.js') }}"></script>
 
 
 <header>
@@ -10,8 +10,8 @@
         @yield('title')
     </title>
     <!--bootstrap link-->
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.rtl.css') }}" />
-    <link href="{{ asset('assets/css/dashboard.rtl.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('public/assets/css/bootstrap.rtl.css') }}" />
+    <link href="{{ asset('public/assets/css/dashboard.rtl.css') }}" rel="stylesheet">
     {{-- icons url --}}
     {{-- https://feathericons.com/ --}}
     <style>

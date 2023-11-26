@@ -29,8 +29,8 @@
                     </div>
                 @endforelse
             </div>
-
-        @endif
-
     </div>
+    @endif
+
+    
 @endsection
