@@ -1,6 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\CustomAuthController;
+use App\Http\Controllers\auth\CustomAuthController;
 
 
 Route::controller(CustomAuthController::class)-> group(function(){
