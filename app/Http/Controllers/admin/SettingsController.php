@@ -12,7 +12,7 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        return view('dash.components.pages.settings');
+        return view('dash.components.setting.create');
     }
 
     /**
