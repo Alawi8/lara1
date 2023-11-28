@@ -14,4 +14,3 @@ Route::controller(CustomAuthController::class)-> group(function(){
     route::post ('custom-registration','customRegistration')     ->  name    ('register.custom');
     route::get ('signout','signOut')                             ->  name    ('signout');
 });
-

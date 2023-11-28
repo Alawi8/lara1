@@ -9,7 +9,7 @@ use App\Http\Controllers\admin\AdminPagesController ;
 // use App\Http\Controllers\admin\MediaController;
 use App\Http\Controllers\RelationController;
 use App\Http\Controllers\Category\CategoryController;
-use App\Http\Controllers\PostController;
+// use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,7 +60,7 @@ route::controller(RelationController::class)-> group(function(){
 
 //categures route API
 
-Route::resource('posts', PostController::class)->middleware('auth');
+// Route::resource('posts', PostController::class)->middleware('auth');
 
 ################## begin relation route ######################
     route::controller( RelationController::class )->group(function (){

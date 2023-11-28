@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $table = "posts";
-    protected $fillable = ['title', 'content', 'writer', 'user_id' , 'image_path', 'time' , 'date' , 'exept'];
-    protected $hidden =['created_at', 'updated_at'];
+    protected $fillable = ['title', 'content', 'writer', 'user_id' , 'image_path', 'time' , 'date' , 'exept','created_at', 'updated_at'];
+    // protected $hidden =['created_at', 'updated_at'];
     public $timeStamps = true ;
 
     public function category (){

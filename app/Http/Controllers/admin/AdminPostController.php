@@ -50,7 +50,7 @@ class AdminPostController extends Controller
         //These instructions are responsible for saving images in public/assets/img/offers folder
         $newImageName = time() . $request->name . '.' .
         $request->image->extension();
-        $request->image->move(public_path('/assets/img/offers'), $newImageName);
+        $request->image->move(public_path('../storage/img'), $newImageName);
         DB::table('posts')->insert([
             'title' => $request->title,
             'time' => $request->time,
@@ -59,7 +59,7 @@ class AdminPostController extends Controller
             'content' => $request->content,
             'writer' => $request->writer,
             'exept' => $request->exept,
-            'image_path' => asset('/assets/img/offers') . '/' . $newImageName,
+            'image_path' => asset('/storage/img') . '/' . $newImageName,
             'category_id'=> $request->category ,
         ]);
         return redirect()->route('posts.index');
