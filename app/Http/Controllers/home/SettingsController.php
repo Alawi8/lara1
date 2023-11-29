@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -10,15 +10,14 @@ use Illuminate\Support\Facades\DB;
 class SettingsController extends Controller
 {
     /**
-     * Display a listing of the resource.
      */
     public function index()
     {
-        return view('dash.components.setting.create');
+        return view('home/components/settings/create');
     }
 
     /**
-     
+     * Show the form for creating a new resource.
      */
     public function create()
     {
@@ -27,15 +26,13 @@ class SettingsController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     
      */
     public function store(Request $request)
     {
         $validated = $request->validate([
             //blade data in db
-            'title' => 'required',
-            'auther' => 'required',
-            'about' => 'required|max:25000',
+            'site_name' => 'required',
+            'about' => 'required',
             'icon_url' => 'required|mimes:jpg,png,jpeg|max:5048',
 
         ]);
@@ -45,17 +42,16 @@ class SettingsController extends Controller
         $request->icon_url->extension();
         $request->icon_url->move(public_path('../storage/img/icons'), $newImageName);
         DB::table('settings')->insert([
-            'title' => $request->title,
-            'auther'=> Auth::user()->id ,
-            'exept' => $request->exept,
+            'site_name' => $request->site_name ,
+            // 'id'=> Auth::user()->id ,
+            'about'=> $request->about,
             'icon_url' => asset('/storage/img/icons') . '/' . $newImageName,
         ]);
-        return redirect()->route('posts.index');
+        return redirect()->route('home');
     }
 
     /**
      * Display the specified resource.
-     
      */
     public function show()
     {
@@ -64,7 +60,6 @@ class SettingsController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     
      */
     public function edit($id)
     {
@@ -74,7 +69,6 @@ class SettingsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     
      */
     public function update(Request $request, $id)
     {
@@ -83,7 +77,6 @@ class SettingsController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     
      */
     public function destroy($id)
     {

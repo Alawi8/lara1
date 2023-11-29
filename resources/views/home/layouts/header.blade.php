@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@yield('exept')">
     <meta name="author" content="@yield('author')">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="generator" content="Hugo 0.101.0">
 
 </head>
@@ -14,8 +15,7 @@
 <header>
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     {{-- style bootstrap --}}
-     {{-- Bootstrap  v5.2.2 (https://getbootstrap.com/) --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    {{-- Bootstrap  v5.2.2 (https://getbootstrap.com/) --}}
     {{-- <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>  --}}
     {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
     {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
@@ -35,7 +35,7 @@
         <a href="{{ route('home') }}" class=" ">
             <img id="style-icon"
                 src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K"width="40"
-                height="32" />
+                height="32" alt="" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar">
@@ -91,7 +91,7 @@
                             <li class="nav-item">
                                 <a class="nav-link " href="{{ route('signout') }}">Logout</a>
                             </li>
-                            
+
                         @endguest
                     </ul>
                 </div>
@@ -105,19 +105,18 @@
 <br>
 @guest
 @else
-    @if (Auth::user()->role << 0 )
-        <div>
+    @if (Auth::user()->role << 0)
+        <div class ="row">
             <!-- loads the entire Variable Font -->
-            <link
-                href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-                rel="stylesheet" />
+
             <!-- thin outlined icons -->
             <div style="font-variation-settings: 'FILL' 0, 'wght' 100, 'GRAD' 0, 'opsz' 48;">
-                <a href="{{ URL('admin/posts') }}"
-                    class="bg-dark rounded-3 nav-link text-light material-symbols-outlined" title="التحكـم">home</a>
+                <a href="{{ URL('admin/posts') }}" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
+                    title="التحكـم">home</a>
                 <a href="#" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
                     title="الاعدادات">settings</a>
-                <a href="#" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
+                <a href="{{ route('settings.index') }}"
+                    class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
                     title="الحساب">account_circle</a>
                 <a href="#" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
                     title="الايميل">mail</a>
@@ -125,7 +124,7 @@
                     title="اضف مقاله">add_circle</a>
                 <a href="{{ route('signout') }}" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
                     title="خروج">logout</a>
-                    
+
             </div>
         </div>
     @else
@@ -135,7 +134,3 @@
         </div>
     @endif
 @endguest
-
-
-
-<!-- include libraries(jQuery, bootstrap) -->

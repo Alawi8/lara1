@@ -32,7 +32,7 @@ class CustomAuthController extends Controller
                 ->withSuccess('Signed in');
         }
 
-        return redirect("login")->withSuccess('Login details are not valid');
+        return redirect("auth/registration")->withSuccess('Login details are not valid');
     }
 
 
@@ -54,7 +54,7 @@ class CustomAuthController extends Controller
         $data = $request->all();
         $check = $this->create($data);
 
-        return redirect("/")->withSuccess('have signed-in');
+        return redirect("/auth/login")->withSuccess('have signed-in');
     }
 
 
