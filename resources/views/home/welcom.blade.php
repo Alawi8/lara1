@@ -1,13 +1,8 @@
 @extends('home.layouts.body')
 @section('title')
-    المقالات
+المقالات
 @endsection
 @section('content')
-@if(session()->has('Success'))
-    <div class="alert alert-success">
-        {{ session()->get('message') }}
-    </div>
-@endif
 <div class="container-fluid ">
 
     @if (isset($posts))
