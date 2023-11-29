@@ -11,8 +11,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        $all_posts = Post::all();
-        return view('home.welcom',['posts' => $all_posts]);
+        $all_posts = Post::paginate(12);
+        return view('home.welcom',compact('all_posts') );
 
     }
 
