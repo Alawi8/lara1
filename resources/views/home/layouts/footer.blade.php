@@ -47,7 +47,7 @@
         vertical-align: middle
     }
     
-     @-webkit-keyframes color-change-2x {
+     /* @-webkit-keyframes color-change-2x {
         0% {
             background: #f6f6f6
         }
@@ -65,7 +65,7 @@
         100% {
             background: #b964eb
         }
-    } 
+    }  */
     
     #card-content-posts {
         width: 100%;
@@ -73,7 +73,7 @@
         max-zoom: 99px
     }
     
-     #style-icon {
+     /* #style-icon {
         animation-name: example;
         animation-duration: 3s;
         animation-iteration-count: 2222
@@ -87,7 +87,7 @@
         100% {
             transform: rotate(360deg)
         }
-    } 
+    }  */
     
     #categure {
         border: 5px solid;
