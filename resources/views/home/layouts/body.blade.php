@@ -106,11 +106,6 @@
             </div>
         </div>
         
-
-    <h1>Categories</h1>
-
-
-
     </body>
 </div>
 

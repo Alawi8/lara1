@@ -48,7 +48,7 @@
                         </div>
                         @endforeach
                         @else
-                        <p>No category.</p>
+                        
             @endif
         @endif
 
