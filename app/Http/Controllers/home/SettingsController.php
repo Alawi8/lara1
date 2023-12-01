@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Setting;
 
 class SettingsController extends Controller
 {
@@ -29,25 +30,39 @@ class SettingsController extends Controller
      */
     public function store(Request $request)
     {
+        // Validate the request
         $validated = $request->validate([
-            //blade data in db
             'site_name' => 'required',
             'about' => 'required',
             'icon_url' => 'required|mimes:jpg,png,jpeg|max:5048',
-
         ]);
-        
-        //These instructions are responsible for saving images in public/assets/img/offers folder
-        $newImageName = time() . $request->name . '.' .
-        $request->icon_url->extension();
-        $request->icon_url->move(public_path('../storage/img/icons'), $newImageName);
-        DB::table('settings')->insert([
-            'site_name' => $request->site_name ,
-            // 'id'=> Auth::user()->id ,
-            'about'=> $request->about,
-            'icon_url' => asset('/storage/img/icons') . '/' . $newImageName,
-        ]);
-        return redirect()->route('home');
+    
+        // Check if the user is authenticated
+        if (!Auth::check()) {
+            // Handle unauthenticated user
+            return redirect()->route('login')->with('error', 'Unauthorized access');
+        }
+    
+        // Check if the file upload was successful
+        if ($request->file('icon_url')->isValid()) {
+            // Generate a unique name for the image
+            $newImageName = time() . $request->site_name . '.' . $request->icon_url->extension();
+    
+            // Move the uploaded file to the storage directory
+            $request->icon_url->move(public_path('../storage/img/icons'), $newImageName);
+    
+            // Create a new record in the 'settings' table
+            Setting::create([
+                'site_name' => $request->site_name,
+                'about' => $request->about,
+                'icon_url' => asset('/storage/img/icons') . '/' . $newImageName,
+            ]);
+    
+            return redirect()->route('home')->with('success', 'Settings updated successfully');
+        }
+    
+        // Handle file upload failure
+        return back()->withErrors(['file' => 'File upload failed.'])->withInput();
     }
 
     /**
@@ -55,7 +70,11 @@ class SettingsController extends Controller
      */
     public function show()
     {
-        //
+        $siteName = "Your Site Name"; // Replace with the actual variable assignment
+        $about = "Some information about your site"; // Replace with the actual variable assignment
+        $iconUrl = "path/to/icon.jpg"; // Replace with the actual variable assignment
+    
+        return view('profile', compact('siteName', 'about', 'iconUrl'));
     }
 
     /**

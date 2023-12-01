@@ -16,7 +16,7 @@ class AdminPostController extends Controller
      */
     public function index()
     {
-        $post = Post::all();
+        $post = Post::paginate(6);
         $arr = array('posts' => $post);
         return view('dash.components.posts.display', $arr);
 
@@ -62,7 +62,7 @@ class AdminPostController extends Controller
             'image_path' => asset('/storage/img') . '/' . $newImageName,
             'category_id'=> $request->category ,
         ]);
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('success', 'كفوو .. كتبت مقاله جديده استمر');
     }
 
     /**
@@ -104,7 +104,7 @@ class AdminPostController extends Controller
     {
 
         $editing = Post::where('id', $id)->delete();
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('success', 'تم حذف المقاله');;
         
     }
 }

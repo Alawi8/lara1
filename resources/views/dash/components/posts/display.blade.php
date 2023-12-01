@@ -11,7 +11,15 @@
     </style>
 
 
+
+
     <div class="container">
+        @if (session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+
         <a href="{{ route('posts.create') }}" class="btn btn-primary bg-gradient-primary ">كتابة مقاله</a>
         <table class="table ">
             <thead>
@@ -39,35 +47,11 @@
                                     <form action="{{ route('posts.destroy', $post->id) }}" method="post">
                                         @method('DELETE')
                                         @csrf
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn badge rounded-pill text-bg-danger" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop">
-                                           حذف
-                                        </button>
+
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">حذف :
-                                                        </h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        عندما تضغط على الحذف سيتم حذف المقال بشكل نهائي
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">تراجع</button>
-                                                        <button class="btn btn-primary" type="submit">حذف</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                       
+                                        <button class="btn badge rounded-pill text-bg-danger" type="submit">حذف</button>
                                     </form>
                                 </div>
                             </td>
@@ -82,5 +66,8 @@
                 @endif
             </tbody>
         </table>
+        <div class="d-flex justify-content-center">
+            {{ $posts->links() }}
+        </div>
     </div>
 @endsection

@@ -1,10 +1,12 @@
-@extends('dash.layouts.header')
+<!-- resources/views/categories/create.blade.php -->
+
+@extends('dash.layouts.header')  {{-- Assuming you have a main layout file --}}
 
 @section('content')
 
-    <div class="card card-defult">
-        <div class="card card-header">
-            اضافة تصنيفات
+    <div class="card">
+        <div class="card-header">
+            اضافة تصنيف
         </div>
         <div class="card-body">
             @if ($errors->any())
@@ -17,20 +19,20 @@
                         @endforeach
                     </ul>
                 </div>
-                
             @endif
             <form action="{{ route('category.store')}}" method="POST">
                 @csrf
-                <div class="form-group">
-                    <label for="name">الاسم</label>
+                <div class="mb-3">
+                    <label for="name" class="form-label">الاسم</label>
                     <input type="text" class="form-control" name="name" id="name">
                 </div>
-                <div class="form-group">
-                    <button class="btn btn-danger">
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-danger">
                         اضف التصنيف
                     </button>
                 </div>
             </form>
         </div>
     </div>
+
 @endsection

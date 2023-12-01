@@ -67,7 +67,41 @@ route::controller(RelationController::class)-> group(function(){
         route::get('relation' , 'relation')->name('relation');
     });
 ################## end relation route ######################
-Route::resource('dash/category', CategoryController::class)->middleware('auth');
+
+Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
+Route::get('/categories/create', [CategoryController::class, 'create'])->name('category.create');
+Route::post('/categories', [CategoryController::class, 'store'])->name('category.store');
+Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('category.edit');
+Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('category.update');
+Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+
+
+
+// routes/web.php
+
+use App\Http\Controllers\media\ImageController;
+
+Route::get('/media', [ImageController::class, 'index'])->name('media.index');
+Route::get('/media/create', [ImageController::class, 'create'])->name('media.create');
+Route::post('/media', [ImageController::class, 'store'])->name('media.store');
+
+// routes/web.php
+
+use App\Http\Controllers\home\HomeCategoryController;
+
+Route::get('/', [HomeCategoryController::class, 'index'])->name('home.categories.index');
+
+// routes/web.php
+
+use App\Http\Controllers\auth\LoginController;
+
+// Route::get('login/google', [LoginController::class, 'redirectToGoogle']);
+// Route::get('login/google/callback', [LoginController::class, 'handleGoogleCallback']);
+
+
+// Route::get('login/{driver}', [LoginController::class , 'redirectToProvider'] )->name('social.oauth');
+// Route::get('login/{driver}/callback',[LoginController::class , 'handleProviderCallback'] )->name('social.callback');
 
 
 

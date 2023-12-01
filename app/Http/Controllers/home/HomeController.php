@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
@@ -11,8 +12,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        $all_posts = Post::paginate(12);
-        return view('home.welcom',compact('all_posts') );
+        // $all_posts = Post::paginate('12');
+        // return view('home.welcom',compact('all_posts'));
+    // $all_posts = Post::where('category_id', 3)->firstOrFail();
+    $all_posts = Post::where('category_id', 1)->get();
+    return view("home.welcom", compact('all_posts'));
+    // return dd($all_posts);
 
     }
 

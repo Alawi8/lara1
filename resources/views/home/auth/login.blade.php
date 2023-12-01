@@ -63,6 +63,10 @@
             </div>
         </div>
     </main>
+    <!-- resources/views/auth/login.blade.php -->
+
+{{-- <a href="{{ url('login/google') }}">Login with Google</a> --}}
+
 @endsection
 @section('footer')
     @include('home.layouts.footer')

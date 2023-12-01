@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 @include('home.layouts.header')
-<div class="bg-light">
 
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    #categure {
+        margin-top: 20px;
+    }
+
+    #in-search {
+        border-radius: 5px 0 0 5px;
+    }
+
+    #cate-aleart {
+        background-color: #6c757d;
+        color: #fff;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    .list-group a {
+        margin: 5px 0;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+</style>
+
+<div class="">
     <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript>
-            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TW7PKVB" height="0" width="0"
-                style="display:none;visibility:hidden">
-            </iframe>
-        </noscript>
-        <!-- End Google Tag Manager (noscript) -->
-
         {{-- Here the data inside (section image) is fetched by @yield image --}}
         <div class="container-fluid">
 
@@ -77,13 +102,18 @@
                             <a class="text-center btn btn-light nav-link" href="#">link</a>
                         </tr>
                     </div>
-
-
                 </div>
             </div>
         </div>
+        
+
+    <h1>Categories</h1>
+
+
+
     </body>
 </div>
+
 <footer>
     @include('home.layouts.footer')
 </footer>

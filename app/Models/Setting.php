@@ -1,19 +1,16 @@
 <?php
+// app/Models/Setting.php
 
 namespace App\Models;
 
-use Illuminate\Database\DBAL\TimestampType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Settings extends Model
+class Setting extends Model
 {
-    protected $table = "Settings";
-    protected $fillable = ['title', 'content', 'writer', 'user_id' , 'image_path', 'time' , 'date' , 'exept','created_at', 'updated_at'];
-    // protected $hidden =['created_at', 'updated_at'];
-    public $timeStamps = true ;
+    use HasFactory;
 
-    public function category (){
-        return $this->belongsTo(Category::class);
-    }
+    protected $fillable = ['site_name', 'about', 'icon_url'];
+
+    // Additional model methods or relationships can be added here
 }

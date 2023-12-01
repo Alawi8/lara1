@@ -2,16 +2,18 @@
 
 namespace App\Models;
 
-use Astrotomic\Translatable\Contracts\Translatable as TranslatableContracts;
-use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class category extends Model {
-    protected $table = 'categuries';
+class Category extends Model
+{
+    // use HasFactory;
+    protected $table = "categories";
     protected $fillable = ['name'];
 
-    public function posts(){
+    // You can add relationships or other model-specific methods here
+    public function posts()
+    {
         return $this->hasMany(Post::class);
     }
 }

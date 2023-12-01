@@ -1,49 +1,31 @@
+<!-- resources/views/create-image.blade.php -->
+
 @extends('dash.layouts.header')
 
 @section('content')
-    <main>
-        <div class="album py-5 bg-body-tertiary">
-            <div class="container">
+    <div class="container mt-5">
+        <h1>Create Image</h1>
 
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    @foreach ($posts as $post)
-                        <div class="col">
-                            <div class="card shadow-sm">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                    src="{{ $post->image_path }}" role="img" aria-label="Placeholder: Thumbnail"
-                                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                                </img>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                   1
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                {{$post->image_path}}
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">تراجع</button>
-                                                <button type="button" class="btn btn-primary">نسخ</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
             </div>
-        </div>
-    </main>
+        @endif
+
+        <form action="{{ route('media.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Select Image</label>
+                <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="caption" class="form-label">Caption (optional)</label>
+                <input type="text" class="form-control" id="caption" name="caption" maxlength="255">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Upload Image</button>
+        </form>
+    </div>
 @endsection

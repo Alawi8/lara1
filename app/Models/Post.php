@@ -13,7 +13,8 @@ class Post extends Model
     // protected $hidden =['created_at', 'updated_at'];
     public $timeStamps = true ;
 
-    public function category (){
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 }

@@ -30,7 +30,7 @@
 </header>
 
 
-<nav id="heading" class="navbar bg-body-tertiary fixed-top">
+<nav id="heading" class="navbar bg-body-tertiary fixed-top ">
     <div class="container-fluid">
         <a href="{{ route('home') }}" class=" ">
             <img id="style-icon"
@@ -81,12 +81,9 @@
                 <div class="col-sm-4 offset-md-1 py-4">
                     <ul class="navbar-nav">
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link " href="{{ route('login') }}">دخول</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="{{ route('register-user') }}">تسجيل</a>
-                            </li>
+                            <div class="alert alert-info" role="alert">
+                                <i class="bi bi-info-circle-fill"></i> أنت غير مسجل الدخول. من فضلك <a href="{{ route('login') }}">قم بتسجيل الدخول</a> أو <a href="{{ route('register-user') }}">قم بالتسجيل</a>.
+                            </div>
                         @else
                             <li class="nav-item">
                                 <a class="nav-link " href="{{ route('signout') }}">Logout</a>
@@ -102,35 +99,48 @@
 </nav>
 <br>
 <br>
-<br>
+
 @guest
+
+
 @else
-    @if (Auth::user()->role << 0)
-        <div class ="row">
-            <!-- loads the entire Variable Font -->
-
-            <!-- thin outlined icons -->
-            <div style="font-variation-settings: 'FILL' 0, 'wght' 100, 'GRAD' 0, 'opsz' 48;">
-                <a href="{{ URL('admin/posts') }}" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
-                    title="التحكـم">home</a>
-                <a href="#" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
-                    title="الاعدادات">settings</a>
-                <a href="{{ route('settings.index') }}"
-                    class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
-                    title="الحساب">account_circle</a>
-                <a href="#" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
-                    title="الايميل">mail</a>
-                <a href="#" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
-                    title="اضف مقاله">add_circle</a>
-                <a href="{{ route('signout') }}" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
-                    title="خروج">logout</a>
-
+    @if (Auth::user()->role > 0)
+    
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <div class="font-variation">
+                    <!-- Thin outlined icons from Bootstrap Icons -->
+                    <a href="{{ URL('admin/posts') }}" class="btn btn-dark rounded-3 me-2" title="التحكـم">
+                        <i class="bi bi-house-door"></i> الرئيسية
+                    </a>
+                    <a href="#" class="btn btn-dark rounded-3 me-2" title="الاعدادات">
+                        <i class="bi bi-gear"></i> الإعدادات
+                    </a>
+                    <a href="{{ route('settings.index') }}" class="btn btn-dark rounded-3 me-2" title="الحساب">
+                        <i class="bi bi-person"></i> الحساب
+                    </a>
+                    <a href="#" class="btn btn-dark rounded-3 me-2" title="الايميل">
+                        <i class="bi bi-envelope"></i> البريد
+                    </a>
+                    <a href="#" class="btn btn-dark rounded-3 me-2" title="اضف مقاله">
+                        <i class="bi bi-file-plus"></i> إضافة مقال
+                    </a>
+                    <a href="{{ route('signout') }}" class="btn btn-dark rounded-3" title="خروج">
+                        <i class="bi bi-box-arrow-right"></i> تسجيل الخروج
+                    </a>
+                </div>
             </div>
         </div>
+    </div>
+    
     @else
-        <div style="font-variation-settings: 'FILL' 0, 'wght' 100, 'GRAD' 0, 'opsz' 48;">
-            <a href="{{ route('signout') }}" class="bg-dark rounded-3 nav-link text-light material-symbols-outlined"
-                title="خروج">logout</a>
+        <div class="container mt-5">
+            <div class="font-variation">
+                <a href="{{ route('signout') }}" class="btn btn-dark rounded-3" title="خروج">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </a>
+            </div>
         </div>
     @endif
 @endguest
