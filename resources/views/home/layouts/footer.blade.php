@@ -13,7 +13,7 @@
       <a href="{{ route('home') }}"
               class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <img id="bot"src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo-shadow.png"width="40"
-                  height="32" alt=""/>
+                  height="32" alt="{{config('app.name')}}"/>
       </a>
       <ul class="nav col-md-4 justify-content-end">
           <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">الرئيسية</a></li>

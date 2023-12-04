@@ -1,49 +1,55 @@
 @extends('home.layouts.body')
-
-<style>
-    /* Add your custom CSS styles here */
-
-    #content-items {
-        margin-top: 20px;
-    }
-
-    h1 {
-        color: #333;
-    }
-
-    #content-img-posts-card {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-    }
-
-    #post-img {
-        max-width: 100%; /* Make the image responsive */
-        max-height: 400px; /* Set a maximum height for the image */
-        width: auto;
-        height: auto;
-        border-radius: 8px; /* Add border-radius for rounded corners */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box-shadow for a subtle effect */
-        display: block; /* Remove default image spacing */
-        margin: 0 auto; /* Center the image */
-    }
-
-    #content {
-        line-height: 1.6;
-        font-size: 16px;
-        color: #555;
-    }
-</style>
-
-@if(isset($dis) && $post)
-    <!-- Content to be displayed if $dis and $post are set -->
-    <h1>{{ $post->title }}</h1>
-@endif
-
-@section('title'){{ $dis_posts->title }}@endsection
-@section('exept'){{ $dis_posts->exept }}@endsection
-@section('author'){{ $dis_posts->writer }}@endsection
+@section('title')
+    {{ $dis_posts->title }}
+@endsection
+@section('exept')
+    {{ $dis_posts->exept }}
+@endsection
+@section('author')
+    {{ $dis_posts->writer }}
+@endsection
 
 @section('content')
+    <style>
+        /* Add your custom CSS styles here */
+
+        #content-items {
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #content-img-posts-card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        #post-img {
+            max-width: 100%;
+            /* Make the image responsive */
+            max-height: 400px;
+            /* Set a maximum height for the image */
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+            /* Add border-radius for rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Add box-shadow for a subtle effect */
+            display: block;
+            /* Remove default image spacing */
+            margin: 0 auto;
+            /* Center the image */
+        }
+
+        #content {
+            line-height: 1.6;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+
     <div id="content-items" class="container-fluid">
         <h1 class="my-4">{{ $dis_posts->title }}</h1>
 
