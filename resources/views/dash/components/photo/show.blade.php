@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <form action="{{ route('media.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('media.store') }}" method="POST" enctype="multipart/form-data" class="my-4">
             @csrf
 
             <div class="mb-3">
@@ -27,5 +27,16 @@
 
             <button type="submit" class="btn btn-primary">Upload Image</button>
         </form>
+
+        <!-- Display the uploaded image -->
+        @if (isset($images))sssss
+            <div class="mt-4">
+                <h2>Uploaded Image</h2>
+                @foreach ($images as $image)
+                <img src="{{ asset('/storage/uploads/clients_documents/'. $image->path) }}" alt="Uploaded Image" class="img-fluid rounded">
+                    
+                @endforeach
+            </div>
+        @endif
     </div>
 @endsection

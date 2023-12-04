@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card">
-        ggg
+        {{$posts[1]->title}}
     </div>
     
 @endsection

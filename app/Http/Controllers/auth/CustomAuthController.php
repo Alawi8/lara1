@@ -77,6 +77,12 @@ class CustomAuthController extends Controller
 
     }
 
+    public function show (){
+        $red ='jjjjjjjj' ;
+        $users = User::all();
+        return view('dash.components.users.index', compact('users'));
+    }
+
 
     public function signOut()
     {

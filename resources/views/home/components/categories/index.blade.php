@@ -1,23 +1,24 @@
-<!-- resources/views/categories/index.blade.php -->
-
-@extends('layouts.app')  <!-- Assuming you have a layout file, adjust this as needed -->
-
+@extends('home.layouts.body')
+@section('title')
+    عنا
+@endsection
 @section('content')
-    <h1>Categories</h1>
+    <div class="container mt-5">
+        <h1>التصنيفات:</h1>
 
-    @foreach ($categories as $category)
-        <div>
-            <h2>{{ $category->name }}</h2>
-
-            @if ($category->posts->count() > 0)
-                <ul>
-                    @foreach ($category->posts as $post)
-                        <li>{{ $post->title }}</li>
-                    @endforeach
-                </ul>
-            @else
-                <p>No posts in this category.</p>
-            @endif
+        <div class="row">
+            @foreach ($categories as $category)
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $category->name }}</h5>
+                            ({{ $category->posts->count() }})
+                            <p class="card-text">{{ $category->description }}</p>
+                            <a href="{{ route('categories.show', $category->id) }}" class="btn btn-primary">View Category</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
-    @endforeach
+    </div>
 @endsection

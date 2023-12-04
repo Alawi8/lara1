@@ -39,10 +39,21 @@
 
                                 <div class="col-md-6">
                                     <label for="country" class="form-label">التصنيف</label>
-                                    <select class="form-select" id="country" required>
-                                        <option value="f">f</option>
+                                    <select name="categories[]" class="form-select" id="country" multiple required>
+                                        @if ($categories)
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}"
+                                                    {{ $editing && $category->id == $editing->category_id ? 'selected' : '' }}>
+                                                    {{ $category->id }}
+                                                </option>
+
+                                                </option>
+                                            @endforeach
+                                        @endif
                                     </select>
                                 </div>
+
+
 
 
                                 <div class="col-sm-6">

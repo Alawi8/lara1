@@ -57,7 +57,38 @@
                             type="submit">البحث</button>
                     </form>
                     <div id="categure" class="card">
-                        <div id="cate-aleart" class="alert alert-secondary">الرياضه
+                        <div id="cate-aleart" class="alert alert-secondary">التصنيفات
+                        </div>
+
+        
+                        <tr class="list-group ">
+                            @if (isset($categories))
+                            @foreach ($categories as $category)
+                                <div>
+                                    <a class="text-center btn btn-light nav-link" href="#">{{ $category->name }}</a>
+                                    <h2></h2>
+            
+                                    @if ($category->posts->count() > 0)
+                                        <ul>
+                                            @foreach ($category->posts as $post)
+                                                {{-- <li>{{ $post->title }}</li> --}}
+                                            @endforeach
+                                        </ul>
+                                    @else
+                                        {{-- <p>No posts in this category.</p> --}}
+                                        @endif
+                                    </div>
+                            @endforeach
+                            @else
+                            
+                            <p>No posts in thi.</p>
+                        @endif
+                        </tr>
+                    </div>
+
+                    <div id="categure" class="card ">
+                        <div id="cate-aleart" class="alert alert-secondary">
+                            الصفحات
                         </div>
                         <tr class="list-group ">
                             <a class="text-center btn btn-light nav-link" href="#">link</a>
@@ -69,7 +100,7 @@
 
                     <div id="categure" class="card ">
                         <div id="cate-aleart" class="alert alert-secondary">
-                            البرامج
+                            الاكثر قراءه
                         </div>
                         <tr class="list-group ">
                             <a class="text-center btn btn-light nav-link" href="#">link</a>
@@ -81,19 +112,7 @@
 
                     <div id="categure" class="card ">
                         <div id="cate-aleart" class="alert alert-secondary">
-                            لينكس
-                        </div>
-                        <tr class="list-group ">
-                            <a class="text-center btn btn-light nav-link" href="#">link</a>
-                            <a class="text-center btn btn-light nav-link " href="#">link</a>
-                            <a class="text-center btn btn-light nav-link" href="#">link</a>
-                            <a class="text-center btn btn-light nav-link" href="#">link</a>
-                        </tr>
-                    </div>
-
-                    <div id="categure" class="card ">
-                        <div id="cate-aleart" class="alert alert-secondary">
-                            مقالات
+                            احدث المقالات
                         </div>
                         <tr class="list-group ">
                             <a class="text-center btn btn-light nav-link" href="#">link</a>

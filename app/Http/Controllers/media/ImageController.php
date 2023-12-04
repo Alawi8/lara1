@@ -11,7 +11,8 @@ class ImageController extends Controller
     public function index()
     {
         $images = Image::all();
-        return view('dash.components.photo.show', compact('images'));
+        return view('dash.components.photo.show',compact('images'));
+        
     }
 
     public function create()
@@ -27,14 +28,15 @@ class ImageController extends Controller
         ]);
 
         // $imagePath = $request->file('image')->store('public');
-        $imagePath = $request->file('image')->store('/user_id', 'document_uploads');
+        $imagePath = $request->file('image')->store('user_id/', 'document_uploads');
 
 
         Image::create([
             'path' => $imagePath,
             'caption' => $request->caption,
         ]);
-
+        
         return redirect()->route('media.index')->with('success', 'Image uploaded successfully');
+        // return redirect()-> view('dash.components.photo.show')->with('success' , 'Image uploaded successfully');
     }
 }

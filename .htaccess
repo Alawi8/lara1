@@ -17,7 +17,7 @@
 
     # DirectoryIndex index.php
     #disalow
-OPTIONS -INDEXES
+# OPTIONS -INDEXES
 
 #Disble signtrue
 ServerSignature OFF

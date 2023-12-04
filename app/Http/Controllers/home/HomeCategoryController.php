@@ -15,6 +15,6 @@ class HomeCategoryController extends Controller
     {
         $categories = Category::all();
 
-        return view('home.welcom',)->with('categuries', $categories);
+        return view('home.components.categories.index',compact('categories'));
     }
 }

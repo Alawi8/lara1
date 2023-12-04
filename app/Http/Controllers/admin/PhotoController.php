@@ -16,9 +16,6 @@ class PhotoController extends Controller
 =     */
     public function index()
     {
-        if (Auth::user()->role == 0) {
-            return redirect('/');
-        }
         $post = Post::all();
         $arr = array('posts' => $post);
         // return dd($arr);

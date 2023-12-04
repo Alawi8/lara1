@@ -35,6 +35,7 @@
             </thead>
             <tbody>
                 @if (isset($posts))
+                    
                     @foreach ($posts as $post)
                         <tr>
                             <td scope="row"><img src="{{ $post->image_path }}" class="img-thumbnail d-none d-lg-block" alt="..."></td>
@@ -59,7 +60,7 @@
                             <td ><span class="badge rounded-pill text-bg-success">ONLINE</span></td>
                             <td >{{ $post->date }}</td>
                             <td >{{ $post->time }}</td>
-                            <td >@mdo</td>
+                            <td >{{$post->category_id}}</td>
 
                         </tr>
                     @endforeach

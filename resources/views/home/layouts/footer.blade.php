@@ -96,20 +96,7 @@
         box-shadow: 0 0 25px rgb(163, 160, 160)
     }
     
-    #card-posts-menu {
-        border: 5px solid;
-        border-radius: 20px 20px 20px 20px;
-        border-color: rgb(255, 255, 255);
-        margin-bottom: 25px;
-        box-shadow: 0 0 25px rgb(163, 160, 160)
-    }
-    
-    #card-posts-menu-img {
-        width: 100%;
-        height: 10rem;
-        border-radius: 20px 20px 0 90px
-    }
-    
+        
     #cate-aleart {
         border-radius: 30px 30px 0 70px
     }
