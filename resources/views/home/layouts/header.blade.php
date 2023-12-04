@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 
 <head>
-    <title>@yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@yield('title')</title>
     <meta name="description" content="@yield('exept')">
     <meta name="author" content="@yield('author')">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -20,7 +19,7 @@
                 height="40" alt="re" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar">
+            aria-controls="offcanvasNavbar" aria-label="menu-left">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">

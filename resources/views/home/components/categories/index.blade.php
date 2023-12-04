@@ -1,7 +1,7 @@
 @extends('home.layouts.body')
-@section('title')
-    عنا
-@endsection
+@section('title'){{config('app.name')}}التصنيفات@endsection
+@section('exept')@endsection
+@section('author')@endsection
 @section('content')
     <div class="container mt-5">
         <h1>التصنيفات:</h1>

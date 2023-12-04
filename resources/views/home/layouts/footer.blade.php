@@ -16,11 +16,10 @@
                   height="32" alt="{{config('app.name')}}"/>
       </a>
       <ul class="nav col-md-4 justify-content-end">
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">الرئيسية</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">الخصوصية</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">أسئلة</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">حول</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"></a></li>
+          <li class="nav-item"><a href="{{route('home')}}" class="nav-link px-2 text-muted ">الرئيسية</a></li>
+          <li class="nav-item"><a href="{{route('home')}}" class="nav-link px-2 text-muted ">الخصوصية</a></li>
+          <li class="nav-item"><a href="{{route('home')}}" class="nav-link px-2 text-muted ">أسئلة</a></li>
+          <li class="nav-item"><a href="{{route('home')}}" class="nav-link px-2 text-muted ">حول</a></li>
           {{-- Add more navigation items as needed --}}
       </ul>
       </div>

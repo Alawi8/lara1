@@ -1,13 +1,7 @@
 @extends('home.layouts.body')
-@section('title')
-    {{ $dis_posts->title }}
-@endsection
-@section('exept')
-    {{ $dis_posts->exept }}
-@endsection
-@section('author')
-    {{ $dis_posts->writer }}
-@endsection
+@section('title'){{ $dis_posts->title }}@endsection
+@section('exept'){{ $dis_posts->exept }}@endsection
+@section('author'){{ $dis_posts->writer }}@endsection
 
 @section('content')
     <style>
