@@ -7,7 +7,8 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Models\Category ;
+use App\Models\Category;
+use Intervention\Image\Facades\Image;
 
 class AdminPostController extends Controller
 {
@@ -27,43 +28,56 @@ class AdminPostController extends Controller
      */
     public function create()
     {
-        return view('dash.components.posts.create')->with('categuries',category::all());
+        return view('dash.components.posts.create')->with('categuries', category::all());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        if (Auth::user()->role == 0) {
-            return redirect('/');
-        }
         $validated = $request->validate([
-            //blade data in db
             'title' => 'required',
             'exept' => 'required',
             'content' => 'required|max:25000',
             'image' => 'required|mimes:jpg,png,jpeg|max:5048',
-
         ]);
+
+        // حفظ الصورة في مجلد public/storage/img
+        $time = time() . $request->name . '.' ;
+        $newImageName = $time . $request->image->extension();
         
-        //These instructions are responsible for saving images in public/assets/img/offers folder
-        $newImageName = time() . $request->name . '.' .
-        $request->image->extension();
         $request->image->move(public_path('../storage/img'), $newImageName);
+
+        // مسار الصورة الكامل
+        $imageFullPath = public_path('../storage/img/' . $newImageName);
+
+        // استخدام Intervention Image لضغط الصورة وتحويلها إلى WebP
+        $image = Image::make($imageFullPath);
+        $image->encode('webp', 35); // تحويلها إلى WebP بجودة 75%
+        $image->resize(500, 350);
+
+        // حفظ الصورة المحولة
+        $webpPath = str_replace(['.jpg','.jpeg','.png'], '.webp', $imageFullPath);
+        $image->save($webpPath);
+
+        
+        $imagePath = asset('storage/img') . '/' . $time . 'webp';
+        // حفظ البيانات في جدول الـ posts
         DB::table('posts')->insert([
             'title' => $request->title,
             'time' => $request->time,
             'date' => $request->date,
-            'user_id'=> Auth::user()->id ,
+            'user_id' => Auth::user()->id,
             'content' => $request->content,
             'writer' => $request->writer,
             'exept' => $request->exept,
-            'image_path' => asset('/storage/img') . '/' . $newImageName,
-            'category_id'=> $request->category ,
+            'image_path' => $imagePath,
+            'category_id' => $request->category,
         ]);
+        unlink($imageFullPath);
+
         return redirect()->route('posts.index')->with('success', 'كفوو .. كتبت مقاله جديده استمر');
     }
+
+
 
     /**
      * Display the specified resource.
@@ -104,7 +118,8 @@ class AdminPostController extends Controller
     {
 
         $editing = Post::where('id', $id)->delete();
-        return redirect()->route('posts.index')->with('success', 'تم حذف المقاله');;
-        
+        return redirect()->route('posts.index')->with('success', 'تم حذف المقاله');
+        ;
+
     }
 }

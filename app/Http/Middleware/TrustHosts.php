@@ -17,4 +17,13 @@ class TrustHosts extends Middleware
             $this->allSubdomainsOfApplicationUrl(),
         ];
     }
+    // app/Http/Middleware/TrustHosts.php
+
+    protected $headers = [
+        'Content-Security-Policy' => [
+            // إضافة سياسة CSP هنا
+            'report-uri' => '/csp-report-endpoint',
+        ],
+    ];
+
 }
