@@ -1,9 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\auth\CustomAuthController;
+use App\Http\Controllers\auth\LoginController;
 
-
-Route::controller(CustomAuthController::class)-> group(function(){
+Route::controller(LoginController::class)-> group(function(){
 
     // login  users
     route::get ('login','index')                                 ->  name    ('login');

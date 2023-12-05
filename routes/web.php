@@ -90,30 +90,17 @@ Route::get('/', [HomeCategoryController::class, 'index'])->name('home.categories
 
 use App\Http\Controllers\auth\LoginController;
 
-// Route::get('login/google', [LoginController::class, 'redirectToGoogle']);
-// Route::get('login/google/callback', [LoginController::class, 'handleGoogleCallback']);
-
-
-// Route::get('login/{driver}', [LoginController::class , 'redirectToProvider'] )->name('social.oauth');
-// Route::get('login/{driver}/callback',[LoginController::class , 'handleProviderCallback'] )->name('social.callback');
-
-
-
-
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
-
 // require __DIR__.'/auth.php';
 Route::resource('categories', HomeCategoryController::class);
+
+
+// routes/web.php
+
+// use App\Http\Controllers\Auth\RegisterController;
+
+// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+// Route::post('/login', [LoginController::class, 'login']);
+// Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+// Route::post('/register', [RegisterController::class, 'register']);

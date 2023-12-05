@@ -14,11 +14,11 @@
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
     # RewriteRule . / [L,R=301]
+# في ملف .htaccess
 
-    # DirectoryIndex index.php
-    #disalow
-# OPTIONS -INDEXES
-
+# <FilesMatch "\.(css|js|png|jpg|jpeg|gif)$">
+#     Header set Cache-Control "public, max-age=31536000"
+# </FilesMatch>
 #Disble signtrue
 ServerSignature OFF
     # Handle Front Controller...
