@@ -26,16 +26,17 @@ class LoginController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-
+    
         $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
+    
+        // يتم تحقق من الاعتمادات وقيمة "تذكرني" في محاولة واحدة
+        if (Auth::attempt($credentials, $request->has('remember'))) {
             return redirect()->intended(route('home'))->withSuccess('Signed in');
         }
-        
-        return redirect()->intended(route('home'))->with('success', 'Signed in');    }
-
-
-
+    
+        // إذا فشلت محاولة تسجيل الدخول، يتم توجيه المستخدم إلى الصفحة الرئيسية مع رسالة نجاح
+        return redirect()->intended(route('home'))->with('success', 'Sign-in failed');
+    }
     public function registration()
     {
         return view('home.auth.register');
@@ -68,10 +69,11 @@ class LoginController extends Controller
     public function dashboard()
     {
         if (Auth::check()) {
-            return view('dash.components.pages.dash');
+            return redirect()->route('home');
+        }else{
+            return redirect("login")->with('success','are not allowed to access');
         }
 
-        return redirect("login")->withSuccess('are not allowed to access');
 
     }
 
@@ -86,6 +88,6 @@ class LoginController extends Controller
     {
         Auth::logout();
 
-        return Redirect()->route('home');
+        return Redirect()->route('home')->with('success', 'تمت العملية بنجاح');
     }
 }

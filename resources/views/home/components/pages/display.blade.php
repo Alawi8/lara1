@@ -1,7 +1,7 @@
 @extends('home.layouts.body')
-@section('title'){{ $dis_posts->title }}@endsection
+@section('title'){{ $dis_posts->title }}-{{config('app.name')}}@endsection
 @section('exept'){{ $dis_posts->exept }}@endsection
-@section('author'){{ $dis_posts->writer }}@endsection
+@section('author'){{config('app.name')}}@endsection
 
 @section('content')
     <style>

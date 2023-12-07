@@ -20,19 +20,19 @@ class HomeController extends Controller
     // return view("home.welcom", compact('all_posts'));
     // return dd($all_posts);
 
-    }
-
-    public function create()
-    {
-        //
-    }
+    }  
 
 
     public function store(Request $request)
     {
         //
     }
-    public function show(){
+    public function search(Request $request, $title){
+
+        $result = Post::where('title', 'like', '%' . $title . '%')->get();
+        
+        return view('home.components.pages.search', compact('result'));
+
     }
 
     public function about()
