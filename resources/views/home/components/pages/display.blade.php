@@ -1,5 +1,5 @@
 @extends('home.layouts.body')
-@section('title'){{ $dis_posts->title }}-{{config('app.name')}}@endsection
+@section('title'){{ $dis_posts->title }}@endsection
 @section('exept'){{ $dis_posts->exept }}@endsection
 @section('author'){{config('app.name')}}@endsection
 

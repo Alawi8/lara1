@@ -1,5 +1,5 @@
 @extends('home.layouts.body')
-@section('title'){{config('app.name','المقالات')}}@endsection
+@section('title')المقالات@endsection
 @section('content')
 
 @include('home.layouts.home')

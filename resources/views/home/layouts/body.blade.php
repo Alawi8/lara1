@@ -62,8 +62,8 @@
 
 
                     <div id="categure" class="card">
-                        <div id="cate-aleart" class="alert alert-secondary">التصنيفات
-                        </div>
+                        <a id="cate-aleart" class="alert alert-secondary" href="{{route('categories.index')}}">التصنيفات
+                        </a>
                         <tr class="list-group ">
                             @if (isset($categories))
                                 @foreach ($categories as $category)

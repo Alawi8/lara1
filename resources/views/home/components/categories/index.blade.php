@@ -1,5 +1,5 @@
 @extends('home.layouts.body')
-@section('title'){{config('app.name')}}التصنيفات@endsection
+@section('title')التصنيفات@endsection
 @section('exept')@endsection
 @section('author')@endsection
 @section('content')
