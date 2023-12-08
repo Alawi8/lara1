@@ -36,7 +36,7 @@
         }
     </style>    
 @endsection
-
+<h6>المقالات</h6>
     @if (isset($all_posts))
         <div class="row">
             @forelse ($all_posts as $post)

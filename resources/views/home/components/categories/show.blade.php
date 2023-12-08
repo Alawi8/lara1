@@ -1,10 +1,13 @@
 @extends('home.layouts.body')
-@section('title'){{ $category->name }}@endsection
-@section('exept'){{$category->title}}@endsection
-@section('author')@endsection
-
-@section('content')
-<div class="container-fluid">
+@section('title')
+    {{ $category->name }}
+@endsection
+@section('exept')
+    {{ $category->title }}
+@endsection
+@section('author')
+@endsection
+@section('style')
     <style>
         #card-posts-menu {
             overflow: hidden;
@@ -38,37 +41,38 @@
             font-size: 1.2rem;
         }
     </style>
-    <h1>{{ $category->name }}</h1>
-        
-    <ul>
-        @if (isset($posts))
-        <div class="row">
-            @forelse ($posts as $post)
-                <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                    <a class="nav-link" href="{{ route('display', $post->title) }}">
-                        <div id='card-posts-menu' >
-                            <img id="card-posts-menu-img" class="bg-dark legend img-fluid" src="{{ $post->image_path }}"
-                                class="card-img-top" alt="{{ $post->title }}">
-                            <div class="card-body">
-                                <h6>{{ $post->title }}</h6>
-                                @include('home.components.pages.time')
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @empty
-                <div class="col-12">
-                    <div class="alert alert-secondary text-center" role="alert">
-                        لم يتم العثور على مقالات
-                    </div>
-                </div>
-            @endforelse
-            <div class="d-flex justify-content-center">
-                {{-- {{ $all_posts->links() }} --}}
-            </div>
-        </div>
-    @endif
-</div>
+@endsection
+@section('content')
+    <div class="container-fluid">
 
-    </ul>
+        <h6>{{ $category->name }}</h6>
+
+        @if (isset($posts))
+            <div class="row">
+                @forelse ($posts as $post)
+                    <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                        <a class="nav-link" href="{{ route('display', $post->title) }}">
+                            <div id='card-posts-menu'>
+                                <img id="card-posts-menu-img" class="bg-dark legend img-fluid" src="{{ $post->image_path }}"
+                                    class="card-img-top" alt="{{ $post->title }}">
+                                <div class="card-body">
+                                    <h6>{{ $post->title }}</h6>
+                                    @include('home.components.pages.time')
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @empty
+                    <div class="col-12">
+                        <div class="alert alert-secondary text-center" role="alert">
+                            لم يتم العثور على مقالات
+                        </div>
+                    </div>
+                @endforelse
+                <div class="d-flex justify-content-center">
+                    {{-- {{ $all_posts->links() }} --}}
+                </div>
+            </div>
+        @endif
+    </div>
 @endsection
