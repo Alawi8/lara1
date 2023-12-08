@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\category\CategoryController;
+use App\Http\Controllers\Category\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 

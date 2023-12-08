@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 @include('home.layouts.header')
-
 <style>
     body {
         background-color: #f8f9fa;
-    }
-
-    #categure {
-        margin-top: 20px;
     }
 
     #in-search {
@@ -32,9 +27,97 @@
     .card {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-</style>
+        #content img {
+        vertical-align: middle
+    }
+    
+    #content {
+        word-wrap: break-word
+    }
+    
+    #body {
+        width: 100%
+        /* text-color : black ; */
+    }
+    
+    #heading {
+        -webkit-animation: color-change-2x 2s linear infinite alternate both;
+        animation: color-change-2x 2s linear infinite alternate both;
+        border-color: rgb(0, 0, 0);
+        border-radius: 0 0 12px 12px;
+        width: 100%;
+        vertical-align: middle
+    }
+    
+      @-webkit-keyframes color-change-2x {
+        0% {
+            background: #f6f6f6
+        }
+    
+        100% {
+            background: #b352eb
+        }
+    }
+    
+    @keyframes color-change-2x {
+        0% {
+            background: #f0f0f0
+        }
+    
+        100% {
+            background: #b964eb
+        }
+    }  
+    
+    #card-content-posts {
+        width: 100%;
+        height: 22rem;
+        max-zoom: 99px
+    }
+    
+      #style-icon {
+        animation-name: example;
+        animation-duration: 3s;
+        animation-iteration-count: 2222
+    } 
+    
+     @keyframes example {
+        0% {
+            transform: rotate(0deg)
+        }
+    
+        100% {
+            transform: rotate(360deg)
+        }
+    }  
+    
+    #categure {
+        border: 5px solid;
+        border-radius: 20px 20px 20px 20px;
+        border-color: rgb(255, 255, 255);
+        margin-bottom: 25px;
+        box-shadow: 0 0 25px rgb(163, 160, 160)
+    }
+    
+        
+    #cate-aleart {
+        border-radius: 30px 30px 0 70px
+    }
+    
+    #cate-aleart-button {
+        border-radius: 20px 0 0 20px
+    }
+    
+    #in-search {
+        border-radius: 0 20px 20px 0
+    }
+    
+    #input_seo {
+        height: 50%
+    }
+    </style>
 
-<div class="">
+<div class="container-fluid">
 
     <body>
         {{-- Here the data inside (section image) is fetched by @yield image --}}

@@ -23,7 +23,7 @@
     </script>
 
 </head>
-
+@yield('style')
 <nav id="heading" class="navbar bg-body-tertiary fixed-top ">
     <div class="container-fluid">
         <a href="{{ route('home') }}" class=" ">

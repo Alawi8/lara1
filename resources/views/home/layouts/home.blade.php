@@ -1,4 +1,7 @@
 <div class="container-fluid">
+
+@section('style')
+<!--style -->
     <style>
         #card-posts-menu {
             overflow: hidden;
@@ -31,7 +34,8 @@
             margin-bottom: 10px;
             font-size: 1.2rem;
         }
-    </style>
+    </style>    
+@endsection
 
     @if (isset($all_posts))
         <div class="row">
