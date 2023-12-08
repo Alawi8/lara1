@@ -12,7 +12,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">{{ $category->name }}</h5>
-                            ({{ $category->posts->count() }})
+                            {{-- ({{ $category->posts->count() }}) --}}
                             <p class="card-text">{{ $category->description }}</p>
                             <a href="{{ route('categories.show', $category->id) }}" class="btn btn-primary">View Category</a>
                         </div>

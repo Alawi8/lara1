@@ -14,11 +14,6 @@ class HomeController extends Controller
     {
         $all_posts = Post::select('title', 'image_path', 'date')->paginate(12);
         return view('home.welcom',compact('all_posts'));
-        // return dd('all_posts','categories');
-    // $all_posts = Post::where('category_id', 3)->firstOrFail();
-    // $all_posts = Post::where('category_id', 1)->get();
-    // return view("home.welcom", compact('all_posts'));
-    // return dd($all_posts);
 
     }  
 
@@ -59,7 +54,13 @@ class HomeController extends Controller
     }
     
     public function display($title){
-        $dis_posts = Post::where('title',$title)->first();
-        return view ('home.components.pages.display',compact('dis_posts'));
+        $dis_posts = Post::where('title', $title)->first();
+    
+        if (!$dis_posts) {
+            abort(404);
+        }
+    
+        return view ('home.components.pages.display', compact('dis_posts'));
     }
+    
 }

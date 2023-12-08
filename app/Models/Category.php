@@ -9,7 +9,7 @@ class Category extends Model
 {
     // use HasFactory;
     protected $table = "categories";
-    protected $fillable = ['name'];
+    protected $fillable = ['name','title','img_url'];
 
     // You can add relationships or other model-specific methods here
     public function posts()

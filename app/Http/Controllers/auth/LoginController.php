@@ -71,7 +71,7 @@ class LoginController extends Controller
         if (Auth::check()) {
             return redirect()->route('home');
         }else{
-            return redirect("login")->with('success','are not allowed to access');
+            return redirect()->route('home')->with('success','are not allowed to access');
         }
 
 

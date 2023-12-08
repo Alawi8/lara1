@@ -1,6 +1,6 @@
 @extends('home.layouts.body')
 @section('title'){{ $category->name }}@endsection
-@section('exept')@endsection
+@section('exept'){{$category->title}}@endsection
 @section('author')@endsection
 
 @section('content')

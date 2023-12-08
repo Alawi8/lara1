@@ -103,13 +103,26 @@ class AdminPostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $postsUpdate = Post::find($id);
-        $postsUpdate->title = $request->title;
-        $postsUpdate->content = $request->content;
-        $postsUpdate->image_path = $request->image_path;
-        $postsUpdate->save();
+        $post = Post::find($id);
+    
+        if (!$post) {
+            // Handle the case where the post is not found.
+            abort(404);
+        }
+    
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->image_path = $request->image_path;
+        $post->save();
+    
+        // Sync the categories
+        // if ($request->has('categories')) {
+        //     $post->categories()->sync($request->categories);
+        // }
+    
         return redirect()->route('posts.index');
     }
+    
 
     /**
      * Remove the specified resource from storage.

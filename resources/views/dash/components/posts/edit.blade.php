@@ -37,21 +37,20 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <label for="country" class="form-label">التصنيف</label>
-                                    <select name="categories[]" class="form-select" id="country" multiple required>
-                                        @if ($categories)
-                                            @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}"
-                                                    {{ $editing && $category->id == $editing->category_id ? 'selected' : '' }}>
-                                                    {{ $category->id }}
-                                                </option>
-
-                                                </option>
-                                            @endforeach
-                                        @endif
+                                {{-- <div class="col-md-6">
+                                    <label for="category" class="form-label">التصنيف</label>
+                                    <select class="form-select" name="categories[]" id="category" multiple required>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}" {{ in_array($category->id, $selectedCategories) ? 'selected' : '' }}>
+                                                {{ $category->name }}
+                                            </option>
+                                        @endforeach
                                     </select>
-                                </div>
+                                    <div class="invalid-feedback">
+                                        Please select at least one category.
+                                    </div>
+                                </div> --}}
+                                
 
 
 

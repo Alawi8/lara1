@@ -19,9 +19,6 @@ return new class extends Migration
             $table->string('caption')->nullable();
             $table->timestamps();
         });
-        Schema::table('path', function (Blueprint $table) {
-            $table->bigInteger('catepath')->change();
-        });
     }
 
     /**

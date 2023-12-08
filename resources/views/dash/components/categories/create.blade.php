@@ -25,6 +25,8 @@
                 <div class="mb-3">
                     <label for="name" class="form-label">الاسم</label>
                     <input type="text" class="form-control" name="name" id="name">
+                    <label for="title" class="form-label">الوصف</label>
+                    <input type="text" class="form-control" name="title" id="title">
                 </div>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-danger">
