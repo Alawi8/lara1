@@ -1,6 +1,5 @@
 /config
 public/assets/img/offers
-/storage/*.key
 /vendor
 .env
 .env.backup
@@ -13,3 +12,4 @@ yarn-error.log
 /.idea
 /.vscode
 public/sitemap/sitemap.xml
+/storage/img
