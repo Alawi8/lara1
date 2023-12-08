@@ -3,7 +3,7 @@
 @section('exept')@endsection
 @section('author')@endsection
 @section('content')
-    <div class="container">
+    <div>
         <h6>التصنيفات</h6>
         <div class="row">
             @foreach ($categories as $category)

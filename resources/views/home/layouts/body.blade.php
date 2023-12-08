@@ -117,8 +117,7 @@
     }
     </style>
 
-<div class="container-fluid">
-
+<div>
     <body>
         {{-- Here the data inside (section image) is fetched by @yield image --}}
         <div class="container-fluid">

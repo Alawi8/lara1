@@ -43,8 +43,7 @@
     </style>
 @endsection
 @section('content')
-    <div class="container-fluid">
-
+    <div >
         <h6>{{ $category->name }}</h6>
 
         @if (isset($posts))
