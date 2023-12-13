@@ -95,4 +95,5 @@ use App\Http\Controllers\auth\LoginController;
 Route::resource('categories', HomeCategoryController::class);
 
 
-// routes/web.php
+// Route::livewire('livewire/posts/{id}', 'show_posts');
+Route::get('/show-posts/{id}', App\Http\Livewire\ShowPosts::class);

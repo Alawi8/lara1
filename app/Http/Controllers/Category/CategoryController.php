@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Validator;
 
 
 class CategoryController extends Controller
@@ -21,17 +22,25 @@ class CategoryController extends Controller
         return view('dash.components.categories.create');
     }
 
+
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'title'=>'required|string',
+            'title' => 'required|string',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('category.create') // replace 'your.route.name' with the actual route name or URL
+                ->withErrors($validator)
+                ->withInput($request->all());
+        }
 
         Category::create($request->all());
 
         return redirect()->route('category.index')->with('success', 'Category added successfully!');
     }
+
 
     public function edit(Category $category)
     {

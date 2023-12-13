@@ -50,10 +50,6 @@
                                         Please select at least one category.
                                     </div>
                                 </div> --}}
-                                
-
-
-
 
                                 <div class="col-sm-6">
                                     <label for="lastName" class="form-label">الوصف</label>

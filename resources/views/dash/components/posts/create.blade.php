@@ -10,6 +10,7 @@
         <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet'
             type='text/css' />
     </head>
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
     <div class="row">
         <div class="col-12">
             <div class="collapse show" id="collapseCardExample">
@@ -66,7 +67,7 @@
                                 <hr class="my-4">
 
                                 <div class="form-control @error('content') is-invalid @enderror">
-                                <textarea name="content" value="{{ old('content') }}" id="example" rows="25"
+                                <textarea name="content" value="{{ old('content') }}" id="editor" rows="25"
                                         class="form-control @error('content') is-invalid @enderror">
                                 {{ old('content') }}
                                 </textarea>
@@ -74,18 +75,15 @@
                                     حقل المحتوى مطلوب
                                     </div>
                                 </div>
-
-                                <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'>
-                                </script>
                                 <script>
-                                    var editor = new FroalaEditor('#example');
+                                    ClassicEditor
+                                        .create( document.querySelector( '#editor' ) )
+                                        .catch( error => {
+                                            console.error( error );
+                                        } );
                                 </script>
 
                                 <hr class="my-4">
-                                <input type="datetime" value="{{ date('Hms') }}" name="time" hidden>
-                                <input type="datetime" value="{{ date('Y-m-d h:m:s') }}" name="date" hidden>
-                                <input type="text" value="{{ Auth::user()->name }}"name="writer" hidden>
-                                {{-- <input type="text" value="{{ Auth::user()->id }}"name="user_id" hidden> --}}
                                 <button class="w-100 btn btn-primary btn-lg" type="submit">أكمال النشر</button>
                         </form>
                     </div>

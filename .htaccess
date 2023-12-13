@@ -16,9 +16,26 @@
     # RewriteRule . / [L,R=301]
 # في ملف .htaccess
 
-# <FilesMatch "\.(css|js|png|jpg|jpeg|gif)$">
+# <FilesMatch "\.(css|js|png|jpg|jpeg|gif|json)$">
 #     Header set Cache-Control "public, max-age=31536000"
 # </FilesMatch>
+
+# <FilesMatch "(?!allowed-composer.json)">
+#     Order Deny,Allow
+#     Deny from all
+# </FilesMatch>
+
+# <Files "*">
+#     Order Deny,Allow
+#     Deny from all
+# </Files>
+
+<Files "allowed-file.txt">
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+
 #Disble signtrue
 ServerSignature OFF
     # Handle Front Controller...

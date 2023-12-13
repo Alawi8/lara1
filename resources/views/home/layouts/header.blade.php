@@ -20,7 +20,7 @@
 
         gtag('config', 'G-VNPVF4DM3C');
     </script>
-
+    @livewireStyles
 </head>
 @yield('style')
 <nav id="heading" class="navbar bg-body-tertiary fixed-top ">
@@ -100,7 +100,9 @@
                     <div class="font-variation">
                         <!-- Thin outlined icons from Bootstrap Icons -->
                         <a href="{{ URL('admin/posts') }}" class="btn btn-dark rounded-3 me-2" title="التحكـم">
-                            <i class="bi bi-house-door"></i> الرئيسية
+                            <i class="bi bi-house-door">
+                                التحكم
+                            </i>
                         </a>
                         <a href="#" class="btn btn-dark rounded-3 me-2" title="الاعدادات">
                             <i class="bi bi-gear"></i> الإعدادات
@@ -131,3 +133,4 @@
         </div>
     @endif
 @endguest
+

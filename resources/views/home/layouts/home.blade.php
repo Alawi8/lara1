@@ -50,6 +50,7 @@
                                 @include('home.components.pages.time')
                             </div>
                         </div>
+                        
                     </a>
                 </div>
             @empty
@@ -60,8 +61,11 @@
                 </div>
             @endforelse
             <div class="d-flex justify-content-center">
-                {{-- {{ $all_posts->links() }} --}}
+                {{ $all_posts->links() }}
             </div>
         </div>
+
+
     @endif
+        {{-- <livewire:posts/> --}}
 </div>

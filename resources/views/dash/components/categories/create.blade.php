@@ -1,6 +1,8 @@
 <!-- resources/views/categories/create.blade.php -->
 
-@extends('dash.layouts.header')  {{-- Assuming you have a main layout file --}}
+@extends('dash.layouts.header')  
+
+{{-- Assuming you have a main layout file --}}
 
 @section('content')
 
@@ -24,9 +26,9 @@
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">الاسم</label>
-                    <input type="text" class="form-control" name="name" id="name">
+                    <input type="text" value="{{ old('name')}}" class="form-control" name="name" id="name">
                     <label for="title" class="form-label">الوصف</label>
-                    <input type="text" class="form-control" name="title" id="title">
+                    <input type="text" value="{{old('title') }}" class="form-control" name="title" id="title">
                 </div>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-danger">

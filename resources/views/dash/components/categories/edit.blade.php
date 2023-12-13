@@ -16,6 +16,8 @@
                 <div class="mb-3">
                     <label for="name" class="form-label">اسم التصنيف</label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ $category->name }}">
+                    <label for="title" class="form-label">الوصـف</label>
+                    <input type="text" class="form-control" id="title" name="title" value="{{ $category->title }}">
                 </div>
 
                 <!-- Add other form fields for editing category details here -->

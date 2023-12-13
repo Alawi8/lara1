@@ -36,8 +36,8 @@ class AdminPostController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'exept' => 'required',
-            'content' => 'required|max:25000',
-            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
+            'content' => 'required|max:75000',
+            'image' => 'required|mimes:jpg,png,jpeg,webp|max:5048',
         ]);
 
         // حفظ الصورة في مجلد public/storage/img
@@ -63,11 +63,11 @@ class AdminPostController extends Controller
         // حفظ البيانات في جدول الـ posts
         DB::table('posts')->insert([
             'title' => $request->title,
-            'time' => $request->time,
-            'date' => $request->date,
+            'time' => date('Hms'),
+            'date' => date('Y-m-d h:m:s') ,
             'user_id' => Auth::user()->id,
             'content' => $request->content,
-            'writer' => $request->writer,
+            'writer' => Auth::user()->name,
             'exept' => $request->exept,
             'image_path' => $imagePath,
             'category_id' => $request->category,
