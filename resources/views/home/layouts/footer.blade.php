@@ -5,7 +5,18 @@
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
         </script>
-        
+        <script>
+            document.onreadystatechange = function() {
+                if (document.readyState === "complete") {
+                    // عند اكتمال تحميل الصفحة
+                    document.getElementById("myProgressBar").style.width = "100%";
+                    setTimeout(function() {
+                        // انتهاء التأثير بعد فترة زمنية
+                        document.getElementById("myProgressBar").style.display = "none";
+                    }, 200);
+                }
+            };
+        </script>
         <p class="col-md-4 mb-0 text-muted">&copy; جميع الحقوق محفوظه {{ date('Y') }}</p>
         <a href="{{ route('home') }}"
             class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">

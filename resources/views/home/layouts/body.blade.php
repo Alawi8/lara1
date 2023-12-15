@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 @include('home.layouts.header')
+
 <style>
     body {
         background-color: #f8f9fa;
@@ -27,19 +28,20 @@
     .card {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-        #content img {
+
+    #content img {
         vertical-align: middle
     }
-    
+
     #content {
         word-wrap: break-word
     }
-    
+
     #body {
         width: 100%
-        /* text-color : black ; */
+            /* text-color : black ; */
     }
-    
+
     #heading {
         -webkit-animation: color-change-2x 2s linear infinite alternate both;
         animation: color-change-2x 2s linear infinite alternate both;
@@ -48,49 +50,49 @@
         width: 100%;
         vertical-align: middle
     }
-    
-      @-webkit-keyframes color-change-2x {
+
+    @-webkit-keyframes color-change-2x {
         0% {
             background: #f6f6f6
         }
-    
+
         100% {
             background: #b352eb
         }
     }
-    
+
     @keyframes color-change-2x {
         0% {
             background: #f0f0f0
         }
-    
+
         100% {
             background: #b964eb
         }
-    }  
-    
+    }
+
     #card-content-posts {
         width: 100%;
         height: 22rem;
         max-zoom: 99px
     }
-    
-      #style-icon {
+
+    #style-icon {
         animation-name: example;
         animation-duration: 3s;
         animation-iteration-count: 2222
-    } 
-    
-     @keyframes example {
+    }
+
+    @keyframes example {
         0% {
             transform: rotate(0deg)
         }
-    
+
         100% {
             transform: rotate(360deg)
         }
-    }  
-    
+    }
+
     #categure {
         border: 5px solid;
         border-radius: 20px 20px 20px 20px;
@@ -98,33 +100,48 @@
         margin-bottom: 25px;
         box-shadow: 0 0 25px rgb(163, 160, 160)
     }
-    
-        
+
+
     #cate-aleart {
         border-radius: 30px 30px 0 70px
     }
-    
+
     #cate-aleart-button {
         border-radius: 20px 0 0 20px
     }
-    
+
     #in-search {
         border-radius: 0 20px 20px 0
     }
-    
+
     #input_seo {
         height: 50%
     }
-    </style>
+</style>
 
 <div>
+
     <body>
         {{-- Here the data inside (section image) is fetched by @yield image --}}
         <div class="container-fluid">
 
             <div class="row rounded-3">
+
                 <div class=" col-md-9 col-lg-9 col-sm-12 ">
                     <br>
+                    {{-- <div id="myProgressBar" class="text-center">
+                        <div  class="spinner-border" role="status">
+                            <span  class="visually-hidden">Loading...</span>
+                        </div>
+                    </div> --}}
+                    <div id="myProgressBar" class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        <div  class="progress-bar progress-bar-striped progress-bar-animated" style="width: 99%"></div>
+                      </div>
+                    
+                    <!-- Your content goes here -->
+                    <script>
+
+                    </script>
                     {{-- Here the data inside (section Content) is fetched by @yield content --}}
                     @yield('content')
                 </div>
@@ -137,14 +154,17 @@
                         {{-- @method(POST) --}}
                         @csrf
                         <div class="input-group">
-                            <input id="in-search" class="form-control" type="search" name="title" placeholder="بحث" aria-label="Search" value="" required>
+                            <input id="in-search" class="form-control" type="search" name="title" placeholder="بحث"
+                                aria-label="Search" value="" required>
                         </div>
-                        <button id="cate-aleart-button" class="btn btn-outline-light bg-success" type="submit">البحث</button>
+                        <button id="cate-aleart-button" class="btn btn-outline-light bg-success"
+                            type="submit">البحث</button>
                     </form>
 
 
                     <div id="categure" class="card">
-                        <a id="cate-aleart" class="alert alert-secondary" href="{{route('categories.index')}}">التصنيفات
+                        <a id="cate-aleart" class="alert alert-secondary"
+                            href="{{ route('categories.index') }}">التصنيفات
                         </a>
                         <tr class="list-group ">
                             @if (isset($categories))
@@ -153,20 +173,11 @@
                                         <a class="text-center btn btn-light nav-link"
                                             href="#">{{ $category->name }}</a>
                                         <h2></h2>
-
-                                        @if ($category->posts->count() > 0)
-                                            <ul>
-                                                @foreach ($category->posts as $post)
-                                                    {{-- <li>{{ $post->title }}</li> --}}
-                                                @endforeach
-                                            </ul>
-                                        @else
-                                            {{-- <p>No posts in this category.</p> --}}
-                                        @endif
+                                        {{-- <p>No posts in this category.</p> --}}
                                     </div>
                                 @endforeach
                             @else
-                                <p>No posts in thi.</p>
+                                <p>لايوجد تصنيفات</p>
                             @endif
                         </tr>
                     </div>
