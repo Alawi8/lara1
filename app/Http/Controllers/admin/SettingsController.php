@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
+
 
 class SettingsController extends Controller
 {
@@ -14,7 +17,8 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        return view('dash.components.setting.create');
+        $settings = Setting::all();
+        return view('dash.components.setting.edit',compact('settings'));
     }
 
     /**
@@ -76,10 +80,38 @@ class SettingsController extends Controller
      *
      
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+
+     public function update(Request $request, $id)
+     {
+         try {
+             // التحقق من وجود السجل
+             $setting = Setting::findOrFail($id);
+     
+             // تحديث الحقول بناءً على بيانات الطلب
+             $setting->site_name = $request->input('site_name');
+             $setting->about = $request->input('about');
+     
+             // التحقق من وجود صورة قبل التحديث
+             if ($request->hasFile('icon_url')) {
+                 // قم بمعالجة الصورة وحفظها في المسار المناسب
+                 $imagePath = $request->file('icon_url')->store('profile_pictures', 'public');
+     
+                 // قم بتحديث حقل الصورة في الجدول
+                 $setting->icon_url = $imagePath;
+             }
+     
+             // حفظ التغييرات
+             $setting->save();
+     
+             // إعادة توجيه أو إرجاع رد بناءً على الاحتياجات الخاصة بك
+             return redirect()->route('settings.index')->with('success', 'تم تحديث الملف الشخصي بنجاح');
+         } catch (\Exception $e) {
+             // التعامل مع الأخطاء
+             return redirect()->route('settings.index')->with('error', 'حدث خطأ أثناء تحديث الملف الشخصي');
+         }
+     }
+     
+    
 
     /**
      * Remove the specified resource from storage.

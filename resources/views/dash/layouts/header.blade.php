@@ -112,7 +112,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('users.show')}}">
+                <a class="nav-link" href="{{ route('users.show') }}">
                     <span data-feather="users" class="align-text-bottom"></span>
                     الاعضاء
                 </a>
@@ -143,7 +143,7 @@
                 </a>
 
             </li>
-            
+
         </ul>
 
         <h6

@@ -30,9 +30,11 @@ use App\Http\Controllers\home\HomeController;
 | SEO Routes
 |--------------------------------------------------------------------------
 */
+Route::get('sitemap/create', function () {
+    $baseUrl = config('app.url'); // استخدم متغير البيئة للحصول على عنوان موقعك
 
-Route::get('sitemap', function () {
-    SitemapGenerator::create('https://laravel.test')->writeToFile('sitemap.xml');
+    SitemapGenerator::create($baseUrl)->writeToFile('sitemap.xml');
+    
     return 'sitemap created';
 });
 /*
@@ -41,10 +43,6 @@ Route::get('sitemap', function () {
 |--------------------------------------------------------------------------
 */
 
-
-// Route::controller(MediaController::class)->group(function(){
-//     route::get(      '/dash/media'        ,          'GetMedia'        ) -> name    ('dash.media')  ->      middleware('auth');
-// });
 
 // admin page controllers
 route::controller(AdminPagesController::class)->group(function (){

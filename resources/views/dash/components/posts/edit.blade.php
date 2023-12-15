@@ -51,6 +51,8 @@
                                     </div>
                                 </div> --}}
 
+
+
                                 <div class="col-sm-6">
                                     <label for="lastName" class="form-label">الوصف</label>
                                     <input type="text" class="form-control @error('exept') is-invalid @enderror"
@@ -59,6 +61,8 @@
                                         حقل الوصف مطلوب
                                     </div>
                                 </div>
+
+                                {{-- @include('dash.components.posts.editor') --}}
 
 
                                 <hr class="my-4">
@@ -71,6 +75,7 @@
                                         حقل المحتوى مطلوب
                                     </div>
                                 </div>
+
                                 <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'>
                                 </script>
                                 <script>
