@@ -26,8 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-        $categories = Category::select('name')->get();
-        view()->share('categories',$categories);
     }
     
     public function isSecure()

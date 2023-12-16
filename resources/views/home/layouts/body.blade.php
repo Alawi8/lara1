@@ -127,7 +127,7 @@
 
             <div class="row rounded-3">
 
-                <div class=" col-md-9 col-lg-9 col-sm-12 ">
+                <div class=" col-md-12 col-lg-12 col-sm-12 ">
                     <br>
                     {{-- <div id="myProgressBar" class="text-center">
                         <div  class="spinner-border" role="status">
@@ -145,79 +145,7 @@
                     {{-- Here the data inside (section Content) is fetched by @yield content --}}
                     @yield('content')
                 </div>
-                <div class=" col-md-3 col-sm-12 col-lg-3">
-                    <br>
-                    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-                    {{-- here i used inclode to get style from categore page  --}}
-                    <form id="categure" class="d-flex" role="search" action="" method="GET">
-                        {{-- @method(POST) --}}
-                        @csrf
-                        <div class="input-group">
-                            <input id="in-search" class="form-control" type="search" name="title" placeholder="بحث"
-                                aria-label="Search" value="" required>
-                        </div>
-                        <button id="cate-aleart-button" class="btn btn-outline-light bg-success"
-                            type="submit">البحث</button>
-                    </form>
-
-
-                    <div id="categure" class="card">
-                        <a id="cate-aleart" class="alert alert-secondary"
-                            href="{{ route('categories.index') }}">التصنيفات
-                        </a>
-                        <tr class="list-group ">
-                            @if (isset($categories))
-                                @foreach ($categories as $category)
-                                    <div>
-                                        <a class="text-center btn btn-light nav-link"
-                                            href="#">{{ $category->name }}</a>
-                                        <h2></h2>
-                                        {{-- <p>No posts in this category.</p> --}}
-                                    </div>
-                                @endforeach
-                            @else
-                                <p>لايوجد تصنيفات</p>
-                            @endif
-                        </tr>
-                    </div>
-
-                    <div id="categure" class="card ">
-                        <div id="cate-aleart" class="alert alert-secondary">
-                            الصفحات
-                        </div>
-                        <tr class="list-group ">
-                            <a class="text-center btn btn-light nav-link" href="#">link</a>
-                            <a class="text-center btn btn-light nav-link " href="#">link</a>
-                            <a class="text-center btn btn-light nav-link" href="#">link</a>
-                            <a class="text-center btn btn-light nav-link" href="#">link</a>
-                        </tr>
-                    </div>
-
-                    <div id="categure" class="card ">
-                        <div id="cate-aleart" class="alert alert-secondary">
-                            الاكثر قراءه
-                        </div>
-                        <tr class="list-group ">
-                            <a class="text-center btn btn-light nav-link" href="#">link</a>
-                            <a class="text-center btn btn-light nav-link " href="#">link</a>
-                            <a class="text-center btn btn-light nav-link" href="#">link</a>
-                            <a class="text-center btn btn-light nav-link" href="#">link</a>
-                        </tr>
-                    </div>
-
-                    <div id="categure" class="card ">
-                        <div id="cate-aleart" class="alert alert-secondary">
-                            احدث المقالات
-                        </div>
-                        <tr class="list-group ">
-                            <a class="text-center btn btn-light nav-link" href="#">link</a>
-                            <a class="text-center btn btn-light nav-link" href="#">link</a>
-                            <a class="text-center btn btn-light nav-link" href="#">link</a>
-                            <a class="text-center btn btn-light nav-link" href="#">link</a>
-                        </tr>
-                    </div>
-                </div>
             </div>
         </div>
         @livewireScripts

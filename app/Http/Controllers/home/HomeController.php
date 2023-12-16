@@ -12,8 +12,10 @@ class HomeController extends Controller
 
     public function index()
     {
-        $all_posts = Post::select('title', 'image_path', 'date')->paginate(12);
-        return view('home.welcom',compact('all_posts'));
+        $categories = Category::all();
+
+        $all_posts = Post::select('title', 'image_path', 'date')->paginate(8);
+        return view('home.welcom',compact('all_posts','categories'));
 
     }  
 
