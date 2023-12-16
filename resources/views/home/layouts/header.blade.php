@@ -26,7 +26,7 @@
 <nav id="heading" class="navbar bg-body-tertiary fixed-top ">
     <div class="container-fluid">
         <a href="{{ route('home') }}" class=" ">
-            <img id="style-icon" src="https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/react-512.png"width="40"
+            <img  src="{{asset('public/assets/img/bitmap.png')}}"width="40"
                 height="40" alt="re" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"

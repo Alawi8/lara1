@@ -18,6 +18,7 @@
             }, 100);
         }
     };
+    
         </script>
         <p class="col-md-4 mb-0 text-muted">&copy; جميع الحقوق محفوظه {{ date('Y') }}</p>
         <a href="{{ route('home') }}"
