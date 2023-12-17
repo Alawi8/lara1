@@ -7,48 +7,62 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
-class HomeController extends Controller 
+class HomeController extends Controller
 {
 
     public function index()
     {
         $categories = Category::all();
+        // if(isset(!$all_posts)){
+        // $all_posts = Post::select('title', 'image_path', 'date')->paginate(8);
+        // $totalPosts = Post::count();
+        // return view('home.welcom',compact('all_posts','categories','totalPosts'));
+        // }else{
 
-        $all_posts = Post::select('title', 'image_path', 'date')->paginate(8);
-        $totalPosts = Post::count();
+        //     return view('home.welcom');
+        // }
 
-        return view('home.welcom',compact('all_posts','categories','totalPosts'));
 
-    }  
+        if (!isset($all_posts)) {
+            $all_posts = Post::select('title', 'image_path', 'date')->paginate(8);
+            $totalPosts = Post::count();
+
+            return view('home.welcom', compact('all_posts', 'categories', 'totalPosts'));
+        } else {
+            return view('home.welcom', compact('categories'));
+        }
+
+    }
 
 
     public function store(Request $request)
     {
         //
     }
-    public function search(Request $request, $title){
+    public function search(Request $request, $title)
+    {
 
         $result = Post::where('title', 'like', '%' . $title . '%')->get();
-        
+
         return view('home.components.pages.search', compact('result'));
 
     }
 
     public function about()
     {
-        return view ('home.pages.about');
+        return view('home.pages.about');
     }
 
 
     public function faq()
     {
-        return view ('home.pages.faq');
+        return view('home.pages.faq');
     }
 
 
     public function policy()
     {
-        return view ('home.pages.policy');
+        return view('home.pages.policy');
     }
 
 
@@ -56,15 +70,16 @@ class HomeController extends Controller
     {
         //
     }
-    
-    public function display($title){
+
+    public function display($title)
+    {
         $dis_posts = Post::where('title', $title)->first();
-    
+
         if (!$dis_posts) {
             abort(404);
         }
-    
-        return view ('home.components.pages.display', compact('dis_posts'));
+
+        return view('home.components.pages.display', compact('dis_posts'));
     }
-    
+
 }

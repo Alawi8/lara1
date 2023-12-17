@@ -6,6 +6,8 @@
     <div>
         <h6>التصنيفات</h6>
         <div class="row">
+            @if (isset($categories))
+                
             @foreach ($categories as $category)
                 <div class="col-md-4 mb-4">
                     <div class="card">
@@ -18,6 +20,7 @@
                     </div>
                 </div>
             @endforeach
+            @endif
         </div>
     </div>
 @endsection

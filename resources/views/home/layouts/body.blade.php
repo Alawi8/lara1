@@ -120,6 +120,7 @@
 </style>
 
 <div>
+
     <body>
         {{-- Here the data inside (section image) is fetched by @yield image --}}
         <div class="container-fluid">
@@ -133,17 +134,20 @@
                 <div class="col-md-3 col-lg-3 col-sm-12">
                     <div class=" p-4">
                         <h6>احدث المقالات</h6>
-                        <ul class="list-group">
-                            @foreach ($posts as $item)
+                        @if (isset($posts))
 
-                            <div class="list-group">
-                                <a href="{{ route('display', $item->title) }}" class="list-group-item list-group-item-action {{ Route::currentRouteName() === 'display' && request()->route('title') === $item->title ? 'active' : '' }}">
-                                    {{ $item->title }}
-                                </a>
-                                
-                              </div>
-                            @endforeach
-                          </ul>
+                            <ul class="list-group">
+                                @foreach ($posts as $item)
+                                    <div class="list-group">
+                                        <a href="{{ route('display', $item->title) }}"
+                                            class="list-group-item list-group-item-action {{ Route::currentRouteName() === 'display' && request()->route('title') === $item->title ? 'active' : '' }}">
+                                            {{ $item->title }}
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </ul>
+                        @endif
+
                     </div>
                 </div>
             </div>

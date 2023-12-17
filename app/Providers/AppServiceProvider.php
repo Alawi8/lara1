@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Post;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,10 +27,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-        $posts = Post::latest('date')
-        ->select('title', 'id', 'date');
-        view()->share('posts', Post::latest('date')->select('title', 'image_path', 'date')->take(7)->get());
-    
+        if( !isset($posts) || $posts === null ) {
+            $posts = Post::latest('date')->select('title', 'id', 'date')->take(7)->get();
+            
+            View::share('posts', $posts);
+        }
     }
 
     public function isSecure()
