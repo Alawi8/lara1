@@ -126,13 +126,21 @@
 
             <div class="row rounded-3 p-3">
 
-                <div class=" col-md-12 col-lg-10 col-sm-12 ">
-                    <br>
-                    <div id="myProgressBar" class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                        <div  class="progress-bar progress-bar-striped progress-bar-animated" style="width: 99%"></div>
-                      </div>
+                <div class=" col-md-9 col-lg-9 col-sm-12 ">
                     {{-- Here the data inside (section Content) is fetched by @yield content --}}
                     @yield('content')
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-12">
+                    <div class=" p-4">
+                        <h6>احدث المقالات</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item active" aria-current="true">An active item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                            <li class="list-group-item">A fourth item</li>
+                            <li class="list-group-item">And a fifth one</li>
+                          </ul>
+                    </div>
                 </div>
             </div>
         </div>

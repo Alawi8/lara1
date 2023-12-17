@@ -28,8 +28,13 @@
 <nav id="heading" class="navbar bg-body-tertiary fixed-top ">
     <div class="container-fluid">
         <a href="{{ route('home') }}" class=" ">
-            <img  src="{{asset('public/assets/img/bitmap.png')}}"width="40"
-                height="40" alt="re" />
+
+
+            <img id="myImage" src="{{ asset('public/assets/img/bitmap.png') }}" width="40" height="40" alt="re" style="display: none;" />
+<div id="myProgressBar" class="spinner-grow" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar" aria-label="menu-left">
