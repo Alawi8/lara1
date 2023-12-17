@@ -5,9 +5,9 @@
     <meta name="description" content="@yield('exept')">
     <meta name="author" content="{{ config('app.name') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('public/assets/img/bitmap.png') }}">
     <meta name="generator" content="Hugo 0.101.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNPVF4DM3C"></script>
     <script>
@@ -20,21 +20,20 @@
 
         gtag('config', 'G-VNPVF4DM3C');
     </script>
+    {{-- google adsens link --}}
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
-    crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     @livewireStyles
 </head>
 @yield('style')
 <nav id="heading" class="navbar bg-body-tertiary fixed-top ">
     <div class="container-fluid">
         <a href="{{ route('home') }}" class=" ">
-
-
-            <img id="myImage" src="{{ asset('public/assets/img/bitmap.png') }}" width="40" height="40" alt="re" style="display: none;" />
-<div id="myProgressBar" class="spinner-grow" role="status">
-    <span class="visually-hidden">Loading...</span>
-</div>
-
+            <img id="myImage" src="{{ asset('public/assets/img/bitmap.png') }}" width="40" height="40"
+                alt="re" style="display: none;" />
+            <div id="myProgressBar" class="spinner-grow" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar" aria-label="menu-left">
@@ -42,21 +41,27 @@
         </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-
                 </a>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
                 <div class="list-group">
-                    <a href="{{ route('home') }}" class="list-group-item list-group-item-action {{ Request::is('home') ? 'active' : '' }}" aria-current="true">
+                    <a href="{{ route('home') }}"
+                        class="list-group-item list-group-item-action {{ Request::is('home') ? 'active' : '' }}"
+                        aria-current="true">
                         الرئيسية
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action {{ Request::is('first') ? 'active' : '' }}">a first</a>
-                    <a href="{{ route('categories.index') }}" class="list-group-item list-group-item-action {{ Request::is('categories*') ? 'active' : '' }}">التصنيفات</a>
-                    <a href="#" class="list-group-item list-group-item-action {{ Request::is('fourth') ? 'active' : '' }}">A fourth link item</a>
-                    <a class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a>
+                    <a href="#"
+                        class="list-group-item list-group-item-action {{ Request::is('first') ? 'active' : '' }}">a
+                        first</a>
+                    <a href="{{ route('categories.index') }}"
+                        class="list-group-item list-group-item-action {{ Request::is('categories*') ? 'active' : '' }}">التصنيفات</a>
+                    <a href="#"
+                        class="list-group-item list-group-item-action {{ Request::is('fourth') ? 'active' : '' }}">A
+                        fourth link item</a>
+                    <a class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link
+                        item</a>
                 </div>
-
                 <form class="d-flex mt-3" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
@@ -82,10 +87,9 @@
 </nav>
 <br>
 <br>
-
 @guest
 @else
-    @if (Auth::user()->role >> 0 )
+    @if (Auth::user()->role >> 0)
         <div class="container mt-5">
             <div class="row">
                 <div class="col">
@@ -125,5 +129,3 @@
         </div>
     @endif
 @endguest
-
-

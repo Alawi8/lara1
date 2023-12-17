@@ -22,11 +22,9 @@
         </script> --}}
         <script>
             window.addEventListener('load', function () {
+                document.getElementById('myProgressBar').style.display = 'none';
                 // انتظر حتى يكتمل تحميل الصفحة
                 setTimeout(function () {
-                    // قم بتحميل الصورة أو أي عمليات أخرى
-                    // في هذا المكان يمكنك أن تقوم بتحميل الصورة أو أي عمليات أخرى
-        
                     // بمجرد الانتهاء، قم بتعيين السمة display إلى 'block' لإظهار الصورة
                     document.getElementById('myImage').style.display = 'block';
         
