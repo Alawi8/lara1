@@ -1,7 +1,13 @@
 @extends('home.layouts.body')
-@section('title'){{ $dis_posts->title }}@endsection
-@section('exept'){{ $dis_posts->exept }}@endsection
-@section('author'){{config('app.name')}}@endsection
+@section('title')
+    {{ $dis_posts->title }}
+@endsection
+@section('exept')
+    {{ $dis_posts->exept }}
+@endsection
+@section('author')
+    {{ config('app.name') }}
+@endsection
 
 @section('content')
     <style>
@@ -55,4 +61,19 @@
             {!! $dis_posts->content !!}
         </div>
     </div>
+
+    <!-- عرض التعليقات -->
+    <h2>التعليقات</h2>
+    {{-- @foreach ($post->comments as $comment) --}}
+        {{-- <p>{{ $comment->content }}</p> --}}
+    {{-- @endforeach --}}
+
+    <!-- رابط لإرسال تعليق -->
+
+<form action="{{ route('comments.store') }}" method="post">
+    @csrf
+    <textarea name="content" rows="4" cols="50"></textarea>
+    <input type="hidden" name="post_id" value="{{ $dis_posts->id }}">
+    <button type="submit">أرسل التعليق</button>
+</form>
 @endsection

@@ -20,7 +20,10 @@
     };
     
         </script>
-        <p class="col-md-4 mb-0 text-muted">&copy; جميع الحقوق محفوظه {{ date('Y') }}</p>
+        <p class="col-md-4 mb-0 text-muted">&copy;2018-{{ date('Y') }} 
+        <br>
+        {{config('app.name')}}
+        </p>
         <a href="{{ route('home') }}"
             class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
             <img id="bot"src="{{asset('public/assets/img/bitmap.png')}}"

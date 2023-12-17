@@ -32,3 +32,9 @@ route::controller(HomeController::class)-> group(function(){
 //     //     dd($request->all());
 //     // }
 // })->name('home.search');
+// routes/web.php
+
+use App\Http\Controllers\home\CommetController;
+
+Route::get('/comments/create/{postId}', [CommetController::class, 'showForm'])->name('comments.create');
+Route::post('/comments/store', [CommetController::class, 'store'])->name('comments.store');

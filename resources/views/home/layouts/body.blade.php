@@ -120,32 +120,20 @@
 </style>
 
 <div>
-
     <body>
         {{-- Here the data inside (section image) is fetched by @yield image --}}
         <div class="container-fluid">
 
-            <div class="row rounded-3">
+            <div class="row rounded-3 p-3">
 
-                <div class=" col-md-12 col-lg-12 col-sm-12 ">
+                <div class=" col-md-12 col-lg-10 col-sm-12 ">
                     <br>
-                    {{-- <div id="myProgressBar" class="text-center">
-                        <div  class="spinner-border" role="status">
-                            <span  class="visually-hidden">Loading...</span>
-                        </div>
-                    </div> --}}
                     <div id="myProgressBar" class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                         <div  class="progress-bar progress-bar-striped progress-bar-animated" style="width: 99%"></div>
                       </div>
-                    
-                    <!-- Your content goes here -->
-                    <script>
-
-                    </script>
                     {{-- Here the data inside (section Content) is fetched by @yield content --}}
                     @yield('content')
                 </div>
-
             </div>
         </div>
         @livewireScripts

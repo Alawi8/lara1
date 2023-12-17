@@ -20,6 +20,8 @@
 
         gtag('config', 'G-VNPVF4DM3C');
     </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
+    crossorigin="anonymous"></script>
     @livewireStyles
 </head>
 @yield('style')
@@ -40,28 +42,15 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">الرئيسيه</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('categories.index') }}">التصنيفات</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                <div class="list-group">
+                    <a href="{{ route('home') }}" class="list-group-item list-group-item-action {{ Request::is('home') ? 'active' : '' }}" aria-current="true">
+                        الرئيسية
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action {{ Request::is('first') ? 'active' : '' }}">a first</a>
+                    <a href="{{ route('categories.index') }}" class="list-group-item list-group-item-action {{ Request::is('categories*') ? 'active' : '' }}">التصنيفات</a>
+                    <a href="#" class="list-group-item list-group-item-action {{ Request::is('fourth') ? 'active' : '' }}">A fourth link item</a>
+                    <a class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a>
+                </div>
 
                 <form class="d-flex mt-3" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -79,11 +68,9 @@
                             <li class="nav-item">
                                 <a class="nav-link " href="{{ route('signout') }}">Logout</a>
                             </li>
-
                         @endguest
                     </ul>
                 </div>
-
             </div>
         </div>
     </div>
@@ -93,7 +80,7 @@
 
 @guest
 @else
-    @if (Auth::user()->role >> 0)
+    @if (Auth::user()->role >> 0 )
         <div class="container mt-5">
             <div class="row">
                 <div class="col">
@@ -127,7 +114,7 @@
         <div class="container mt-5">
             <div class="font-variation">
                 <a href="{{ route('signout') }}" class="btn btn-dark rounded-3" title="خروج">
-                    <i class="bi bi-box-arrow-right"></i> Logout
+                    <i class="bi bi-box-arrow-right"></i> تسجيل خروج
                 </a>
             </div>
         </div>
