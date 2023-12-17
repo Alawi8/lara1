@@ -135,9 +135,13 @@
                         <h6>احدث المقالات</h6>
                         <ul class="list-group">
                             @foreach ($posts as $item)
-                            <li class="list-group-item " aria-current="true">{{$item->title}}
-                            </li>
-                            
+
+                            <div class="list-group">
+                                <a href="{{ route('display', $item->title) }}" class="list-group-item list-group-item-action {{ Route::currentRouteName() === 'display' && request()->route('title') === $item->title ? 'active' : '' }}">
+                                    {{ $item->title }}
+                                </a>
+                                
+                              </div>
                             @endforeach
                           </ul>
                     </div>

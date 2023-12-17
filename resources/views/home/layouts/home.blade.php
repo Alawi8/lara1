@@ -67,10 +67,9 @@
                 {{ $all_posts->links() }}
             </div>
         </div>
-
-
     @endif
-    <div>
+    <div class="bg-light">
+        <hr>
         <h6>التصنيفات</h6>
         <div class="row">
             @foreach ($categories as $category)
