@@ -1,7 +1,7 @@
 <div>
     <div class="row">
         @forelse ($post as $post)
-            <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
                 <a class="nav-link " href="{{ route('display', $post->id) }}">
                     <div id='card-posts-menu'>
                         <img id="card-posts-menu-img" class="bg-dark legend img-fluid" src="{{ $post->image_path }}"
