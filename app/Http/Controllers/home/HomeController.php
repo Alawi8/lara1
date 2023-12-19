@@ -25,7 +25,7 @@ class HomeController extends Controller
 
 
         if (!isset($all_posts)) {
-            $all_posts = Post::select('title', 'image_path', 'date','id')->paginate(8);
+            $all_posts = Post::select('title', 'image_path', 'date','id')->paginate(9);
             $totalPosts = Post::count();
 
             return view('home.welcom', compact('all_posts', 'categories', 'totalPosts'));
