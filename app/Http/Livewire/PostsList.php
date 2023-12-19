@@ -9,14 +9,9 @@ use Livewire\WithPagination;
 class PostsList extends Component
 {
     use WithPagination;
-    public function navigateToSecondComponent()
-    {
-        return redirect()->to('/second-component');
-    }
     public function render()
     {
-        return view('livewire.posts-list',[
-            'post'=>Post::query()->paginate(8)
-        ]);
+        $post= Post::paginate(10);
+        return view('livewire.posts-list',['post'=>$post]);
     }
 }
