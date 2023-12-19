@@ -47,7 +47,7 @@
             <div class="offcanvas-body">
                 <div class="list-group">
                     <a href="{{ route('home') }}"
-                        class="list-group-item list-group-item-action {{ Request::is('home') ? 'active' : '' }}"
+                        class="list-group-item list-group-item-action {{ Request::is('posts') ? 'active' : '' }}"
                         aria-current="true">
                         الرئيسية
                     </a>

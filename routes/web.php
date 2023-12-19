@@ -88,10 +88,12 @@ Route::get('/', [HomeCategoryController::class, 'index'])->name('home.categories
 // routes/web.php
 
 use App\Http\Controllers\auth\LoginController;
+use App\Http\Livewire\PostsList;
 
 // require __DIR__.'/auth.php';
 Route::resource('categories', HomeCategoryController::class);
 
+use App\Http\Livewire\ShowPosts;
 
-// Route::livewire('livewire/posts/{id}', 'show_posts');
-Route::get('/show-posts/{id}', App\Http\Livewire\ShowPosts::class);
+Route::get('/first-component', PostsList::class);
+// Route::get('/second-component', ShowPosts::class);

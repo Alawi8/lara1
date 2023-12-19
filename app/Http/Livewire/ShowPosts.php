@@ -1,23 +1,20 @@
 <?php
 
-namespace App\Http\Livewire;
-
-use Livewire\Component;
 use App\Models\Post;
+use Livewire\Component;
 
 class ShowPosts extends Component
 {
-    public $id;
+    public $data;
 
-    public function mount($id)
+    public function mount()
     {
-        $this->id = $id;
+        // جلب البيانات من قاعدة البيانات أو من أي مصدر آخر
+        $this->data = Post::all();
     }
 
     public function render()
     {
-        $post = Post::findOrFail($this->id);
-
-        return view('livewire.show-post', ['post' => $post]);
+        return view('livewire.show-posts');
     }
 }

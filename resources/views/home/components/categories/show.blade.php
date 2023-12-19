@@ -50,7 +50,7 @@
             <div class="row">
                 @forelse ($posts as $post)
                     <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                        <a class="nav-link" href="{{ route('display', $post->title) }}">
+                        <a class="nav-link" href="{{ route('display', $post->id) }}">
                             <div id='card-posts-menu'>
                                 <img id="card-posts-menu-img" class="bg-dark legend img-fluid" src="{{ $post->image_path }}"
                                     class="card-img-top" alt="{{ $post->title }}">

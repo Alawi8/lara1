@@ -132,28 +132,28 @@
                     @yield('content')
                 </div>
                 <div class="col-md-3 col-lg-3 col-sm-12">
-                    <div class=" p-4">
-                        <h6>احدث المقالات</h6>
-                        @if (isset($posts))
-
-                            <ul class="list-group">
-                                @foreach ($posts as $item)
-                                    <div class="list-group">
-                                        <a href="{{ route('display', $item->title) }}"
-                                            class="list-group-item list-group-item-action {{ Route::currentRouteName() === 'display' && request()->route('title') === $item->title ? 'active' : '' }}">
+                    <div class="p-2">
+                        <h6>أحدث المقالات</h6>
+                        @if (isset($posts) && count($posts) > 0)
+                            @foreach ($posts as $item)
+                                <ul class="list-group ">
+                                        <a href="{{ route('display', $item->id) }}"
+                                            class="list-group-item list-group-item-action {{ Route::currentRouteName() === 'display' && request()->route('id') == $item->id ? 'active ' : '' }}">
                                             {{ $item->title }}
                                         </a>
-                                    </div>
-                                @endforeach
-                            </ul>
+                                </ul>
+        
+                            @endforeach
+                        @else
+                            <p>لا توجد مقالات حاليًا.</p>
                         @endif
-
                     </div>
                 </div>
             </div>
         </div>
         @livewireScripts
     </body>
+
 </div>
 
 <footer>

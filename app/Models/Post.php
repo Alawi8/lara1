@@ -11,6 +11,7 @@ class Post extends Model
     protected $fillable = ['title', 'content', 'writer', 'user_id', 'image_path', 'time', 'date', 'exept'];
     protected $hidden = ['created_at', 'updated_at'];
     public $timestamps = true;
+    
 
     public function category()
     {

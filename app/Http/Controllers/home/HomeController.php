@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -71,15 +72,15 @@ class HomeController extends Controller
         //
     }
 
-    public function display($title)
+    public function display($id)
     {
-        $dis_posts = Post::where('title', $title)->first();
+        $dis_posts = Post::where('id', $id)->first();
 
         if (!$dis_posts) {
             abort(404);
         }
 
-        return view('home.components.pages.display', compact('dis_posts'));
+        return view('home.layouts.including.display', compact('dis_posts'));
     }
 
 }

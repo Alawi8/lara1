@@ -14,7 +14,7 @@ use App\Http\Controllers\home\HomeController;
 */
 route::controller(HomeController::class)-> group(function(){
     route::get ( '/' , 'index')->name('home');
-    route::get ( '{title}/' , 'display')->name('display');
+    route::get ( '{id}' , 'display')->name('display');
 });
 
 // Route::get('/search/{title}', [HomeController::class, 'search'])->name('home.search');
