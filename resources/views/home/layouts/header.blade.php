@@ -41,7 +41,6 @@
         </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                </a>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
@@ -51,16 +50,16 @@
                         aria-current="true">
                         الرئيسية
                     </a>
-                    <a href="#"
-                        class="list-group-item list-group-item-action {{ Request::is('first') ? 'active' : '' }}">a
-                        first</a>
                     <a href="{{ route('categories.index') }}"
                         class="list-group-item list-group-item-action {{ Request::is('categories*') ? 'active' : '' }}">التصنيفات</a>
-                    <a href="#"
+                    <button href="#"
+                        class="list-group-item list-group-item-action {{ Request::is('first') ? 'active' : '' }}">a
+                        first</button>
+                    <button 
                         class="list-group-item list-group-item-action {{ Request::is('fourth') ? 'active' : '' }}">A
-                        fourth link item</a>
-                    <a class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link
-                        item</a>
+                        fourth link item</button>
+                    <button class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link
+                        item</button>
                 </div>
                 <form class="d-flex mt-3" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
