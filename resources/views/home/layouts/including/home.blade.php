@@ -66,7 +66,9 @@
             <div class="d-flex justify-content-center">
             </div>
         </div>
-        {{ $all_posts->links() }}
+        <div class="text-center">
+            {{ $all_posts->links() }}
+        </div>
 
 
     @endif
