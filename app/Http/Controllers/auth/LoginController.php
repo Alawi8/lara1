@@ -49,12 +49,15 @@ class LoginController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
-        ]);
+        ]
+        
+    );
 
         $data = $request->all();
         $check = $this->create($data);
 
-        return redirect('/auth/login')->with('success', 'Signed up successfully');    }
+        return redirect('/auth/login')->with('success', 'Signed up successfully');
+    }
 
 
     public function create(array $data)
@@ -78,7 +81,6 @@ class LoginController extends Controller
     }
 
     public function show (){
-        $red ='jjjjjjjj' ;
         $users = User::all();
         return view('dash.components.users.index', compact('users'));
     }

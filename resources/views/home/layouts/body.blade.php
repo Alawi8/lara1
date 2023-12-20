@@ -124,14 +124,10 @@
         {{-- Here the data inside (section image) is fetched by @yield image --}}
         <div class="container-fluid">
 
-            <div class="row rounded-3 p-3">
+            <div class="row p-3">
 
-                <div class=" col-md-9 col-lg-9 col-sm-12 ">
-                    {{-- Here the data inside (section Content) is fetched by @yield content --}}
-                    @yield('content')
-                </div>
-                <div class="col-md-3 col-lg-3 col-sm-12">
-                    <div class="p-2">
+                <div class="col-md-2 col-lg-2 col-sm-12">
+                    <div class="">
                         <h6>أحدث المقالات</h6>
                         @if (isset($posts) && count($posts) > 0)
                             @foreach ($posts as $item)
@@ -148,6 +144,11 @@
                         @endif
                     </div>
                 </div>
+                <div class=" col-md-10 col-lg-10 col-sm-12 ">
+                    {{-- Here the data inside (section Content) is fetched by @yield content --}}
+                    @yield('content')
+                </div>
+
             </div>
         </div>
         @livewireScripts

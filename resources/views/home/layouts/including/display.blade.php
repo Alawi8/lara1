@@ -49,31 +49,32 @@
             color: #555;
         }
     </style>
-
-    <div id="content-items" class="container-fluid">
-        <h1 class="my-4">{{ $dis_posts->title }}</h1>
-
-        <div id="content-img-posts-card" class="rounded-4 text-center mb-4">
-            <img id='post-img' src="{{ $dis_posts->image_path }}" alt="{{ $dis_posts->title }}" class="img-fluid rounded">
+    <div id="content-img-posts-card" class="rounded-4 text-center mb-4">
+        <img id='post-img' src="{{ $dis_posts->image_path }}" alt="{{ $dis_posts->title }}" class="img-fluid rounded">
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h4 class="mb-0">
+                {{ $dis_posts->title }}
+            </h4>
         </div>
 
-        <div id="content" class="mb-4">
-            {!! $dis_posts->content !!}
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                {!! $dis_posts->content !!}
+            </div>
         </div>
     </div>
-
-    <!-- عرض التعليقات -->
-    <h2>التعليقات</h2>
-    {{-- @foreach ($post->comments as $comment) --}}
-        {{-- <p>{{ $comment->content }}</p> --}}
-    {{-- @endforeach --}}
-
-    <!-- رابط لإرسال تعليق -->
-
-<form action="{{ route('comments.store') }}" method="post">
-    @csrf
-    <textarea name="content" rows="4" cols="50"></textarea>
-    <input type="hidden" name="post_id" value="{{ $dis_posts->id }}">
-    <button type="submit">أرسل التعليق</button>
-</form>
+    <div id="content-items" class="container-fluid">
+        <h4>التعليقات</h4>
+        <form action="{{ route('comments.store') }}" method="post">
+            @csrf
+            <div class="form-group">
+                <label for="content" class="p-2">التعليق:</label>
+                <textarea class="form-control" name="content" rows="4" placeholder="أدخل تعليقك هنا"></textarea>
+            </div>
+            <input class="p-2" type="hidden" name="post_id" value="{{ $dis_posts->id }}">
+            <button type="submit" class="btn btn-primary">أرسل التعليق</button>
+        </form>
+    </div>
 @endsection

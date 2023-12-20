@@ -84,23 +84,17 @@
                                      CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
                                          // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
                                          toolbar: {
-                                             items: [
-                                                 'exportPDF', 'exportWord', '|',
-                                                 'findAndReplace', 'selectAll', '|',
+                                            items: [
+                                                  '|',
+                                                 'findAndReplace', '|',
                                                  'heading', '|',
-                                                 'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript',
-                                                 'removeFormat', '|',
+                                                 'bold', '|',
                                                  'bulletedList', 'numberedList', 'todoList', '|',
-                                                 'outdent', 'indent', '|',
+                                                  '|',
                                                  'undo', 'redo',
-                                                 '-',
-                                                 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
+                                                 'fontSize', 'fontColor', 'highlight', '|',
                                                  'alignment', '|',
-                                                 'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock', 'htmlEmbed',
-                                                 '|',
-                                                 'specialCharacters', 'horizontalLine', 'pageBreak', '|',
-                                                 
-                                                 'sourceEditing'
+                                                 'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed','|','sourceEditing'
                                              ],
                                              shouldNotGroupWhenFull: true
                                          },

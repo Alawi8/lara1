@@ -43,7 +43,7 @@
         </h6>
         <div class="row">
             @forelse ($all_posts as $post)
-                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
+                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12 ">
                     <a class="nav-link " href="{{ route('display', $post->id) }}">
                         <div id='card-posts-menu'>
                             <img id="card-posts-menu-img" class="bg-dark legend img-fluid" src="{{ $post->image_path }}"
@@ -66,11 +66,7 @@
             <div class="d-flex justify-content-center">
             </div>
         </div>
-        <div class="text-center">
             {{ $all_posts->links() }}
-        </div>
-
-
     @endif
     <div class="bg-light">
         <hr>
