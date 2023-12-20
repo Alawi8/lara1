@@ -3,8 +3,7 @@
 @include('home.layouts.header')
 
 <style>
-    body {
-    }
+    body {}
 
     #in-search {
         border-radius: 5px 0 0 5px;
@@ -125,30 +124,51 @@
         <div class="container-fluid">
 
             <div class="row p-3">
+                <div class=" col-md-9 col-lg-9 col-sm-12 ">
+                    {{-- Here the data inside (section Content) is fetched by @yield content --}}
+                    @yield('content')
+                </div>
 
-                <div class="col-md-2 col-lg-2 col-sm-12">
-                    <div class="">
+                <div class="col-md-3 col-lg-3 col-sm-12">
+                    <div>
+                        <h6>البحث</h6>
+                        <form action="#" method="GET" class="mb-3 text-end">
+                            <div class="input-group">
+                                <input type="text" name="query" class="form-control" placeholder="ابحث عن...">
+                                <button type="submit" class="btn btn-primary">بحث</button>
+                            </div>
+                        </form>
+                        
+                    </div>
+                    <div>
                         <h6>أحدث المقالات</h6>
+                        <hr>
                         @if (isset($posts) && count($posts) > 0)
                             @foreach ($posts as $item)
-                                <ul class="list-group ">
+                                <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary"
+                                    style="">
+                                    <div class="list-group list-group-flush border-bottom scrollarea">
                                         <a href="{{ route('display', $item->id) }}"
-                                            class="list-group-item list-group-item-action {{ Route::currentRouteName() === 'display' && request()->route('id') == $item->id ? 'active ' : '' }}">
-                                            {{ $item->title }}
+                                            class="list-group-item list-group-item-action  {{ Route::currentRouteName() === 'display' && request()->route('id') == $item->id ? 'active ' : '' }}py-3 lh-sm"
+                                            aria-current="true">
+                                            <div class="d-flex w-100 align-items-center justify-content-between">
+                                                <img src="{{ $item->image_path }}" alt="النص البديل"
+                                                    class="rounded-circle " width="30" height="30">
+                                                <strong class=""> {{ $item->title }}
+                                                </strong>
+                                                <small>{{ \Carbon\Carbon::parse($item->date)->diffForHumans() }}</small>
+                                            </div>
+                                            <div class="col-10 mb-1 small"> {{ Str::limit($item->exept, 110) }}</div>
                                         </a>
-                                </ul>
-        
+                                    </div>
+                                </div>
                             @endforeach
                         @else
                             <p>لا توجد مقالات حاليًا.</p>
                         @endif
                     </div>
-                </div>
-                <div class=" col-md-10 col-lg-10 col-sm-12 ">
-                    {{-- Here the data inside (section Content) is fetched by @yield content --}}
-                    @yield('content')
-                </div>
 
+                </div>
             </div>
         </div>
         @livewireScripts
