@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 
-class User extends Authenticatable 
+class User extends Authenticatable implements MustVerifyEmail
 {
+    /** The attributes that are mass assignable.*/
+
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
@@ -34,17 +37,18 @@ class User extends Authenticatable
     }
 
 
-    ###################### begin relation #####################
+    # begin relation 
         public function phone (){
             return $this -> hasOne('App\Models\Phone' , 'user_id');
         }
-    ###################### End relation #######################
+    # End relation 
     
-    ###################### begin posts relation ###############
+    # begin posts relation 
         public function post (){
             return $this -> hasMany('App\Models\Post' , 'user_id');
         }
-    ###################### end posts relation #################
+    # end migrations 
+
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.

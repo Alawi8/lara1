@@ -70,8 +70,8 @@
                         @guest
                             <div class="alert alert-info" role="alert">
                                 <i class="bi bi-info-circle-fill"></i> أنت غير مسجل الدخول. من فضلك <a
-                                    href="{{ route('login') }}">قم بتسجيل الدخول</a> أو <a
-                                    href="{{ route('register-user') }}">قم بالتسجيل</a>.
+                                    href="{{ route('loging') }}">قم بتسجيل الدخول</a> أو <a
+                                    href="">قم بالتسجيل</a>.
                             </div>
                         @else
                             <li class="nav-item">
@@ -94,7 +94,7 @@
                 <div class="col">
                     <div class="font-variation">
                         <!-- Thin outlined icons from Bootstrap Icons -->
-                        <a href="{{ URL('admin/posts') }}" class="btn btn-dark rounded-3 me-2" title="التحكـم">
+                        <a href="{{ URL::signedRoute('admin/posts') }}" class="btn btn-dark rounded-3 me-2" title="التحكـم">
                             <i class="bi bi-house-door">
                                 التحكم
                             </i>

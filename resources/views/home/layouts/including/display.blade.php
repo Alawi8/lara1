@@ -1,13 +1,7 @@
 @extends('home.layouts.body')
-@section('title')
-    {{ $dis_posts->title }}
-@endsection
-@section('exept')
-    {{ $dis_posts->exept }}
-@endsection
-@section('author')
-    {{ config('app.name') }}
-@endsection
+@section('title'){{ $dis_posts->title }}@endsection
+@section('exept'){{ $dis_posts->exept }}@endsection
+@section('author'){{ config('app.name') }}@endsection
 
 @section('content')
     <style>
@@ -66,15 +60,15 @@
         </div>
     </div>
     <div id="content-items" class="container-fluid">
-        <h4>التعليقات</h4>
         <form action="{{ route('comments.store') }}" method="post">
             @csrf
             <div class="form-group">
-                <label for="content" class="p-2">التعليق:</label>
-                <textarea class="form-control" name="content" rows="4" placeholder="أدخل تعليقك هنا"></textarea>
+                <label for="content" class="p-2">التعليقات:</label>
+                <textarea class="form-control" name="content" rows="6" placeholder="أدخل تعليقك هنا"></textarea>
             </div>
-            <input class="p-2" type="hidden" name="post_id" value="{{ $dis_posts->id }}">
-            <button type="submit" class="btn btn-primary">أرسل التعليق</button>
+            <input  type="hidden" name="post_id" value="{{ $dis_posts->id }}">
+            <br>
+            <button type="submit" class="btn btn-primary ">أرسل التعليق</button>
         </form>
     </div>
 @endsection

@@ -11,11 +11,13 @@ use App\Http\Controllers\RelationController;
 use App\Http\Controllers\Category\CategoryController;
 // use App\Http\Controllers\PostController;
 use App\Http\Controllers\home\HomeController;
+use Laravel\Ui;
+use Illuminate\Support\Facades\Auth;
 
 /*
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------->
 | Web Routes
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------->
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
@@ -26,10 +28,11 @@ use App\Http\Controllers\home\HomeController;
 
 
 /*
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------->
 | SEO Routes
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------->
 */
+
 Route::get('sitemap/create', function () {
     $baseUrl = config('app.url'); // استخدم متغير البيئة للحصول على عنوان موقعك
 
@@ -38,11 +41,10 @@ Route::get('sitemap/create', function () {
     return 'sitemap created';
 });
 /*
-|--------------------------------------------------------------------------
-| home Routes
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------->
+| home Routes                                                              
+|-------------------------------------------------------------------------->
 */
-
 
 // admin page controllers
 route::controller(AdminPagesController::class)->group(function (){
@@ -97,3 +99,23 @@ use App\Http\Livewire\ShowPosts;
 
 Route::get('/first-component', PostsList::class);
 // Route::get('/second-component', ShowPosts::class);
+Auth::routes();
+Route::get('/email/verify', 'App\Http\Controllers\Auth\VerificationController@show')
+    ->middleware('auth')
+    ->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', 'App\Http\Controllers\Auth\VerificationController@verify')
+    ->middleware(['auth', 'signed', 'throttle:6,1'])
+    ->name('verification.verify');
+
+Route::post('/email/resend', 'App\Http\Controllers\Auth\VerificationController@resend')
+    ->middleware(['auth', 'throttle:6,1'])
+    ->name('verification.resend');
+
+
+Route::get('/home2', [App\Http\Controllers\HomeController::class, 'index'])->name('home2');
+
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/login', 'Auth\LoginController@index')->name('login');

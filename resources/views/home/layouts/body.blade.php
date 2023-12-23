@@ -122,7 +122,7 @@
     <body>
         {{-- Here the data inside (section image) is fetched by @yield image --}}
         <div class="container-fluid">
-
+            <p>@yield('title')</p>
             <div class="row p-3">
                 <div class=" col-md-9 col-lg-9 col-sm-12 ">
                     {{-- Here the data inside (section Content) is fetched by @yield content --}}
@@ -132,13 +132,13 @@
                 <div class="col-md-3 col-lg-3 col-sm-12">
                     <div>
                         <h6>البحث</h6>
-                        <form action="#" method="GET" class="mb-3 text-end">
-                            <div class="input-group">
-                                <input type="text" name="query" class="form-control" placeholder="ابحث عن...">
-                                <button type="submit" class="btn btn-primary">بحث</button>
-                            </div>
-                        </form>
-                        
+                        <div class="">
+                            <form class="d-flex">
+                                {{-- search part --}}
+                              <input class="form-control me-2" type="search" placeholder="ابحث هنا" aria-label="Search">
+                              <button class="btn btn-outline-primary" type="submit">بحث</button>
+                            </form>
+                          </div>
                     </div>
                     <div>
                         <h6>أحدث المقالات</h6>
@@ -151,6 +151,7 @@
                                         <a href="{{ route('display', $item->id) }}"
                                             class="list-group-item list-group-item-action  {{ Route::currentRouteName() === 'display' && request()->route('id') == $item->id ? 'active ' : '' }}py-3 lh-sm"
                                             aria-current="true">
+
                                             <div class="d-flex w-100 align-items-center justify-content-between">
                                                 <img src="{{ $item->image_path }}" alt="النص البديل"
                                                     class="rounded-circle " width="30" height="30">
@@ -167,7 +168,6 @@
                             <p>لا توجد مقالات حاليًا.</p>
                         @endif
                     </div>
-
                 </div>
             </div>
         </div>

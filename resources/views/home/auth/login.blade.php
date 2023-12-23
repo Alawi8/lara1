@@ -1,73 +1,77 @@
 @extends('home.layouts.body')
 @section('title')
-تسجيل الدخول
+    تسجيل الدخول
 @endsection
 @section('content')
-    <main class="login-form">
-        <div class="cotainer">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <h3 class="card-header text-center">دخول</h3>
-                        <div class="card-body">
-                            <form method="POST" action="{{ route('login.custom') }}">
+    <!-- resources/views/auth/login.blade.php -->
 
+    <body class="bg-light">
+
+        <div class="container mt-5">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="text-center">تسجيل الدخول</h3>
+                        </div>
+                        <div class="card-body">
+                            <!-- نموذج تسجيل الدخول -->
+                            <form method="POST" action="{{ route('login.custom') }}">
                                 @csrf
-                                <div class="form-group mb-3">
-                                    <input type="text" placeholder="Email" id="email" class="form-control"
-                                    name="email" autofocus>
-                                    @if ($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                                    @endif
+                                <!-- حقل اسم المستخدم -->
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">البريد الالكتروني</label>
+                                    <input type="text" class="form-control" id="username" name="email" autofocus
+                                        required>
                                 </div>
-                                    <div class="form-group mb-3">
-                                        <input type="password" placeholder="Password" id="password" class="form-control"
-                                            name="password">
-                                    @if ($errors->has('password'))
-                                            <span class="text-danger">{{ $errors->first('password') }}</span>
-                                    @endif
+                                @if ($errors->has('email'))
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @endif
+                                <!-- حقل كلمة المرور -->
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">كلمة المرور</label>
+                                    <input type="password" class="form-control" id="password" name="password" autofocus
+                                        required>
+                                </div>
+                                @if ($errors->has('password'))
+                                    <span class="text-danger">{{ $errors->first('password') }}</span>
+                                @endif
+
+                                <div class="mb-3">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="remember">
+                                            ذكرني
+                                        </label>
                                     </div>
-                                    
-                                    <div class="form-group mb-3">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="remember">
-                                                ذكرني
-                                            </label>
-                                        </div>
-                                    </div>
-                                    @if (Auth::check())
+                                </div>
+                                @if (Auth::check())
                                     <form method="POST" action="{{ route('login.custom') }}">
-                                    @csrf
-                                        
+                                        @csrf
+
                                     </form>
-                                    @endif
-                                    <div class="d-grid mx-auto">
-                                        <button type="submit" class="btn btn-dark btn-block">دخول</button>
-                                    </div>
+                                @endif
+                                <!-- زر تسجيل الدخول -->
+                                <button type="submit" class="btn btn-primary">تسجيل الدخول</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
-    <!-- resources/views/auth/login.blade.php -->
 
-{{-- <a href="{{ url('login/google') }}">Login with Google</a> --}}
 
-@endsection
-@section('footer')
-    @include('home.layouts.footer')
-@endsection
+    @endsection
+    @section('footer')
+        @include('home.layouts.footer')
+    @endsection

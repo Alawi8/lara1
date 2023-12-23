@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+class CreatePostCommentTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,17 +13,13 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('post_comment', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('post_id');
-            $table->text('content');
-            $table->timestamps();
+            $table->unsignedBigInteger('comment_id');
 
-            // Define the foreign key relationship
-            $table->foreign('post_id')
-                ->references('id')
-                ->on('posts')
-                ->onDelete('cascade');
+            $table->foreign('post_id')->references('id')->on('posts');
+            $table->foreign('comment_id')->references('id')->on('comments');
         });
     }
 
@@ -33,6 +30,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('post_comment');
     }
-};
+}

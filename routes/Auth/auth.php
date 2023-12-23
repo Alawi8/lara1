@@ -1,11 +1,11 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\LoginController;
 
 Route::controller(LoginController::class)-> group(function(){
 
     // login  users
-    route::get ('login','index')                                 ->  name    ('login');
+    route::get ('login','index')                                 ->  name    ('loging');
     route::post ('custom-login','customLogin')                   ->  name    ('login.custom');
 
     // register users
