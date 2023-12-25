@@ -70,12 +70,12 @@
                         @guest
                             <div class="alert alert-info" role="alert">
                                 <i class="bi bi-info-circle-fill"></i> أنت غير مسجل الدخول. من فضلك <a
-                                    href="{{ route('loging') }}">قم بتسجيل الدخول</a> أو <a
-                                    href="">قم بالتسجيل</a>.
+                                    href="#">قم بتسجيل الدخول</a> أو <a
+                                    href="#">قم بالتسجيل</a>.
                             </div>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link " href="{{ route('signout') }}">Logout</a>
+                                <a class="nav-link " href="#">Logout</a>
                             </li>
                         @endguest
                     </ul>
@@ -111,7 +111,7 @@
                         <a href="#" class="btn btn-dark rounded-3 me-2" title="اضف مقاله">
                             <i class="bi bi-file-plus"></i> إضافة مقال
                         </a>
-                        <a href="{{ route('signout') }}" class="btn btn-dark rounded-3" title="خروج">
+                        <a href="#" class="btn btn-dark rounded-3" title="خروج">
                             <i class="bi bi-box-arrow-right"></i> تسجيل الخروج
                         </a>
                     </div>
@@ -121,7 +121,7 @@
     @else
         <div class="container mt-5">
             <div class="font-variation">
-                <a href="{{ route('signout') }}" class="btn btn-dark rounded-3" title="خروج">
+                <a href="#" class="btn btn-dark rounded-3" title="خروج">
                     <i class="bi bi-box-arrow-right"></i> تسجيل خروج
                 </a>
             </div>
