@@ -44,10 +44,10 @@ class AdminPostController extends Controller
         $time = time() . $request->name . '.' ;
         $newImageName = $time . $request->image->extension();
         
-        $request->image->move(public_path('../storage/img'), $newImageName);
+        $request->image->move(public_path('/storage/img'), $newImageName);
 
         // مسار الصورة الكامل
-        $imageFullPath = public_path('../storage/img/' . $newImageName);
+        $imageFullPath = public_path('/storage/img/' . $newImageName);
 
         // استخدام Intervention Image لضغط الصورة وتحويلها إلى WebP
         $image = Image::make($imageFullPath);
