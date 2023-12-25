@@ -79,7 +79,7 @@
             aria-label="بحث">
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="{{ route('signout') }}">تسجيل الخروج</a>
+                <a class="nav-link px-3" href="#">تسجيل الخروج</a>
             </div>
         </div>
     </header>
