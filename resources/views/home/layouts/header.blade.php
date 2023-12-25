@@ -5,7 +5,7 @@
     <meta name="description" content="@yield('exept','مشكاه هي منصة تقنية مبتكرة تهدف إلى تحسين وتسهيل العمليات التقنية. تتميز المنصة بمجموعة واسعة من الخدمات والأدوات التي تدعم مطوري البرمجيات ورواد الأعمال في تحقيق أهدافهم بشكل فعال.')">
     <meta name="author" content="{{ config('app.name') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('public/assets/img/bitmap.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/bitmap.png') }}">
     <meta name="generator" content="Hugo 0.101.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <!-- Google tag (gtag.js) -->
@@ -29,7 +29,7 @@
 <nav id="heading" class="navbar bg-body-tertiary fixed-top ">
     <div class="container-fluid">
         <a href="{{ route('home') }}" class=" ">
-            <img id="myImage" src="{{ asset('public/assets/img/bitmap.png') }}" width="40" height="40"
+            <img id="myImage" src="{{ asset('assets/img/bitmap.png') }}" width="40" height="40"
                 alt="re" style="display: none;" />
             <div id="myProgressBar" class="spinner-grow" role="status">
                 <span class="visually-hidden">Loading...</span>
@@ -94,7 +94,7 @@
                 <div class="col">
                     <div class="font-variation">
                         <!-- Thin outlined icons from Bootstrap Icons -->
-                        <a href="{{ URL::signedRoute('admin/posts') }}" class="btn btn-dark rounded-3 me-2" title="التحكـم">
+                        <a href="{{ URL('admin/posts') }}" class="btn btn-dark rounded-3 me-2" title="التحكـم">
                             <i class="bi bi-house-door">
                                 التحكم
                             </i>

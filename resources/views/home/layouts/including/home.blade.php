@@ -37,7 +37,6 @@
         </style>
     @endsection
     @if (isset($all_posts))
-        <h6>المقالات
             <span class="badge bg-primary rounded-pill">{{ $totalPosts }}</span>
 
         </h6>

@@ -122,10 +122,10 @@
     <body>
         {{-- Here the data inside (section image) is fetched by @yield image --}}
         <div class="container-fluid">
-            <p>@yield('title')</p>
             <div class="row p-3">
                 <div class=" col-md-9 col-lg-9 col-sm-12 ">
                     {{-- Here the data inside (section Content) is fetched by @yield content --}}
+                    <h6>@yield('title')</h6>
                     @yield('content')
                 </div>
 
@@ -140,13 +140,14 @@
                             </form>
                           </div>
                     </div>
-                    <div>
+                    <hr>
+                    <div class="container bg-light">
                         <h6>أحدث المقالات</h6>
                         <hr>
                         @if (isset($posts) && count($posts) > 0)
                             @foreach ($posts as $item)
                                 <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary"
-                                    style="">
+                                    >
                                     <div class="list-group list-group-flush border-bottom scrollarea">
                                         <a href="{{ route('display', $item->id) }}"
                                             class="list-group-item list-group-item-action  {{ Route::currentRouteName() === 'display' && request()->route('id') == $item->id ? 'active ' : '' }}py-3 lh-sm"

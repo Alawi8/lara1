@@ -118,4 +118,4 @@ Route::get('/home2', [App\Http\Controllers\HomeController::class, 'index'])->nam
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/login', 'Auth\LoginController@index')->name('login');
+// Route::get('/login', 'Auth\LoginController@index')->name('login');

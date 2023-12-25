@@ -4,7 +4,6 @@
 @section('author')@endsection
 @section('content')
     <div>
-        <h6>التصنيفات</h6>
         <div class="row">
             @if (isset($categories))
                 

@@ -25,7 +25,7 @@
         </p>
         <a href="{{ route('home') }}"
             class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <img id="bot"src="{{asset('public/assets/img/bitmap.png')}}"
+            <img id="bot"src="{{asset('assets/img/bitmap.png')}}"
                 width="40" height="40" alt="{{ config('app.name') }}" />
         </a>
         <ul class="nav col-md-4 justify-content-end">
