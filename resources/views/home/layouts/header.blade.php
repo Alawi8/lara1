@@ -7,7 +7,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/bitmap.png') }}">
     <meta name="generator" content="Hugo 0.101.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNPVF4DM3C"></script>
     <script>
@@ -70,12 +72,15 @@
                         @guest
                             <div class="alert alert-info" role="alert">
                                 <i class="bi bi-info-circle-fill"></i> أنت غير مسجل الدخول. من فضلك <a
-                                    href="#">قم بتسجيل الدخول</a> أو <a
-                                    href="#">قم بالتسجيل</a>.
+                                    href="{{route('login')}}">قم بتسجيل الدخول</a> أو <a
+                                    href="{{route('register')}}">قم بالتسجيل</a>.
                             </div>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link " href="#">Logout</a>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit">Logout</button>
+                                </form>
                             </li>
                         @endguest
                     </ul>

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<script src="{{ asset('public/assets/js/color-modes.js') }}"></script>
-
-
-<header>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>
-        @yield('title')
-    </title>
-    <!--bootstrap link-->
-    <link rel="stylesheet" href="{{ asset('public/assets/css/bootstrap.rtl.css') }}" />
-    <link href="{{ asset('public/assets/css/dashboard.rtl.css') }}" rel="stylesheet">
+    
+    
+    <header>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>
+            @yield('title')
+        </title>
+        <!--bootstrap link-->
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.rtl.css') }}" />
+        <link href="{{ asset('assets/css/dashboard.rtl.css') }}" rel="stylesheet">
+        <script src="{{ asset('assets/js/color-modes.js') }}"></script>
     {{-- icons url --}}
     {{-- https://feathericons.com/ --}}
     <style>
