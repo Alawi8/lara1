@@ -26,13 +26,13 @@
                             </form>
                         </div>
                     </div>
-                    <hr>
-                    <div class="container bg-light">
+                    <br>
+                    <div class="container bg-light shadow p-3">
                         <h6>أحدث المقالات</h6>
                         <hr>
                         @if (isset($posts) && count($posts) > 0)
                             @foreach ($posts as $item)
-                                <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary">
+                                <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary ">
                                     <div class="list-group list-group-flush border-bottom scrollarea">
                                         <a href="{{ route('display', $item->id) }}"
                                             class="list-group-item list-group-item-action  {{ Route::currentRouteName() === 'display' && request()->route('id') == $item->id ? 'active ' : '' }}py-3 lh-sm"
