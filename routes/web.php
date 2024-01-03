@@ -13,6 +13,14 @@ use App\Http\Controllers\Category\CategoryController;
 use App\Http\Controllers\home\HomeController;
 use Laravel\Ui;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Livewire\PostsList;
+use App\Http\Controllers\media\ImageController;
+use App\Http\Livewire\ShowPosts;
+use App\Http\Controllers\home\HomeCategoryController;
+
+
+
 
 /*
 |-------------------------------------------------------------------------->
@@ -75,7 +83,6 @@ route::controller(RelationController::class)-> group(function(){
 
 // routes/web.php
 
-use App\Http\Controllers\media\ImageController;
 
 Route::get('/media', [ImageController::class, 'index'])->name('media.index');
 Route::get('/media/create', [ImageController::class, 'create'])->name('media.create');
@@ -83,19 +90,16 @@ Route::post('/media', [ImageController::class, 'store'])->name('media.store');
 
 // routes/web.php
 
-use App\Http\Controllers\home\HomeCategoryController;
+
 
 Route::get('/', [HomeCategoryController::class, 'index'])->name('home.categories.index');
 
 // routes/web.php
 
-use App\Http\Controllers\auth\LoginController;
-use App\Http\Livewire\PostsList;
 
 // require __DIR__.'/auth.php';
 Route::resource('categories', HomeCategoryController::class);
 
-use App\Http\Livewire\ShowPosts;
 
 Route::get('/first-component', PostsList::class);
 // Route::get('/second-component', ShowPosts::class);
@@ -113,7 +117,7 @@ Route::post('/email/resend', 'App\Http\Controllers\Auth\VerificationController@r
     ->name('verification.resend');
 
 
-Route::get('/home2', [App\Http\Controllers\HomeController::class, 'index'])->name('home2');
+// Route::get('/home2', [App\Http\Controllers\HomeController::class, 'index'])->name('home2');
 
 Auth::routes();
 

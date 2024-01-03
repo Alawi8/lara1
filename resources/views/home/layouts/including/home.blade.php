@@ -37,8 +37,6 @@
         </style>
     @endsection
     @if (isset($all_posts))
-            <span class="badge bg-primary rounded-pill">{{ $totalPosts }}</span>
-
         </h6>
         <div class="row">
             @forelse ($all_posts as $post)

@@ -1,8 +1,7 @@
 <div class="container ">
     <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
 
-
-
+    <!-- Scripts -->
         <script>
             window.addEventListener('load', function () {
                 document.getElementById('myProgressBar').style.display = 'none';

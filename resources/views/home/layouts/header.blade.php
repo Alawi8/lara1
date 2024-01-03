@@ -7,9 +7,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/bitmap.png') }}">
     <meta name="generator" content="Hugo 0.101.0">
-
-    <!-- Scripts -->
+    {{-- bootstrap link  --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNPVF4DM3C"></script>
     <script>
@@ -26,9 +26,126 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
         crossorigin="anonymous"></script>
     @livewireStyles
+    <style>
+        *{
+            font-family:'Segoe UI';
+        }
+        #in-search {
+            border-radius: 5px 0 0 5px;
+        }
+        #btn-search {
+            border-radius:  30px 0px 0px 30px  ;
+        }
+        #cate-aleart {
+            background-color: #6c757d;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+    
+        .list-group a {
+            margin: 5px 0;
+        }
+    
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        #content img {
+            vertical-align: middle
+        }
+    
+        #content {
+            word-wrap: break-word
+        }
+    
+        #body {
+            width: 100%
+                /* text-color : black ; */
+        }
+    
+        #heading {
+            -webkit-animation: color-change-2x 2s linear infinite alternate both;
+            animation: color-change-2x 2s linear infinite alternate both;
+            border-color: rgb(0, 0, 0);
+            border-radius: 0 0 12px 12px;
+            width: 100%;
+            vertical-align: middle
+        }
+    
+        @-webkit-keyframes color-change-2x {
+            0% {
+                background: #ffffff
+            }
+    
+            100% {
+                background: #547df8
+            }
+        }
+    
+        @keyframes color-change-2x {
+            0% {
+                background: #ffffff
+            }
+    
+            100% {
+                background: #547df8
+            }
+        }
+    
+        #card-content-posts {
+            width: 100%;
+            height: 22rem;
+            max-zoom: 99px
+        }
+    
+        #style-icon {
+            animation-name: example;
+            animation-duration: 3s;
+            animation-iteration-count: 2222
+        }
+    
+        @keyframes example {
+            0% {
+                transform: rotate(0deg)
+            }
+    
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+    
+        #categure {
+            border: 5px solid;
+            border-radius: 20px 20px 20px 20px;
+            border-color: rgb(255, 255, 255);
+            margin-bottom: 25px;
+            box-shadow: 0 0 25px rgb(163, 160, 160)
+        }
+    
+    
+        #cate-aleart {
+            border-radius: 30px 30px 0 70px
+        }
+    
+        #cate-aleart-button {
+            border-radius: 20px 0 0 20px
+        }
+    
+        #in-search {
+            border-radius: 0 20px 20px 0
+        }
+    
+        #input_seo {
+            height: 50%
+        }
+    </style>
+    @yield('style')
 </head>
-@yield('style')
-<nav id="heading" class="navbar bg-body-tertiary fixed-top ">
+<nav id="heading" class="navbar fixed-top shadow">
     <div class="container-fluid">
         <a href="{{ route('home') }}" class=" ">
             <img id="myImage" src="{{ asset('assets/img/bitmap.png') }}" width="40" height="40"
@@ -37,7 +154,7 @@
                 <span class="visually-hidden">Loading...</span>
             </div>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar" aria-label="menu-left">
             <span class="navbar-toggler-icon"></span>
         </button>
