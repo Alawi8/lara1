@@ -36,5 +36,4 @@ route::controller(HomeController::class)-> group(function(){
 
 use App\Http\Controllers\home\CommetController;
 
-Route::get('/comments/create/{postId}', [CommetController::class, 'showForm'])->name('comments.create');
 Route::post('/comments/store/', [CommetController::class, 'store'])->name('comments.store');

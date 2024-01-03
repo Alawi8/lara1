@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-        if( !isset($posts) || $posts === null ) {
+        if(! isset($posts) ) {
             $posts = Post::latest('date')->select('title', 'id', 'date','time','image_path','exept')->take(7)->get();
             
             View::share('posts', $posts);

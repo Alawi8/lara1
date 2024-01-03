@@ -7,11 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $fillable = ['content']; // حقول يمكن ملؤها
-
-    /**
-     * العلاقة "Many-to-One" مع جدول البوستات
-     */
+    protected $table = 'comments';
+    protected $fillable = ['name','body', 'post_id', 'user_id'];
     public function post()
     {
         return $this->belongsTo(Post::class);

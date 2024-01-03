@@ -17,4 +17,9 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class)->cascadeOnDelete();
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

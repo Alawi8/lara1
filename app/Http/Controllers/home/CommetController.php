@@ -12,12 +12,18 @@ use App\Http\Middleware\CheckRole;
 
 class CommetController extends Controller
 {
-    public function __construct(){
-        $this->middleware([CheckRole::class , Authenticate::class]);
+    public function __construct()
+    {
+        $this->middleware( Authenticate::class);
     }
     public function showForm($postId)
     {
-        return view('home.components.pages.display', ['postId' => $postId]);
+            // Retrieve the post
+    // $dis_posts = Post::find($postId);
+
+    // Retrieve the comments associated with the post
+    $comments = ['ss','dd'];
+        // return view('home.layouts.including.display', compact('comments'));
     }
 
     public function store(Request $request)
@@ -25,12 +31,16 @@ class CommetController extends Controller
         // افحص صحة الطلب
 
         $comment = new Comment([
-            'content' => $request->input('content'),
+            'name' => auth()->user()->name,
+            'body' => $request->input('body'),
             'post_id' => $request->input('post_id'),
         ]);
 
         $comment->save();
 
-        return redirect()->route('posts.show', $request->input('post_id'))->with('success', 'تم إرسال التعليق بنجاح!');
-    }    }    
+        return redirect()->back()->with('success', 'تم ارسال التعليق بنجاح ');
+    }
+
+}
+
 

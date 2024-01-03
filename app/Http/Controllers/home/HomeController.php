@@ -14,26 +14,20 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::all();
-        // if(isset(!$all_posts)){
-        // $all_posts = Post::select('title', 'image_path', 'date')->paginate(8);
-        // $totalPosts = Post::count();
-        // return view('home.welcom',compact('all_posts','categories','totalPosts'));
-        // }else{
-
-        //     return view('home.welcom');
-        // }
-
-
-        if (!isset($all_posts)) {
-            $all_posts = Post::select('title', 'image_path', 'date','id')->paginate(8);
-            $totalPosts = Post::count();
-
-            return view('home.welcom', compact('all_posts', 'categories', 'totalPosts'));
-        } else {
-            return view('home.welcom', compact('categories'));
-        }
-
+    
+        $all_posts = Post::select('title', 'image_path', 'date', 'id')->paginate(8);
+        $totalPosts = Post::count();
+    
+        // Example: Retrieve a specific post (adjust the ID based on your use case)
+        $specificPostId = 6;
+        $dis_posts = Post::find($specificPostId);
+    
+        // Example: Retrieve comments associated with the specific post
+        $comments = ($dis_posts) ? $dis_posts->comments : [];
+    
+        return view('home.welcom', compact('all_posts', 'categories', 'totalPosts', 'comments'));
     }
+    
 
 
     public function store(Request $request)
@@ -74,13 +68,15 @@ class HomeController extends Controller
 
     public function display($id)
     {
-        $dis_posts = Post::where('id', $id)->first();
-
+        $dis_posts = Post::with('comments')->find($id);
+    
         if (!$dis_posts) {
             abort(404);
         }
-
-        return view('home.layouts.including.display', compact('dis_posts'));
+    
+        $comments = $dis_posts->comments;
+    
+        return view('home.layouts.including.display', compact('dis_posts', 'comments'));
     }
 
 }
