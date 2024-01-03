@@ -171,14 +171,11 @@
                     </a>
                     <a href="{{ route('categories.index') }}"
                         class="list-group-item list-group-item-action {{ Request::is('categories*') ? 'active' : '' }}">التصنيفات</a>
-                    <button href="#"
-                        class="list-group-item list-group-item-action {{ Request::is('first') ? 'active' : '' }}">a
-                        first</button>
-                    <button 
-                        class="list-group-item list-group-item-action {{ Request::is('fourth') ? 'active' : '' }}">A
-                        fourth link item</button>
-                    <button class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link
-                        item</button>
+                    <a href="{{route('policy')}}"
+                        class="list-group-item list-group-item-action {{ Request::is('policy') ? 'active' : '' }}">الخصوصيه</a>
+                    <a href="{{route('about')}}"
+                        class="list-group-item list-group-item-action {{ Request::is('about') ? 'active' : '' }}">عنا</a>
+                    <a class="list-group-item list-group-item-action " aria-disabled="true"></a>
                 </div>
                 <form class="d-flex mt-3" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
