@@ -73,7 +73,7 @@
                 @foreach ($comments as $comment)
                 <div class="container my-5 py-5 text-dark">
                     <div class="row d-flex justify-content-center">
-                        <div class="col-md-11 col-lg-9 col-xl-7 ">
+                        <div class="col-md-11 col-lg-9 col-xl-7 col-sm-12">
                                 <div class="d-flex flex-start">
                                     <img class="rounded-circle shadow-1-strong me-3"
                                         src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp" alt="avatar"
