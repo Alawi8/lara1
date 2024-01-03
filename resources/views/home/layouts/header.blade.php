@@ -163,7 +163,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <div class="list-group">
+                <nav class="list-group">
                     <a href="{{ route('home') }}"
                         class="list-group-item list-group-item-action {{ Request::is('posts') ? 'active' : '' }}"
                         aria-current="true">
@@ -175,8 +175,8 @@
                         class="list-group-item list-group-item-action {{ Request::is('policy') ? 'active' : '' }}">الخصوصيه</a>
                     <a href="{{route('about')}}"
                         class="list-group-item list-group-item-action {{ Request::is('about') ? 'active' : '' }}">عنا</a>
-                    <a class="list-group-item list-group-item-action " aria-disabled="true"></a>
-                </div>
+                    <a class="list-group-item list-group-item-action disable" aria-disabled="true">اسئله</a>
+                </nav>
                 <form class="d-flex mt-3" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
@@ -230,7 +230,7 @@
                         <a href="#" class="btn btn-dark rounded-3 me-2" title="اضف مقاله">
                             <i class="bi bi-file-plus"></i> إضافة مقال
                         </a>
-                        <a href="#" class="btn btn-dark rounded-3" title="خروج">
+                        <a href="{{route ('logout')}}" class="btn btn-dark rounded-3" title="خروج">
                             <i class="bi bi-box-arrow-right"></i> تسجيل الخروج
                         </a>
                     </div>
