@@ -71,7 +71,7 @@
             <section style="background-color: #e7effd;">
                 <h4>التعليقات:</h4>
                 @foreach ($comments as $comment)
-                <div class="container my-5  text-dark">
+                <div class="container my-5 py-5 text-dark">
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-11 col-lg-9 col-xl-7 ">
                                 <div class="d-flex flex-start">
