@@ -71,13 +71,10 @@
             <section style="background-color: #e7effd;">
                 <h4>التعليقات:</h4>
                 @foreach ($comments as $comment)
-                <div class="container my-5 py-5 text-dark">
+                <div class="container my-1 py-1 text-dark">
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-11 col-lg-9 col-xl-7 col-sm-12">
                                 <div class="d-flex flex-start">
-                                    <img class="rounded-circle shadow-1-strong me-3"
-                                        src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp" alt="avatar"
-                                        width="65" height="65" />
                                     <div class="card w-100">
                                         <div class="card-body p-4">
                                             <div class="">
@@ -96,7 +93,8 @@
                                                         <a href="#!" class="link-muted"><i
                                                                 class="fas fa-thumbs-down me-1"></i>تعديل</a>
                                                     </div>
-                                                    <a href="#!" class="link-muted"><i class="fas fa-reply me-1"></i>
+                                                    <a href="#!" class="link-muted">
+                                                        <i class="fas fa-reply me-1">رد</i>
                                                     </a>
                                                 </div>
                                             </div>
