@@ -6,6 +6,7 @@
     <title>@yield('title'){{ ' | ' . config('app.name') }}</title>
     <meta name="description" content="@yield('exept','مشكاه هي منصة تقنية مبتكرة تهدف إلى تحسين وتسهيل العمليات التقنية. تتميز المنصة بمجموعة واسعة من الخدمات والأدوات التي تدعم مطوري البرمجيات ورواد الأعمال في تحقيق أهدافهم بشكل فعال.')">
     <meta name="author" content="{{ config('app.name') }}">
+    <meta name="robots" content="index">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/bitmap.png') }}">
     <meta name="generator" content="Hugo 0.101.0">

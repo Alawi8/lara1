@@ -68,7 +68,7 @@
     {{-- comments part  --}}
     <div id="content-items" class="container">
         @if (isset($comments))
-            <section style="background-color: #e7effd;">
+            <section >
                 <h4>التعليقات:</h4>
                 @foreach ($comments as $comment)
                 <div class="container my-1 py-1 text-dark">
@@ -85,18 +85,6 @@
                                                 <p>
                                                     {{ $comment->body }}
                                                 </p>
-
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex align-items-center">
-                                                        <a href="#!" class="link-muted me-2"><i
-                                                                class="fas fa-thumbs-up me-1"></i>حذف</a>
-                                                        <a href="#!" class="link-muted"><i
-                                                                class="fas fa-thumbs-down me-1"></i>تعديل</a>
-                                                    </div>
-                                                    <a href="#!" class="link-muted">
-                                                        <i class="fas fa-reply me-1">رد</i>
-                                                    </a>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
