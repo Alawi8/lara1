@@ -54,9 +54,9 @@
     </div>
     <div class="card">
         <div class="card-header" id="headingOne">
-            <h4 class="mb-0">
+            <h6 class="mb-0">
                 {{ $dis_posts->title }}
-            </h4>
+            </h6>
         </div>
 
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">

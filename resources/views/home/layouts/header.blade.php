@@ -32,7 +32,7 @@
     <style>
         * {
             font-family: 'Segoe UI';
-            font-size: 18px;
+            font-size: 16px;
         }
 
         #in-search {
