@@ -19,6 +19,7 @@
 
         h1 {
             color: #333;
+            font-size: 22px;
         }
 
         #content-img-posts-card {
@@ -54,9 +55,9 @@
     </div>
     <div class="card">
         <div class="card-header" id="headingOne">
-            <h6 class="mb-0">
+            <h1 class="mb-0">
                 {{ $dis_posts->title }}
-            </h6>
+            </h1>
         </div>
 
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">

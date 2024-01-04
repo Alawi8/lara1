@@ -34,10 +34,14 @@
                 margin-bottom: 10px;
                 font-size: 1.2rem;
             }
+            h1 {
+            color: #333;
+            font-size: 19px;
+        }
+
         </style>
     @endsection
     @if (isset($all_posts))
-        </h6>
         <div class="row">
             @forelse ($all_posts as $post)
                 <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
@@ -46,11 +50,10 @@
                             <img id="card-posts-menu-img" class="bg-dark legend img-fluid" src="{{ $post->image_path }}"
                                 class="card-img-top" alt="{{ $post->title }}">
                             <div class="card-body">
-                                <h6>{{ $post->title }}</h6>
+                                <h1>{{ $post->title }}</h1>
                                 @include('home.components.pages.time')
                             </div>
                         </div>
-    
                     </a>
                 </div>
             @empty
@@ -74,7 +77,7 @@
                     <div class="col-md-4 mb-4">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $category->name }}</h5>
+                                <h1 class="card-title">{{ $category->name }}</h1>
                                 ({{ $category->posts->count() }})
                                 <p class="card-text">{{ $category->description }}</p>
                                 <a href="{{ route('categories.show', $category->id) }}" class="btn btn-primary">عرض</a>
