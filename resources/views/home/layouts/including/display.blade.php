@@ -1,13 +1,7 @@
 @extends('home.layouts.body')
-@section('title')
-    {{ $dis_posts->title }}
-@endsection
-@section('exept')
-    {{ $dis_posts->exept }}
-@endsection
-@section('author')
-    {{ config('app.name') }}
-@endsection
+@section('title'){{ $dis_posts->title }}@endsection
+@section('exept'){{ $dis_posts->exept }}@endsection
+@section('author'){{ config('app.name') }}@endsection
 
 @section('content')
     <style>
@@ -30,7 +24,7 @@
         #post-img {
             max-width: 100%;
             /* Make the image responsive */
-            max-height: 400px;
+            max-height: 100%;
             /* Set a maximum height for the image */
             width: auto;
             height: auto;
@@ -49,10 +43,28 @@
             font-size: 16px;
             color: #555;
         }
+
+        #hero {
+            width: 100%;
+            height: 600px;
+            background: url('{{ $dis_posts->image_path }}');
+            background-size: contain;
+            background-position: top right;
+            padding: 0 15px;
+            background-repeat: no-repeat;
+        }
+
+        #hero {
+            background-attachment: fixed;
+        }
     </style>
-    <div id="content-img-posts-card" class="rounded-4 text-center mb-4">
-        <img id='post-img' src="{{ $dis_posts->image_path }}" alt="{{ $dis_posts->title }}" class="img-fluid rounded">
+    <div id="content-img-posts-card" class="">
+        {{-- <img id='post-img ' src="{{ $dis_posts->image_path }}" alt="{{ $dis_posts->title }}" class="img-fluid rounded"> --}}
     </div>
+
+    <section id="hero" class="">
+    </section>
+
     <div class="card">
         <div class="card-header" id="headingOne">
             <h1 class="mb-0">
@@ -69,12 +81,12 @@
     {{-- comments part  --}}
     <div id="content-items" class="container">
         @if (isset($comments))
-            <section >
+            <section>
                 <h4>التعليقات:</h4>
                 @foreach ($comments as $comment)
-                <div class="container my-1 py-1 text-dark">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-md-11 col-lg-9 col-xl-7 col-sm-12">
+                    <div class="container my-1 py-1 text-dark">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-11 col-lg-9 col-xl-7 col-sm-12">
                                 <div class="d-flex flex-start">
                                     <div class="card w-100">
                                         <div class="card-body p-4">
@@ -93,7 +105,7 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                @endforeach
             </section>
         @endif
 

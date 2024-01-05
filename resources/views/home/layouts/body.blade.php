@@ -7,7 +7,7 @@
         {{-- Here the data inside (section image) is fetched by @yield image --}}
         <div class="container-fluid">
             <div class="row p-3">
-                <div class=" col-md-9 col-lg-9 col-sm-12 ">
+                <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-9 col-sm-12 ">
                     {{-- Here the data inside (section Content) is fetched by @yield content --}}
                     <h6>@yield('title')</h6>
                     @yield('content')
