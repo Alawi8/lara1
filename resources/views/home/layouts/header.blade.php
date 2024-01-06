@@ -12,9 +12,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/bitmap.png') }}">
     <meta name="generator" content="Hugo 0.101.0">
     {{-- Bootstrap link --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNPVF4DM3C"></script>
     <script>
@@ -38,51 +36,16 @@
         }
 
         #in-search {
-            border-radius: 5px 0 0 5px;
+            border-radius: 0 20px 20px 0;
         }
 
         #btn-search {
             border-radius: 30px 0px 0px 30px;
         }
-
-        #cate-aleart {
-            background-color: #6c757d;
-            color: #fff;
-            text-align: center;
-            font-weight: bold;
-            border-radius: 5px;
-            padding: 5px;
-            margin-bottom: 10px;
-        }
-
-        .list-group a {
-            margin: 5px 0;
-        }
-
-        .card {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        #content img {
-            vertical-align: middle;
-        }
-
-        #content {
-            word-wrap: break-word;
-        }
-
-        #body {
-            width: 100%;
-            /* text-color : black ; */
-        }
-
         #heading {
             -webkit-animation: color-change-2x 2s linear infinite alternate both;
             animation: color-change-2x 2s linear infinite alternate both;
-            border-color: rgb(0, 0, 0);
-            border-radius: 0 0 12px 12px;
-            width: 100%;
-            vertical-align: middle;
+            border-radius: 0 0 22px 22px;
         }
 
         @-webkit-keyframes color-change-2x {
@@ -95,61 +58,6 @@
             }
         }
 
-        @keyframes color-change-2x {
-            0% {
-                background: #ffffff;
-            }
-
-            100% {
-                background: #547df8;
-            }
-        }
-
-        #card-content-posts {
-            width: 100%;
-            height: 22rem;
-            max-zoom: 99px;
-        }
-
-        #style-icon {
-            animation-name: example;
-            animation-duration: 3s;
-            animation-iteration-count: 2222;
-        }
-
-        @keyframes example {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        #categure {
-            border: 5px solid;
-            border-radius: 20px;
-            border-color: rgb(255, 255, 255);
-            margin-bottom: 25px;
-            box-shadow: 0 0 25px rgb(163, 160, 160);
-        }
-
-        #cate-aleart {
-            border-radius: 30px 30px 0 70px;
-        }
-
-        #cate-aleart-button {
-            border-radius: 20px 0 0 20px;
-        }
-
-        #in-search {
-            border-radius: 0 20px 20px 0;
-        }
-
-        #input_seo {
-            height: 50%;
-        }
     </style>
     @yield('style')
 </head>

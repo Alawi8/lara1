@@ -9,6 +9,7 @@
             @yield('title')
         </title>
         <!--bootstrap link-->
+
         <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.rtl.css') }}" />
         <link href="{{ asset('assets/css/dashboard.rtl.css') }}" rel="stylesheet">
         <script src="{{ asset('assets/js/color-modes.js') }}"></script>
