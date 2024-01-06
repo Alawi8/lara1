@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {!! SEO::generate(true) !!}
@@ -11,7 +12,8 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/bitmap.png') }}">
     <meta name="generator" content="Hugo 0.101.0">
     {{-- Bootstrap link --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNPVF4DM3C"></script>
@@ -151,6 +153,7 @@
     </style>
     @yield('style')
 </head>
+
 <body>
     <nav id="heading" class="navbar fixed-top shadow">
         <div class="container-fluid">
@@ -161,26 +164,26 @@
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </a>
-            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar" aria-label="menu-left">
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="menu-left">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <nav class="list-group">
                         <a href="{{ route('home') }}"
-                            class="list-group-item list-group-item-action {{ Request::is('posts') ? 'active' : '' }}"
-                            aria-current="true">
+                            class="list-group-item list-group-item-action {{ Request::is('home') ? 'active' : '' }}">
                             الرئيسية
                         </a>
                         <a href="{{ route('categories.index') }}"
                             class="list-group-item list-group-item-action {{ Request::is('categories*') ? 'active' : '' }}">التصنيفات</a>
-                        <a href="{{route('policy')}}"
+                        <a href="{{ route('policy') }}"
                             class="list-group-item list-group-item-action {{ Request::is('policy') ? 'active' : '' }}">الخصوصية</a>
-                        <a href="{{route('about')}}"
+                        <a href="{{ route('about') }}"
                             class="list-group-item list-group-item-action {{ Request::is('about') ? 'active' : '' }}">عنا</a>
                         <a class="list-group-item list-group-item-action " aria-disabled="true">الأسئلة</a>
                     </nav>
@@ -193,8 +196,8 @@
                             @guest
                                 <div class="alert alert-info" role="alert">
                                     <i class="bi bi-info-circle-fill"></i> أنت غير مسجل الدخول. من فضلك <a
-                                        href="{{route('login')}}">قم بتسجيل الدخول</a> أو <a
-                                        href="{{route('register')}}">قم بالتسجيل</a>.
+                                        href="{{ route('login') }}">قم بتسجيل الدخول</a> أو <a
+                                        href="{{ route('register') }}">قم بالتسجيل</a>.
                                 </div>
                             @else
                                 <li class="nav-item">
@@ -239,9 +242,10 @@
                             <a href="#" class="btn btn-dark rounded-3 me-2" title="إضافة مقال">
                                 <i class="bi bi-file-plus"></i> إضافة مقال
                             </a>
-                            <a href="{{route ('logout')}}" class="btn btn-dark rounded-3" title="تسجيل الخروج">
-                                <i class="bi bi-box-arrow-right"></i> تسجيل الخروج
-                            </a>
+                            <form class="btn btn-dark rounded-3 me-2" method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button class="nav-link" type="submit">تسجيل الخروج</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -256,9 +260,7 @@
             </div>
         @endif
     @endguest
-
-    <!-- Your page content goes here -->
-
     @livewireScripts
 </body>
+
 </html>

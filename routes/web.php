@@ -31,16 +31,7 @@ use App\Http\Controllers\home\HomeCategoryController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-
-
-
-
-/*
-|-------------------------------------------------------------------------->
-| SEO Routes
-|-------------------------------------------------------------------------->
 */
-
 Route::get('sitemap/create', function () {
     $baseUrl = config('app.url'); // استخدم متغير البيئة للحصول على عنوان موقعك
 
@@ -48,11 +39,6 @@ Route::get('sitemap/create', function () {
     
     return 'sitemap created';
 });
-/*
-|-------------------------------------------------------------------------->
-| home Routes                                                              
-|-------------------------------------------------------------------------->
-*/
 
 // admin page controllers
 route::controller(AdminPagesController::class)->group(function (){
@@ -69,29 +55,18 @@ route::controller(RelationController::class)-> group(function(){
 
 //categures route API
 
-// Route::resource('posts', PostController::class)->middleware('auth');
-
 ################## begin relation route ######################
     route::controller( RelationController::class )->group(function (){
         route::get('relation' , 'relation')->name('relation');
     });
 ################## end relation route ######################
 
-
-
-
-
 // routes/web.php
-
-
 Route::get('/media', [ImageController::class, 'index'])->name('media.index');
 Route::get('/media/create', [ImageController::class, 'create'])->name('media.create');
 Route::post('/media', [ImageController::class, 'store'])->name('media.store');
 
 // routes/web.php
-
-
-
 Route::get('/', [HomeCategoryController::class, 'index'])->name('home.categories.index');
 
 // routes/web.php
