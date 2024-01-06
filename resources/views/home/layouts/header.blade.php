@@ -185,7 +185,7 @@
                             class="list-group-item list-group-item-action {{ Request::is('policy') ? 'active' : '' }}">الخصوصية</a>
                         <a href="{{ route('about') }}"
                             class="list-group-item list-group-item-action {{ Request::is('about') ? 'active' : '' }}">عنا</a>
-                        <a class="list-group-item list-group-item-action " aria-disabled="true">الأسئلة</a>
+                        <a class="list-group-item list-group-item-action " >الأسئلة</a>
                     </nav>
                     <form class="d-flex mt-3" role="search">
                         <input class="form-control me-2" type="search" placeholder="البحث" aria-label="Search">
