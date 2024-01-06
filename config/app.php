@@ -207,9 +207,10 @@ return [
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
         Illuminate\Redis\RedisServiceProvider::class,
-        // ...
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
     ],
-
+    
+    
     /*
     |--------------------------------------------------------------------------
     | Class Aliases
@@ -220,9 +221,19 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
-
-    'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
-    ])->toArray(),
+    
+    # seo tools provider
+    'aliases' => array_merge(
+        Facade::defaultAliases()->toArray(),
+        [
+            'SEOMeta'       => Artesaos\SEOTools\Facades\SEOMeta::class,
+            'OpenGraph'     => Artesaos\SEOTools\Facades\OpenGraph::class,
+            'Twitter'       => Artesaos\SEOTools\Facades\TwitterCard::class,
+            'JsonLd'        => Artesaos\SEOTools\Facades\JsonLd::class,
+            'JsonLdMulti'   => Artesaos\SEOTools\Facades\JsonLdMulti::class,
+            // or
+            'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
+        ]
+    ),
 
 ];

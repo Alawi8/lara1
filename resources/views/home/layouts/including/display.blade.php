@@ -1,7 +1,7 @@
 @extends('home.layouts.body')
-@section('title'){{ $dis_posts->title }}@endsection
+{{-- @section('title'){{ $dis_posts->title }}@endsection
 @section('exept'){{ $dis_posts->exept }}@endsection
-@section('author'){{ config('app.name') }}@endsection
+@section('author'){{ config('app.name') }}@endsection --}}
 
 @section('content')
     <style>
@@ -43,26 +43,21 @@
             font-size: 16px;
             color: #555;
         }
-
         #hero {
-            width: 100%;
-            height: 600px;
-            background: url('{{ $dis_posts->image_path }}');
-            background-size: contain;
-            background-position: top right;
-            padding: 0 15px;
-            background-repeat: no-repeat;
-        }
+    background-image: url('https://www.meshcah.net/storage/img/1701773513.webp');
+    background-size: cover; /* Adjust based on your requirements */
+    background-position: center; /* Adjust based on your requirements */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* This is where you set background-attachment */
+    /* Additional styling if needed */
+}
 
-        #hero {
-            background-attachment: fixed;
-        }
     </style>
-    <div id="content-img-posts-card" class="">
-        {{-- <img id='post-img ' src="{{ $dis_posts->image_path }}" alt="{{ $dis_posts->title }}" class="img-fluid rounded"> --}}
+    <div id="content-img-posts-card" class="text-center">
+        <img id='post-img ' src="{{ $dis_posts->image_path }}" alt="{{ $dis_posts->title }}" class="img-fluid rounded">
     </div>
+    <section id = 'hero'>
 
-    <section id="hero" class="">
     </section>
 
     <div class="card">

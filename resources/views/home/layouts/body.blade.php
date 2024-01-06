@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
 @include('home.layouts.header')
 <div>
 

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Artisan;
 
 
 class SettingsController extends Controller
@@ -17,8 +18,13 @@ class SettingsController extends Controller
      */
     public function index()
     {
+        Artisan::call('db:seed', ['--class' => 'SettingsTableSeeder']);
+        
+        // إما تقوم بإعادة توجيه أو تقوم بعمل آخر بناءً على احتياجاتك
+        // return redirect()->back()->with('message', 'Seeder executed successfully!');
+
         $settings = Setting::all();
-        return view('dash.components.setting.edit',compact('settings'));
+        return view('dash.components.setting.edit',compact('settings'))->with('message', 'Seeder executed successfully');
     }
 
     /**

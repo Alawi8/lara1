@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title'){{ ' | ' . config('app.name') }}</title>
-    <meta name="description" content="@yield('exept','مشكاه هي منصة تقنية مبتكرة تهدف إلى تحسين وتسهيل العمليات التقنية. تتميز المنصة بمجموعة واسعة من الخدمات والأدوات التي تدعم مطوري البرمجيات ورواد الأعمال في تحقيق أهدافهم بشكل فعال.')">
+    {!! SEO::generate(true) !!}
     <meta name="author" content="{{ config('app.name') }}">
     <meta name="robots" content="index">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -185,8 +185,8 @@
                         <a class="list-group-item list-group-item-action " aria-disabled="true">الأسئلة</a>
                     </nav>
                     <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <input class="form-control me-2" type="search" placeholder="البحث" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">بحث</button>
                     </form>
                     <div class="d-flex mt-3">
                         <ul class="navbar-nav">
@@ -200,7 +200,7 @@
                                 <li class="nav-item">
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
-                                        <button type="submit">Logout</button>
+                                        <button class="btn" type="submit">تسجيل الخروج</button>
                                     </form>
                                 </li>
                             @endguest

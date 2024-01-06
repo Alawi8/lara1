@@ -7,11 +7,33 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Support\Facades\View;
+use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
+
 
 
 
 class HomeCategoryController extends Controller {
+    use SEOToolsTrait;
+
     public function index() {
+
+        $this->seo()->setTitle('التصنيفات');
+        $this->seo()->setDescription('مشكاه هي منصة تقنية مبتكرة تهدف إلى تحسين وتسهيل العمليات التقنية. تتميز المنصة بمجموعة واسعة من الخدمات والأدوات التي تدعم مطوري البرمجيات ورواد الأعمال في تحقيق أهدافهم بشكل فعال');
+        
+        // تحديد نوع المشاركة للوسائط الاجتماعية
+        $this->seo()->opengraph()->setType('website');
+        $this->seo()->twitter()->setType('summary_large_image');
+        
+        // تحديد رابط الموقع ونوع المحتوى للوسائط الاجتماعية
+        $this->seo()->opengraph()->setUrl('http://meshcah.net/categories');
+        $this->seo()->opengraph()->addProperty('type', 'categories');
+        
+        // تحديد حساب Twitter الخاص بك
+        $this->seo()->twitter()->setSite('@LuizVinicius73');
+        
+        // تحديد نوع JSON-LD
+        $this->seo()->jsonLd()->setType('WebPage');
+
         $categories = Category::all();
 
         return view('home.components.categories.index', compact('categories'));
@@ -39,6 +61,24 @@ class HomeCategoryController extends Controller {
      */
     public function show($id)
     {
+        $categories = category::find($id);
+        $this->seo()->setTitle('التصنيفات'.' - '.$categories->name);
+        $this->seo()->setDescription($categories->title);
+        
+        // تحديد نوع المشاركة للوسائط الاجتماعية
+        $this->seo()->opengraph()->setType('website');
+        $this->seo()->twitter()->setType('summary_large_image');
+        
+        // تحديد رابط الموقع ونوع المحتوى للوسائط الاجتماعية
+        $this->seo()->opengraph()->setUrl('http://meshcah.net/categories/'.($id));
+        $this->seo()->opengraph()->addProperty('type', 'categories');
+        
+        // تحديد حساب Twitter الخاص بك
+        $this->seo()->twitter()->setSite('@LuizVinicius73');
+        
+        // تحديد نوع JSON-LD
+        $this->seo()->jsonLd()->setType('WebPage');
+
         $category = Category::findOrFail($id);
 
         // استرجاع المقالات المتعلقة

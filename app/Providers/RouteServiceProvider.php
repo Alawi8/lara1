@@ -43,7 +43,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/admin/dashboard.php'));
 
             //route link home/home.php
-            Route::prefix('posts')
+            Route::prefix('home')
                 ->middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/home/home.php'));

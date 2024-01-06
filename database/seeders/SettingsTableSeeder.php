@@ -13,10 +13,15 @@ class SettingsTableSeeder extends Seeder
       /**
      * Run the database seeds.
      *
-     * @return void
      */
     public function run()
     {
+        // اذا كان الجدول غير فارغ، لا تقم بإضافة المزيد من البيانات
+        if (DB::table('settings')->count() > 0) {
+            $this->command->info('The table is not empty. Seeder skipped.');
+            return;
+        }
+
         // إدراج بيانات افتراضية لجدول الإعدادات
         DB::table('settings')->insert([
             'site_name' => 'اسم الموقع',
@@ -25,5 +30,7 @@ class SettingsTableSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        $this->command->info('Seeder executed successfully!');
     }
 }
