@@ -168,7 +168,6 @@
             </div>
         @endif
     @endguest
-    @livewireScripts
 </body>
 
 </html>
