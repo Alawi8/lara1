@@ -235,14 +235,6 @@ return [
             'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
         ]
     ),
-    'config' => [
-        // ...
-        'csp' => [
-            'default-src' => ['self'],
-            'script-src' => ['self', 'unsafe-inline'],
-            'object-src' => ['none'],
-        ],
-    ],
     
 
 ];
