@@ -10,7 +10,8 @@
     <meta name="robots" content="index">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/bitmap.png') }}">
-    <meta name="generator" content="Hugo 0.101.0">
+    <meta http-equiv="Content-Security-Policy" content="object-src 'none';">
+
     {{-- Bootstrap link --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'  ])
     
