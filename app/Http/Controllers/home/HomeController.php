@@ -20,7 +20,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $this->seo()->setTitle('الرئيسيه '. '|' . env('APP_NAME'));
+        $this->seo()->setTitle('الرئيسيه ');
         $this->seo()->setDescription('مشكاه هي منصة تقنية مبتكرة تهدف إلى تحسين وتسهيل العمليات التقنية. تتميز المنصة بمجموعة واسعة من الخدمات والأدوات التي تدعم مطوري البرمجيات ورواد الأعمال في تحقيق أهدافهم بشكل فعال');
         $this->seo()->opengraph()->setUrl('http://meshcah.net/home');
         $this->seo()->opengraph()->addProperty('type', 'articles');
