@@ -29,7 +29,7 @@ class HomeController extends Controller
 
         $categories = Category::all();
 
-        $all_posts = Post::select('title', 'image_path', 'date', 'id')->paginate(4);
+        $all_posts = Post::select('title', 'image_path', 'date', 'id')->paginate(8);
         $totalPosts = Post::count();
 
         // Example: Retrieve a specific post (adjust the ID based on your use case)

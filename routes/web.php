@@ -56,9 +56,9 @@ route::controller(RelationController::class)-> group(function(){
 //categures route API
 
 ################## begin relation route ######################
-    route::controller( RelationController::class )->group(function (){
-        route::get('relation' , 'relation')->name('relation');
-    });
+    // route::controller( RelationController::class )->group(function (){
+    //     route::get('relation' , 'relation')->name('relation');
+    // });
 ################## end relation route ######################
 
 // routes/web.php

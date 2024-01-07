@@ -51,7 +51,7 @@
                                 class="card-img-top" alt="{{ $post->title }}">
                             <div class="card-body">
                                 <h1>{{ $post->title }}</h1>
-                                @include('home.components.pages.time')
+                                {{ \Carbon\Carbon::parse($post->date)->diffForHumans() }}
                             </div>
                         </div>
                     </a>
