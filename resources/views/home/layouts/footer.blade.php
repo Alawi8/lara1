@@ -31,5 +31,22 @@
             <li class="nav-item"><a href="{{ route('about') }}" class="nav-link px-2 text-muted ">حول</a></li>
             {{-- Add more navigation items as needed --}}
         </ul>
+            <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNPVF4DM3C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-VNPVF4DM3C');
+    </script>
+    {{-- Google AdSense link --}}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
+        crossorigin="anonymous"></script>
+    <style>
+
     </div>
 </div>

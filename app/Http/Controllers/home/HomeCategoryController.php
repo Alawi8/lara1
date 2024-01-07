@@ -8,12 +8,11 @@ use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Support\Facades\View;
 use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
-
-
-
+use GuzzleHttp\Middleware;
 
 class HomeCategoryController extends Controller {
     use SEOToolsTrait;
+
 
     public function index() {
 
@@ -62,7 +61,7 @@ class HomeCategoryController extends Controller {
     public function show($id)
     {
         $categories = category::find($id);
-        $this->seo()->setTitle('التصنيفات'.' - '. $categories->name);
+        $this->seo()->setTitle( $categories->name .' - '.'التصنيفات');
         $this->seo()->setDescription($categories->title);
         
         // تحديد نوع المشاركة للوسائط الاجتماعية

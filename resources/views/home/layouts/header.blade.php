@@ -12,22 +12,8 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/bitmap.png') }}">
     <meta name="generator" content="Hugo 0.101.0">
     {{-- Bootstrap link --}}
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNPVF4DM3C"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-VNPVF4DM3C');
-    </script>
-    {{-- Google AdSense link --}}
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
-        crossorigin="anonymous"></script>
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'  ])
+    
     <style>
         * {
             font-family: 'Segoe UI';
