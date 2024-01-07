@@ -62,7 +62,7 @@ class HomeCategoryController extends Controller {
     public function show($id)
     {
         $categories = category::find($id);
-        $this->seo()->setTitle('التصنيفات'.' - '.$categories->name);
+        $this->seo()->setTitle('التصنيفات'.' - '. $categories->name);
         $this->seo()->setDescription($categories->title);
         
         // تحديد نوع المشاركة للوسائط الاجتماعية
