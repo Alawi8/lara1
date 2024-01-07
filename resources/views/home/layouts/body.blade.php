@@ -56,7 +56,6 @@
                 </div>
             </div>
         </div>
-        @livewireScripts
     </body>
 
 </div>
