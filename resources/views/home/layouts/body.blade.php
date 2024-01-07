@@ -37,8 +37,8 @@
                                             aria-current="true">
 
                                             <div class="d-flex w-100 align-items-center justify-content-between">
-                                                <img src="{{ $item->image_path }}" alt="النص البديل"
-                                                    class="rounded-circle " width="30" height="30">
+                                                {{-- <img src="{{ $item->image_path }}" alt="النص البديل"
+                                                    class="rounded-circle " width="30" height="30"> --}}
                                                 <strong class=""> {{ $item->title }}
                                                 </strong>
                                                 <small>{{ \Carbon\Carbon::parse($item->date)->diffForHumans() }}</small>
