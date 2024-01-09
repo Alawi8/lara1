@@ -4,11 +4,14 @@ namespace App\Http\Controllers\home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Page;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Str;
 use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
 use Artesaos\SEOTools\Traits\JsonLdMulti;
+use Illuminate\Support\Facades\View;
+
 
 
 
@@ -57,9 +60,11 @@ class HomeController extends Controller
 
     }
 
-    public function about()
+
+    public function pages()
     {
-        return view('home.pages.about');
+        $page = Page::paginate(4);
+        View::share('page', $page);
     }
 
 

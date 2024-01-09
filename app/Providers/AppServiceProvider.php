@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Page;
 use App\Models\Post;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
@@ -31,6 +32,10 @@ class AppServiceProvider extends ServiceProvider
             $posts = Post::latest('date')->select('title', 'id', 'date','time','image_path','exept')->take(7)->get();
             
             View::share('posts', $posts);
+        }
+        if(! isset($page)){
+            $page = Page::paginate(4);
+            View::share('page', $page);
         }
     }
 

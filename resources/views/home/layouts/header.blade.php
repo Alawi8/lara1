@@ -14,7 +14,21 @@
 
     {{-- Bootstrap link --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'  ])
-    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNPVF4DM3C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-VNPVF4DM3C');
+    </script>
+    {{-- Google AdSense link --}}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
+        crossorigin="anonymous"></script>
+    <style>
     <style>
         * {
             font-family: 'Segoe UI';
