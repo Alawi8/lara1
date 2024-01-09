@@ -34,8 +34,5 @@
             <li class="nav-item"><a href="{{ route('about') }}" class="nav-link px-2 text-muted ">حول</a></li>
             {{-- Add more navigation items as needed --}}
         </ul>
-            <!-- Google tag (gtag.js) -->
-
-
     </div>
 </div>
