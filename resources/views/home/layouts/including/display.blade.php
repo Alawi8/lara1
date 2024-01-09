@@ -43,17 +43,13 @@
             color: #555;
         }
 
-        #hero {
+        /* #hero {
             background-image: url('https://www.meshcah.net/storage/img/1701773513.webp');
             background-size: cover;
-            /* Adjust based on your requirements */
             background-position: center;
-            /* Adjust based on your requirements */
             background-repeat: no-repeat;
             background-attachment: fixed;
-            /* This is where you set background-attachment */
-            /* Additional styling if needed */
-        }
+        } */
     </style>
 @endsection
 @section('content')

@@ -7,7 +7,6 @@
      <head>
          <meta charset="utf-8">
          <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
-
          <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/super-build/ckeditor.js"></script>
      </head>
      <style>
@@ -17,12 +16,12 @@
          }
      </style>
      <div class="row">
-         <div class="col-12">
-             <div class="collapse show" id="collapseCardExample">
+        <div class="col-12">
+            <div class="collapse show" id="collapseCardExample">
                  <div class="card-body col-12">
                      <div class="row">
 
-                         <form class="needs-validation" novalidate action="{{ route('posts.store') }}" method="post"
+                         <form class="needs-validation" novalidate action="{{ route('pages.store') }}" method="post"
                              enctype="multipart/form-data">
                              @csrf
                              <div class="row g-3">
@@ -37,37 +36,12 @@
 
                                  <div class="col-sm-6">
                                      <label for="lastName" class="form-label">الوصف</label>
-                                     <input type="text" class="form-control @error('exept') is-invalid @enderror"
-                                         id="lastName" name="exept" placeholder="" value="{{ old('exept') }}">
+                                     <input type="text" class="form-control @error('description') is-invalid @enderror"
+                                         id="lastName" name="description" placeholder="" value="{{ old('description') }}">
                                      <div class="invalid-feedback">
                                          حقل الوصف مطلوب
                                      </div>
                                  </div>
-
-                                 <div class="col-md-6">
-                                     <label for="country" class="form-label">التصنيف</label>
-                                     <select class="form-select" name="category" id="category" required>
-                                         @foreach ($categuries as $categury)
-                                             <option value="{{ $categury->id }}">{{ $categury->name }}</option>
-                                         @endforeach
-                                     </select>
-                                     <div class="invalid-feedback">
-                                         Please select a valid country.
-                                     </div>
-                                 </div>
-
-                                 <div class="col-md-6">
-                                     <label for="state" class="form-label">الصوره</label>
-                                     <div class="input-group">
-                                         <input name="image" value="{{ old('image') }}" type="file"
-                                             class="form-control @error('image') is-invalid @enderror" id="inputGroupFile04"
-                                             aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                         <div class="invalid-feedback">
-                                             حقل الصوره مطلوب
-                                         </div>
-                                     </div>
-                                 </div>
-
 
                                  <hr class="my-4">
 
@@ -76,25 +50,25 @@
                                          class="form-control @error('content') is-invalid @enderror">
                                 {{ old('content') }}
                                 </textarea>
-                                     <div class="invalid-feedback">
-                                         حقل المحتوى مطلوب
+                                    <div class="invalid-feedback">
+                                     حقل المحتوى مطلوب
                                      </div>
                                  </div>
                                  <script>
                                      CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
                                          // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
                                          toolbar: {
-                                            items: [
-                                                  '|',
+                                             items: [
+                                                 '|',
                                                  'findAndReplace', '|',
                                                  'heading', '|',
                                                  'bold', '|',
                                                  'bulletedList', 'numberedList', 'todoList', '|',
-                                                  '|',
+                                                 '|',
                                                  'undo', 'redo',
                                                  'fontSize', 'fontColor', 'highlight', '|',
                                                  'alignment', '|',
-                                                 'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed','|','sourceEditing'
+                                                 'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed', '|', 'sourceEditing'
                                              ],
                                              shouldNotGroupWhenFull: true
                                          },

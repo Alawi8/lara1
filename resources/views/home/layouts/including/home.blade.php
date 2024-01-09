@@ -83,7 +83,7 @@
                                 <h1 class="mb-3 h2">{{ $category->name }}</h1>
     
                                 <p>
-                                    {{ Str::limit($category->title, 80) }}
+                                    {{ Str::limit($category->title, 110) }}
 
                                 </p>
                                 <span class="badge bg-primary rounded-pill">{{$category->posts->count()}}</span>

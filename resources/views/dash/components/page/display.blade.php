@@ -1,6 +1,6 @@
 @extends('dash.layouts.header')
 @section('title')
-    عرض المقالات
+    عرض الصفحات
 @endsection
 @section('content')
     <style>
@@ -23,59 +23,54 @@
             </script>
         @endif
 
-        <a href="{{ route('posts.create') }}" class="btn btn-primary bg-gradient-primary ">كتابة مقاله</a>
-        <table class="table ">
+        <a href="{{ route('pages.create') }}" class="btn btn-primary bg-gradient-primary ">اضافة صفحه</a>
+        <table class="table">
             <thead>
                 <tr class="text-dark ">
-                    <th scope="col"></th>
                     <th scope="col">العنوان</th>
-                    <th class="col" scope="col">الكاتب</th>
                     <th class="col" scope="col">الحاله</th>
                     <th class="col" scope="col">التاريخ</th>
-                    <th class="col" scope="col">الساعه</th>
-                    <th class="col" scope="col">التصنيف</th>
+                    <th class="col" scope="col">اخر تحديث</th>
                 </tr>
             </thead>
             <tbody>
-                @if (isset($posts))
+                @if (isset($pages))
 
-                    @foreach ($posts as $post)
+                    @foreach ($pages as $page)
                         <tr>
-                            <td scope="row"><img src="{{ $post->image_path }}" class="img-thumbnail d-none d-lg-block"
-                                    alt="..."></td>
-                            <td>{{ $post->title }}
+                            
+                            <td>{{ $page->title }}
                                 <br>
                                 <div class="d-flex p-2">
-                                    <a href="{{ route('posts.edit', $post->id) }}"
+                                    <a href="{{route('pages.edit', $page->id)}}"
                                         class="btn badge rounded-pill text-bg-info">تعديل</a>
 
-                                    <form id="deleteForm{{ $loop->index }}"
-                                        action="{{ route('posts.destroy', $post->id) }}" method="post">
-                                        @method('DELETE')
-                                        @csrf
-
-
-                                        <!-- Modal -->
-
-                                        <button class="btn badge rounded-pill text-bg-danger" type="submit">حذف</button>
-
-                                    </form>
+                                        <form action="{{ route('pages.destroy', $page->id) }}" method="post" id="deleteForm_{{ $page->id }}">
+                                            @method('DELETE')
+                                            @csrf
+                                            <!-- Modal -->
+                                            <button class="btn badge rounded-pill text-bg-danger" type="button" onclick="confirmDelete({{ $page->id }})">حذف</button>
+                                        </form>
+                                        
+                                        <script>
+                                            function confirmDelete(id) {
+                                                if (confirm('هل أنت متأكد من حذف هذه الصفحة؟')) {
+                                                    document.getElementById('deleteForm_' + id).submit();
+                                                }
+                                            }
+                                        </script>
                                 </div>
                             </td>
-                            <td>{{ $post->writer }}</td>
                             <td><span class="badge rounded-pill text-bg-success">ONLINE</span></td>
-                            <td>{{ $post->date }}</td>
-                            <td>{{ $post->time }}</td>
-                            <td>{{ $post->category_id }}</td>
-
+                            <td>{{ $page->created_at }}</td>
+                            <td>{{ $page->updated_at }}</td>
                         </tr>
                     @endforeach
                 @endif
             </tbody>
-
         </table>
         <div class="d-flex justify-content-center">
-            {{ $posts->links() }}
+            {{ $pages->links() }}
         </div>
     </div>
 @endsection
