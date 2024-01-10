@@ -22,7 +22,6 @@ class HomeController extends Controller
 
     public function index()
     {
-
         $this->seo()->setTitle('الرئيسيه ');
         $this->seo()->setDescription('مشكاه هي منصة تقنية مبتكرة تهدف إلى تحسين وتسهيل العمليات التقنية. تتميز المنصة بمجموعة واسعة من الخدمات والأدوات التي تدعم مطوري البرمجيات ورواد الأعمال في تحقيق أهدافهم بشكل فعال');
         $this->seo()->opengraph()->setUrl('http://meshcah.net/home');
@@ -30,19 +29,11 @@ class HomeController extends Controller
         $this->seo()->twitter()->setSite('@LuizVinicius73');
         $this->seo()->jsonLd()->setType('Article');
 
+        // category methods for articles 
         $categories = Category::all();
-
         $all_posts = Post::select('title', 'image_path', 'date', 'id')->paginate(8);
         $totalPosts = Post::count();
-
-        // Example: Retrieve a specific post (adjust the ID based on your use case)
-        $specificPostId = 6;
-        $dis_posts = Post::find($specificPostId);
-
-        // Example: Retrieve comments associated with the specific post
-        $comments = ($dis_posts) ? $dis_posts->comments : [];
-
-        return view('home.welcom', compact('all_posts', 'categories', 'totalPosts', 'comments'));
+        return view('home.welcom', compact('all_posts', 'categories', 'totalPosts'));
     }
 
 
@@ -53,11 +44,8 @@ class HomeController extends Controller
     }
     public function search(Request $request, $title)
     {
-
         $result = Post::where('title', 'like', '%' . $title . '%')->get();
-
         return view('home.components.pages.search', compact('result'));
-
     }
 
 
@@ -94,11 +82,9 @@ class HomeController extends Controller
             ->setType('Article')
             ->setTitle($post->title)
             ->setDescription($post->exept)
-            ->addImage(asset($post->image_path)); // افتراضيًا، قم بتغييره وفقًا لكيفية تخزين الصور في مشروعك
-
-
+            ->addImage(asset($post->image_path));
         $dis_posts = Post::with('comments')->find($id);
-
+        // 
         if (!$dis_posts) {
             abort(404);
         }
@@ -107,5 +93,4 @@ class HomeController extends Controller
 
         return view('home.layouts.including.display', compact('dis_posts', 'comments'));
     }
-
 }

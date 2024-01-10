@@ -21,18 +21,15 @@
         </p>
         <a href="{{ route('home') }}"
             class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <img id="bot"src="{{asset('assets/img/bitmap.png')}}"
-                width="40" height="40" alt="{{ config('app.name') }}" />
+            <img id="bot"src="{{ asset('assets/img/bitmap.png') }}" width="40" height="40"
+                alt="{{ config('app.name') }}" />
         </a>
-        @foreach ($page as $item)
-            {{$item->title}}
-        @endforeach
         <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a href="{{ route('home') }}" class="nav-link px-2 text-muted ">الرئيسية</a></li>
-            <li class="nav-item"><a href="{{ route('policy') }}" class="nav-link px-2 text-muted ">الخصوصية</a></li>
-            <li class="nav-item"><a href="{{ route('home') }}" class="nav-link px-2 text-muted ">أسئلة</a></li>
-            <li class="nav-item"><a href="{{ route('about') }}" class="nav-link px-2 text-muted ">حول</a></li>
-            {{-- Add more navigation items as needed --}}
+            @foreach ($page as $item)
+                <li class="nav-item">
+                    <a href="{{ route('home') }}" class="nav-link px-2 text-muted ">{{ $item->title }}</a>
+                </li> 
+            @endforeach
         </ul>
     </div>
 </div>

@@ -16,11 +16,12 @@
             </div>
 
             <script>
-                // انتظر 5 ثوانٍ ومن ثم قم بإخفاء العنصر
+                // wait 5 minutes
                 setTimeout(function() {
                     document.getElementById('success-alert').style.display = 'none';
-                }, 5000); // 5000 مللي ثانية تعني 5 ثوانٍ
+                }, 5000);
             </script>
+
         @endif
 
         <a href="{{ route('pages.create') }}" class="btn btn-primary bg-gradient-primary ">اضافة صفحه</a>

@@ -33,7 +33,7 @@ use App\Http\Controllers\home\HomeCategoryController;
 |
 */
 Route::get('sitemap/create', function () {
-    $baseUrl = config('app.url'); // استخدم متغير البيئة للحصول على عنوان موقعك
+    $baseUrl = config('app.url'); 
 
     SitemapGenerator::create($baseUrl)->writeToFile('sitemap.xml');
     
@@ -42,7 +42,6 @@ Route::get('sitemap/create', function () {
 
 // admin page controllers
 route::controller(AdminPagesController::class)->group(function (){
-    // route::get(     '/dash/media'       ,       'show'               )  ->  name    ('dash.media')  ->       middleware("auth");
     route::get("/user/{id}/"      ,       'display') -> name ('user.display') ;
 });
 
@@ -53,28 +52,14 @@ route::controller(RelationController::class)-> group(function(){
 
 
 
-//categures route API
-
-################## begin relation route ######################
-    // route::controller( RelationController::class )->group(function (){
-    //     route::get('relation' , 'relation')->name('relation');
-    // });
-################## end relation route ######################
-
 // routes/web.php
 Route::get('/media', [ImageController::class, 'index'])->name('media.index');
 Route::get('/media/create', [ImageController::class, 'create'])->name('media.create');
 Route::post('/media', [ImageController::class, 'store'])->name('media.store');
 
-// routes/web.php
-Route::get('/', [HomeCategoryController::class, 'index'])->name('home.categories.index');
-
-// routes/web.php
-
 
 // require __DIR__.'/auth.php';
 Route::resource('categories', HomeCategoryController::class);
-
 
 Route::get('/first-component', PostsList::class);
 // Route::get('/second-component', ShowPosts::class);
@@ -92,7 +77,6 @@ Route::post('/email/resend', 'App\Http\Controllers\Auth\VerificationController@r
     ->name('verification.resend');
 
 
-// Route::get('/home2', [App\Http\Controllers\HomeController::class, 'index'])->name('home2');
 
 Auth::routes();
 

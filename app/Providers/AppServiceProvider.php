@@ -33,10 +33,9 @@ class AppServiceProvider extends ServiceProvider
             
             View::share('posts', $posts);
         }
-        if(! isset($page)){
-            $page = Page::paginate(4);
-            View::share('page', $page);
-        }
+
+        $page = Page::paginate(4);
+        View::share('page', $page);
     }
 
     public function isSecure()
