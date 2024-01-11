@@ -1,8 +1,8 @@
 @extends('home.layouts.body')
-@section('exept')
-@section('title')
 @section('content')
-@foreach ($result as $article)
-<p>{{ $article->title }}</p>
-@endforeach
+<div>
+    <h2>{{ $post->title }}</h2>
+    <p>{!! $post->content !!}</p>
+    {{-- أضف أي أكواد HTML أو تصميم إضافي حسب احتياجاتك --}}
+</div>
 @endsection

@@ -27,7 +27,8 @@
         <ul class="nav col-md-4 justify-content-end">
             @foreach ($page as $item)
                 <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link px-2 text-muted ">{{ $item->title }}</a>
+<!-- in your blade file -->
+<a href="{{ route('page.show', ['title' => $item->title]) }}" class="nav-link px-2 text-muted">{{ $item->title }}</a>
                 </li> 
             @endforeach
         </ul>

@@ -1,36 +1,19 @@
 <?php
-
-// use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\auth\CustomAuthController;
-// use App\Http\Controllers\admin\AdminController;
 use Spatie\Sitemap\SitemapGenerator;
 use App\Http\Controllers\admin\AdminPagesController ;
-// use App\Http\Controllers\admin\MediaController;
 use App\Http\Controllers\RelationController;
-use App\Http\Controllers\Category\CategoryController;
-// use App\Http\Controllers\PostController;
 use App\Http\Controllers\home\HomeController;
-use Laravel\Ui;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Livewire\PostsList;
 use App\Http\Controllers\media\ImageController;
-use App\Http\Livewire\ShowPosts;
 use App\Http\Controllers\home\HomeCategoryController;
-
-
-
+use App\Http\Controllers\home\PageController;
 
 /*
 |-------------------------------------------------------------------------->
 | Web Routes
 |-------------------------------------------------------------------------->
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
 */
 Route::get('sitemap/create', function () {
     $baseUrl = config('app.url'); 
@@ -39,8 +22,12 @@ Route::get('sitemap/create', function () {
     
     return 'sitemap created';
 });
+/*
+|-------------------------------------------------------------------------->
+| admin page controllers
+|-------------------------------------------------------------------------->
+*/
 
-// admin page controllers
 route::controller(AdminPagesController::class)->group(function (){
     route::get("/user/{id}/"      ,       'display') -> name ('user.display') ;
 });
@@ -50,6 +37,11 @@ route::controller(RelationController::class)-> group(function(){
     route::get('/relation'  ,       'relation')->name('relation');
 });
 
+/*
+|-------------------------------------------------------------------------->
+|home routes 
+|-------------------------------------------------------------------------->
+*/
 
 // home route 
 Route::get('/', [HomeController::class, 'index']);
@@ -59,12 +51,21 @@ Route::get('/media', [ImageController::class, 'index'])->name('media.index');
 Route::get('/media/create', [ImageController::class, 'create'])->name('media.create');
 Route::post('/media', [ImageController::class, 'store'])->name('media.store');
 
-
-// require __DIR__.'/auth.php';
+/*
+|-------------------------------------------------------------------------->
+| categories routes
+|-------------------------------------------------------------------------->
+*/
 Route::resource('categories', HomeCategoryController::class);
 
 Route::get('/first-component', PostsList::class);
-// Route::get('/second-component', ShowPosts::class);
+
+/*
+|-------------------------------------------------------------------------->
+| authntcation routes
+|-------------------------------------------------------------------------->
+*/
+
 Auth::routes();
 Route::get('/email/verify', 'App\Http\Controllers\Auth\VerificationController@show')
     ->middleware('auth')
@@ -78,12 +79,21 @@ Route::post('/email/resend', 'App\Http\Controllers\Auth\VerificationController@r
     ->middleware(['auth', 'throttle:6,1'])
     ->name('verification.resend');
 
-
-
-Auth::routes();
+/*
+|-------------------------------------------------------------------------->
+| Web Routes
+|-------------------------------------------------------------------------->
+*/
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/login', 'Auth\LoginController@index')->name('login');
 // Route::get('/login', [LoginController::class, 'showLoginForm']);
 Route::view('/about', 'home/components/pages/policy')->name('about');
 Route::view('/policy', 'home/components/pages/policy')->name('policy');
+
+/*
+|-------------------------------------------------------------------------->
+| home/pageController routes
+|-------------------------------------------------------------------------->
+*/
+Route::get('{title}', [PageController::class, 'show'])->name('page.show');

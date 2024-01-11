@@ -50,10 +50,18 @@ class HomeController extends Controller
     }
 
 
-    public function pages()
+    public function pages($id)
     {
-        $page = Page::paginate(4);
-        View::share('page', $page);
+        $post = Page::find($id);
+        $this->seo()->setTitle("{$post->title}");
+        $this->seo()->setDescription($post->exept);
+        $this->seo()->jsonLd()
+            ->setType('Article')
+            ->setTitle($post->title)
+            ->setDescription($post->exept)
+            ->addImage(asset($post->image_path));
+            
+        return view ('home.components.pages.show',compact('pages'));
     }
 
 
@@ -76,6 +84,7 @@ class HomeController extends Controller
 
     public function display($id)
     {
+        # seo optimization for home/including/page 
         $post = Post::find($id);
         $this->seo()->setTitle("{$post->title}");
         $this->seo()->setDescription($post->exept);
@@ -84,6 +93,7 @@ class HomeController extends Controller
             ->setTitle($post->title)
             ->setDescription($post->exept)
             ->addImage(asset($post->image_path));
+
         $dis_posts = Post::with('comments')->find($id);
         // 
         if (!$dis_posts) {
