@@ -31,8 +31,9 @@ class HomeController extends Controller
 
         // category methods for articles 
         $categories = Category::all();
-        $all_posts = Post::select('title', 'image_path', 'date', 'id')->paginate(8);
-        $totalPosts = Post::count();
+        $all_posts = Post::select('title', 'image_path', 'date', 'id')
+        ->orderBy('date', 'desc') // ترتيب النتائج من الأحدث إلى الأقدم بناءً على حقل التاريخ
+        ->paginate(8);        $totalPosts = Post::count();
         return view('home.welcom', compact('all_posts', 'categories', 'totalPosts'));
     }
 

@@ -51,6 +51,8 @@ route::controller(RelationController::class)-> group(function(){
 });
 
 
+// home route 
+Route::get('/', [HomeController::class, 'index']);
 
 // routes/web.php
 Route::get('/media', [ImageController::class, 'index'])->name('media.index');
