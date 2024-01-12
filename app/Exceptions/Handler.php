@@ -45,7 +45,7 @@ class Handler extends ExceptionHandler
         });
     }
         // ...
-
+        // link 404 page 
         public function render($request, Throwable $exception)
         {
             if ($exception instanceof HttpException && $exception->getStatusCode() == 404) {
