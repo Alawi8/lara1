@@ -26,7 +26,7 @@
                     </div>
                     <br>
                     <div class="container bg-light shadow p-3">
-                        <h6>أحدث المقالات</h6>
+                        <h1>أحدث المقالات</h1>
                         <hr>
                         @if (isset($posts) && count($posts) > 0)
                             @foreach ($posts as $item)
