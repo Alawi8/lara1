@@ -30,6 +30,110 @@
         crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <style>
+        * {
+    font-family: 'Segoe UI';
+    font-size: 16px;
+}
+
+#in-search {
+    border-radius: 0 20px 20px 0;
+}
+
+#btn-search {
+    border-radius: 30px 0px 0px 30px;
+}
+#heading {
+    -webkit-animation: color-change-2x 2s linear infinite alternate both;
+    animation: color-change-2x 2s linear infinite alternate both;
+    border-radius: 0 0 22px 22px;
+}
+
+@-webkit-keyframes color-change-2x {
+    0% {
+        background: #ffffff;
+    }
+
+    100% {
+        background: #547df8;
+    }
+}
+
+
+#content-items {
+    margin-top: 20px;
+}
+
+h1 {
+    color: #333;
+    font-size: 22px;
+}
+
+#content-img-posts-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#post-img {
+    max-width: 100%;
+    /* Make the image responsive */
+    max-height: 100%;
+    /* Set a maximum height for the image */
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    /* Add border-radius for rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add box-shadow for a subtle effect */
+    display: block;
+    /* Remove default image spacing */
+    margin: 0 auto;
+    /* Center the image */
+}
+
+#content {
+    line-height: 1.6;
+    font-size: 16px;
+    color: #555;
+}
+
+#card-posts-menu {
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    border: 5px solid;
+    border-radius: 20px 20px 20px 20px;
+    border-color: rgb(255, 255, 255);
+    margin-bottom: 25px;
+    box-shadow: 0 0 25px rgb(163, 160, 160)
+}
+
+#card-posts-menu:hover {
+    transform: scale(1.05);
+}
+
+#card-posts-menu-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    box-shadow: 0 0 25px rgb(163, 160, 160) width: 100%;
+    height: 10rem;
+    border-radius: 20px 20px 0 90px
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-body h6 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+h1 {
+color: #333;
+font-size: 19px;
+}
+
+    </style>
 </head>
 
 <body>
