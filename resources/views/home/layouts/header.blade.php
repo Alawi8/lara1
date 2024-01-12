@@ -28,37 +28,8 @@
     {{-- Google AdSense link --}}
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
         crossorigin="anonymous"></script>
-    <style>
-        * {
-            font-family: 'Segoe UI';
-            font-size: 16px;
-        }
 
-        #in-search {
-            border-radius: 0 20px 20px 0;
-        }
-
-        #btn-search {
-            border-radius: 30px 0px 0px 30px;
-        }
-        #heading {
-            -webkit-animation: color-change-2x 2s linear infinite alternate both;
-            animation: color-change-2x 2s linear infinite alternate both;
-            border-radius: 0 0 22px 22px;
-        }
-
-        @-webkit-keyframes color-change-2x {
-            0% {
-                background: #ffffff;
-            }
-
-            100% {
-                background: #547df8;
-            }
-        }
-
-    </style>
-    @yield('style')
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 </head>
 
 <body>
