@@ -24,7 +24,7 @@
     {{-- comments part  --}}
     <div id="content-items" class="container">
         <section>
-            <h4>التعليقات:</h4>
+            <h1>التعليقات:</h1>
             <form action="{{ route('comments.store') }}" method="post">
                 @csrf
                 <div class="row">
