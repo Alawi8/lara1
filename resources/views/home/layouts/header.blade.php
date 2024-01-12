@@ -29,7 +29,6 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <style>
         * {
     font-family: 'Segoe UI';
