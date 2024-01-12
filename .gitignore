@@ -15,3 +15,4 @@ public/sitemap/sitemap.xml
 sitemap.xml
 .htaccess
 /public
+/node_modules

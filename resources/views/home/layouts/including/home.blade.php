@@ -35,7 +35,7 @@
     @endif
     <div class="bg-light">
         <hr>
-        <h6>التصنيفات</h6>
+        <h1>التصنيفات</h1>
         <div>
             <div class="row">
                 @if (isset($categories))

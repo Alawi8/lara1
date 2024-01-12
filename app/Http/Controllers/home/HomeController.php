@@ -33,8 +33,8 @@ class HomeController extends Controller
         $categories = Category::all();
         $all_posts = Post::select('title', 'image_path', 'date', 'id')
         ->orderBy('date', 'desc') // ترتيب النتائج من الأحدث إلى الأقدم بناءً على حقل التاريخ
-        ->paginate(8);        $totalPosts = Post::count();
-        return view('home.welcom', compact('all_posts', 'categories', 'totalPosts'));
+        ->paginate(8);        
+        return view('home.welcom', compact('all_posts', 'categories'));
     }
 
 

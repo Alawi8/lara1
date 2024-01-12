@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use Intervention\Image\Facades\Image;
+use Spatie\Sitemap\SitemapGenerator;
+
 
 class AdminPostController extends Controller
 {
@@ -72,6 +74,8 @@ class AdminPostController extends Controller
             'category_id' => $request->category,
         ]);
         unlink($imageFullPath);
+        $baseUrl = config('app.url'); 
+        SitemapGenerator::create($baseUrl)->writeToFile('sitemap.xml');
 
         return redirect()->route('posts.index')->with('success', 'كفوو .. كتبت مقاله جديده استمر');
     }

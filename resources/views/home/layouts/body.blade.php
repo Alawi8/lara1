@@ -13,7 +13,7 @@
 
                 <div class="col-md-3 col-lg-3 col-sm-12">
                     <div>
-                        <h6>البحث</h6>
+                        <h1>البحث</h1>
                         <div class="">
                             <form class="d-flex">
                                 {{-- search part --}}

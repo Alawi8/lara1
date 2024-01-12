@@ -4,8 +4,40 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "489f6da18b5c1e1201638e41ae97e612",
+    "content-hash": "7f87e53bd8b3d0ea87398be8ac62ad0d",
     "packages": [
+        {
+            "name": "abhishek-laravel/caches",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/abhishek-openeyes/laravel-cache.git",
+                "reference": "e3579c0ef876a4feeb75dd6db27b0e3aa4669a58"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/abhishek-openeyes/laravel-cache/zipball/e3579c0ef876a4feeb75dd6db27b0e3aa4669a58",
+                "reference": "e3579c0ef876a4feeb75dd6db27b0e3aa4669a58",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "theopeneyes\\caches\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "caches store",
+            "support": {
+                "issues": "https://github.com/abhishek-openeyes/laravel-cache/issues",
+                "source": "https://github.com/abhishek-openeyes/laravel-cache/tree/main"
+            },
+            "time": "2021-09-14T13:55:56+00:00"
+        },
         {
             "name": "artesaos/seotools",
             "version": "v1.2.0",
