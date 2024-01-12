@@ -29,7 +29,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
         crossorigin="anonymous"></script>
 
-    {{-- <style>
+    <style>
         * {
             font-family: 'Segoe UI';
             font-size: 16px;
@@ -133,7 +133,7 @@
             color: #333;
             font-size: 19px;
         }
-    </style> --}}
+    </style>
 </head>
 
 <header>
