@@ -13,7 +13,7 @@
     <meta http-equiv="Content-Security-Policy" content="object-src 'none';">
 
     {{-- Bootstrap link --}}
-    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNPVF4DM3C"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
