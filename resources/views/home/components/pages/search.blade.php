@@ -16,7 +16,7 @@
                         <strong class="d-inline-block mb-2 text-primary">World</strong>
                         <h3 class="mb-0">{{ $article->title }}</h3>
                         <div class="mb-1 text-muted">{{ \Carbon\Carbon::parse($article->date)->diffForHumans() }}</div>
-                        <p class="card-text mb-auto">{{ $article->exept}}</p>
+                        <p class="card-text mb-auto">{{ Str::limit($article->exept, 150) }}</p>
                         {{-- Continue reading</a> --}}
                     </div>
                     <div class="col-auto d-none d-lg-block">
