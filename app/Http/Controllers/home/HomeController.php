@@ -22,18 +22,25 @@ class HomeController extends Controller
 
     public function index()
     {
+        # update title with description 
         $this->seo()->setTitle('الرئيسيه ');
         $this->seo()->setDescription('مشكاه هي منصة تقنية مبتكرة تهدف إلى تحسين وتسهيل العمليات التقنية. تتميز المنصة بمجموعة واسعة من الخدمات والأدوات التي تدعم مطوري البرمجيات ورواد الأعمال في تحقيق أهدافهم بشكل فعال');
+        
+        #update SEO service 
         $this->seo()->opengraph()->setUrl('http://meshcah.net/home');
         $this->seo()->opengraph()->addProperty('type', 'articles');
-        $this->seo()->twitter()->setSite('@LuizVinicius73');
+        $this->seo()->twitter()->setSite('@alo0o0o01');
         $this->seo()->jsonLd()->setType('Article');
 
         // category methods for articles 
         $categories = Category::all();
+        
+        # select posts 
         $all_posts = Post::select('title', 'image_path', 'date', 'id')
-        ->orderBy('date', 'desc') // ترتيب النتائج من الأحدث إلى الأقدم بناءً على حقل التاريخ
+        ->orderBy('date', 'desc') 
         ->paginate(8);        
+        
+        # return array to welcom page 
         return view('home.welcom', compact('all_posts', 'categories'));
     }
 
@@ -43,18 +50,33 @@ class HomeController extends Controller
     {
         //
     }
-    public function search(Request $request, $title)
+    public function search(Request $request)
     {
-        $result = Post::where('title', 'like', '%' . $title . '%')->get();
+        # validate query 
+        $request->validate([
+            'query'=> 'required'
+        ]);
+        
+        # query parameters
+        $q = $request->input('query'); 
+        
+        # get results from Post model
+        $result = Post::where('title', 'like', '%' . $q . '%')
+        ->orWhere('exept', 'like', '%' . $q . '%')
+        ->orWhere('content', 'like', '%' . $q . '%')
+        ->get();
+        
         return view('home.components.pages.search', compact('result'));
     }
-
-
+    
     public function pages($id)
     {
         $post = Page::find($id);
+        
+        # update seo service in pages 
         $this->seo()->setTitle("{$post->title}");
         $this->seo()->setDescription($post->exept);
+        # update seo service 
         $this->seo()->jsonLd()
             ->setType('Article')
             ->setTitle($post->title)

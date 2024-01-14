@@ -239,4 +239,5 @@
             </div>
         @endif
     @endguest
+    
 </header>

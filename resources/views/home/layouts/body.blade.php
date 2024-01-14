@@ -15,11 +15,12 @@
                     <div>
                         <h1>البحث</h1>
                         <div class="">
-                            <form class="d-flex">
+                            <form class="d-flex" action="{{route('search')}}" method="POST">
                                 {{-- search part --}}
-                                <input id="in-search" class="form-control me-2 shadow" type="search"
+                                @csrf
+                                <input id="in-search" name="query" class="form-control me-2 shadow" type="search"
                                     placeholder="ابحث هنا" aria-label="Search">
-                                <button id="btn-search" class="btn btn-outline-primary shadow"
+                                <button id="btn-search" class="btn btn-primary shadow"
                                     type="submit">بحث</button>
                             </form>
                         </div>

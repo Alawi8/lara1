@@ -28,7 +28,7 @@ class HomeCategoryController extends Controller {
         $this->seo()->opengraph()->addProperty('type', 'categories');
         
         // تحديد حساب Twitter الخاص بك
-        $this->seo()->twitter()->setSite('@LuizVinicius73');
+        $this->seo()->twitter()->setSite('@alo0o0o01');
         
         // تحديد نوع JSON-LD
         $this->seo()->jsonLd()->setType('WebPage');
@@ -73,7 +73,7 @@ class HomeCategoryController extends Controller {
         $this->seo()->opengraph()->addProperty('type', 'categories');
         
         // تحديد حساب Twitter الخاص بك
-        $this->seo()->twitter()->setSite('@LuizVinicius73');
+        $this->seo()->twitter()->setSite('@alo0o0o01');
         
         // تحديد نوع JSON-LD
         $this->seo()->jsonLd()->setType('WebPage');

@@ -97,3 +97,10 @@ Route::view('/policy', 'home/components/pages/policy')->name('policy');
 |-------------------------------------------------------------------------->
 */
 Route::get('{title}', [PageController::class, 'show'])->name('page.show');
+
+/*
+|--------------------------------------------------------------------------
+| ROUTES SEARCH
+|--------------------------------------------------------------------------
+*/
+Route::post('/search', [HomeController::class, 'search'])->name('search');
