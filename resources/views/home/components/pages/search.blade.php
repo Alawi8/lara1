@@ -22,7 +22,7 @@
                     <div class="col-auto d-none d-lg-block">
                         <svg class="bd-placeholder-img" width="200" height="250" xmlns=""
                         role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-                        focusable="false" style="background-image: url('{{$article->image_path}}'); background-size: cover; background-repeat: no-repeat;">
+                        focusable="false" style="background-image: url('{{$article->image_path}}');">
                     </svg>
                     
                     </div>
