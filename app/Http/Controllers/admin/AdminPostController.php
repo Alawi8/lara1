@@ -35,7 +35,7 @@ class AdminPostController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required',
+            'title' => 'required|regex:/^[\p{Arabic}a-zA-Z0-9\s]+$/u',
             'exept' => 'required',
             'content' => 'required|max:75000',
             'image' => 'required|mimes:jpg,png,jpeg,webp|max:5048',

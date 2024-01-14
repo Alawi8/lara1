@@ -31,7 +31,7 @@
                                      <input type="text" class="form-control @error('title') is-invalid @enderror"
                                          id="firstName" name="title" value="{{ old('title') }}" required>
                                      <div class="invalid-feedback">
-                                         حقل العنوان مطلوب
+                                         حقل العنوان مطلوب كما لا يسمح باستخدام الرموز الخاصه 
                                      </div>
                                  </div>
 
@@ -84,17 +84,17 @@
                                      CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
                                          // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
                                          toolbar: {
-                                            items: [
-                                                  '|',
+                                             items: [
+                                                 '|',
                                                  'findAndReplace', '|',
                                                  'heading', '|',
                                                  'bold', '|',
                                                  'bulletedList', 'numberedList', 'todoList', '|',
-                                                  '|',
+                                                 '|',
                                                  'undo', 'redo',
                                                  'fontSize', 'fontColor', 'highlight', '|',
                                                  'alignment', '|',
-                                                 'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed','|','sourceEditing'
+                                                 'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed', '|', 'sourceEditing'
                                              ],
                                              shouldNotGroupWhenFull: true
                                          },

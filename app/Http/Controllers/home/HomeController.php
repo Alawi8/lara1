@@ -23,26 +23,27 @@ class HomeController extends Controller
     public function index()
     {
         # update title with description 
-        $this->seo()->setTitle('الرئيسيه ');
+        $this->seo()->setTitle('الرئيسية ');
         $this->seo()->setDescription('مشكاه هي منصة تقنية مبتكرة تهدف إلى تحسين وتسهيل العمليات التقنية. تتميز المنصة بمجموعة واسعة من الخدمات والأدوات التي تدعم مطوري البرمجيات ورواد الأعمال في تحقيق أهدافهم بشكل فعال');
         
-        #update SEO service 
+        # update SEO service 
         $this->seo()->opengraph()->setUrl('http://meshcah.net/home');
         $this->seo()->opengraph()->addProperty('type', 'articles');
         $this->seo()->twitter()->setSite('@alo0o0o01');
         $this->seo()->jsonLd()->setType('Article');
-
+    
         // category methods for articles 
         $categories = Category::all();
         
         # select posts 
         $all_posts = Post::select('title', 'image_path', 'date', 'id')
         ->orderBy('date', 'desc') 
-        ->paginate(8);        
+        ->paginate(8);  
         
-        # return array to welcom page 
+        # return array to welcome page 
         return view('home.welcom', compact('all_posts', 'categories'));
     }
+    
 
 
 
@@ -102,27 +103,32 @@ class HomeController extends Controller
     {
         //
     }
-
-    public function display($id)
+    public function display($title)
     {
+        $title = str_replace('_',' ',$title);
         # seo optimization for home/including/page 
-        $post = Post::find($id);
+        $post = Post::where('title', $title)->firstOrFail();
         $this->seo()->setTitle("{$post->title}");
         $this->seo()->setDescription($post->exept);
+    
+        # CREATE SEO SERVICES 
         $this->seo()->jsonLd()
             ->setType('Article')
             ->setTitle($post->title)
             ->setDescription($post->exept)
             ->addImage(asset($post->image_path));
-
-        $dis_posts = Post::with('comments')->find($id);
-        // 
+    
+        # GET COMMENT BY TITLE 
+        $dis_posts = Post::with('comments')->where('title', $title)->first();
+    
         if (!$dis_posts) {
             abort(404);
         }
-
-        $comments = $dis_posts->comments;
-
+        
+        $comments = $dis_posts->comments ?? [];
+        
         return view('home.layouts.including.display', compact('dis_posts', 'comments'));
     }
+    
+
 }

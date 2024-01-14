@@ -33,10 +33,9 @@
                             @foreach ($posts as $item)
                                 <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary ">
                                     <div class="list-group list-group-flush border-bottom scrollarea">
-                                        <a href="{{ route('display', $item->id) }}"
+                                        <a href="{{ route('display', ['title' => str_replace(' ','_',$item->title)]) }}"
                                             class="list-group-item list-group-item-action  {{ Route::currentRouteName() === 'display' && request()->route('id') == $item->id ? 'active ' : '' }}py-3 lh-sm"
                                             aria-current="true">
-
                                             <div class="d-flex w-100 align-items-center justify-content-between">
                                                 {{-- <img src="{{ $item->image_path }}" alt="النص البديل"
                                                     class="rounded-circle " width="30" height="30"> --}}

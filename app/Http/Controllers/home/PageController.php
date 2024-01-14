@@ -50,8 +50,8 @@ class PageController extends Controller
             ->setTitle($post->title)
             ->setDescription($post->description);
             // ->addImage(asset($post->image_path));
-            
-        return view('home.components.pages.show',compact('post'));
+        $url = str_replace('_', ' ', $post->title);
+        return view('home.components.pages.show',compact('post', 'url'));
     }
     
     /**

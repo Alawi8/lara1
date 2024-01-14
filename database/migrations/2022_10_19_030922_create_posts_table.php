@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('image_path');
             $table->time('time');      
             $table->date('date');      
-            $table->timestamps();
             $table->string('exept');
             $table->integer('category_id');
         });

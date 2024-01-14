@@ -170,7 +170,7 @@
                         <input class="form-control me-2" type="search" placeholder="البحث" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">بحث</button>
                     </form>
-                    <div class="d-flex mt-3">
+                    <div class=" mt-3">
                         <ul class="navbar-nav">
                             @guest
                                 <div class="alert alert-info" role="alert">
