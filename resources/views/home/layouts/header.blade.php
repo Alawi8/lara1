@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {!! SEO::generate(true) !!}
+    {{-- {!!TwitterCard::generate(true)!!} --}}
     <meta name="author" content="{{ config('app.name') }}">
     <meta name="robots" content="index">
     <meta name="csrf-token" content="{{ csrf_token() }}">

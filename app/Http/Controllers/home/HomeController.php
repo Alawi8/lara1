@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
 use Artesaos\SEOTools\Traits\JsonLdMulti;
 use Illuminate\Support\Facades\View;
+use Artesaos\SEOTools\Facades\TwitterCard as TwitterCardTrait;
 
 
 
@@ -30,8 +31,7 @@ class HomeController extends Controller
         $this->seo()->opengraph()->setUrl('http://meshcah.net/home');
         $this->seo()->opengraph()->addProperty('type', 'articles');
         $this->seo()->twitter()->setSite('@alo0o0o01');
-        $this->seo()->jsonLd()->setType('Article');
-    
+        $this->seo()->jsonLd()->setType('Article');        
         // category methods for articles 
         $categories = Category::all();
         
@@ -117,6 +117,11 @@ class HomeController extends Controller
             ->setTitle($post->title)
             ->setDescription($post->exept)
             ->addImage(asset($post->image_path));
+        $this->seo()->twitter()
+            ->setTitle($post->title)
+            ->setDescription($post->exept)
+            ->setImage($post->image_path)
+            ->setSite('meshcah');
     
         # GET COMMENT BY TITLE 
         $dis_posts = Post::with('comments')->where('title', $title)->first();
