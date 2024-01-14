@@ -64,7 +64,7 @@ class HomeController extends Controller
         $result = Post::where('title', 'like', '%' . $q . '%')
         ->orWhere('exept', 'like', '%' . $q . '%')
         ->orWhere('content', 'like', '%' . $q . '%')
-        ->get();
+        ->paginate(8);
         
         return view('home.components.pages.search', compact('result'));
     }
