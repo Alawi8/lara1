@@ -41,7 +41,7 @@ return [
             'description' => 'For those who helped create the Genki Dama', // set false to total remove
             'url'         => false, // Set null for using Url::current(), set false to total remove
             'type'        => false,
-            'site_name'   => false,
+            'site_name'   => env('APP_NAME'),
             'images'      => [],
         ],
     ],
@@ -50,7 +50,7 @@ return [
          * The default values to be used by the twitter cards generator.
          */
         'defaults' => [
-            'card'        => 'summary',
+            'card'        => 'summary_large_image',
             'site'        => '@alo0o0o01',
         ],
     ],

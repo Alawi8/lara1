@@ -1,6 +1,4 @@
 @include('home.layouts.header')
-<div>
-
     <body>
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KMV6F7X" height="0" width="0"
@@ -60,8 +58,6 @@
             </div>
         </div>
     </body>
-
-</div>
 
 <footer>
     @include('home.layouts.footer')

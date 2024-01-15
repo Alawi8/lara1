@@ -31,7 +31,7 @@ class HomeController extends Controller
         $this->seo()->opengraph()->setUrl('http://meshcah.net/home');
         $this->seo()->opengraph()->addProperty('type', 'articles');
         $this->seo()->twitter()->setSite('@alo0o0o01');
-        $this->seo()->jsonLd()->setType('Article');        
+        $this->seo()->jsonLd()->setType('WebPage');        
         // category methods for articles 
         $categories = Category::all();
         
