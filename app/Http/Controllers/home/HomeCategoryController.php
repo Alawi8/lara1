@@ -33,7 +33,7 @@ class HomeCategoryController extends Controller {
         // تحديد نوع JSON-LD
         $this->seo()->jsonLd()->setType('WebPage');
 
-        $categories = Category::all();
+        $categories = Category::select('title','name','id')->get();
 
         return view('home.components.categories.index', compact('categories'));
     }
@@ -81,7 +81,7 @@ class HomeCategoryController extends Controller {
         $category = Category::findOrFail($id);
 
         // استرجاع المقالات المتعلقة
-        $articles = $category->posts;
+        $articles = $category->posts()->select('title','id','date','category_id','image_path')->get();
 
         return view('home.components.categories.show', ['category' => $category, 'posts' => $articles]);
 

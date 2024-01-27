@@ -24,7 +24,10 @@
                         </div>
                     </a>
                     </div>
+
                 @endforeach
+                @else
+                <div>لايوجد مقالات</div>
             @endif
         </div>
     </div>

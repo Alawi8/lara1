@@ -33,18 +33,19 @@ class HomeController extends Controller
         $this->seo()->twitter()->setSite('@alo0o0o01');
         $this->seo()->jsonLd()->setType('WebPage');        
         // category methods for articles 
-        $categories = Category::all();
+        // $categories = Category::select('id','title','exept');
         
         # select posts 
         $all_posts = Post::select('title', 'image_path', 'date', 'id')
         ->orderBy('date', 'desc') 
         ->paginate(8);  
-        
         # return array to welcome page 
-        return view('home.welcom', compact('all_posts', 'categories'));
+        return view('home.welcom', compact('all_posts'));
     }
     
+    public function categories() {
 
+    }
 
 
     public function store(Request $request)

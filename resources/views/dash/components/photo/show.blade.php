@@ -30,13 +30,13 @@
 
         <!-- Display the uploaded image -->
         @if (isset($images))sssss
-            <div class="mt-4">
-                <h2>Uploaded Image</h2>
-                @foreach ($images as $image)
-                <img src="{{ asset('/storage/uploads/clients_documents/'. $image->path) }}" alt="Uploaded Image" class="img-fluid rounded">
-                    
-                @endforeach
-            </div>
+        <div class="mt-4">
+            <h2>Uploaded Image</h2>
+            @foreach ($images as $image)
+            <img src="{{ asset('/storage/uploads/clients_documents/'. $image->path) }}" alt="Uploaded Image" class="img-fluid rounded">
+                
+            @endforeach
+        </div>
         @endif
     </div>
 @endsection
