@@ -26,26 +26,26 @@ class HomeController extends Controller
         # update title with description 
         $this->seo()->setTitle('الرئيسية ');
         $this->seo()->setDescription('مشكاه هي منصة تقنية مبتكرة تهدف إلى تحسين وتسهيل العمليات التقنية. تتميز المنصة بمجموعة واسعة من الخدمات والأدوات التي تدعم مطوري البرمجيات ورواد الأعمال في تحقيق أهدافهم بشكل فعال');
-        
+
         # update SEO service 
         $this->seo()->opengraph()->setUrl('http://meshcah.net/home');
         $this->seo()->opengraph()->addProperty('type', 'articles');
         $this->seo()->twitter()->setSite('@alo0o0o01');
-        $this->seo()->jsonLd()->setType('WebPage');        
+        $this->seo()->jsonLd()->setType('WebPage');
         // category methods for articles 
-        // $categories = Category::select('id','title','exept');
-        
+
+        $categories = Category::select('title', 'name', 'id')->paginate(6);
+
         # select posts 
         $all_posts = Post::select('title', 'image_path', 'date', 'id')
-        ->orderBy('date', 'desc') 
-        ->paginate(8);  
-        # return array to welcome page 
-        return view('home.welcom', compact('all_posts'));
-    }
-    
-    public function categories() {
+            ->orderBy('date', 'desc')
+            ->paginate(8);
 
+        # return array to welcome page 
+        return view('home.welcom', compact('all_posts', 'categories'));
     }
+
+
 
 
     public function store(Request $request)
@@ -56,24 +56,25 @@ class HomeController extends Controller
     {
         # validate query 
         $request->validate([
-            'query'=> 'required'
+            'query' => 'required'
         ]);
-        
+
         # query parameters
-        $q = $request->input('query'); 
-        
+        $q = $request->input('query');
+
         # get results from Post model
         $result = Post::where('title', 'like', '%' . $q . '%')
-        ->orWhere('exept', 'like', '%' . $q . '%')
-        ->paginate(8);
-        
+            ->orWhere('exept', 'like', '%' . $q . '%')
+            ->select('title', 'exept' , 'image_path') // اختر الحقول التي تحتاجها هنا
+            ->paginate(8);
+
         return view('home.components.pages.search', compact('result'));
     }
-    
+
     public function pages($id)
     {
         $post = Page::find($id);
-        
+
         # update seo service in pages 
         $this->seo()->setTitle("{$post->title}");
         $this->seo()->setDescription($post->exept);
@@ -83,8 +84,8 @@ class HomeController extends Controller
             ->setTitle($post->title)
             ->setDescription($post->exept)
             ->addImage(asset($post->image_path));
-            
-        return view ('home.components.pages.show',compact('pages'));
+
+        return view('home.components.pages.show', compact('pages'));
     }
 
 
@@ -106,12 +107,12 @@ class HomeController extends Controller
     }
     public function display($title)
     {
-        $title = str_replace('_',' ',$title);
+        $title = str_replace('_', ' ', $title);
         # seo optimization for home/including/page 
         $post = Post::where('title', $title)->firstOrFail();
         $this->seo()->setTitle("{$post->title}");
         $this->seo()->setDescription($post->exept);
-    
+
         # CREATE SEO SERVICES 
         $this->seo()->jsonLd()
             ->setType('Article')
@@ -123,18 +124,18 @@ class HomeController extends Controller
             ->setDescription($post->exept)
             ->setImage($post->image_path)
             ->setSite('meshcah');
-    
+
         # GET COMMENT BY TITLE 
         $dis_posts = Post::with('comments')->where('title', $title)->first();
-    
+
         if (!$dis_posts) {
             abort(404);
         }
-        
+
         $comments = $dis_posts->comments ?? [];
-        
+
         return view('home.layouts.including.display', compact('dis_posts', 'comments'));
     }
-    
+
 
 }

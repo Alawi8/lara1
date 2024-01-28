@@ -83,7 +83,7 @@ class HomeCategoryController extends Controller {
         // استرجاع المقالات المتعلقة
         $articles = $category->posts()->select('title','id','date','category_id','image_path')->get();
 
-        return view('home.components.categories.show', ['category' => $category, 'posts' => $articles]);
+        return view('home.components.categories.show',  ['category' => $category, 'posts' => $articles] );
 
     }
 

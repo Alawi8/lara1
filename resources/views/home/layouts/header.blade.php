@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {!! SEO::generate(true) !!}
-    {{-- {!!TwitterCard::generate(true)!!} --}}
     <meta name="author" content="{{ config('app.name') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/bitmap.png') }}">
@@ -141,6 +140,7 @@
             font-size: 19px;
         }
     </style>
+    @livewireStyles
 </head>
 
 <header>
@@ -235,6 +235,8 @@
                                 @csrf
                                 <button class="nav-link" type="submit">تسجيل الخروج</button>
                             </form>
+                            <a href="{{route('livewire.show')}}">livewire</a>
+
                         </div>
                     </div>
                 </div>

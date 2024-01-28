@@ -104,3 +104,9 @@ Route::get('page/{title}', [PageController::class, 'show'])->name('page.show');
 |--------------------------------------------------------------------------
 */
 Route::post('/search', [HomeController::class, 'search'])->name('search');
+/*
+|--------------------------------------------------------------------------
+| TEST LAIVEWIRE COMPONENTS
+|--------------------------------------------------------------------------
+*/
+Route::view('livewire' ,'home/components/livewire/show')->name('livewire.show');

@@ -23,15 +23,14 @@ class CommetController extends Controller
     // $dis_posts = Post::find($postId);
 
     // Retrieve the comments associated with the post
-    $comments = ['ss','dd'];
         // return view('home.layouts.including.display', compact('comments'));
     }
 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'body' => 'required|string', // تأكد أن الحقل body موجود وهو نص
-            'post_id' => 'required|exists:posts,id', // تأكد أن الحقل post_id موجود ويشير إلى رقم موجود في جدول posts
+            'body' => 'required|string',
+            'post_id' => 'required|exists:posts,id',
         ]);
     
         if ($validator->fails()) {
