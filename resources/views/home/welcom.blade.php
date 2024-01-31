@@ -2,5 +2,6 @@
 @section('title')المقالات@endsection
 @section('content')
 
-@include('home.layouts.including.home')  
+@include('home.layouts.including.home') 
+
 @endsection

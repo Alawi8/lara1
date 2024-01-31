@@ -1,17 +1,27 @@
 <?php
+// app/Http/Livewire/HomeData.php
 
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Category;
 use App\Models\Post;
-use Livewire\WithPagination;
 
 class PostsList extends Component
 {
-    use WithPagination;
+    public $categories;
+    public function mount()
+    {
+        $this->loadData();
+    }
+
+    public function loadData()
+    {
+        $this->categories = Category::latest('created_at')->select('name','title','id')->take(6)->get();
+    }
+
     public function render()
     {
-        $post= Post::paginate(10);
-        return view('livewire.posts-list',['post'=>$post]);
+        return view('livewire.posts-list');
     }
 }
