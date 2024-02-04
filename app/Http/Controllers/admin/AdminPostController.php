@@ -60,7 +60,7 @@ class AdminPostController extends Controller
         $image->save($webpPath);
 
         
-        $imagePath = asset('storage/img') . '/' . $time . 'webp';
+        $imagePath = url('storage/img') . '/' . $time . 'webp';
         
         DB::table('posts')->insert([
             'title' => $request->title,

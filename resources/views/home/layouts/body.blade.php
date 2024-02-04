@@ -17,13 +17,13 @@
                     <div>
                         <h1>البحث</h1>
                         <div class="">
-                            <form class="d-flex" action="{{ route('search') }}" method="POST">
-                                {{-- search part --}}
+                            @livewire('search-form')
+                            {{-- <form class="d-flex" action="{{ route('search') }}" method="POST">
                                 @csrf
                                 <input id="in-search" name="query" class="form-control me-2 shadow" type="search"
                                     placeholder="ابحث هنا" aria-label="Search">
                                 <button id="btn-search" class="btn btn-primary shadow" type="submit">بحث</button>
-                            </form>
+                            </form> --}}
                         </div>
                     </div>
                     <br>

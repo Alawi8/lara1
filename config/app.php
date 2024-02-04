@@ -209,6 +209,7 @@ return [
         Illuminate\Queue\QueueServiceProvider::class,
         Illuminate\Redis\RedisServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
     ],
     
     
@@ -234,6 +235,7 @@ return [
             'JsonLdMulti'   => Artesaos\SEOTools\Facades\JsonLdMulti::class,
             // or
             'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
+            'ImageManager' => Intervention\Image\Facades\Image::class,
         ]
     ),
     

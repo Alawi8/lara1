@@ -8,9 +8,8 @@
         @if($result && $result->count() > 0)
             @foreach($result as $post)
                 <a href="{{ route('display', ['title' => str_replace(' ','_',$post->title)]) }}" class="list-group-item">{{$post->title}}</a>
-                
             @endforeach
         @else
         @endif
-    </ul>ؤؤ
+    </ul>
 </div>
