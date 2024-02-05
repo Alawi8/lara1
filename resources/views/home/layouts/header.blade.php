@@ -113,7 +113,6 @@
             border-color: rgb(255, 255, 255);
             margin-bottom: 25px;
             box-shadow: 0 0 25px rgb(163, 160, 160);
-            height: 250px;
         }
 
         #card-posts-menu:hover {
