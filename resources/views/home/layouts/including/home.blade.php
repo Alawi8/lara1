@@ -12,7 +12,7 @@
                                 class="card-img-top" alt="{{ $post->title }}">
                             <div class="card-body">
                                 <h1>{{ $post->title }}</h1>
-                                <p>{{ \Carbon\Carbon::parse($post->date)->diffForHumans() }}</p>
+                                <span class="badge text-bg-success">{{ \Carbon\Carbon::parse($post->date)->diffForHumans() }}</span>
                             </div>
                         </div>
                     </a>
