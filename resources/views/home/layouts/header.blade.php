@@ -159,7 +159,7 @@
                 <div class="offcanvas-body">
                     <nav class="list-group">
                         <a href="{{ route('home') }}"
-                            class="list-group-item list-group-item-action {{ Request::is('home') ? 'active' : '' }}">
+                            class="list-group-item list-group-item-action {{ Request::is('/') ? 'active' : '' }}">
                             الرئيسية
                         </a>
                         <a href="{{ route('categories.index') }}"
@@ -229,8 +229,6 @@
                                 @csrf
                                 <button class="nav-link" type="submit">تسجيل الخروج</button>
                             </form>
-                            <a href="{{ route('livewire.show') }}">livewire</a>
-
                         </div>
                     </div>
                 </div>
