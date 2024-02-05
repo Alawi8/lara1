@@ -1,7 +1,7 @@
-<div>
+<div >
     <form  method="GET">
         @csrf
-        <input class="form-control" wire:model="searchTerm" type="text" placeholder="عن ماذا تبحث"  >
+        <input class="form-control shadow" wire:model="searchTerm" type="text" placeholder="عن ماذا تبحث"  >
     </form>
 
     <ul class="list-group">

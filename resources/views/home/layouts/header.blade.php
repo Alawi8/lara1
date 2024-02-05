@@ -40,7 +40,7 @@
 
         * {
             font-family: 'Tajawal', sans-serif;
-
+            direction: rtl;
         }
 
         #in-search,
@@ -77,7 +77,6 @@
         h6 {
             color: #333;
             font-size: 18px;
-            /* تم تغيير حجم الخطوط هنا */
         }
 
         #content-items {
@@ -101,7 +100,6 @@
         }
 
         #content {
-            font-size: 16px;
             color: #555;
         }
 
@@ -132,13 +130,20 @@
             padding: 15px;
             margin-bottom: 10px;
         }
+        p , span , a{
+            font-size: 16 px;
+        }
+        #posts-latest{
+            background-color: #e3e3e3;
+            border-radius: 10px 10px 10px 30px;
+        }
     </style>
 
     @livewireStyles
 </head>
 
 <header>
-    <nav id="heading" class="navbar fixed-top shadow">
+    <nav id="heading" class="navbar fixed-top shadow navbar-expand-lg bg-body-tertiary mb-5">
         <div class="container-fluid">
             <a href="{{ route('home') }}" class=" ">
                 <img id="myImage" src="{{ asset('assets/img/bitmap.png') }}" width="40" height="40"
@@ -147,63 +152,67 @@
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </a>
-            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="menu-left">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <nav class="list-group">
-                        <a href="{{ route('home') }}"
-                            class="list-group-item list-group-item-action {{ Request::is('/') ? 'active' : '' }}">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item h5">
+                        <a href="{{ route('home') }}" class="nav-link {{ Request::is('/') ? 'text-primary' : '' }}">
                             الرئيسية
                         </a>
+
+                    </li>
+                    <li class="nav-item h5">
                         <a href="{{ route('categories.index') }}"
-                            class="list-group-item list-group-item-action {{ Request::is('categories*') ? 'active' : '' }}">التصنيفات</a>
+                            class="nav-link {{ Request::is('categories*') ? 'text-primary' : '' }}">التصنيفات</a>
+                    </li>
+                    <li class="nav-item h5">
                         <a href="{{ route('policy') }}"
-                            class="list-group-item list-group-item-action {{ Request::is('policy') ? 'active' : '' }}">الخصوصية</a>
+                            class="nav-link {{ Request::is('policy') ? 'text-primary' : '' }}">الخصوصية</a>
+                    </li>
+                    <li class="nav-item h5">
                         <a href="{{ route('about') }}"
-                            class="list-group-item list-group-item-action {{ Request::is('about') ? 'active' : '' }}">عنا</a>
-                        <a href="{{ route('about') }}" class="list-group-item list-group-item-action ">الأسئلة</a>
-                    </nav>
-                    <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="البحث" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">بحث</button>
-                    </form>
-                    <div class=" mt-3">
-                        <ul class="navbar-nav">
-                            @guest
-                                <div class="alert alert-info" role="alert">
-                                    <i class="bi bi-info-circle-fill"></i> أنت غير مسجل الدخول. من فضلك <a
-                                        href="{{ route('login') }}">قم بتسجيل الدخول</a> أو <a
-                                        href="{{ route('register') }}">قم بالتسجيل</a>.
-                                </div>
-                            @else
-                                <li class="nav-item">
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <button class="btn" type="submit">تسجيل الخروج</button>
-                                    </form>
-                                </li>
-                            @endguest
-                        </ul>
-                    </div>
+                        class="nav-link {{ Request::is('about') ? 'text-primary' : '' }}">عنا</a>
+                    </li>
+                </ul>
+                <form class="d-flex" action="{{ route('search') }}" method="POST">
+                    @csrf
+                    <input name="query" class="form-control " type="search" placeholder="البحث" aria-label="Search">
+                </form>
+                
+
+                    <ul class="navbar-nav">
+                        @guest
+                            <li class="nav-item">
+                                
+                                <a class="btn btn-primary" href="{{ route('login') }}">الدخول</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button class=" btn btn-danger" type="submit"> الخروج</button>
+                                </form>
+                            </li>
+                        @endguest
+                    </ul>
                 </div>
             </div>
         </div>
     </nav>
-
     <br>
     <br>
-
+    <br>
+    
     @guest
     @else
         @if (Auth::user()->role >> 0)
-            <div class="container mt-5">
+        <div class="">
                 <div class="row">
                     <div class="col">
                         <div class="font-variation">
