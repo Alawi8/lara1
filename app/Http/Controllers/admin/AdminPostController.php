@@ -18,7 +18,7 @@ class AdminPostController extends Controller
      */
     public function index()
     {
-        $post = Post::paginate(6);
+        $post = Post::latest('date')->select('title', 'id', 'date','time','image_path','exept')->paginate(6);
         $arr = array('posts' => $post);
         return view('dash.components.posts.display', $arr);
 

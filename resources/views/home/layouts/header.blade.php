@@ -36,45 +36,59 @@
     <!-- End Google Tag Manager -->
 
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');        *  {
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+
+        * {
             font-family: 'Tajawal', sans-serif;
 
         }
-    
-        #in-search, #btn-search {
+
+        #in-search,
+        #btn-search {
             border-radius: 0 20px 20px 0;
         }
-    
+
         #btn-search {
             border-radius: 30px 0 0 30px;
         }
-    
+
         #heading {
             -webkit-animation: color-change-2x 2s linear infinite alternate both;
             animation: color-change-2x 2s linear infinite alternate both;
             border-radius: 0 0 22px 22px;
         }
-    
-        @-webkit-keyframes color-change-2x {
-            0% { background: #ffffff; }
-            100% { background: #547df8; }
-        }
-    
 
-        h1, h2, h3 , h4, h5, h6 {
-        color: #333;
-        font-size: 18px; /* تم تغيير حجم الخطوط هنا */
-    }
-    
+        @-webkit-keyframes color-change-2x {
+            0% {
+                background: #ffffff;
+            }
+
+            100% {
+                background: #547df8;
+            }
+        }
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #333;
+            font-size: 18px;
+            /* تم تغيير حجم الخطوط هنا */
+        }
+
         #content-items {
             margin-top: 20px;
         }
-    
+
         #content-img-posts-card {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-    
+
         #post-img {
             max-width: 100%;
             max-height: 100%;
@@ -85,12 +99,12 @@
             display: block;
             margin: 0 auto;
         }
-    
+
         #content {
             font-size: 16px;
             color: #555;
         }
-    
+
         #card-posts-menu {
             overflow: hidden;
             transition: transform 0.3s ease-in-out;
@@ -99,29 +113,28 @@
             border-color: rgb(255, 255, 255);
             margin-bottom: 25px;
             box-shadow: 0 0 25px rgb(163, 160, 160);
+            height: 250px;
         }
-    
+
         #card-posts-menu:hover {
             transform: scale(1.05);
         }
-    
+
         #card-posts-menu-img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            box-shadow: 0 0 25px rgb(163, 160, 160);
             width: 100%;
             height: 10rem;
-            border-radius: 20px 20px 0 90px;
+            border-radius: 15px 15px 0 90px;
         }
-    
+
         .card-body {
             padding: 15px;
             margin-bottom: 10px;
-            font-size: 1.2rem;
         }
     </style>
-    
+
     @livewireStyles
 </head>
 
@@ -217,7 +230,7 @@
                                 @csrf
                                 <button class="nav-link" type="submit">تسجيل الخروج</button>
                             </form>
-                            <a href="{{route('livewire.show')}}">livewire</a>
+                            <a href="{{ route('livewire.show') }}">livewire</a>
 
                         </div>
                     </div>

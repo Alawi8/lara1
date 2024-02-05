@@ -1,11 +1,6 @@
 <div class="container-fluid">
 
-    @section('style')
-        <!--style -->
-        <style>
 
-        </style>
-    @endsection
     @if (isset($all_posts))
         <div class="row">
             @forelse ($all_posts as $post)
@@ -17,7 +12,7 @@
                                 class="card-img-top" alt="{{ $post->title }}">
                             <div class="card-body">
                                 <h1>{{ $post->title }}</h1>
-                                {{ \Carbon\Carbon::parse($post->date)->diffForHumans() }}
+                                <p>{{ \Carbon\Carbon::parse($post->date)->diffForHumans() }}</p>
                             </div>
                         </div>
                     </a>
