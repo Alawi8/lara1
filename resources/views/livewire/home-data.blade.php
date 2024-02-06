@@ -1,6 +1,6 @@
-<div class=" bg-light shadow bg-light container p-1">
-    <div id="posts-latest" class="container">
-        <h1>أحدث المقالات</h1>
+<div class=" bg-light shadow  container p-1">
+    <div id="" class="">
+        <h1 class="active">أحدث المقالات</h1>
     </div>
     @if (isset($posts) && count($posts) > 0)
         @foreach ($posts as $item)
@@ -13,7 +13,7 @@
                         <div class="d-flex w-100 align-items-center justify-content-between">
                             {{-- <img src="{{ $item->image_path }}" alt="النص البديل"
                                 class="rounded-circle " width="30" height="30"> --}}
-                            <h2 class=""> {{ $item->title }}
+                            <h2> {{ $item->title }}
                             </h2>
                             <small>{{ \Carbon\Carbon::parse($item->date)->diffForHumans() }}</small>
                         </div>

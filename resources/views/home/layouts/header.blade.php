@@ -77,6 +77,7 @@
         h6 {
             color: #333;
             font-size: 18px;
+            font-weight: bold;
         }
 
         #content-items {
@@ -130,10 +131,14 @@
             padding: 15px;
             margin-bottom: 10px;
         }
-        p , span , a{
+
+        p,
+        span,
+        a {
             font-size: 16 px;
         }
-        #posts-latest{
+
+        #posts-latest {
             background-color: #e3e3e3;
             border-radius: 10px 10px 10px 30px;
         }
@@ -158,9 +163,9 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
 
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mt-2">
                     <li class="nav-item h5">
                         <a href="{{ route('home') }}" class="nav-link {{ Request::is('/') ? 'text-primary' : '' }}">
                             الرئيسية
@@ -171,55 +176,67 @@
                         <a href="{{ route('categories.index') }}"
                             class="nav-link {{ Request::is('categories*') ? 'text-primary' : '' }}">التصنيفات</a>
                     </li>
-                    <li class="nav-item h5">
-                        <a href="{{ route('policy') }}"
-                            class="nav-link {{ Request::is('policy') ? 'text-primary' : '' }}">الخصوصية</a>
-                    </li>
-                    <li class="nav-item h5">
-                        <a href="{{ route('about') }}"
-                        class="nav-link {{ Request::is('about') ? 'text-primary' : '' }}">عنا</a>
-                    </li>
+                    {{-- foreach --}}
+                    @foreach ($page as $item)
+                        <li class="nav-item h5">
+                           
+                            <a href="{{ route('page.show', ['title' => $item->title]) }} {{Request::is('')}}"
+                                class="nav-link ">{{ $item->title }}</a>
+                        </li>
+                    @endforeach
+                    {{-- end foreach --}}
                 </ul>
                 <form class="d-flex" action="{{ route('search') }}" method="POST">
                     @csrf
-                    <input name="query" class="form-control " type="search"  aria-label="Search">
+                    <input name="query" class="form-control " type="search" aria-label="Search">
                 </form>
-                
 
-                    <ul class="navbar-nav">
-                        @guest
-                            <li class="nav-item">
-                                
-                                <a class="btn btn-primary" href="{{ route('login') }}">الدخول</a>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button class=" btn btn-danger" type="submit"> الخروج</button>
-                                </form>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+
+                <ul class="navbar-nav">
+                    @guest
+                        <li class="nav-item">
+
+                            <a class="btn btn-primary" href="{{ route('login') }}">الدخول</a>
+                        </li>
+                    @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('خروج') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                    @endguest
+                </ul>
             </div>
         </div>
     </nav>
     <br>
     <br>
     <br>
-    
+
     @guest
     @else
         @if (Auth::user()->role >> 0)
-        <div class="">
+            <div class="m-3" >
                 <div class="row">
                     <div class="col">
-                        <div class="font-variation">
+                        <div >
                             <!-- Thin outlined icons from Bootstrap Icons -->
                             <a href="{{ URL('admin/posts') }}" class="btn btn-dark rounded-3 me-2" title="التحكم">
-                                <i class="bi bi-house-door">
-                                    التحكم
+                                <i >
+                                التحكم
                                 </i>
                             </a>
                             <a href="#" class="btn btn-dark rounded-3 me-2" title="الإعدادات">
@@ -252,5 +269,4 @@
             </div>
         @endif
     @endguest
-
 </header>
