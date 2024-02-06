@@ -182,7 +182,7 @@
                 </ul>
                 <form class="d-flex" action="{{ route('search') }}" method="POST">
                     @csrf
-                    <input name="query" class="form-control " type="search" placeholder="البحث" aria-label="Search">
+                    <input name="query" class="form-control " type="search"  aria-label="Search">
                 </form>
                 
 
