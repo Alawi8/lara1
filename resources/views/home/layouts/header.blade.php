@@ -80,6 +80,10 @@
             font-weight: bold;
         }
 
+        body  {
+            font-size: 17px;
+        }
+
         #content-items {
             margin-top: 20px;
         }
@@ -132,11 +136,6 @@
             margin-bottom: 10px;
         }
 
-        p,
-        span,
-        a {
-            font-size: 16 px;
-        }
 
         #posts-latest {
             background-color: #e3e3e3;
