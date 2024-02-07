@@ -85,11 +85,11 @@ Route::post('/email/resend', 'App\Http\Controllers\Auth\VerificationController@r
 |-------------------------------------------------------------------------->
 */
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home2');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home2');
 // Route::get('/login', 'Auth\LoginController@index')->name('login');
 // Route::get('/login', [LoginController::class, 'showLoginForm']);
-Route::view('/about', 'home/components/pages/policy')->name('about');
-Route::view('/policy', 'home/components/pages/policy')->name('policy');
+// Route::view('/about', 'home/components/pages/policy')->name('about');
+// Route::view('/policy', 'home/components/pages/policy')->name('policy');
 
 /*
 |-------------------------------------------------------------------------->

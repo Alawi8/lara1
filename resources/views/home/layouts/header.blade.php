@@ -68,7 +68,9 @@
             }
         }
 
-
+        body  {
+            font-size: 17px;
+        }
         h1,
         h2,
         h3,
@@ -76,13 +78,11 @@
         h5,
         h6 {
             color: #333;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: bold;
         }
 
-        body  {
-            font-size: 17px;
-        }
+
 
         #content-items {
             margin-top: 20px;
