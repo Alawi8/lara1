@@ -84,7 +84,7 @@ class GenerateSitemap extends Command
             if (isset($url)) {
                 $result = $dom->createElement('url');
                 $root->appendChild($result);
-                $result->appendChild($dom->createElement('loc', "https://khlih.com/lara1/public" . $url));
+                $result->appendChild($dom->createElement('loc', "https://meshcah.net" . $url));
                 $result->appendChild($dom->createElement('priority', '1.0'));
                 $result->appendChild($dom->createElement('lastmod', $time->format(\DateTime::ATOM)));
                 $dom->save(public_path('/sitemap/' . $fileName . '.xml'));
