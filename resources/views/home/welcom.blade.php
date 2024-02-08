@@ -3,5 +3,5 @@
 @section('content')
 
 @include('home.layouts.including.home') 
-test
+testing
 @endsection
