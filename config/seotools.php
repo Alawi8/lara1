@@ -15,7 +15,7 @@ return [
             'titleBefore'  => false, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
             'description'  => 'For those who helped create the Genki Dama', // set false to total remove
             'separator'    => ' - ',
-            'keywords' => ['مشكاه', 'مدونة مشكاه', 'meshcah', 'blog', 'تقنية', 'برمجة', 'تطوير الويب', 'تقنيات الذكاء الاصطناعي', 'تحليل البيانات', 'تكنولوجيا المعلومات', 'تصميم المواقع', 'تطبيقات الجوال', 'ابتكار تقني', 'استراتيجيات التسويق التقني','دورات'],
+            'keywords' => '',
             'canonical'    => false, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'robots'       => 'index', // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
             
