@@ -68,9 +68,10 @@
             }
         }
 
-        body  {
-            font-size: 17px;
+        span , p , label , li , ul {
+            font-size: 16px;
         }
+
         h1,
         h2,
         h3,
@@ -78,7 +79,7 @@
         h5,
         h6 {
             color: #333;
-            font-size: 17px;
+            font-size: 19px;
             font-weight: bold;
         }
 
@@ -167,28 +168,23 @@
                 <ul class="navbar-nav me-auto mt-2">
                     <li class="nav-item h5">
                         <a href="{{ route('home') }}" class="nav-link {{ Request::is('/') ? 'text-primary' : '' }}">
-                            الرئيسية
+                            {{__('الرئيسية')}}
                         </a>
 
                     </li>
                     <li class="nav-item h5">
                         <a href="{{ route('categories.index') }}"
-                            class="nav-link {{ Request::is('categories*') ? 'text-primary' : '' }}">التصنيفات</a>
+                            class="nav-link {{ Request::is('categories*') ? 'text-primary' : '' }}">{{__('التصنيفات')}}</a>
                     </li>
                     {{-- foreach --}}
                     @foreach ($page as $item)
                         <li class="nav-item h5">
-                           
-                            <a href="{{ route('page.show', ['title' => $item->title]) }} {{Request::is('')}}"
+                            <a href="{{ route('page.show', ['title' => $item->title]) }} {{ Request::is('') }}"
                                 class="nav-link ">{{ $item->title }}</a>
                         </li>
                     @endforeach
                     {{-- end foreach --}}
                 </ul>
-                <form class="d-flex" action="{{ route('search') }}" method="POST">
-                    @csrf
-                    <input name="query" class="form-control " type="search" aria-label="Search">
-                </form>
 
 
                 <ul class="navbar-nav">
@@ -198,25 +194,46 @@
                             <a class="btn btn-primary" href="{{ route('login') }}">الدخول</a>
                         </li>
                     @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('خروج') }}
+                        <li class="nav-item dropdown m-1 text-right">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                    {{ __('خروج') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                                {{-- @guest --}}
+
+                                @auth
+                                    @if (Auth::user()->isAdmin())
+                                        <a href="{{ URL('admin/posts') }}" class="dropdown-item">التحكم</a>
+                                        <a href="{{ route('settings.index') }}" class="dropdown-item">الاعدادات</a>
+                                        <a href="" class="dropdown-item">link</a>
+                                        <a href="" class="dropdown-item">link</a>
+                                        <!-- Thin outlined icons from Bootstrap Icons -->
+
+                                    @else
+                                    @endif
+                                @endauth
+                                {{-- @endguest --}}
+                            </div>
+                        </li>
+
+
                     @endguest
+                    <form class="d-flex" action="{{ route('search') }}" method="POST">
+                        @csrf
+                        <input name="query" class="form-control " type="search" aria-label="Search"
+                            placeholder="search">
+                    </form>
                 </ul>
             </div>
         </div>
@@ -225,47 +242,4 @@
     <br>
     <br>
 
-    @guest
-    @else
-        @if (Auth::user()->role >> 0)
-            <div class="m-3" >
-                <div class="row">
-                    <div class="col">
-                        <div >
-                            <!-- Thin outlined icons from Bootstrap Icons -->
-                            <a href="{{ URL('admin/posts') }}" class="btn btn-dark rounded-3 me-2" title="التحكم">
-                                <i >
-                                التحكم
-                                </i>
-                            </a>
-                            <a href="#" class="btn btn-dark rounded-3 me-2" title="الإعدادات">
-                                <i class="bi bi-gear"></i> الإعدادات
-                            </a>
-                            <a href="{{ route('settings.index') }}" class="btn btn-dark rounded-3 me-2" title="الحساب">
-                                <i class="bi bi-person"></i> الحساب
-                            </a>
-                            <a href="#" class="btn btn-dark rounded-3 me-2" title="البريد">
-                                <i class="bi bi-envelope"></i> البريد
-                            </a>
-                            <a href="#" class="btn btn-dark rounded-3 me-2" title="إضافة مقال">
-                                <i class="bi bi-file-plus"></i> إضافة مقال
-                            </a>
-                            <form class="btn btn-dark rounded-3 me-2" method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button class="nav-link" type="submit">تسجيل الخروج</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @else
-            <div class="container mt-5">
-                <div class="font-variation">
-                    <a href="#" class="btn btn-dark rounded-3" title="تسجيل خروج">
-                        <i class="bi bi-box-arrow-right"></i> تسجيل خروج
-                    </a>
-                </div>
-            </div>
-        @endif
-    @endguest
 </header>

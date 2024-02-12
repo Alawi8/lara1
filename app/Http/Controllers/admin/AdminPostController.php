@@ -38,7 +38,7 @@ class AdminPostController extends Controller
             'title' => 'required|regex:/^[\p{Arabic}a-zA-Z0-9\s]+$/u',
             'exept' => 'required',
             'content' => 'required|max:75000',
-            'image' => 'required|mimes:jpg,png,jpeg,webp|max:5048',
+            'image' => 'required|mimes:jpg,PNG,jpeg,webP|max:5048',
         ]);
 
         // حفظ الصورة في مجلد public/storage/img
