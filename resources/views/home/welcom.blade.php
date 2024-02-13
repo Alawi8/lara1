@@ -1,5 +1,7 @@
 @extends('home.layouts.body')
-@section('title')المقالات@endsection
+@section('title')
+    الرئيسيه
+@endsection
 @section('content')
 @include('home.layouts.including.home') 
 @endsection

@@ -39,7 +39,7 @@ class HomeController extends Controller
         # select posts 
         $all_posts = Post::select('title', 'image_path', 'date', 'id')
             ->orderBy('date', 'desc')
-            ->paginate(8);
+            ->paginate(12);
 
         # return array to welcome page 
         return view('home.welcom', compact('all_posts', 'categories'));
@@ -86,18 +86,6 @@ class HomeController extends Controller
             ->addImage(asset($post->image_path));
 
         return view('home.components.pages.show', compact('pages'));
-    }
-
-
-    public function faq()
-    {
-        return view('home.pages.faq');
-    }
-
-
-    public function policy()
-    {
-        return view('home.pages.policy');
     }
 
 

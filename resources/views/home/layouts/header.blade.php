@@ -43,6 +43,10 @@
             direction: rtl;
         }
 
+        body {
+            background-color: #fffffff7;
+        }
+
         #in-search,
         #btn-search {
             border-radius: 0 20px 20px 0;
@@ -53,10 +57,18 @@
         }
 
         #heading {
-            -webkit-animation: color-change-2x 2s linear infinite alternate both;
-            animation: color-change-2x 2s linear infinite alternate both;
+            /* -webkit-animation: color-change-2x 2s linear infinite alternate both;
+            animation: color-change-2x 2s linear infinite alternate both; */
             border-radius: 0 0 22px 22px;
+            background-color: rgb(255, 255, 255 , 0.9);
+            opacity: 2;
         }
+
+        #heading.scrolled {
+            opacity: 1.0;
+        }
+
+
 
         @-webkit-keyframes color-change-2x {
             0% {
@@ -68,7 +80,11 @@
             }
         }
 
-        span , p , label , li , ul {
+        span,
+        p,
+        label,
+        li,
+        ul {
             font-size: 16px;
         }
 
@@ -78,9 +94,9 @@
         h4,
         h5,
         h6 {
-            color: #333;
+            color: #000000;
             font-size: 19px;
-            font-weight: bold;
+            font-weight:normal;
         }
 
 
@@ -106,7 +122,7 @@
         }
 
         #content {
-            color: #555;
+            color: #d4d1d1;
         }
 
         #card-posts-menu {
@@ -139,7 +155,7 @@
 
 
         #posts-latest {
-            background-color: #e3e3e3;
+            background-color: #e9e8e8;
             border-radius: 10px 10px 10px 30px;
         }
     </style>
@@ -148,9 +164,9 @@
 </head>
 
 <header>
-    <nav id="heading" class="navbar fixed-top shadow navbar-expand-lg bg-body-tertiary mb-5">
+    <nav id="heading" class="navbar fixed-top shadow navbar-expand-lg ">
         <div class="container-fluid">
-            <a href="{{ route('home') }}" class=" ">
+            <a href="{{ route('home') }}" title="الرئيسيه">
                 <img id="myImage" src="{{ asset('assets/img/bitmap.png') }}" width="40" height="40"
                     alt="re" style="display: none;" />
                 <div id="myProgressBar" class="spinner-grow" role="status">
@@ -167,20 +183,22 @@
 
                 <ul class="navbar-nav me-auto mt-2">
                     <li class="nav-item h5">
-                        <a href="{{ route('home') }}" class="nav-link {{ Request::is('/') ? 'text-primary' : '' }}">
-                            {{__('الرئيسية')}}
+                        <a href="{{ route('home') }}" class="nav-link {{ Request::is('/') ? 'text-primary' : '' }}"
+                            title="الرئيسيه">
+                            {{ __('الرئيسية') }}
                         </a>
 
                     </li>
                     <li class="nav-item h5">
                         <a href="{{ route('categories.index') }}"
-                            class="nav-link {{ Request::is('categories*') ? 'text-primary' : '' }}">{{__('التصنيفات')}}</a>
+                            class="nav-link {{ Request::is('categories*') ? 'text-primary' : '' }}"
+                            title="التصنيفات">{{ __('التصنيفات') }}</a>
                     </li>
                     {{-- foreach --}}
                     @foreach ($page as $item)
                         <li class="nav-item h5">
                             <a href="{{ route('page.show', ['title' => $item->title]) }} {{ Request::is('') }}"
-                                class="nav-link ">{{ $item->title }}</a>
+                                class="nav-link " title="{{ $item->title }}">{{ $item->title }}</a>
                         </li>
                     @endforeach
                     {{-- end foreach --}}
@@ -216,10 +234,8 @@
                                     @if (Auth::user()->isAdmin())
                                         <a href="{{ URL('admin/posts') }}" class="dropdown-item">التحكم</a>
                                         <a href="{{ route('settings.index') }}" class="dropdown-item">الاعدادات</a>
-                                        <a href="" class="dropdown-item">link</a>
-                                        <a href="" class="dropdown-item">link</a>
-                                        <!-- Thin outlined icons from Bootstrap Icons -->
-
+                                        <a href="{{ route('posts.create') }}" class="dropdown-item">اضافة مقاله</a>
+                                        {{-- <a href="" class="dropdown-item">link</a> --}}
                                     @else
                                     @endif
                                 @endauth

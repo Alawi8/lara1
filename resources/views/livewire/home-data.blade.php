@@ -1,12 +1,12 @@
 <div class=" bg-light shadow  container p-1">
-    <div id="" class="">
+    <div >
         <h1 class="active">أحدث المقالات</h1>
     </div>
     @if (isset($posts) && count($posts) > 0)
         @foreach ($posts as $item)
             <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary ">
                 <div class="list-group list-group-flush border-bottom scrollarea">
-                    <a href="{{ route('display', ['title' => str_replace(' ', '_', $item->title)]) }}"
+                    <a href="{{ route('display', ['title' => str_replace(' ', '_', $item->title)]) }}" title="{{ $item->title }}"
                         class="list-group-item list-group-item-action {{ request()->routeIs('display') && request()->route('title') === str_replace(' ', '_', $item->title) ? 'active' : '' }}
                         py-3 lh-sm"
                         aria-current="true">

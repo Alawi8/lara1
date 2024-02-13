@@ -1,13 +1,12 @@
 @extends('home.layouts.body')
+@section('link')
+<a class="nav-link" href="{{ route('display', ['title' => str_replace(' ','_',$dis_posts->title)]) }}" title="{{ $dis_posts->title }}">{{ $dis_posts->title }}</a>
+@endsection
 
 @section('content')
     <div id="content-img-posts-card" class="text-center">
         <img id='post-img ' src="{{ $dis_posts->image_path }}" alt="{{ $dis_posts->title }}" class="img-fluid rounded">
     </div>
-    <section id = 'hero'>
-
-    </section>
-
     <div class="card">
         <div class="card-header" id="headingOne">
             <h1 class="mb-0">
@@ -24,22 +23,23 @@
     {{-- comments part  --}}
     <div id="content-items" class="container">
         <section>
-            <h1>التعليقات:</h1>
-            <form action="{{ route('comments.store') }}" method="post">
-                @csrf
-                <div class="row">
-                    <div class="col-10">
-                        <textarea class=" form-control" name="body" rows="1" placeholder="أدخل تعليقك هنا"></textarea>
-                        <input type="hidden" name="post_id" value="{{ $dis_posts->id }}">
-
+            <h2>التعليقات:</h2>
+            @auth
+                <form action="{{ route('comments.store') }}" method="post">
+                    @csrf
+                    <div class="row">
+                        <div class="col-10">
+                            <textarea class=" form-control" name="body" rows="4" placeholder="أدخل تعليقك هنا"></textarea>
+                            <input type="hidden" name="post_id" value="{{ $dis_posts->id }}">
+                        </div>
+                        <div class="col-1">
+                            <button type="submit" class="btn btn-primary ">أرسال</button>
+                        </div>
+                        <br>
                     </div>
-                    <div class="col-1">
+                </form>
+            @endauth
 
-                        <button type="submit" class="btn btn-primary ">أرسال</button>
-                    </div>
-                    <br>
-                </div>
-            </form>
             @if (isset($comments))
                 @foreach ($comments as $comment)
                     <div class="container my-1 py-1 text-dark">

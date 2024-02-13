@@ -5,5 +5,7 @@ Disallow: /private/
 Disallow: /login/
 Disallow: /register/
 Disallow: /password/
+Disallow: /?page/
+
 
 Sitemap: https://www.meshcah.net/sitemap.xml

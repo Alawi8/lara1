@@ -8,6 +8,6 @@ class IndexPost extends Component
 {
     public function render()
     {
-        return view('livewire.index-post');
+        return view('livewire.show-posts');
     }
 }

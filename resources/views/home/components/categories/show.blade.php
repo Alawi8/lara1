@@ -1,46 +1,11 @@
 @extends('home.layouts.body')
+@section('link')
+<a class="nav-link" href="{{route('categories.index')}}" title="التصنيفات">التصنيفات<span class="mx-3">|</span></a>
+<a class="nav-link" href="{{ route('categories.show', $category->id) }}" title="{{$category->name}}">{{$category->name}}</a>
+
+@endsection
 @section('title')
-    {{ $category->name }}
-@endsection
-@section('exept')
-    {{ $category->title }}
-@endsection
-@section('author')
-@endsection
-@section('style')
-    <style>
-        #card-posts-menu {
-            overflow: hidden;
-            transition: transform 0.3s ease-in-out;
-            border: 5px solid;
-            border-radius: 20px 20px 20px 20px;
-            border-color: rgb(255, 255, 255);
-            margin-bottom: 25px;
-            box-shadow: 0 0 25px rgb(163, 160, 160)
-        }
-
-        #card-posts-menu:hover {
-            transform: scale(1.05);
-        }
-
-        #card-posts-menu-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            box-shadow: 0 0 25px rgb(163, 160, 160) width: 100%;
-            height: 10rem;
-            border-radius: 20px 20px 0 90px
-        }
-
-        .card-body {
-            padding: 15px;
-        }
-
-        .card-body h6 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-    </style>
+{{$category->name}}
 @endsection
 @section('content')
     <div >
@@ -49,13 +14,13 @@
             <div class="row">
                 @forelse ($posts as $post)
                     <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                        <a class="nav-link" href="{{ route('display', ['title' => str_replace(' ','_',$post->title)]) }}">
+                        <a class="nav-link" href="{{ route('display', ['title' => str_replace(' ','_',$post->title)]) }}" title="{{ $post->title }}">
                             <div id='card-posts-menu'>
                                 <img id="card-posts-menu-img" class="bg-dark legend img-fluid" src="{{ $post->image_path }}"
                                     class="card-img-top" alt="{{ $post->title }}">
                                 <div class="card-body">
-                                    <h6>{{ $post->title }}</h6>
-                                    @include('home.components.pages.time')
+                                    <h2>{{ $post->title }}</h2>
+                                    <span class="badge text-bg-success">{{ \Carbon\Carbon::parse($post->date)->diffForHumans() }}</span>
                                 </div>
                             </div>
                         </a>
