@@ -61,6 +61,14 @@
                                         حقل الوصف مطلوب
                                     </div>
                                 </div>
+                                <div class="col-sm-6">
+                                    <label for="lastName" class="form-label">الوصف</label>
+                                    <input type="text" class="form-control @error('exept') is-invalid @enderror"
+                                        id="lastName" name="image_path" placeholder="" value="{{ $editing->image_path }}">
+                                    <div class="invalid-feedback">
+                                        حقل الوصف مطلوب
+                                    </div>
+                                </div>
 
                                 {{-- @include('dash.components.posts.editor') --}}
 

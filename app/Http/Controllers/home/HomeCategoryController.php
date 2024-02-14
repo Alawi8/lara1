@@ -10,30 +10,32 @@ use Illuminate\Support\Facades\View;
 use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
 use GuzzleHttp\Middleware;
 
-class HomeCategoryController extends Controller {
+class HomeCategoryController extends Controller
+{
     use SEOToolsTrait;
 
 
-    public function index() {
+    public function index()
+    {
 
         $this->seo()->setTitle('التصنيفات');
         $this->seo()->setDescription('قسم التصنيفات في منصة مشكاه هو المكان المثالي للاستكشاف والتوجيه عبر مجموعة واسعة من المواضيع والفئات التقنية المختلفة. يوفر هذا القسم ترتيبًا منهجيًا ومنظمًا للمحتوى المتعلق بالتقنيات، مما يسهل على المستخدمين العثور على المعلومات والمقالات والنصائح التقنية التي يبحثون عنها بسهولة وسرعة.');
-        
+
         // تحديد نوع المشاركة للوسائط الاجتماعية
         $this->seo()->opengraph()->setType('website');
         $this->seo()->twitter()->setType('summary_large_image');
-        
+
         // تحديد رابط الموقع ونوع المحتوى للوسائط الاجتماعية
         $this->seo()->opengraph()->setUrl('http://meshcah.net/categories');
         $this->seo()->opengraph()->addProperty('type', 'categories');
-        
+
         // تحديد حساب Twitter الخاص بك
         $this->seo()->twitter()->setSite('@alo0o0o01');
-        
+
         // تحديد نوع JSON-LD
         $this->seo()->jsonLd()->setType('WebPage');
 
-        $categories = Category::select('title','name','id')->get();
+        $categories = Category::select('title', 'name', 'id')->get();
 
         return view('home.components.categories.index', compact('categories'));
     }
@@ -61,29 +63,31 @@ class HomeCategoryController extends Controller {
     public function show($id)
     {
         $categories = category::find($id);
-        $this->seo()->setTitle( $categories->name .' - '.'التصنيفات');
+        $this->seo()->setTitle($categories->name . ' - ' . 'التصنيفات');
         $this->seo()->setDescription($categories->title);
-        
+
         // تحديد نوع المشاركة للوسائط الاجتماعية
         $this->seo()->opengraph()->setType('website');
         $this->seo()->twitter()->setType('summary_large_image');
-        
+
         // تحديد رابط الموقع ونوع المحتوى للوسائط الاجتماعية
-        $this->seo()->opengraph()->setUrl('http://meshcah.net/categories/'.($id));
+        $this->seo()->opengraph()->setUrl('http://meshcah.net/categories/' . ($id));
         $this->seo()->opengraph()->addProperty('type', 'categories');
-        
+
         // تحديد حساب Twitter الخاص بك
         $this->seo()->twitter()->setSite('@alo0o0o01');
-        
+
         // تحديد نوع JSON-LD
         $this->seo()->jsonLd()->setType('WebPage');
 
         $category = Category::findOrFail($id);
 
-        // استرجاع المقالات المتعلقة
-        $articles = $category->posts()->select('title','id','date','category_id','image_path')->get();
+        $articles = $category->posts()
+            ->orderBy('date','desc')
+            ->select('title', 'id', 'date', 'category_id', 'image_path')
+            ->paginate(12) ;
 
-        return view('home.components.categories.show',  ['category' => $category, 'posts' => $articles] );
+        return view('home.components.categories.show', ['category' => $category, 'posts' => $articles]);
 
     }
 

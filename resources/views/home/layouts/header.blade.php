@@ -60,7 +60,7 @@
             /* -webkit-animation: color-change-2x 2s linear infinite alternate both;
             animation: color-change-2x 2s linear infinite alternate both; */
             border-radius: 0 0 22px 22px;
-            background-color: rgb(255, 255, 255 , 0.9);
+            background-color: rgb(255, 255, 255, 0.9);
             opacity: 2;
         }
 
@@ -96,7 +96,7 @@
         h6 {
             color: #000000;
             font-size: 19px;
-            font-weight:normal;
+            font-weight: normal;
         }
 
 
@@ -158,6 +158,8 @@
             background-color: #e9e8e8;
             border-radius: 10px 10px 10px 30px;
         }
+
+        /* إضافة أنماط إضافية حسب احتياجاتك */
     </style>
 
     @livewireStyles
@@ -197,10 +199,12 @@
                     {{-- foreach --}}
                     @foreach ($page as $item)
                         <li class="nav-item h5">
-                            <a href="{{ route('page.show', ['title' => $item->title]) }} {{ Request::is('') }}"
-                                class="nav-link " title="{{ $item->title }}">{{ $item->title }}</a>
+                            <a href="{{ route('page.show', ['title' => $item->title]) }}"
+                                class="nav-link {{ Request::is('page/' . $item->title) ? 'text-primary' : '' }}"
+                                title="{{ $item->title }}">{{ $item->title }}</a>
                         </li>
                     @endforeach
+
                     {{-- end foreach --}}
                 </ul>
 
@@ -235,7 +239,7 @@
                                         <a href="{{ URL('admin/posts') }}" class="dropdown-item">التحكم</a>
                                         <a href="{{ route('settings.index') }}" class="dropdown-item">الاعدادات</a>
                                         <a href="{{ route('posts.create') }}" class="dropdown-item">اضافة مقاله</a>
-                                        {{-- <a href="" class="dropdown-item">link</a> --}}
+                                        <a href="{{ route('sitemap')}}" class="dropdown-item">ارشفة المقالات</a>
                                     @else
                                     @endif
                                 @endauth
@@ -250,6 +254,7 @@
                         <input name="query" class="form-control " type="search" aria-label="Search"
                             placeholder="search">
                     </form>
+
                 </ul>
             </div>
         </div>

@@ -67,10 +67,13 @@
                                          </div>
                                      </div>
                                  </div>
+                                 <div class="col-sm-12">
+                                    <label for="lastName" class="form-label">كلمات مفتاحيه</label>
+                                    <input type="text" class="form-control "
+                                        id="lastName" name="key_words" placeholder="تاكد من وضع , بين كلماتك" value="{{ old('key_words') }}">
+                                </div>
 
-
-                                 <hr class="my-4">
-
+                                <hr class="my-4">
                                  <div class="form-control @error('content') is-invalid @enderror">
                                      <textarea name="content" value="{{ old('content') }}" id="editor" rows="25"
                                          class="form-control @error('content') is-invalid @enderror">

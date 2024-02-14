@@ -21,7 +21,7 @@ Route::get('sitemap/create', function () {
     SitemapGenerator::create($baseUrl)->writeToFile('sitemap.xml');
     
     return 'sitemap created';
-});
+})->name('sitemap');
 /*
 |-------------------------------------------------------------------------->
 | admin page controllers

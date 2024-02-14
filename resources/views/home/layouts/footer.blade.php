@@ -15,6 +15,7 @@
                 }, 10); // مثال: انتظر لمدة 5 ثواني لتوقف التنفيذ وتظهر التأثير
             });
         </script>
+            
         <p class="col-md-4 mb-0 text-muted">&copy;2018-{{ date('Y') }}
             <br>
             {{ config('app.name') }}
