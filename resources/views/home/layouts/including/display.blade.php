@@ -1,12 +1,19 @@
 @extends('home.layouts.body')
 @section('link')
-<a class="nav-link" href="{{ route('display', ['title' => str_replace(' ','_',$dis_posts->title)]) }}" title="{{ $dis_posts->title }}">{{ $dis_posts->title }}</a>
+    <a class="nav-link" href="{{ route('display', ['title' => str_replace(' ', '_', $dis_posts->title)]) }}"
+        title="{{ $dis_posts->title }}">{{ $dis_posts->title }}</a>
 @endsection
 
 @section('content')
     <div id="content-img-posts-card" class="text-center">
         <img id='post-img ' src="{{ $dis_posts->image_path }}" alt="{{ $dis_posts->title }}" class="img-fluid rounded">
     </div>
+    {{-- adsens --}}
+    <amp-ad width="100vw" height="320" type="adsense" data-ad-client="ca-pub-6477832805856369" data-ad-slot="7840778603"
+        data-auto-format="rspv" data-full-width="">
+        <div overflow=""></div>
+    </amp-ad>
+    {{-- end adsens --}}
     <div class="card">
         <div class="card-header" id="headingOne">
             <h1 class="mb-0">
@@ -16,10 +23,32 @@
 
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
+
+                {{-- adsens --}}
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+                    data-ad-format="fluid" data-ad-client="ca-pub-6477832805856369" data-ad-slot="7007839397"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                {{-- end adsens --}}
+
                 {!! $dis_posts->content !!}
             </div>
         </div>
     </div>
+
+    {{-- adsens --}}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
+        crossorigin="anonymous"></script>
+    <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-6t+ed+2i-1n-4w"
+        data-ad-client="ca-pub-6477832805856369" data-ad-slot="2946957845"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    {{-- end adsens --}}
+
     {{-- comments part  --}}
     <div id="content-items" class="container">
         <section>

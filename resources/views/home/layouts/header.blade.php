@@ -35,6 +35,9 @@
     </script>
     <!-- End Google Tag Manager -->
 
+    {{-- amp to google adsenes --}}
+    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
 
@@ -239,7 +242,7 @@
                                         <a href="{{ URL('admin/posts') }}" class="dropdown-item">التحكم</a>
                                         <a href="{{ route('settings.index') }}" class="dropdown-item">الاعدادات</a>
                                         <a href="{{ route('posts.create') }}" class="dropdown-item">اضافة مقاله</a>
-                                        <a href="{{ route('sitemap')}}" class="dropdown-item">ارشفة المقالات</a>
+                                        <a href="{{ route('sitemap') }}" class="dropdown-item">ارشفة المقالات</a>
                                     @else
                                     @endif
                                 @endauth
@@ -262,5 +265,13 @@
     <br>
     <br>
     <br>
+    <div>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
+            crossorigin="anonymous"></script>
+        <amp-ad width="100vw" height="320" type="adsense" data-ad-client="ca-pub-6477832805856369"
+            data-ad-slot="8395312373" data-auto-format="rspv" data-full-width="">
+            <div overflow=""></div>
+        </amp-ad>
+    </div>
 
 </header>
