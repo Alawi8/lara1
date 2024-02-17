@@ -1,10 +1,15 @@
-<div class=" bg-light shadow  container p-1">
+<div class=" bg-light shadow  container p-1 position-sticky" style="top: 10rem;">
+    {{-- اعلان جانبي --}}
+    <amp-ad width="100vw" height="320" type="adsense" data-ad-client="ca-pub-6477832805856369" data-ad-slot="5564548170"
+        data-auto-format="rspv" data-full-width="">
+        <div overflow=""></div>
+    </amp-ad>
     <div>
         <h1 class="active">أحدث المقالات</h1>
     </div>
     @if (isset($posts) && count($posts) > 0)
         @foreach ($posts as $item)
-            <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary ">
+            <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary " style="">
                 <div class="list-group list-group-flush border-bottom scrollarea">
                     <a href="{{ route('display', ['title' => str_replace(' ', '_', $item->title)]) }}"
                         title="{{ $item->title }}"
@@ -27,9 +32,5 @@
     @else
         <p>لا توجد مقالات حاليًا.</p>
     @endif
-    {{-- اعلان جانبي --}}
-    <amp-ad width="100vw" height="320" type="adsense" data-ad-client="ca-pub-6477832805856369"
-        data-ad-slot="5564548170" data-auto-format="rspv" data-full-width="">
-        <div overflow=""></div>
-    </amp-ad>
+
 </div>
