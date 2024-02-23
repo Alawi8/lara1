@@ -46,6 +46,7 @@ class AdminPostController extends Controller
         $time = time() . $request->name . '.' ;
         $newImageName = $time . $request->img_url->extension();
         # create the img , compress , and move to folder 
+        
         $request->img_url->move(public_path('/storage/img'), $newImageName);
         $imageFullPath = public_path('/storage/img/' . $newImageName);
         $image = Image::make($imageFullPath);
