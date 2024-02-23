@@ -64,4 +64,9 @@ class CategoryController extends Controller
 
         return redirect()->route('category.index')->with('success', 'Category deleted successfully!');
     }
+
+    public function send(){
+        $categories = Category::all();
+        return view('dash.components.posts.edit',compact('categories'));
+    }
 }

@@ -19,9 +19,7 @@ class SettingsController extends Controller
     public function index()
     {
         Artisan::call('db:seed', ['--class' => 'SettingsTableSeeder']);
-        
-        // إما تقوم بإعادة توجيه أو تقوم بعمل آخر بناءً على احتياجاتك
-        // return redirect()->back()->with('message', 'Seeder executed successfully!');
+
 
         $settings = Setting::all();
         return view('dash.components.setting.edit',compact('settings'))->with('message', 'Seeder executed successfully');
@@ -42,26 +40,26 @@ class SettingsController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            //blade data in db
             'title' => 'required',
-            'auther' => 'required',
+            'author' => 'required',
             'about' => 'required|max:25000',
             'icon_url' => 'required|mimes:jpg,png,jpeg|max:5048',
-
         ]);
-        
-        //These instructions are responsible for saving images in public/assets/img/offers folder
+    
         $newImageName = time() . $request->name . '.' .
         $request->icon_url->extension();
-        $request->icon_url->move(public_path('../storage/img/icons'), $newImageName);
-        DB::table('settings')->insert([
+        $request->icon_url->move(public_path('storage/img/icons'), $newImageName);
+    
+        Setting::create([
             'title' => $request->title,
-            'auther'=> Auth::user()->id ,
-            'exept' => $request->exept,
+            'author' => Auth::user()->id,
+            'about' => $request->about,
             'icon_url' => asset('/storage/img/icons') . '/' . $newImageName,
         ]);
+    
         return redirect()->route('posts.index');
     }
+    
 
     /**
      * Display the specified resource.

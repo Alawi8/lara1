@@ -8,8 +8,6 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -17,10 +15,10 @@ return new class extends Migration
             $table->id('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->enum('status', ['writer', 'admin'])->nullable();
+            $table->string('img_url')->nullable();
+            $table->enum('status', ['writer', 'admin','user'])->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('role')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -6,7 +6,7 @@
 
 @section('content')
     <div id="content-img-posts-card" class="text-center">
-        <img id='post-img ' src="{{ $dis_posts->image_path }}" alt="{{ $dis_posts->title }}" class="img-fluid rounded">
+        <img id='post-img ' src="{{ $dis_posts->img_url }}" alt="{{ $dis_posts->title }}" class="img-fluid rounded">
     </div>
     {{-- adsens --}}
     <amp-ad width="100vw" height="320" type="adsense" data-ad-client="ca-pub-6477832805856369" data-ad-slot="7840778603"
@@ -33,7 +33,6 @@
                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
                 {{-- end adsens --}}
-
                 {!! $dis_posts->content !!}
             </div>
         </div>
@@ -53,6 +52,17 @@
     <div id="content-items" class="container">
         <section>
             <h2>التعليقات:</h2>
+            @guest
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                يرجى تسجيل الدخول لكتابة التعليقات.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="mt-3">
+                  <a href="{{ route('login') }}" class="btn btn-primary">تسجيل الدخول</a>
+                  <a href="{{ route('register') }}" class="btn btn-secondary">إنشاء حساب</a>
+                </div>
+              </div>
+                            
+            @endguest
             @auth
                 <form action="{{ route('comments.store') }}" method="post">
                     @csrf

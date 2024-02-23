@@ -65,6 +65,7 @@ class HomeCategoryController extends Controller
         $categories = category::find($id);
         $this->seo()->setTitle($categories->name . ' - ' . 'التصنيفات');
         $this->seo()->setDescription($categories->title);
+        $this->seo()->addImages(false);
 
         // تحديد نوع المشاركة للوسائط الاجتماعية
         $this->seo()->opengraph()->setType('website');
@@ -83,8 +84,8 @@ class HomeCategoryController extends Controller
         $category = Category::findOrFail($id);
 
         $articles = $category->posts()
-            ->orderBy('date','desc')
-            ->select('title', 'id', 'date', 'category_id', 'image_path')
+            ->orderBy('created_at','desc')
+            ->select('title', 'id', 'category_id', 'img_url','created_at')
             ->paginate(12) ;
 
         return view('home.components.categories.show', ['category' => $category, 'posts' => $articles]);

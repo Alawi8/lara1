@@ -13,14 +13,13 @@ return new class extends Migration
         // table items
             $table->increments('id');
             $table->string('title',60);
+            $table->string('slug');
             $table->text('content');
-            $table->string('writer');
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->string('image_path');
-            $table->time('time');      
-            $table->date('date');      
-            $table->string('exept');
+            $table->string('url');
+            $table->string('img_url');   
             $table->integer('category_id');
+            $table->timestamps();
         });
     }
     public function down()

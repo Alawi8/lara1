@@ -1,4 +1,3 @@
-public/assets/img/offers
 /vendor
 .env
 .env.backup
@@ -14,5 +13,6 @@ public/sitemap/sitemap.xml
 /storage/img
 sitemap.xml
 .htaccess
-/public
+/public/storage
+/public/vendor/telescope
 /node_modules

@@ -25,44 +25,36 @@ class ImageController extends Controller
         return view('create-image');
     }
 
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-    //         'caption' => 'nullable|string|max:200',
-    //     ]);
-
-    //     // $imagePath = $request->file('image')->store('public');
-    //     $imagePath = $request->file('image')->store('user_id/', 'document_uploads');
-
-
-    //     Image::create([
-    //         'path' => $imagePath,
-    //         'caption' => $request->caption,
-    //     ]);
-
-    //     return redirect()->route('media.index')->with('success', 'Image uploaded successfully');
-    //     // return redirect()-> view('dash.components.photo.show')->with('success' , 'Image uploaded successfully');
-    // }
-
     public function store(Request $request)
     {
         if ($request->hasFile('image')) {
             $uploadedImage = $request->file('image');
-            $imageName = time() . '.' . $uploadedImage->getClientOriginalExtension();
-            $uploadedImage->storeAs('public/images', $imageName);
-            $imagePath = storage_path("app/public/images/{$imageName}");
-    
-            // حفظ السجل في قاعدة البيانات مع رابط الصورة
-            $imageRecord = new Image(); // قم بتعديل النموذج إلى اسم النموذج الخاص بك
-            $imageRecord->path = asset('storage/images/' . $imageName); // استخدام asset() للحصول على الرابط الكامل
+            $imageName = time() . '.webp';
+        
+            // Save the image as WebP format
+            $image = ImageFacade::make($uploadedImage)->encode('webp', 75)->save(public_path("images/" . $imageName));
+        
+            // Save the image record in the database with the image path
+            $imageRecord = new Image(); // Replace with your actual model name
+            $imageRecord->path = asset('images/' . $imageName); // Use asset() to get the full URL
             $imageRecord->save();
-    
-            $image = ImageFacade::make($imagePath);
+        
             return redirect()->back()->with('success', 'تم رفع الصورة بنجاح.');
         }
-    
-        return redirect()->back()->with('error', 'يرجى تحديد صورة للرفع.');
+        
+        return redirect()->back()->with('error', 'يرجى تحديد صورة للرفع.');        
     }
-    
+
+
+    public function show($id)
+    {
+        $imageRecord = Image::find($id); // تستبدل $id بمعرف السجل الذي تريد قراءة الرابط الخاص به
+        $imagePath = $imageRecord->path;
+
+        $image = ImageFacade::make($imagePath);
+
+        return view('dash.components.photo.index',compact('image'));
+
+    }
+
 }

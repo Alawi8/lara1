@@ -10,10 +10,15 @@ use App\Models\Post;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Support\Str;
 use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
-use Artesaos\SEOTools\Traits\JsonLdMulti;
+use Artesaos\SEOTools\Traits\JsonLdMulti ;
 use Illuminate\Support\Facades\View;
 use Artesaos\SEOTools\Facades\TwitterCard as TwitterCardTrait;
 
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+use Artesaos\SEOTools\Facades\JsonLd;
+// OR
+use Artesaos\SEOTools\Facades\SEOTools;
 
 
 
@@ -22,26 +27,29 @@ use Artesaos\SEOTools\Facades\TwitterCard as TwitterCardTrait;
 class HomeController extends Controller
 {
     use SEOToolsTrait;
-    // use JsonLdMulti;
 
     public function index()
     {
         # update title with description 
         $this->seo()->setTitle('الرئيسية ');
-        $this->seo()->setDescription('مشكاه هي منصة تقنية مبتكرة تهدف إلى تحسين وتسهيل العمليات التقنية. تتميز المنصة بمجموعة واسعة من الخدمات والأدوات التي تدعم مطوري البرمجيات ورواد الأعمال في تحقيق أهدافهم بشكل فعال');
+        $this->seo()->setDescription('مشكاة هي مدونة تقنية، تهدف إلى تقديم الدعم في مجال انظمة الويب ، لجميع المهتمين ورواد الاعمال ، لتكون على اطلاع مستمر لاتنسى متابعة حساباتنا على مواقع التواصل .');
+        $this->seo()->addImages(asset('assets/img/bitmap.png'));
 
         # update SEO service 
         $this->seo()->opengraph()->setUrl('http://meshcah.net/');
-        $this->seo()->opengraph()->addProperty('type', 'articles');
+        $this->seo()->opengraph()->addProperty('type', 'web');
         $this->seo()->twitter()->setSite('@alo0o0o01');
         $this->seo()->jsonLd()->setType('WebPage');
+
+
+        
         // category methods for articles 
 
         $categories = Category::select('title', 'name', 'id')->paginate(6);
 
         # select posts 
-        $all_posts = Post::select('title', 'image_path', 'date', 'id')
-            ->orderBy('date', 'desc')
+        $all_posts = Post::select('title', 'img_url', 'id' ,'created_at')
+            ->orderBy('created_at', 'desc')
             ->paginate(12);
 
         # return array to welcome page 
@@ -67,8 +75,8 @@ class HomeController extends Controller
 
         # get results from Post model
         $result = Post::where('title', 'like', '%' . $q . '%')
-            ->orWhere('exept', 'like', '%' . $q . '%')
-            ->select('title', 'exept' , 'image_path') // اختر الحقول التي تحتاجها هنا
+            ->orWhere('slug', 'like', '%' . $q . '%')
+            ->select('title', 'slug' , 'img_url') // اختر الحقول التي تحتاجها هنا
             ->paginate(8);
 
         return view('home.components.pages.search', compact('result'));
@@ -80,13 +88,13 @@ class HomeController extends Controller
 
         # update seo service in pages 
         $this->seo()->setTitle("{$post->title}");
-        $this->seo()->setDescription($post->exept);
+        $this->seo()->setDescription($post->slug);
         # update seo service 
         $this->seo()->jsonLd()
             ->setType('Article')
             ->setTitle($post->title)
-            ->setDescription($post->exept)
-            ->addImage(asset($post->image_path));
+            ->setDescription($post->slug)
+            ->addImage(asset($post->img_url));
 
         return view('home.components.pages.show', compact('pages'));
     }
@@ -102,18 +110,23 @@ class HomeController extends Controller
         # seo optimization for home/including/page 
         $post = Post::where('title', $title)->firstOrFail();
         $this->seo()->setTitle("{$post->title}");
-        $this->seo()->setDescription($post->exept);
+        $this->seo()->setDescription($post->slug);
+        $this->seo()->opengraph()->setUrl($post->slug);
+        $this->seo()->opengraph()->addProperty('type', 'articles');
+        $this->seo()->addImages($post->img_url);
+        $this->seo()->setCanonical(route('display', ['title' => str_replace(' ','_',$post->title)]) );
+        $this->seo()->jsonLd()->setType('Article');
 
         # CREATE SEO SERVICES 
         $this->seo()->jsonLd()
             ->setType('Article')
             ->setTitle($post->title)
-            ->setDescription($post->exept)
-            ->addImage(asset($post->image_path));
+            ->setDescription($post->slug)
+            ->addImage(asset($post->img_url));
         $this->seo()->twitter()
             ->setTitle($post->title)
-            ->setDescription($post->exept)
-            ->setImage($post->image_path)
+            ->setDescription($post->slug)
+            ->setImage($post->img_url)
             ->setSite('meshcah');
 
         # GET COMMENT BY TITLE 

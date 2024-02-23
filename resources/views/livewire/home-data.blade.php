@@ -21,12 +21,13 @@
                                 class="rounded-circle " width="30" height="30"> --}}
                             <h2> {{ $item->title }}
                             </h2>
-                            <small>{{ \Carbon\Carbon::parse($item->date)->diffForHumans() }}</small>
+                            <small>{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</small>
                         </div>
                         <div class="col-10 mb-1 "> {{ Str::limit($item->exept, 110) }}
                         </div>
                     </a>
                 </div>
+               {{-- {{ dd('created_at')}} --}}
             </div>
         @endforeach
     @else

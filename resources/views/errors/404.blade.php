@@ -1,46 +1,31 @@
 @extends('home.layouts.body')
 @section('title', '404')
-@section('content')
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - لا يوجد الصفحة</title>
     <style>
-
-
-        .error-container {
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-
-        p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            color: #555;
-        }
-
-        a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
+        h1{
+            color:#263238;
         }
     </style>
-</head>
-<body>
-    <div class="error-container">
-        <h1>404 - لا يوجد صفحة</h1>
-        <p>عذرًا، الصفحة التي تبحث عنها غير موجودة. قد تكون في مكان آخر!</p>
-        <p>الرجاء <a href="{{ route('home') }}">العودة إلى الصفحة الرئيسية</a>.</p>
+@section('content')
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-sm-12 mt-5 text-center mt-5 mb-5">
+            <h1 class="display-4">404 - لا يوجد صفحة</h1>
+            <p class="display-">عذرًا، الصفحة التي تبحث عنها غير موجودة!</p>
+            <div class="mx-auto " style="width: fit-content;">
+                <a href="{{route('home')}}"  >
+                    <div class="btn btn-lg text-light " style="background-color: #263238">
+                        انتقل للصفحه الرئيسيه
+                    </div>
+
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+            <img class="img-fluid" src="{{asset('assets/img/Group 307.png')}}" alt="صورة تعريفية">
+        </div>
     </div>
-</body>
+</div>
+
 @endsection

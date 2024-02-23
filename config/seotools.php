@@ -64,7 +64,7 @@ return [
             'title'       => 'Over 9000 Thousand!', // set false to total remove
             'description' => 'For those who helped create the Genki Dama', // set false to total remove
             'url'         => false, // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
-            'type'        => 'WebPage',
+            'type'        => "WebPage",
             'images'      => [],
         ],
     ],
