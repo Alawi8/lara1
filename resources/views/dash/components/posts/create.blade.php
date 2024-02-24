@@ -61,7 +61,7 @@
                                              class="form-control @error('img_url') is-invalid @enderror" id="inputGroupFile04"
                                              aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                                          <div class="invalid-feedback">
-                                             حقل الصوره مطلوب
+                                             حقل الصوره مطلوب ويجب ان لايتجاوز حجمها 5MB
                                          </div>
                                      </div>
                                  </div>

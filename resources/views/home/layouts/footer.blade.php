@@ -30,7 +30,7 @@
 
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">التواصل</h6>
-                        <p><i class="fas fa-home mr-3"></i>السعوديه ، الرياض</p>
+                        <p><i class="fas fa-home mr-3"></i>saudi arabia , makkah</p>
                         <p><i class="fas fa-envelope mr-3"></i>support@meshcah.net</p>
                         <p><i class="fas fa-phone mr-3"></i> +966567707868</p>
                     </div>
