@@ -66,7 +66,7 @@ return [
             'url'         => url()->current(), // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'type'        =>  'WebPage',
             'images'      => [
-                "@type"=>'thumbnailUrl',
+                
             ],
             "author" => [
                 "@type" => "Person",
