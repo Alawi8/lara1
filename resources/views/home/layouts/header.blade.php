@@ -6,13 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {!! SEO::generate(true) !!}
-    <meta name="author" content="{{ config('app.name') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/bitmap.png') }}">
     <meta http-equiv="Content-Security-Policy" content="object-src 'none';">
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    {{-- <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
+    <!-- Fonts -->    {{-- <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
 
     {{-- Bootstrap link --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])

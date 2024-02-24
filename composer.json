@@ -20,6 +20,7 @@
         "livewire/livewire": "^2.12",
         "spatie/laravel-csp": "^2.8",
         "spatie/laravel-sitemap": "^6.2",
+        "spatie/schema-org": "*",
         "symfony/http-client": "^6.4",
         "symfony/mailgun-mailer": "^6.4"
     },

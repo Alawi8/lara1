@@ -41,8 +41,8 @@
     @livewireScripts
 </body>
 
-<footer>
-    @include('home.layouts.footer')
-</footer>
+
+@include('home.layouts.footer')
+
 
 </html>
