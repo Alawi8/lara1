@@ -34,13 +34,11 @@ class HomeController extends Controller
         $this->seo()->setTitle('الرئيسية ');
         $this->seo()->setDescription('مشكاة هي مدونة تقنية، تهدف إلى تقديم الدعم في مجال انظمة الويب ، لجميع المهتمين ورواد الاعمال ، لتكون على اطلاع مستمر لاتنسى متابعة حساباتنا على مواقع التواصل .');
         $this->seo()->addImages(asset('assets/img/bitmap.png'));
-
         # update SEO service 
         $this->seo()->opengraph()->setUrl('http://meshcah.net/');
         $this->seo()->opengraph()->addProperty('type', 'web');
         $this->seo()->twitter()->setSite('@alo0o0o01');
         $this->seo()->jsonLd()->setType('WebPage');
-
 
         
         // category methods for articles 
