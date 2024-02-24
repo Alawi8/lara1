@@ -67,7 +67,6 @@ return [
             'type'        =>  'WebPage',
             'images'      => [
                 "@type"=>'thumbnailUrl',
-                ""
             ],
             "author" => [
                 "@type" => "Person",
