@@ -7,6 +7,7 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     {{-- Here the data inside (section image) is fetched by @yield image --}}
+    
     <div class="container-fluid">
         <div class="row p-3">
             <div class="text-center p-3 mb-1 bg-body-tertiary rounded" >

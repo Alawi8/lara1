@@ -43,11 +43,11 @@
                     @endif
 
                 </ul>
-
-                <form class="d-flex" action="{{ route('search') }}" method="POST">
+{{-- 
+                <form class="d-lg-flex" action="{{ route('search') }}" method="POST">
                     @csrf
                     <input name="query" class="form-control " type="search" aria-label="Search" placeholder="search">
-                </form>
+                </form> --}}
 
                 <ul class="navbar-nav">
                     @guest

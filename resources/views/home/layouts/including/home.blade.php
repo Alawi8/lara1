@@ -1,10 +1,4 @@
 <div class="container-fluid">
-
-    <video class="img-fluid" autoplay loop muted controls  height="300" volume="0.5">
-        <source src='{{ asset('Video/موسيقى يوم التأسيس _ Saudia foundingday music.mp4') }}' type="video/mp4" />
-    </video>
-    
-    <!-- Carousel wrapper -->
     @if (isset($all_posts))
         <div class="row">
 
