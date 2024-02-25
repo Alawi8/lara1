@@ -167,27 +167,7 @@
 
             <li class="nav-item">
                 <span data-feather="image" class="align-text-bottom"></span>
-                <a href="{{ route('photo.index') }}" class="btn  align-items-center collapsed border-0">الوسائط</a>
-            </li>
-            <li class="nav-item">
-                <span data-feather="image" class="align-text-bottom"></span>
-                <button class="btn  align-items-center collapsed border-0" data-bs-toggle="collapse"
-                    aria-expanded="false" data-bs-target="#contents-collapse2"
-                    aria-controls="contents-collapse">الوسائط</button>
-                <ul class="list-unstyled ps-3 collapse" id="contents-collapse2">
-                    <li>
-                        <a class="page-link" href="{{ route('pages.create') }}">
-                            <span data-feather="file-text" class="align-text-bottom"></span>
-                            اضافة صوره
-                        </a>
-                    </li>
-                    <li>
-                        <a class="page-link" href="{{ route('media.index') }}">
-                            <span data-feather="book-open" class="align-text-bottom"></span>
-                            عرض الصور
-                        </a>
-                    </li>
-                </ul>
+                <a href="{{ route('media.index') }}" class="btn  align-items-center collapsed border-0">الوسائط</a>
             </li>
         </ul>
 

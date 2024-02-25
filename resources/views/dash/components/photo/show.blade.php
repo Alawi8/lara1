@@ -21,12 +21,8 @@
                 <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
             </div>
 
-            <div class="mb-3">
-                <label for="caption" class="form-label">Caption (optional)</label>
-                <input type="text" class="form-control" id="caption" name="caption" maxlength="255">
-            </div>
 
-            <button type="submit" class="btn btn-primary">Upload Image</button>
+            <button type="submit" class="btn btn-primary">رفع</button>
         </form>
         <!-- Section: Images -->
         <section>
