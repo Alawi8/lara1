@@ -63,7 +63,7 @@ class HomeCategoryController extends Controller
     public function show($id)
     {
         $categories = category::find($id);
-        $this->seo()->setTitle($categories->name . ' - ' . 'التصنيفات');
+        $this->seo()->setTitle($categories->name );
         $this->seo()->setDescription($categories->title);
         $this->seo()->addImages(false);
 
@@ -81,14 +81,15 @@ class HomeCategoryController extends Controller
         // تحديد نوع JSON-LD
         $this->seo()->jsonLd()->setType('WebPage');
 
-        $category = Category::findOrFail($id);
+        $category = Category::with('posts')->findOrFail($id);
 
         $articles = $category->posts()
             ->orderBy('created_at','desc')
             ->select('title', 'id', 'category_id', 'img_url','created_at')
-            ->paginate(12) ;
-
+            ->paginate(12);
+        
         return view('home.components.categories.show', ['category' => $category, 'posts' => $articles]);
+        
 
     }
 

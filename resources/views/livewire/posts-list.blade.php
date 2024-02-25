@@ -2,7 +2,7 @@
     <div class="row">
         @if (isset($categories))
             @foreach ($categories as $category)
-            <div class="col-md-4 mb-4">
+            <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
                 <div id="card-posts-menu" class="card position-relative">
                     <a href="{{ route('categories.show', $category->id) }}" class="nav-link" title="{{ $category->name }}">
                         <!-- Jumbotron -->
