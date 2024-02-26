@@ -97,6 +97,6 @@ Route::post('/search', [HomeController::class, 'search'])->name('search');
 | TEST LAIVEWIRE COMPONENTS
 |--------------------------------------------------------------------------
 */
-Route::view('livewire' ,'home/components/livewire/show')->name('livewire.show');
+// Route::view('livewire' ,'home/components/livewire/show')->name('livewire.show');
 
 // Route::get('/post/{$id}', \App\Http\Livewire\PostDisplay::class)->name('post.display');

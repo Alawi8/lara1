@@ -19,11 +19,8 @@ use Artesaos\SEOTools\Facades\TwitterCard;
 use Artesaos\SEOTools\Facades\JsonLd;
 // OR
 use Artesaos\SEOTools\Facades\SEOTools;
-
-
-
-
-
+use Spatie\SchemaOrg\LocalBusiness;
+use Spatie\SchemaOrg\Schema;
 class HomeController extends Controller
 {
     use SEOToolsTrait;
@@ -40,7 +37,13 @@ class HomeController extends Controller
         $this->seo()->twitter()->setSite('@alo0o0o01');
         $this->seo()->jsonLd()->setType('WebPage');
 
-        
+        $business = ['name' => 'Spatie'];
+
+$localBusiness = Schema::localBusiness()
+    ->name($business['name'])
+    ->if(isset($business['email']), function (LocalBusiness $schema) use ($business) {
+        $schema->email($business['email']);
+    });
         // category methods for articles 
 
         $categories = Category::select('title', 'name', 'id')->paginate(6);

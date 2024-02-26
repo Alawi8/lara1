@@ -32,5 +32,8 @@
         <div class="d-flex justify-content-center">
             {{ $all_posts->links() }}
         </div>
+        <div>
+            @livewire('post-display')
+        </div>
     @endif
 </div>

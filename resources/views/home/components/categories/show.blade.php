@@ -33,7 +33,7 @@
                     </div>
                 @endforelse
                 <div class="d-flex justify-content-center">
-                    {{-- {{ $all_posts->links() }} --}}
+                    {{ $posts->links() }}
                 </div>
             </div>
         @endif
