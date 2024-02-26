@@ -33,7 +33,7 @@
             {{ $all_posts->links() }}
         </div>
         <div>
-            @livewire('post-display')
+            {{-- @livewire('post-display') --}}
         </div>
     @endif
 </div>
