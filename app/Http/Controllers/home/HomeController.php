@@ -112,7 +112,7 @@ class HomeController extends Controller
         $this->seo()->addImages([
             [
                 'url' => $post->img_url,
-                'type' => 'image/webp',
+                'type' => 'image/jpeg',
                 'name' => $post->title,
             ]
 
