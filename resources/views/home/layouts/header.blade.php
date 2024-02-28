@@ -10,7 +10,11 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/bitmap.png') }}">
     <meta http-equiv="Content-Security-Policy" content="object-src 'none';">
     <!-- Fonts --> {{-- <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     {{-- Bootstrap link --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <!-- Google Tag Manager -->
@@ -36,11 +40,12 @@
     <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+
 
         * {
-            font-family: 'Tajawal', sans-serif;
-            direction: rtl;
+            font-family: "IBM Plex Sans Arabic", sans-serif;
+            color: #000000;
+            font-size: 19px;
         }
 
         body {
