@@ -1,4 +1,4 @@
-<div class="container-fluid">
+
     @if (isset($all_posts))
         <div class="row">
 
@@ -36,4 +36,4 @@
             {{-- @livewire('post-display') --}}
         </div>
     @endif
-</div>
+
