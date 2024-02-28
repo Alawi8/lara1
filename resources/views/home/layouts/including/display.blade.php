@@ -1,4 +1,7 @@
 @extends('home.layouts.body')
+@section('title')
+    {{$dis_posts->title}}
+@endsection
 @section('link')
     <a class="nav-link" href="{{ route('display', ['title' => str_replace(' ', '_', $dis_posts->title)]) }}"
         title="{{ $dis_posts->title }}">{{ $dis_posts->title }}</a>
