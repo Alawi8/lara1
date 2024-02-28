@@ -9,9 +9,9 @@
     {{-- Here the data inside (section image) is fetched by @yield image --}}
     
     <div class="container-fluid">
-        <div class="row p-3">
-            <div class="text-center p-3 mb-1 bg-body-tertiary rounded" >
-                <h1 style="font-size: 25px ;font-weight:normal; ">@yield('title')</h1>
+        <div class="row ">
+            <div class="text-center  bg-body-tertiary rounded" >
+                <h1>@yield('title')</h1>
             </div>
 
 

@@ -17,12 +17,8 @@
         <div overflow=""></div>
     </amp-ad>
     {{-- end adsens --}}
-    <div class="card">
-        <div class="card-header" id="headingOne">
-            <h1 class="mb-0">
-                {{ $dis_posts->title }}
-            </h1>
-        </div>
+    <div >
+
 
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
