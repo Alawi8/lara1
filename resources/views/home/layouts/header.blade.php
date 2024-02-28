@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/bitmap.png') }}">
     <meta http-equiv="Content-Security-Policy" content="object-src 'none';">
-    <!-- Fonts -->    {{-- <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
+    <!-- Fonts --> {{-- <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
 
     {{-- Bootstrap link --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -80,25 +80,29 @@
             }
         }
 
-        span,
-        p,
-        label,
-        li,
-        ul {
-            font-size: 16px;
-        }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+
+        h1 {
             color: #000000;
-            font-size: 19px;
-            font-weight: normal;
+            font-size: 23px;
         }
 
+        h2 {
+            color: #000000;
+            font-size: 21px;
+
+        }
+
+        h3 {
+            color: #000000;
+            font-size: 18px;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 1.2em;
+            }
+        }
 
 
         #content-items {
@@ -161,7 +165,7 @@
 
         /* إضافة أنماط إضافية حسب احتياجاتك */
     </style>
-    
+
 
     @livewireStyles
 </head>
