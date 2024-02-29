@@ -4,7 +4,7 @@
 @endsection
 @section('link')
     <a class="nav-link" href="{{ route('display', ['title' => str_replace(' ', '_', $dis_posts->title)]) }}"
-        title="{{ $dis_posts->title }}">{{ $dis_posts->title }}</a>
+        title="{{ $dis_posts->title }}"><span class="mx-3">-</span>{{ $dis_posts->title }}</a>
 @endsection
 
 @section('content')

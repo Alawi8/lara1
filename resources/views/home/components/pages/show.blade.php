@@ -3,7 +3,7 @@
 {{$post->title}}
 @endsection
 @section('link')
-<a class="nav-link" title="{{ $post->title }}">{{ $post->title }}</a>
+<a class="nav-link" title="{{ $post->title }}"><span class="mx-3">-</span>{{ $post->title }}</a>
 
 @endsection
 

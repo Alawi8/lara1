@@ -1,30 +1,30 @@
 @include('home.layouts.header')
 
-<body >
+<body>
 
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KMV6F7X" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     {{-- Here the data inside (section image) is fetched by @yield image --}}
-    
+
     <div class="container-fluid">
         <div class="row ">
-            <div class="text-center  bg-body-tertiary rounded" >
+            <div class="text-center  bg-body-tertiary rounded">
                 <h1>@yield('title')</h1>
             </div>
 
 
-            <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-9 col-sm-12 ">
-                {{-- Here the data inside (section Content) is fetched by @yield content --}}
-                    <ul class="breadcrumb">
-                        <a class="nav-link " href="{{ route('home') }}" title="الرئيسيه">الرئيسيه <span
-                                class="mx-3">|</span></a>
-                        @yield('link')
-                    </ul>
+            <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-9 col-sm-12">
+                {{-- استيراد محتوى الصفحة --}}
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a class="nav-link" href="{{ route('home') }}" title="الرئيسية">الرئيسية</a></li>
+                    @yield('link')
+                </ul>
 
                 @yield('content')
             </div>
+
 
             <div class="col-md-3 col-lg-3 col-sm-12">
                 <div>
@@ -40,7 +40,8 @@
         </div>
     </div>
     @livewireScripts
-    <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false"></script>
+    <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"
+        data-turbolinks-eval="false"></script>
 
 </body>
 

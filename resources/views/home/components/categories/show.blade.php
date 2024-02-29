@@ -1,6 +1,6 @@
 @extends('home.layouts.body')
 @section('link')
-<a class="nav-link" href="{{route('categories.index')}}" title="التصنيفات">التصنيفات<span class="mx-3">|</span></a>
+<a class="nav-link" href="{{route('categories.index')}}" title="التصنيفات"><span class="mx-3">-</span>التصنيفات<span class="mx-3">-</span></a>
 <a class="nav-link" href="{{ route('categories.show', $category->id) }}" title="{{$category->name}}">{{$category->name}}</a>
 
 @endsection
