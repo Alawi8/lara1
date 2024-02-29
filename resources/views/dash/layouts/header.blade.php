@@ -10,13 +10,12 @@
     </title>
     <!--bootstrap link-->
 
-    {{-- <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.rtl.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.rtl.css') }}" />
     <link href="{{ asset('assets/css/dashboard.rtl.css') }}" rel="stylesheet">
-    <script src="{{ asset('assets/js/color-modes.js') }}"></script> --}}
+    <script src="{{ asset('assets/js/color-modes.js') }}"></script>
     {{-- icons url --}}
     {{-- https://feathericons.com/ --}}
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <style>
         .bd-placeholder-img {

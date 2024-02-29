@@ -89,12 +89,12 @@
 
         h1 {
             color: #000000;
-            font-size: 23px;
+            font-size: 22px;
         }
 
         h2 {
             color: #000000;
-            font-size: 21px;
+            font-size: 20px;
 
         }
 
