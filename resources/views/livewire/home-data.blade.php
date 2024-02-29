@@ -23,8 +23,8 @@
                             </h2>
                             <small>{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</small>
                         </div>
-                        <div class="col-10 mb-1 "> {{ Str::limit($item->slug, 110) }}
-                        </div>
+                        {{-- <div class="col-10 mb-1 "> {{ Str::limit($item->slug, 110) }} --}}
+                        {{-- </div> --}}
                     </a>
                 </div>
                {{-- {{ dd('created_at')}} --}}
