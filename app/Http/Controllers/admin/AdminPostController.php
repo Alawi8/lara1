@@ -41,7 +41,7 @@ class AdminPostController extends Controller
             'title' => 'required|regex:/^[\p{Arabic}a-zA-Z0-9\s]+$/u',
             'slug' => 'required',
             'content' => 'required|max:75000',
-            'img_url' => 'required|mimes:jpg,png,jpeg,webp|max:5048',
+            'img_url' => 'nullable|mimes:jpg,png,jpeg,webp|max:5048',
         ]);
         $time = time() . $request->name . '.' ;
         $newImageName = $time . $request->img_url->extension();
