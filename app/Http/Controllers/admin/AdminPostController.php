@@ -43,29 +43,33 @@ class AdminPostController extends Controller
             'content' => 'required|max:75000',
             'img_url' => 'nullable|mimes:jpg,png,jpeg,webp|max:5048',
         ]);
-        $time = time() . $request->name . '.' ;
-        $newImageName = $time . $request->img_url->extension();
-        # create the img , compress , and move to folder 
+        if ($request->hasFile('img_url')) {
+            $time = time() . $request->name . '.';
+            $newImageName = $time . $request->img_url->extension();
         
-        $request->img_url->move(public_path('/storage/img'), $newImageName);
-        $imageFullPath = public_path('/storage/img/' . $newImageName);
-        $image = Image::make($imageFullPath);
-        $image->encode('webp', 75);
-        $image->resize(1024, 550);
-        $webpPath = str_replace(['.jpg','.jpeg','.png'], '.webp', $imageFullPath);
-        $image->save($webpPath);
-        $imagePath = url('storage/img') . '/' . $time . 'webp';
+            $request->img_url->move(public_path('storage/img'), $newImageName);
+            $imageFullPath = public_path('storage/img/' . $newImageName);
+        
+            $image = Image::make($imageFullPath);
+            $image->encode('webp', 75);
+            $image->resize(1024, 550);
+            $webpPath = str_replace(['.jpg', '.jpeg', '.png'], '.webp', $imageFullPath);
+            $image->save($webpPath);
+        
+            $imagePath = url('storage/img') . '/' . $time . 'webp';
+            unlink($imageFullPath);
+        }
         
         Post::create([
             'title' => $request->title,
             'user_id' => Auth::user()->id,
             'content' => $request->content,
             'slug' => $request->slug,
-            'img_url' => $imagePath,
+            'img_url' => $imagePath ?? 'path_to_default_image.jpg',
             'category_id' => $request->category,
             'url'=> 'url-is-empty-now',
         ]);
-        unlink($imageFullPath);
+        
 
         return redirect()->route('posts.index')->with('success', 'كفوو .. كتبت مقاله جديده استمر');
     }
