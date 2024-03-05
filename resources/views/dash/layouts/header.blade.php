@@ -13,13 +13,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.rtl.css') }}" />
     <link href="{{ asset('assets/css/dashboard.rtl.css') }}" rel="stylesheet">
     <script src="{{ asset('assets/js/color-modes.js') }}"></script>
-    {{-- icons admin  --}}
-    <script src="{{ asset('assets/js/feather.js') }}"></script>
-    <script src="{{ asset('assets/js/dashboard.js') }}"></script>
-    {{-- icons dark and light --}}
-    <script src="{{ asset('assets/js/bundle.js') }}"></script>
-    {{-- icons url --}}
-    {{-- https://feathericons.com/ --}}
+
 
 </header>
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse">

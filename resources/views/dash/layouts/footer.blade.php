@@ -1,5 +1,11 @@
 
-
+    {{-- icons admin  --}}
+    <script src="{{ asset('assets/js/feather.js') }}"></script>
+    <script src="{{ asset('assets/js/dashboard.js') }}"></script>
+    {{-- icons dark and light --}}
+    <script src="{{ asset('assets/js/bundle.js') }}"></script>
+    {{-- icons url --}}
+    {{-- https://feathericons.com/ --}}
 @if(@isset($posts))
         <script>
             document.addEventListener("DOMContentLoaded", function () {
