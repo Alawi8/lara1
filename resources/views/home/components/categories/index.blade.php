@@ -9,4 +9,5 @@
     <div>
         @livewire('posts-list')
     </div>
+    
 @endsection

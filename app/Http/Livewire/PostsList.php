@@ -17,7 +17,7 @@ class PostsList extends Component
 
     public function loadData()
     {
-        $this->categories = Category::latest('created_at')->select('name','title','id')->take(6)->get();
+        $this->categories = Category::latest('created_at')->select('name','title','id')->take(12)->get();
     }
 
     public function render()

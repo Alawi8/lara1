@@ -17,3 +17,4 @@ sitemap.xml
 /public/vendor/telescope
 /public/images/
 /public/assets/
+node_modules

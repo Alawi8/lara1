@@ -29,8 +29,11 @@
             <div class="col-md-3 col-lg-3 col-sm-12">
                 <div>
                     <h1>البحث</h1>
-                    <div class="">
-                        @livewire('search-form')
+                    <div >
+                        <form class="d-flex" action="{{ route('search') }}" method="POST">
+                            @csrf
+                            <input name="query" class="form-control " type="search" aria-label="Search">
+                        </form>
 
                     </div>
                 </div>
