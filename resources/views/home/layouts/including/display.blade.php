@@ -24,13 +24,13 @@
             <div class="card-body">
 
                 {{-- adsens --}}
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
+                {{-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
                     crossorigin="anonymous"></script>
                 <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
                     data-ad-format="fluid" data-ad-client="ca-pub-6477832805856369" data-ad-slot="7007839397"></ins>
                 <script>
                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+                </script> --}}
                 {{-- end adsens --}}
                 {!! $dis_posts->content !!}
             </div>
@@ -38,13 +38,13 @@
     </div>
 
     {{-- adsens --}}
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
+    {{-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
         crossorigin="anonymous"></script>
     <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-6t+ed+2i-1n-4w"
         data-ad-client="ca-pub-6477832805856369" data-ad-slot="2946957845"></ins>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    </script> --}}
     {{-- end adsens --}}
 
     {{-- comments part  --}}

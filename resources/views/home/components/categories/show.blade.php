@@ -20,7 +20,7 @@
                                     class="card-img-top" alt="{{ $post->title }}">
                                 <div class="card-body">
                                     <h2>{{ $post->title }}</h2>
-                                    <span class="badge text-bg-success">{{ \Carbon\Carbon::parse($post->date)->diffForHumans() }}</span>
+                                    <span class="badge text-bg-success">{{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}</span>
                                 </div>
                             </div>
                         </a>
