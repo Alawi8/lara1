@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Page;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Support\Str;
 use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
@@ -35,7 +36,6 @@ class HomeController extends Controller
         $this->seo()->setDescription('مشكاة هي مدونة تقنية، تهدف إلى تقديم الدعم في مجال انظمة الويب ، لجميع المهتمين ورواد الاعمال ، لتكون على اطلاع مستمر لاتنسى متابعة حساباتنا على مواقع التواصل .');
         $this->seo()->addImages(asset('assets/img/bitmap.png'));
         # update SEO service 
-        $this->seo()->opengraph()->setUrl('http://meshcah.net/');
         $this->seo()->opengraph()->addProperty('type', 'web');
         $this->seo()->twitter()->setSite('@alo0o0o01');
         $this->seo()->jsonLd()->setType('WebPage');
@@ -43,15 +43,16 @@ class HomeController extends Controller
 
         // category methods for articles 
 
-        $categories = Category::select('title', 'name', 'id')->paginate(6);
+        // $categories = Category::select('title', 'name', 'id')->paginate(6);
 
         # select posts 
-        $all_posts = Post::select('title', 'img_url', 'id', 'created_at')
+        $all_posts = Post::select('title', 'img_url', 'id', 'created_at','slug','user_id')
             ->orderBy('created_at', 'desc')
             ->paginate(12);
 
+
         # return array to welcome page 
-        return view('home.welcom', compact('all_posts', 'categories'));
+        return view('home.welcom', compact('all_posts'));
     }
 
 
