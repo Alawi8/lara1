@@ -21,15 +21,10 @@ class HomeController extends Controller
         if (Cache::has('all_posts')) {
             // استرجاع البيانات من الكاش إذا تم العثور عليها
             $all_posts = Cache::get('all_posts');
-        } else {
+        } 
             // استعلام قاعدة البيانات للحصول على المشاركات إذا لم يتم العثور عليها في الكاش
-            $all_posts = Post::select('title', 'img_url', 'id', 'created_at', 'slug', 'user_id')
-                ->orderBy('created_at', 'desc')
-                ->paginate(12);
 
-            // تخزين البيانات في الكاش للاستخدام المستقبلي
-            Cache::put('all_posts', $all_posts, 60); // تخزين البيانات لمدة 60 دقيقة (وقت قابل للتعديل)
-        }
+
 
         # update title with description 
         $this->seo()->setTitle('الرئيسية ');
@@ -43,7 +38,10 @@ class HomeController extends Controller
         // category methods for articles 
 
         // $categories = Category::select('title', 'name', 'id')->paginate(6);
-
+        $all_posts = Post::select('title', 'img_url', 'id', 'created_at', 'slug', 'user_id')
+        ->orderBy('created_at', 'desc')
+        ->paginate(12);
+        Cache::put('all_posts', $all_posts, 60); 
         # return array to welcome page 
         return view('home.welcom', compact('all_posts'));
     }
@@ -95,12 +93,11 @@ class HomeController extends Controller
         if (Cache::has('post_' . $title)) {
             // get date from cache
             $post = Cache::get('post_' . $title);
-        } else {
+        } 
             // else get date from datebase and save in cache 
             $title = str_replace('_', ' ', $title);
             $post = Post::where('title', $title)->firstOrFail();
             Cache::put('post_' . $title, $post, 60); 
-        }
 
         // تحديث بيانات SEO
         $this->seo()->setTitle("{$post->title}");
@@ -112,7 +109,6 @@ class HomeController extends Controller
                 'name' => $post->title,
             ]
         ]);
-        //opengraph
         // article
 
         $this->seo()->opengraph()->setUrl($post->slug);
