@@ -9,13 +9,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/bitmap.png') }}">
     {{-- font link --}}
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     {{-- Bootstrap link --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <!-- Google Tag Manager -->
-    <script>
+    {{-- <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({
@@ -30,15 +29,13 @@
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-5KMV6F7X');
-    </script>
+    </script> --}}
     <!-- End Google Tag Manager -->
 
     {{-- amp to google adsenes --}}
-    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+    {{-- <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script> --}}
 
-    <style>
-        /* إضافة أنماط إضافية حسب احتياجاتك */
-    </style>
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
 
     @livewireStyles
