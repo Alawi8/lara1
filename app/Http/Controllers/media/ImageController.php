@@ -20,11 +20,6 @@ class ImageController extends Controller
 
     }
 
-    public function create()
-    {
-        return view('create-image');
-    }
-
     public function store(Request $request)
     {
         if ($request->hasFile('image')) {

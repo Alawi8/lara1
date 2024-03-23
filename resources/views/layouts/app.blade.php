@@ -15,7 +15,13 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-
+    <style>
+        * {
+            font-family: "IBM Plex Sans Arabic", sans-serif;
+            color: #000000;
+            font-size: 19px;
+        }
+    </style>
 </head>
 
 <body>

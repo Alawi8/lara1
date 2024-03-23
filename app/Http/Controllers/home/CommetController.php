@@ -5,8 +5,6 @@ namespace App\Http\Controllers\home;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\Authenticate;
 use Illuminate\Http\Request;
-use App\Http\Requests\CommentRequest;
-use App\Models\Post;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,14 +15,7 @@ class CommetController extends Controller
     {
         $this->middleware( Authenticate::class);
     }
-    public function showForm($postId)
-    {
-            // Retrieve the post
-    // $dis_posts = Post::find($postId);
 
-    // Retrieve the comments associated with the post
-        // return view('home.layouts.including.display', compact('comments'));
-    }
 
     public function store(Request $request)
     {

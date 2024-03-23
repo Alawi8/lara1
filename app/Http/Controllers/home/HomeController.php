@@ -3,26 +3,12 @@
 namespace App\Http\Controllers\home;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Page;
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\User;
-use Artesaos\SEOTools\Facades\SEOMeta;
-use Illuminate\Support\Str;
 use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
-use Artesaos\SEOTools\Traits\JsonLdMulti;
-use Illuminate\Support\Facades\View;
-use Artesaos\SEOTools\Facades\TwitterCard as TwitterCardTrait;
-
-use Artesaos\SEOTools\Facades\OpenGraph;
-use Artesaos\SEOTools\Facades\TwitterCard;
-use Artesaos\SEOTools\Facades\JsonLd;
-// OR
-use Artesaos\SEOTools\Facades\SEOTools;
-use Spatie\SchemaOrg\LocalBusiness;
-use Spatie\SchemaOrg\Schema;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 
 
 class HomeController extends Controller
@@ -31,6 +17,20 @@ class HomeController extends Controller
 
     public function index()
     {
+        // تحقق مما إذا كانت البيانات موجودة في الكاش
+        if (Cache::has('all_posts')) {
+            // استرجاع البيانات من الكاش إذا تم العثور عليها
+            $all_posts = Cache::get('all_posts');
+        } else {
+            // استعلام قاعدة البيانات للحصول على المشاركات إذا لم يتم العثور عليها في الكاش
+            $all_posts = Post::select('title', 'img_url', 'id', 'created_at', 'slug', 'user_id')
+                ->orderBy('created_at', 'desc')
+                ->paginate(12);
+
+            // تخزين البيانات في الكاش للاستخدام المستقبلي
+            Cache::put('all_posts', $all_posts, 60); // تخزين البيانات لمدة 60 دقيقة (وقت قابل للتعديل)
+        }
+
         # update title with description 
         $this->seo()->setTitle('الرئيسية ');
         $this->seo()->setDescription('مشكاة هي مدونة تقنية، تهدف إلى تقديم الدعم في مجال انظمة الويب ، لجميع المهتمين ورواد الاعمال ، لتكون على اطلاع مستمر لاتنسى متابعة حساباتنا على مواقع التواصل .');
@@ -40,28 +40,15 @@ class HomeController extends Controller
         $this->seo()->twitter()->setSite('@alo0o0o01');
         $this->seo()->jsonLd()->setType('WebPage');
 
-
         // category methods for articles 
 
         // $categories = Category::select('title', 'name', 'id')->paginate(6);
-
-        # select posts 
-        $all_posts = Post::select('title', 'img_url', 'id', 'created_at','slug','user_id')
-            ->orderBy('created_at', 'desc')
-            ->paginate(12);
-
 
         # return array to welcome page 
         return view('home.welcom', compact('all_posts'));
     }
 
 
-
-
-    public function store(Request $request)
-    {
-        //
-    }
     public function search(Request $request)
     {
         # validate query 
@@ -105,9 +92,17 @@ class HomeController extends Controller
     }
     public function display($title)
     {
-        $title = str_replace('_', ' ', $title);
-        # seo optimization for home/including/page 
-        $post = Post::where('title', $title)->firstOrFail();
+        if (Cache::has('post_' . $title)) {
+            // get date from cache
+            $post = Cache::get('post_' . $title);
+        } else {
+            // else get date from datebase and save in cache 
+            $title = str_replace('_', ' ', $title);
+            $post = Post::where('title', $title)->firstOrFail();
+            Cache::put('post_' . $title, $post, 60); 
+        }
+
+        // تحديث بيانات SEO
         $this->seo()->setTitle("{$post->title}");
         $this->seo()->setDescription($post->slug);
         $this->seo()->addImages([
@@ -116,7 +111,6 @@ class HomeController extends Controller
                 'type' => 'ImageObject',
                 'name' => $post->title,
             ]
-
         ]);
         //opengraph
         // article
@@ -127,7 +121,7 @@ class HomeController extends Controller
         $this->seo()->setCanonical(route('display', ['title' => str_replace(' ', '_', $post->title)]));
         $this->seo()->jsonLd()->setType('Article');
 
-        # CREATE SEO SERVICES 
+        // other date seo 
         $published_time = Carbon::parse($post->created_at)->format('Y-m-d\TH:i:sP');
         $modified_time = Carbon::parse($post->updated_at)->format('Y-m-d\TH:i:sP');
 
@@ -154,7 +148,6 @@ class HomeController extends Controller
             ->setImage(asset($post->img_url))
             ->setSite('meshcah');
 
-        # GET COMMENT BY TITLE 
         $dis_posts = Post::with('comments')->where('title', $title)->first();
 
         if (!$dis_posts) {

@@ -8,10 +8,7 @@
     {!! SEO::generate(true) !!}
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/bitmap.png') }}">
-    <meta http-equiv="Content-Security-Policy" content="object-src 'none';">
-    <!-- Fonts --> {{-- <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    {{-- font link --}}
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">

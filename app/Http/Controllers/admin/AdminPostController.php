@@ -110,15 +110,12 @@ class AdminPostController extends Controller
         return redirect()->route('posts.index');
     }
 
-
-    /**
+    /*
      * Remove the specified resource from storage.
      */
     public function destroy($id)
     {
-
         $editing = Post::where('id', $id)->delete();
         return redirect()->route('posts.index')->with('success', 'تم حذف المقاله');
-        ;
     }
 }
