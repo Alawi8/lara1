@@ -14,15 +14,11 @@
         "laravel/framework": "^9.52",
         "laravel/sanctum": "^3",
         "laravel/socialite": "^5.10",
-        "laravel/telescope": "^4.17",
         "laravel/tinker": "^2",
         "laravel/ui": "^4.3",
         "livewire/livewire": "^2.12",
-        "spatie/laravel-csp": "^2.8",
         "spatie/laravel-sitemap": "^6.2",
-        "spatie/schema-org": "^3",
-        "symfony/http-client": "^6.4",
-        "symfony/mailgun-mailer": "^6.4"
+        "symfony/http-client": "^6.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
