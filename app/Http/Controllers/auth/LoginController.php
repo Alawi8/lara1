@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+
 
 
 
@@ -55,25 +57,20 @@ class LoginController extends Controller
             return redirect()->route('login')->with('error', 'Failed to authenticate with Google.');
         }
 
-        // يتم فحص ما إذا كان المستخدم مسجلاً في التطبيق بالفعل باستخدام بريده الإلكتروني
         $existingUser = User::where('email', $user->getEmail())->first();
 
         if ($existingUser) {
-            // إذا كان المستخدم موجودًا بالفعل، سجل الدخول باستخدام Auth
             Auth::login($existingUser);
         } else {
-            // إذا لم يكن المستخدم موجودًا، قم بإنشاء حساب جديد له
             $newUser = new User();
             $newUser->name = $user->getName();
             $newUser->email = $user->getEmail();
-            // يمكنك إضافة المزيد من المعلومات إذا كانت متوفرة
+            $newUser->password = bcrypt(Str::random(10));
             $newUser->save();
 
-            // سجل الدخول باستخدام الحساب الجديد
             Auth::login($newUser);
         }
 
-        // قم بتوجيه المستخدم إلى الصفحة التي ترغب في توجيهه إليها بعد تسجيل الدخول
-        return redirect()->route('/')->with('success', 'Successfully logged in with Google.');
+        return redirect()->route('')->with('success', 'Successfully logged in with Google.');
     }
 }
