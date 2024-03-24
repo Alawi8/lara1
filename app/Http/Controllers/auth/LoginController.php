@@ -71,6 +71,6 @@ class LoginController extends Controller
             Auth::login($newUser);
         }
 
-        return redirect()->route('')->with('success', 'Successfully logged in with Google.');
+        return back()->with('success', 'Successfully logged in with Google.');
     }
 }

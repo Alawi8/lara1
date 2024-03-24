@@ -2,7 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use Spatie\Sitemap\SitemapGenerator;
 use App\Http\Controllers\admin\AdminPagesController ;
-use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\RelationController;
 use App\Http\Controllers\home\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -102,5 +102,5 @@ Route::post('/search', [HomeController::class, 'search'])->name('search');
 route::get('fetch',[RelationController::class, 'relation']);
 
 //login with google account
-Route::get('auth/google', [LoginController::class , 'redirectToGoogle']);
+Route::get('auth/google', [LoginController::class , 'redirectToGoogle'])->name('auth.google');
 Route::get('auth/google/callback', [LoginController::class ,'handleGoogleCallback']);
