@@ -30,13 +30,13 @@
         <div class="d-none flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-between">
             <div>
                 <p class="small text-muted">
-                    {!! __('Showing') !!}
+                    {!! __('عرض من') !!}
                     <span class="fw-semibold">{{ $paginator->firstItem() }}</span>
-                    {!! __('to') !!}
+                    {!! __('الى') !!}
                     <span class="fw-semibold">{{ $paginator->lastItem() }}</span>
-                    {!! __('of') !!}
-                    <span class="fw-semibold">{{ $paginator->total() }}</span>
+                    {!! __('') !!}
                     {!! __('results') !!}
+                    <span class="fw-semibold">{{ $paginator->total() }}</span>
                 </p>
             </div>
 
