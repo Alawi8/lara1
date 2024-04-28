@@ -40,7 +40,7 @@ class HomeController extends Controller
         // $categories = Category::select('title', 'name', 'id')->paginate(6);
         $all_posts = Post::select('title', 'img_url', 'id', 'created_at', 'slug', 'user_id')
         ->orderBy('created_at', 'desc')
-        ->paginate(8);
+        ->paginate(9);
         Cache::put('all_posts', $all_posts, 60); 
         # return array to welcome page 
         return view('home.welcom', compact('all_posts'));
