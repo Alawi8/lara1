@@ -2,7 +2,7 @@
     @if (isset($all_posts))
         <div class="row">
             @forelse ($all_posts as $post)
-                <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
+                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
                     <a class="nav-link" href="{{ route('display', ['title' => str_replace(' ', '_', $post->title)]) }}"
                         title="{{ $post->title }}">
 
