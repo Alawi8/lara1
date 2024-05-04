@@ -5,7 +5,7 @@
         <div overflow=""></div>
     </amp-ad>
     <div>
-        <h1 class="active">أحدث المقالات</h1>
+        <h2 class="active">أحدث المقالات</h2>
     </div>
     @if (isset($posts) && count($posts) > 0)
         @foreach ($posts as $item)

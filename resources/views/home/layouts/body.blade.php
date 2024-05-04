@@ -28,7 +28,7 @@
 
             <div class="col-md-3 col-lg-3 col-sm-12">
                 <div>
-                    <h1>البحث</h1>
+                    <h2>البحث</h2>
                     <div >
                         <form class="d-flex" action="{{ route('search') }}" method="POST">
                             @csrf
