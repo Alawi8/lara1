@@ -27,7 +27,6 @@
                         {{-- </div> --}}
                     </a>
                 </div>
-               {{-- {{ dd('created_at')}} --}}
             </div>
         @endforeach
     @else

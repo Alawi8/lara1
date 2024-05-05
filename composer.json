@@ -13,11 +13,11 @@
         "intervention/image": "^2.7",
         "laravel/framework": "^9.52",
         "laravel/sanctum": "^3",
+        "laravel/scout": "*",
         "laravel/socialite": "^5.10",
         "laravel/tinker": "^2",
         "laravel/ui": "^4.3",
         "livewire/livewire": "^2.12",
-        "spatie/laravel-sitemap": "^6.2",
         "symfony/http-client": "^6.4"
     },
     "require-dev": {
