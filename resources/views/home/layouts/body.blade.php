@@ -10,7 +10,7 @@
 
     <div class="container-fluid">
         <div class="row ">
-            <div class="text-center  bg-body-tertiary rounded">
+            <div class="rounded">
                 <h1>@yield('title')</h1>
             </div>
 

@@ -1,11 +1,36 @@
-<div>
-    <nav id="heading" class="navbar fixed-top shadow navbar-expand-lg ">
+<div class="container-fluid">
+    {{-- header icons --}}
+    <div class="row row justify-content-end">
+        <div class="col-auto">
+            <!-- Twitter -->
+            <a class="btn btn-floating" style="background-color: #fff" href="https://twitter.com/alo0o0o01"
+                title="رابط حساب منصة x " role="button"><i class="fab fa-twitter fa-lg"></i></a>
+
+            <!-- Instagram -->
+            <a class="btn btn-floating" style="background-color: #fff" href="https://www.instagram.com/meshcah2/"
+                title="رابط حساب انستقرام" role="button"><i class="fab fa-instagram fa-lg"></i></a>
+
+            <!-- Telegram -->
+            <a class="btn btn-floating" style="background-color: #fff" href="https://t.me/webArabic1"
+                title="رابط حساب telegram" role="button"><i class="fab fa-telegram fa-lg"></i></a>
+
+            <!-- Whatsapp -->
+            <a class="btn btn-floating " style="background-color: #fff"
+                href="https://chat.whatsapp.com/BSzG215opvWBP8b4yorJeo" title="رابط حساب واتساب" role="button"><i
+                    class="fab fa-whatsapp fa-"></i></a>
+        </div>
+    </div>
+    {{-- end icon --}}
+
+
+    <nav id="heading" class="navbar shadow navbar-expand-lg ">
         <!-- Facebook -->
         <div class="container-fluid">
+
             <a href="{{ route('home') }}" title="الرئيسيه">
-                <img id="myImage" src="{{ asset('assets/img/bitmap.png') }}" width="40" height="40" alt="re"
-                     />
-                
+                <img id="myImage" src="{{ asset('assets/img/bitmap.png') }}" width="40" height="40"
+                    alt="re" />
+
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -31,19 +56,20 @@
                         </a>
                     </li>
 
-                    {{-- @livewire('pages-list') --}}
-                    @if (isset($pages))
-                        @foreach ($pages as $item)
-                            <li class="nav-item h5">
-                                <a href="{{ route('page.show', ['title' => $item->title]) }}"
-                                    class="nav-link {{ Request::is('page/' . $item->title) ? 'text-primary' : '' }}"
-                                    title="{{ $item->title }}">{{ $item->title }}</a>
-                            </li>
-                        @endforeach
-                    @endif
-
+                    <div class="btn-group">
+                        <button class="btn  dropdown-toggle " type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <p class="nav-item h5" >التصنيفات</p>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Menu item</a></li>
+                            <li><a class="dropdown-item" href="#">Menu item</a></li>
+                            <li><a class="dropdown-item" href="#">Menu item</a></li>
+                        </ul>
+                    </div>
                 </ul>
-{{-- 
+                
+                {{-- 
                 <form class="d-lg-flex" action="{{ route('search') }}" method="POST">
                     @csrf
                     <input name="query" class="form-control " type="search" aria-label="Search" placeholder="search">
@@ -91,6 +117,7 @@
             </div>
         </div>
     </nav>
+    <br>
 
 
 </div>

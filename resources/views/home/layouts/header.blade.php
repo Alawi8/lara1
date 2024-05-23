@@ -42,12 +42,9 @@
 </head>
 
 <header>
+    
     @livewire('pages-list')
 
-
-    <br>
-    <br>
-    <br>
     <div>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"
             crossorigin="anonymous"></script>
