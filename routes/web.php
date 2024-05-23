@@ -104,3 +104,5 @@ route::get('fetch',[RelationController::class, 'relation']);
 //login with google account
 Route::get('auth/google', [LoginController::class , 'redirectToGoogle'])->name('auth.google');
 Route::get('auth/google/callback', [LoginController::class ,'handleGoogleCallback']);
+Route::get('/relation', [RelationController::class , 'relation']);
+
