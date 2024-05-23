@@ -60,33 +60,11 @@
 
                                                     <div class="row">
                                                         <div class="col-sm-3">
-                                                            <p class="mb-0">البريد الإلكتروني</p>
+                                                            <p class="mb-0">ايقونة الموقع</p>
                                                         </div>
                                                         <div class="col-sm-9">
-                                                            <input type="file" name="picture" value="{{$item->icon_url}}" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
+                                                            <input type="file" name="icon_url" value="{{$item->icon_url}}" class="form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" aria-label="Upload">
 
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-
-                                                    <div class="row">
-                                                        <div class="col-sm-3">
-                                                            <p class="mb-0">الهاتف</p>
-                                                        </div>
-                                                        <div class="col-sm-9">
-                                                            <input type="tel" name="phone" value="{{ $item->phone }}"
-                                                                class="form-control">
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-
-                                                    <div class="row">
-                                                        <div class="col-sm-3">
-                                                            <p class="mb-0">الجوال</p>
-                                                        </div>
-                                                        <div class="col-sm-9">
-                                                            <input type="tel" name="mobile" value="{{ $item->mobile }}"
-                                                                class="form-control">
                                                         </div>
                                                     </div>
                                                     <hr>

@@ -2,8 +2,3 @@ User-agent: Googlebot
 User-agent: Bingbot
 User-agent: *
 Disallow: /private/
-Disallow: /login/
-Disallow: /register/
-Disallow: /password/
-
-Sitemap: https://www.meshcah.net/sitemap.xml

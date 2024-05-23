@@ -16,13 +16,13 @@
                         <strong class="d-inline-block mb-2 text-success">النتيجه</strong>
                         <h3 class="mb-0">{{ $article->title }}</h3>
                         <div class="mb-1 text-muted">{{ \Carbon\Carbon::parse($article->date)->diffForHumans() }}</div>
-                        <p class="card-text mb-auto">{{ Str::limit($article->exept, 150) }}</p>
+                        <p class="card-text mb-auto">{{ Str::limit($article->slug, 150) }}</p>
                         {{-- Continue reading</a> --}}
                     </div>
                     <div class="col-auto d-none d-lg-block">
                         <svg class="bd-placeholder-img" width="200" height="250" xmlns=""
                         role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-                        focusable="false" style="background-image: url('{{$article->image_path}}');">
+                        focusable="false" style="background-image: url('{{$article->img_url}}');">
                     </svg>
                     
                     </div>

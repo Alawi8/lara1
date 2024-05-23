@@ -31,14 +31,14 @@
                                      <input type="text" class="form-control @error('title') is-invalid @enderror"
                                          id="firstName" name="title" value="{{ old('title') }}" required>
                                      <div class="invalid-feedback">
-                                         حقل العنوان مطلوب كما لا يسمح باستخدام الرموز الخاصه 
+                                         حقل العنوان مطلوب كما لا يسمح باستخدام الرموز الخاصه
                                      </div>
                                  </div>
 
                                  <div class="col-sm-6">
                                      <label for="lastName" class="form-label">الوصف</label>
-                                     <input type="text" class="form-control @error('exept') is-invalid @enderror"
-                                         id="lastName" name="exept" placeholder="" value="{{ old('exept') }}">
+                                     <input type="text" class="form-control @error('slug') is-invalid @enderror"
+                                         id="lastName" name="slug" placeholder="" value="{{ old('slug') }}">
                                      <div class="invalid-feedback">
                                          حقل الوصف مطلوب
                                      </div>
@@ -51,26 +51,27 @@
                                              <option value="{{ $categury->id }}">{{ $categury->name }}</option>
                                          @endforeach
                                      </select>
-                                     <div class="invalid-feedback">
-                                         Please select a valid country.
-                                     </div>
+                                     <a class="nav-link text-primary" href="{{route('category.create')}}">اضافة تصنيف</a>
                                  </div>
 
                                  <div class="col-md-6">
                                      <label for="state" class="form-label">الصوره</label>
                                      <div class="input-group">
-                                         <input name="image" value="{{ old('image') }}" type="file"
-                                             class="form-control @error('image') is-invalid @enderror" id="inputGroupFile04"
+                                         <input name="img_url" value="{{ old('img_url') }}" type="file"
+                                             class="form-control @error('img_url') is-invalid @enderror" id="inputGroupFile04"
                                              aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                                          <div class="invalid-feedback">
-                                             حقل الصوره مطلوب
+                                             حقل الصوره مطلوب ويجب ان لايتجاوز حجمها 5MB
                                          </div>
                                      </div>
                                  </div>
-
+                                 <div class="col-sm-12">
+                                     <label for="lastName" class="form-label">كلمات مفتاحيه</label>
+                                     <input type="text" class="form-control " id="lastName" name="key_words"
+                                         placeholder="تاكد من وضع , بين كلماتك" value="{{ old('key_words') }}">
+                                 </div>
 
                                  <hr class="my-4">
-
                                  <div class="form-control @error('content') is-invalid @enderror">
                                      <textarea name="content" value="{{ old('content') }}" id="editor" rows="25"
                                          class="form-control @error('content') is-invalid @enderror">

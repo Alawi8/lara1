@@ -1,73 +1,66 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('تسجيل الدخول') }}</div>
-
-                <div class="card-body">
+    <section class="vh-100">
+        <div class="container py-5 h-100">
+            <div class="row d-flex align-items-center justify-content-center h-100">
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                        class="img-fluid" alt="صورة الهاتف">
+                </div>
+                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('البريد الإلكتروني') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <!-- مدخل البريد الإلكتروني -->
+                        <div class="form-outline mb-4">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                name="email" value="{{ old('email') }}"  autocomplete="email" autofocus />
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            <label class="form-label" for="form1Example13">عنوان البريد الإلكتروني</label>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('كلمة المرور') }}</label>
+                        <!-- مدخل كلمة المرور -->
+                        <div class="form-outline mb-4">
+                            <input id="password" type="password"
+                            class="form-control @error('password') is-invalid @enderror" name="password"
+                             autocomplete="current-password" />
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            <label class="form-label" for="form1Example23">كلمة المرور</label>
                         </div>
 
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                        <div class="d-flex justify-content-around align-items-center mb-4">
+                            <!-- خانة الاختيار -->
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('تذكرني') }}
-                                    </label>
-                                </div>
+                                <label class="form-check-label" for="form1Example3"> تذكرني </label>
                             </div>
+                            <a href="{{ route('password.request') }}">هل نسيت كلمة المرور؟</a>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('تسجيل الدخول') }}
-                                </button>
+                        <!-- زر الإرسال -->
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">تسجيل الدخول</button>
+                        <a href="{{route('register')}}" class="btn btn-primary btn-lg btn-block">تسجيل </a>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('هل نسيت كلمة المرور؟') }}
-                                    </a>
-                                @endif
-                            </div>
+                        <div class="divider d-flex align-items-center my-4">
+                            <p class="text-center fw-bold mx-3 mb-0 text-muted">أو</p>
                         </div>
+
+                        <a href="{{ route('auth.google') }}" class="btn btn-danger btn-block"
+                            type="submit">المتابعه بواسطة قوقل</a>
+
                     </form>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 @endsection

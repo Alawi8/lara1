@@ -29,6 +29,6 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         // ...
-        Commands\CustomRouteListCommand::class,
+        // Commands\CustomRouteListCommand::class,
     ];
 }

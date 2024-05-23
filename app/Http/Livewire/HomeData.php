@@ -16,8 +16,12 @@ class HomeData extends Component
 
     public function loadPosts()
     {
-        // $this->posts = Post::all(); 
-        $this->posts = Post::latest('date')->select('title', 'id', 'date','time','image_path','exept')->take(7)->get();
+        if(empty($this->posts)){
+            $this->posts = Post::latest('created_at')
+                ->select('title', 'id', 'img_url', 'slug', 'created_at')
+                ->take(7)
+                ->get();
+        }
     }
 
     public function render()

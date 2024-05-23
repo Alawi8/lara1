@@ -25,7 +25,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $hidden = [
         'password',
-        'password',
     ];
 
     protected $casts = [
@@ -48,5 +47,8 @@ class User extends Authenticatable implements MustVerifyEmail
             return $this -> hasMany('App\Models\Post' , 'user_id');
         }
     # end migrations 
-
+    public function isAdmin()
+    {
+        return $this->status == 'admin';
+    }
 }

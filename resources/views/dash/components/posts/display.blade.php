@@ -41,7 +41,7 @@
 
                     @foreach ($posts as $post)
                         <tr>
-                            <td scope="row"><img src="{{ $post->image_path }}" class="img-thumbnail d-none d-lg-block"
+                            <td scope="row"><img src="{{ $post->img_url }}" class="img-thumbnail d-none d-lg-block"
                                     alt="..."></td>
                             <td>{{ $post->title }}
                                 <br>
@@ -64,9 +64,10 @@
                             </td>
                             <td>{{ $post->writer }}</td>
                             <td><span class="badge rounded-pill text-bg-success">ONLINE</span></td>
-                            <td>{{ $post->date }}</td>
-                            <td>{{ $post->time }}</td>
-                            <td>{{ $post->category_id }}</td>
+                            <td>{{ $post->created_at }}</td>
+                            <td>{{ $post->updated_at }}</td>
+                            <td></td>
+                        </td>
 
                         </tr>
                     @endforeach

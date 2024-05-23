@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class RelationController extends Controller
 {
     public function relation (){
-        $user = User::with(['post','phone'])->find([1,2]);
+        $posts = Post::all();
         // // return  ;
-        return response()-> json($user);
+        return response()-> json($posts);
     }
 }

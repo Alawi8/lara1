@@ -1,41 +1,54 @@
 @include('home.layouts.header')
-    <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KMV6F7X" height="0" width="0"
-                style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-        {{-- Here the data inside (section image) is fetched by @yield image --}}
-        <div class="container-fluid">
-            <div class="row p-3">
-                <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-9 col-sm-12 ">
-                    {{-- Here the data inside (section Content) is fetched by @yield content --}}
-                    <h6>@yield('title')</h6>
-                    @yield('content')
-                </div>
 
-                <div class="col-md-3 col-lg-3 col-sm-12">
-                    <div>
-                        <h1>البحث</h1>
-                        <div class="">
-                            @livewire('search-form')
-                            {{-- <form class="d-flex" action="{{ route('search') }}" method="POST">
-                                @csrf
-                                <input id="in-search" name="query" class="form-control me-2 shadow" type="search"
-                                    placeholder="ابحث هنا" aria-label="Search">
-                                <button id="btn-search" class="btn btn-primary shadow" type="submit">بحث</button>
-                            </form> --}}
-                        </div>
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KMV6F7X" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    {{-- Here the data inside (section image) is fetched by @yield image --}}
+
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="rounded">
+                <h1>@yield('title')</h1>
+            </div>
+
+
+            <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-9 col-sm-12">
+                {{-- استيراد محتوى الصفحة --}}
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a class="nav-link" href="{{ route('home') }}" title="الرئيسية">الرئيسية</a></li>
+                    @yield('link')
+                </ul>
+
+                @yield('content')
+            </div>
+
+
+            <div class="col-md-3 col-lg-3 col-sm-12">
+                <div>
+                    <h2>البحث</h2>
+                    <div >
+                        <form class="d-flex" action="{{ route('search') }}" method="POST">
+                            @csrf
+                            <input name="query" class="form-control " type="search" aria-label="Search">
+                        </form>
+
                     </div>
-                    <br>
-                    @livewire('home-data')
                 </div>
+                <br>
+                @livewire('home-data')
             </div>
         </div>
-        @livewireScripts
-    </body>
+    </div>
+    @livewireScripts
 
-<footer>
-    @include('home.layouts.footer')
-</footer>
+
+</body>
+
+
+@include('home.layouts.footer')
+
 
 </html>

@@ -3,7 +3,9 @@
 @extends('dash.layouts.header')
 
 @section('content')
-    <div class="container mt-5">
+
+    <!-- Modal gallery -->
+    <section class="container">
         <h1>Create Image</h1>
 
         @if (session('success'))
@@ -11,7 +13,6 @@
                 {{ session('success') }}
             </div>
         @endif
-
         <form action="{{ route('media.store') }}" method="POST" enctype="multipart/form-data" class="my-4">
             @csrf
 
@@ -20,23 +21,27 @@
                 <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
             </div>
 
-            <div class="mb-3">
-                <label for="caption" class="form-label">Caption (optional)</label>
-                <input type="text" class="form-control" id="caption" name="caption" maxlength="255">
-            </div>
 
-            <button type="submit" class="btn btn-primary">Upload Image</button>
+            <button type="submit" class="btn btn-primary">رفع</button>
         </form>
-
-        <!-- Display the uploaded image -->
-        @if (isset($images))sssss
-        <div class="mt-4">
-            <h2>Uploaded Image</h2>
-            @foreach ($images as $image)
-            <img src="{{ asset('/storage/uploads/clients_documents/'. $image->path) }}" alt="Uploaded Image" class="img-fluid rounded">
-                
-            @endforeach
-        </div>
-        @endif
-    </div>
-@endsection
+        <!-- Section: Images -->
+        <section>
+            <div class="row">
+                @if (isset($images))
+                    @foreach ($images as $image)
+                        <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                            <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+                                <img src="{{ asset($image->path) }}" class="w-100" />
+                                <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal1">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
+        </section>
+        
+    </section>
+    <!-- Modal gallery -->
+    @endsection

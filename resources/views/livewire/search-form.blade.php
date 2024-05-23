@@ -1,5 +1,5 @@
 <div >
-    <form  method="GET">
+    <form  method="POST">
         @csrf
         <input class="form-control shadow" wire:model="searchTerm" type="text" placeholder="عن ماذا تبحث"  >
     </form>

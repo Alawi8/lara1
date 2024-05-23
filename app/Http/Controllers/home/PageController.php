@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\home;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Page ;
 use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
-use Illuminate\Support\Str;
+
 
 
 class PageController extends Controller
@@ -20,23 +19,6 @@ class PageController extends Controller
     {
         return view('home.components.pages.show');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
     /**
      * Display the specified resource.
      */
@@ -54,28 +36,5 @@ class PageController extends Controller
         return view('home.components.pages.show',compact('post', 'url'));
     }
     
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
