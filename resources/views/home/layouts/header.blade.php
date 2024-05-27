@@ -43,7 +43,7 @@
 
 <header>
     
-    @livewire('pages-list')
+    {{-- @livewire('pages-list') --}}
 
     <div>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6477832805856369"

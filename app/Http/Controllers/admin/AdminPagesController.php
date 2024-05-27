@@ -33,7 +33,6 @@ class AdminPagesController extends Controller
         $page = Page::paginate(6);
         $arr = array('pages' => $page);
         return view('dash.components.page.display', $arr);
-
     }
 
     /**

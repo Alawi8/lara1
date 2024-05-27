@@ -10,9 +10,7 @@
 
     <div class="container-fluid">
         <div class="row ">
-            <div class="rounded">
-                <h1>@yield('title')</h1>
-            </div>
+
 
 
             <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-9 col-sm-12">
@@ -38,7 +36,7 @@
                     </div>
                 </div>
                 <br>
-                @livewire('home-data')
+                {{-- @livewire('home-data') --}}
             </div>
         </div>
     </div>
