@@ -18,12 +18,16 @@ export default defineConfig({
                     base: null,
                     includeAbsolute: false,
                 },
-            },
-        }),
+            }
+        })
     ],
     resolve: {
         alias: {
             vue: 'vue/dist/vue.esm-bundler.js',
         },
+    },
+    build: {
+        outDir: 'public/build',
+        emptyOutDir: true,
     },
 });

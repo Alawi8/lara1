@@ -3,6 +3,8 @@
 <footer class="footer">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
+
+
     <section >
         <div>
             <a href="{{ route('home') }}"  title="الرئيسيه">
