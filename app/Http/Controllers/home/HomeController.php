@@ -43,7 +43,7 @@ class HomeController extends Controller
         ->paginate(9);
         Cache::put('all_posts', $all_posts, 60); 
         # return array to welcome page 
-        return view('home.welcom', compact('all_posts'));
+        return view('home.layouts.body', compact('all_posts'));
     }
 
 
