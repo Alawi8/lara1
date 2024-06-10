@@ -25,10 +25,10 @@
                         </div>
 
                         <script>
-                            // انتظر 5 ثوانٍ ومن ثم قم بإخفاء العنصر
+                            
                             setTimeout(function() {
                                 document.getElementById('success-alert').style.display = 'none';
-                            }, 5000); // 5000 مللي ثانية تعني 5 ثوانٍ
+                            }, 5000); 
                         </script>
                     @endif
                     @if (isset($categuries))

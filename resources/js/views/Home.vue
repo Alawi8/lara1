@@ -5,13 +5,13 @@
     <div class="container-fluid mt-5">
       <div v-if="isLoading" class="text-center">
         <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
+          <span class="sr-only"></span>
         </div>
       </div>
       <div v-else>
         <div class="row row-cols-1 g-4">
           <div class="col-xxl-3 card l-3" v-for="post in paginatedPosts" :key="post.id">
-            <img alt="Image" class="img-fluid" />
+            <img .src="post.img_url" alt="Image" class="img-fluid" />
             <h2>{{ post.title }}</h2>
             <div v-html="post.slug"></div>
           </div>

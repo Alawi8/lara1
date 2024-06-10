@@ -1,6 +1,6 @@
 {
   "resources/js/app.js": {
-    "file": "assets/app.84f84a42.js",
+    "file": "assets/app.75c5d762.js",
     "src": "resources/js/app.js",
     "isEntry": true,
     "dynamicImports": [
@@ -10,13 +10,8 @@
       "assets/app.c54a8fbf.css"
     ]
   },
-  "resources/css/app.css": {
-    "file": "assets/app.7c3c19f82.js",
-    "src": "resources/css/app.css",
-    "isEntry": true
-  },
   "resources/js/views/About.vue": {
-    "file": "assets/About.3507599f.js",
+    "file": "assets/About.37f881a5.js",
     "src": "resources/js/views/About.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -26,6 +21,11 @@
   "resources/js/app.css": {
     "file": "assets/app.c54a8fbf.css",
     "src": "resources/js/app.css"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app.39d8d8a6.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
   },
   "resources/sass/app.scss": {
     "file": "assets/app.e62bff09.css",

@@ -1,5 +1,5 @@
 <template>
-    bff
+    body
 </template>
 <script>
     export default {

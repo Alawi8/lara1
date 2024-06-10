@@ -1,5 +1,6 @@
 // import 'bootstrap';
 import 'bootstrap'
+import '@fortawesome/fontawesome-svg-core'
 // import 'bootstrap/dist/css/bootstrap-rtl.min.css';
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
